@@ -1,7 +1,5 @@
 import type { DelegateEvent } from './DelegateEvent';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type EventMap = Record<string | number | symbol, any>;
+import type { EventMap } from '../../aliases/EventMap';
 
 type DelegateEventListenerFor<
     TTarget extends EventTarget,
