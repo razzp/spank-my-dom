@@ -1,3 +1,5 @@
+export { arrayFrom } from './array/arrayFrom';
+
 export { getClasses } from './classes/getClasses';
 
 export { addEventListener } from './events/addEventListener';
