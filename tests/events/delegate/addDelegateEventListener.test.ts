@@ -12,8 +12,7 @@ beforeEach(() => {
     const { window } = new JSDOM(
         `<!DOCTYPE html>
         <div class="target target-1">
-        <div class="target target-2">
-        </div>
+            <div class="target target-2"></div>
         </div>
         `
     );
