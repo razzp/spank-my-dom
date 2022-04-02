@@ -18,7 +18,7 @@ beforeEach(() => {
 
 describe('Adding event listeners', () => {
     test('Event listener is added and invoked as expected', () => {
-        // Create a mock listener.
+        // Create a mock callback.
         const listener = jest.fn((target) => target);
 
         // Grab the target element.

@@ -61,7 +61,7 @@ describe('Adding delegate event listeners', () => {
 
 describe('Triggering delegate event listeners', () => {
     test('Single matching descendant of target is found and listener is called with correct target', () => {
-        // Create a mock listener.
+        // Create a mock callback.
         const listener = jest.fn((target) => target);
 
         // Grab the target element.
@@ -85,7 +85,7 @@ describe('Triggering delegate event listeners', () => {
     });
 
     test('Multiple matching descendants of target are found and listeners are called with correct targets', () => {
-        // Create a mock listener.
+        // Create a mock callback.
         const listener = jest.fn((target) => target);
 
         // Grab the target elements.
@@ -111,7 +111,7 @@ describe('Triggering delegate event listeners', () => {
     });
 
     test('Listener object with `handleEvent` prop is called with correct target', () => {
-        // Create a mock listener.
+        // Create a mock callback.
         const listener = jest.fn((target) => target);
 
         // Grab the target element.
@@ -135,7 +135,7 @@ describe('Triggering delegate event listeners', () => {
     });
 
     test('Calling `stopDelegation()` on an event prevents any further listener calls', () => {
-        // Create a mock listener.
+        // Create a mock callback.
         const listener = jest.fn((event: DelegateEvent<Event>) => {
             event.stopDelegation();
             return event.target;
@@ -160,7 +160,7 @@ describe('Triggering delegate event listeners', () => {
     });
 
     test('Listener with `once` flag is removed after first invocation', () => {
-        // Create a mock listener.
+        // Create a mock callback.
         const listener = jest.fn((target) => target);
 
         // Grab the target element.
@@ -201,7 +201,7 @@ describe('Triggering delegate event listeners', () => {
     });
 
     test('Listener is successfully removed when signal is aborted', () => {
-        // Create a mock listener.
+        // Create a mock callback.
         const listener = jest.fn((target) => target);
         const abortController = new AbortController();
 
