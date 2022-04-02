@@ -7,7 +7,7 @@ export { addDelegateEventListener } from './events/delegate/addDelegateEventList
 export { removeDelegateEventListener } from './events/delegate/removeDelegateEventListener';
 
 export { createElement } from './manipulation/createElement';
-export { empty } from './manipulation/empty';
+export { emptyElement } from './manipulation/emptyElement';
 
 export { querySelector } from './retrieval/querySelector';
 export { querySelectorAll } from './retrieval/querySelectorAll';
