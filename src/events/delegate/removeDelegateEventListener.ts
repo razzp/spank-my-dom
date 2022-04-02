@@ -4,7 +4,7 @@ import { delegateCache } from './internal/delegateCache';
 import { sanitiseOptions } from './internal/sanitiseOptions';
 
 import type { CacheItemComparable } from './aliases/CacheItemComparable';
-import type { EventMapFor } from './aliases/EventMapFor';
+import type { EventMapFor } from '../aliases/EventMapFor';
 import type { DelegateListenerOrListenerObjFor } from './aliases/DelegateListenerOrListenerObjFor';
 import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOrListenerObj';
 

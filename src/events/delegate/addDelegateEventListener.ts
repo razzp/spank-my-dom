@@ -4,7 +4,7 @@ import { sanitiseOptions } from './internal/sanitiseOptions';
 import { removeDelegateEventListener } from './removeDelegateEventListener';
 
 import type { CacheItem } from './interfaces/CacheItem';
-import type { EventMapFor } from './aliases/EventMapFor';
+import type { EventMapFor } from '../aliases/EventMapFor';
 import type { DelegateListenerOrListenerObjFor } from './aliases/DelegateListenerOrListenerObjFor';
 import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOrListenerObj';
 

@@ -1,4 +1,4 @@
-import type { EventMapFor } from './delegate/aliases/EventMapFor';
+import type { EventMapFor } from './aliases/EventMapFor';
 import type { ListenerOrListenerObjFor } from './aliases/ListenerOrListenerObjFor';
 
 /**
