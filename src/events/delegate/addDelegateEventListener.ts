@@ -1,7 +1,7 @@
 import { delegateCache } from './internal/delegateCache';
 import { delegateFactory } from './internal/delegateFactory';
 import { sanitiseOptions } from './internal/sanitiseOptions';
-import { offDelegate } from './offDelegate';
+import { removeDelegateEventListener } from './removeDelegateEventListener';
 
 import type { CacheItem } from './interfaces/CacheItem';
 import type { EventMapFor } from './aliases/EventMapFor';
@@ -13,7 +13,7 @@ import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOr
  * invoked when the event is dispatched on any descendant element that matches
  * the provided selector query.
  */
-function onDelegate<
+function addDelegateEventListener<
     TTarget extends EventTarget,
     TEventMap extends EventMapFor<TTarget>,
     TEventType extends keyof TEventMap
@@ -25,7 +25,7 @@ function onDelegate<
     options?: boolean | AddEventListenerOptions
 ): void;
 
-function onDelegate(
+function addDelegateEventListener(
     target: EventTarget,
     selector: string,
     type: string,
@@ -42,7 +42,7 @@ function onDelegate(
     // This may be used in the following scenarios:
     // 1. An attached `AbortController` is aborted.
     // 2. Option `once` is set to true and we're cleaning up.
-    const remove = () => offDelegate(target, selector, type, listener, options);
+    const remove = () => removeDelegateEventListener(target, selector, type, listener, options);
 
     // Build a model of properties we can use at a later date to identify
     // and remove a delegate event listener, should we need to.
@@ -77,4 +77,4 @@ function onDelegate(
     target.addEventListener(type, cacheItem.delegate, optionsSanitised);
 }
 
-export { onDelegate };
+export { addDelegateEventListener };

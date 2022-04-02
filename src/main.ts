@@ -1,2 +1,2 @@
-export { onDelegate } from './events/delegate/onDelegate';
-export { offDelegate } from './events/delegate/offDelegate';
+export { addDelegateEventListener } from './events/delegate/addDelegateEventListener';
+export { removeDelegateEventListener } from './events/delegate/removeDelegateEventListener';

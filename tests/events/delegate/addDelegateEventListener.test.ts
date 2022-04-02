@@ -1,7 +1,7 @@
 import { DOMWindow, JSDOM } from 'jsdom';
 
 import { delegateCache } from '../../../src/events/delegate/internal/delegateCache';
-import { onDelegate } from '../../../src/events/delegate/onDelegate';
+import { addDelegateEventListener } from '../../../src/events/delegate/addDelegateEventListener';
 
 import type { DelegateEvent } from '../../../src/events/delegate/aliases/DelegateEvent';
 
@@ -28,7 +28,7 @@ beforeEach(() => {
 describe('Adding delegate event listeners', () => {
     test('Adding listener to a new target adds a new entry to the cache', () => {
         // Create delegate event listener.
-        onDelegate(jsdomDocument, '.target-1', 'click', () => void 0);
+        addDelegateEventListener(jsdomDocument, '.target-1', 'click', () => void 0);
 
         // Check that an entry has been added to the cache.
         expect(delegateCache.has(jsdomDocument)).toBe(true);
@@ -39,7 +39,7 @@ describe('Adding delegate event listeners', () => {
         delegateCache.set(jsdomDocument, new Set([undefined as never]));
 
         // Create delegate event listener.
-        onDelegate(jsdomDocument, '.target-1', 'click', () => void 0);
+        addDelegateEventListener(jsdomDocument, '.target-1', 'click', () => void 0);
 
         // Grab the cache entry.
         const cacheEntry = delegateCache.get(jsdomDocument);
@@ -59,7 +59,7 @@ describe('Triggering delegate event listeners', () => {
         const target = jsdomDocument.querySelector('.target-1');
 
         // Create delegate event listener.
-        onDelegate(jsdomDocument, '.target-1', 'click', (event) =>
+        addDelegateEventListener(jsdomDocument, '.target-1', 'click', (event) =>
             listener(event.target)
         );
 
@@ -84,7 +84,7 @@ describe('Triggering delegate event listeners', () => {
         const target2 = jsdomDocument.querySelector('.target-2');
 
         // Create delegate event listener.
-        onDelegate(jsdomDocument, '.target', 'click', (event) =>
+        addDelegateEventListener(jsdomDocument, '.target', 'click', (event) =>
             listener(event.target)
         );
 
@@ -109,7 +109,7 @@ describe('Triggering delegate event listeners', () => {
         const target = jsdomDocument.querySelector('.target-1');
 
         // Create delegate event listener.
-        onDelegate(jsdomDocument, '.target-1', 'click', {
+        addDelegateEventListener(jsdomDocument, '.target-1', 'click', {
             handleEvent: (event) => listener(event.target),
         });
 
@@ -136,7 +136,7 @@ describe('Triggering delegate event listeners', () => {
         const target = jsdomDocument.querySelector('.target-2');
 
         // Create delegate event listener.
-        onDelegate(jsdomDocument, '.target', 'click', listener);
+        addDelegateEventListener(jsdomDocument, '.target', 'click', listener);
 
         // Dispatch an event.
         target?.dispatchEvent(
@@ -158,7 +158,7 @@ describe('Triggering delegate event listeners', () => {
         const target = jsdomDocument.querySelector('.target-1');
 
         // Create delegate event listener and define the `once` prop.
-        onDelegate(
+        addDelegateEventListener(
             jsdomDocument,
             '.target-1',
             'click',
@@ -200,7 +200,7 @@ describe('Triggering delegate event listeners', () => {
         const target = jsdomDocument.querySelector('.target-1');
 
         // Create delegate event listener and define the `signal` prop.
-        onDelegate(
+        addDelegateEventListener(
             jsdomDocument,
             '.target-1',
             'click',

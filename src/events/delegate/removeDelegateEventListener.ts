@@ -10,7 +10,7 @@ import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOr
 /**
  * Remove a delegate listener from the target.
  */
-function offDelegate<
+function removeDelegateEventListener<
     TTarget extends EventTarget,
     TEventMap extends EventMapFor<TTarget>,
     TEventType extends keyof TEventMap
@@ -22,7 +22,7 @@ function offDelegate<
     options?: boolean | AddEventListenerOptions
 ): void;
 
-function offDelegate(
+function removeDelegateEventListener(
     target: EventTarget,
     selector: string,
     type: string,
@@ -67,4 +67,4 @@ function offDelegate(
     }
 }
 
-export { offDelegate };
+export { removeDelegateEventListener };

@@ -2,9 +2,9 @@ import type { EventMapFor } from './delegate/aliases/EventMapFor';
 import type { ListenerOrListenerObjFor } from './aliases/ListenerOrListenerObjFor';
 
 /**
- * Add an event listener to the target.
+ * Remove an event listener from the target.
  */
-function on<
+function removeEventListener<
     TTarget extends EventTarget,
     TEventMap extends EventMapFor<TTarget>,
     TEventType extends keyof TEventMap
@@ -15,13 +15,13 @@ function on<
     options?: boolean | AddEventListenerOptions
 ): void;
 
-function on(
+function removeEventListener(
     target: EventTarget,
     type: string,
     listener: EventListenerOrEventListenerObject,
     options?: boolean | AddEventListenerOptions
 ): void {
-    target.addEventListener(type, listener, options);
+    target.removeEventListener(type, listener, options);
 }
 
-export { on };
+export { removeEventListener };
