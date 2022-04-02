@@ -42,7 +42,8 @@ function addDelegateEventListener(
     // This may be used in the following scenarios:
     // 1. An attached `AbortController` is aborted.
     // 2. Option `once` is set to true and we're cleaning up.
-    const remove = () => removeDelegateEventListener(target, selector, type, listener, options);
+    const remove = () =>
+        removeDelegateEventListener(target, selector, type, listener, options);
 
     // Build a model of properties we can use at a later date to identify
     // and remove a delegate event listener, should we need to.

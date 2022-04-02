@@ -48,7 +48,12 @@ describe('Removing delegate event listeners', () => {
 
     test("Trying to remove a listener that doesn't exist does nothing", () => {
         expect(() =>
-            removeDelegateEventListener(jsdomDocument, '.foo', 'click', () => void 0)
+            removeDelegateEventListener(
+                jsdomDocument,
+                '.foo',
+                'click',
+                () => void 0
+            )
         ).not.toThrow();
     });
 });
