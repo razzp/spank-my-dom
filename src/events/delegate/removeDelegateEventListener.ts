@@ -1,3 +1,4 @@
+import { arrayFrom } from '../../array/arrayFrom';
 import { cacheItemsMatch } from './internal/cacheItemsMatch';
 import { delegateCache } from './internal/delegateCache';
 import { sanitiseOptions } from './internal/sanitiseOptions';
@@ -48,7 +49,7 @@ function removeDelegateEventListener(
     };
 
     // Find any matches in the cache.
-    const matches = [...targetCache.values()].filter((item) =>
+    const matches = arrayFrom(targetCache.values()).filter((item) =>
         cacheItemsMatch(item, itemToRemove)
     );
 
