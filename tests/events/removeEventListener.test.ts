@@ -20,30 +20,30 @@ beforeEach(() => {
 describe('Removing event listeners', () => {
     test('Event listener is removed successfully', () => {
         // Create a mock callback.
-        const listener = jest.fn((event: Event) => event.target);
+        const callback = jest.fn((event: Event) => event.target);
 
         // Grab the target element.
         const target = jsdomDocument.querySelector<HTMLElement>('.target-1');
 
         // Create event listener.
-        target && addEventListener(target, 'click', listener);
+        target && addEventListener(target, 'click', callback);
 
         // Dispatch an event.
         target?.dispatchEvent(new jsdomWindow.MouseEvent('click'));
 
-        // Check that the listener was called once.
-        expect(listener.mock.calls.length).toBe(1);
+        // Check that the callback was invoked once.
+        expect(callback.mock.calls.length).toBe(1);
 
-        // Reset the listener.
-        listener.mockReset();
+        // Reset the mock callback.
+        callback.mockReset();
 
         // Remove event listener.
-        target && removeEventListener(target, 'click', listener);
+        target && removeEventListener(target, 'click', callback);
 
         // Dispatch another event. This should do nothing.
         target?.dispatchEvent(new jsdomWindow.MouseEvent('click'));
 
-        // Check that the listener hasn't been called.
-        expect(listener.mock.calls.length).toBe(0);
+        // Check that the callback hasn't been invoked.
+        expect(callback.mock.calls.length).toBe(0);
     });
 });

@@ -62,64 +62,60 @@ describe('Adding delegate event listeners', () => {
 describe('Triggering delegate event listeners', () => {
     test('Single matching descendant of target is found and listener is called with correct target', () => {
         // Create a mock callback.
-        const listener = jest.fn((target) => target);
+        const callback = jest.fn((event: Event) => event.target);
 
         // Grab the target element.
         const target = jsdomDocument.querySelector('.target-1');
 
         // Create delegate event listener.
-        addDelegateEventListener(jsdomDocument, '.target-1', 'click', (event) =>
-            listener(event.target)
-        );
+        addDelegateEventListener(jsdomDocument, '.target-1', 'click', callback);
 
         // Dispatch an event.
         target?.dispatchEvent(
             new jsdomWindow.MouseEvent('click', { bubbles: true })
         );
 
-        // Check that the listener was called once.
-        expect(listener.mock.calls.length).toBe(1);
+        // Check that the callback was invoked once.
+        expect(callback.mock.calls.length).toBe(1);
 
         // Check that the target is correct.
-        expect(listener.mock.results[0].value).toBe(target);
+        expect(callback.mock.results[0].value).toBe(target);
     });
 
     test('Multiple matching descendants of target are found and listeners are called with correct targets', () => {
         // Create a mock callback.
-        const listener = jest.fn((target) => target);
+        const callback = jest.fn((event: Event) => event.target);
 
         // Grab the target elements.
         const target1 = jsdomDocument.querySelector('.target-1');
         const target2 = jsdomDocument.querySelector('.target-2');
 
         // Create delegate event listener.
-        addDelegateEventListener(jsdomDocument, '.target', 'click', (event) =>
-            listener(event.target)
-        );
+        addDelegateEventListener(jsdomDocument, '.target', 'click', callback);
 
         // Dispatch an event on the deepest target.
         target2?.dispatchEvent(
             new jsdomWindow.MouseEvent('click', { bubbles: true })
         );
 
-        // Check that the listener was called twice.
-        expect(listener.mock.calls.length).toBe(2);
+        // Check that the callback was invoked twice.
+        expect(callback.mock.calls.length).toBe(2);
 
         // Check that the targets are correct.
-        expect(listener.mock.results[0].value).toBe(target2);
-        expect(listener.mock.results[1].value).toBe(target1);
+        expect(callback.mock.results[0].value).toBe(target2);
+        expect(callback.mock.results[1].value).toBe(target1);
     });
 
     test('Listener object with `handleEvent` prop is called with correct target', () => {
         // Create a mock callback.
-        const listener = jest.fn((target) => target);
+        const callback = jest.fn((event: Event) => event.target);
 
         // Grab the target element.
         const target = jsdomDocument.querySelector('.target-1');
 
         // Create delegate event listener.
         addDelegateEventListener(jsdomDocument, '.target-1', 'click', {
-            handleEvent: (event) => listener(event.target),
+            handleEvent: callback,
         });
 
         // Dispatch an event.
@@ -127,16 +123,16 @@ describe('Triggering delegate event listeners', () => {
             new jsdomWindow.MouseEvent('click', { bubbles: true })
         );
 
-        // Check that the listener was called once.
-        expect(listener.mock.calls.length).toBe(1);
+        // Check that the callback was invoked once.
+        expect(callback.mock.calls.length).toBe(1);
 
         // Check that the target is correct.
-        expect(listener.mock.results[0].value).toBe(target);
+        expect(callback.mock.results[0].value).toBe(target);
     });
 
-    test('Calling `stopDelegation()` on an event prevents any further listener calls', () => {
+    test('Calling `stopDelegation()` on an event prevents any further action', () => {
         // Create a mock callback.
-        const listener = jest.fn((event: DelegateEvent<Event>) => {
+        const callback = jest.fn((event: DelegateEvent<Event>) => {
             event.stopDelegation();
             return event.target;
         });
@@ -145,23 +141,23 @@ describe('Triggering delegate event listeners', () => {
         const target = jsdomDocument.querySelector('.target-2');
 
         // Create delegate event listener.
-        addDelegateEventListener(jsdomDocument, '.target', 'click', listener);
+        addDelegateEventListener(jsdomDocument, '.target', 'click', callback);
 
         // Dispatch an event.
         target?.dispatchEvent(
             new jsdomWindow.MouseEvent('click', { bubbles: true })
         );
 
-        // Check that the listener was only called once.
-        expect(listener.mock.calls.length).toBe(1);
+        // Check that the callback was only invoked once.
+        expect(callback.mock.calls.length).toBe(1);
 
         // Check that the target is correct.
-        expect(listener.mock.results[0].value).toBe(target);
+        expect(callback.mock.results[0].value).toBe(target);
     });
 
     test('Listener with `once` flag is removed after first invocation', () => {
         // Create a mock callback.
-        const listener = jest.fn((target) => target);
+        const callback = jest.fn((event: Event) => event.target);
 
         // Grab the target element.
         const target = jsdomDocument.querySelector('.target-1');
@@ -171,7 +167,7 @@ describe('Triggering delegate event listeners', () => {
             jsdomDocument,
             '.target-1',
             'click',
-            (event) => listener(event.target),
+            callback,
             {
                 once: true,
             }
@@ -182,27 +178,27 @@ describe('Triggering delegate event listeners', () => {
             new jsdomWindow.MouseEvent('click', { bubbles: true })
         );
 
-        // Check that the listener was called once.
-        expect(listener.mock.calls.length).toBe(1);
+        // Check that the callback was invoked once.
+        expect(callback.mock.calls.length).toBe(1);
 
         // Check that the delegate cache has been cleared.
         expect(delegateCache.has(jsdomDocument)).toBe(false);
 
-        // Reset the listener.
-        listener.mockReset();
+        // Reset the mock callback.
+        callback.mockReset();
 
         // Dispatch another event. This should do nothing.
         target?.dispatchEvent(
             new jsdomWindow.MouseEvent('click', { bubbles: true })
         );
 
-        // Check that the listener hasn't been called.
-        expect(listener.mock.calls.length).toBe(0);
+        // Check that the callback hasn't been invoked.
+        expect(callback.mock.calls.length).toBe(0);
     });
 
     test('Listener is successfully removed when signal is aborted', () => {
         // Create a mock callback.
-        const listener = jest.fn((target) => target);
+        const callback = jest.fn((event: Event) => event.target);
         const abortController = new AbortController();
 
         // Grab the target element.
@@ -213,7 +209,7 @@ describe('Triggering delegate event listeners', () => {
             jsdomDocument,
             '.target-1',
             'click',
-            (event) => listener(event.target),
+            callback,
             {
                 signal: abortController.signal,
             }
@@ -224,21 +220,21 @@ describe('Triggering delegate event listeners', () => {
             new jsdomWindow.MouseEvent('click', { bubbles: true })
         );
 
-        // Check that the listener was called once.
-        expect(listener.mock.calls.length).toBe(1);
+        // Check that the callback was invoked once.
+        expect(callback.mock.calls.length).toBe(1);
 
         // Abort the listener.
         abortController.abort();
 
-        // Reset the listener.
-        listener.mockReset();
+        // Reset the mock callback.
+        callback.mockReset();
 
         // Dispatch another event. This should do nothing.
         target?.dispatchEvent(
             new jsdomWindow.MouseEvent('click', { bubbles: true })
         );
 
-        // Check that the listener hasn't been called.
-        expect(listener.mock.calls.length).toBe(0);
+        // Check that the callback hasn't been invoked.
+        expect(callback.mock.calls.length).toBe(0);
     });
 });
