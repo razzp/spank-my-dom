@@ -1,6 +1,6 @@
 import { JSDOM } from 'jsdom';
 
-import { arrayFrom } from '../../../src/array/arrayFrom';
+import { arrayFrom } from '../../src/array/arrayFrom';
 
 describe('Convert various iterable/array-like types to an array', () => {
     test('Convert iterable to array', () => {
