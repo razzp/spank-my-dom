@@ -18,7 +18,7 @@ function cacheItemsMatch(
     return (
         listenerA === listenerB &&
         itemA.options.capture === itemB.options.capture &&
-        itemA.selector === itemB.selector &&
+        itemA.selectors === itemB.selectors &&
         itemA.type === itemB.type
     );
 }

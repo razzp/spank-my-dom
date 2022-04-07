@@ -14,7 +14,7 @@ describe('Comparing two `CacheItem` instances', () => {
         cacheItem = {
             listener: noop,
             options: {},
-            selector: '',
+            selectors: '',
             type: '',
         };
     });
@@ -78,7 +78,7 @@ describe('Comparing two `CacheItem` instances', () => {
         expect(
             cacheItemsMatch(cacheItem, {
                 ...cacheItem,
-                selector: '.foo',
+                selectors: '.foo',
             })
         ).toBe(false);
 

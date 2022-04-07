@@ -11,7 +11,13 @@ import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOr
 /**
  * Add a delegate event listener to the target. The callback argument will be
  * invoked when the event is dispatched on any descendant element that matches
- * the provided selector query.
+ * the given selectors.
+ * 
+ * @param target The target to add the listener to.
+ * @param selectors The selectors to match against when an event is dispatched.
+ * @param type The listener type.
+ * @param listener The listener callback.
+ * @param options The listener options.
  */
 function addDelegateEventListener<
     TTarget extends EventTarget,
@@ -19,7 +25,7 @@ function addDelegateEventListener<
     TEventType extends keyof TEventMap
 >(
     target: TTarget,
-    selector: string,
+    selectors: string,
     type: TEventType,
     listener: DelegateListenerOrListenerObjFor<TTarget, TEventMap, TEventType>,
     options?: boolean | AddEventListenerOptions
@@ -27,7 +33,7 @@ function addDelegateEventListener<
 
 function addDelegateEventListener(
     target: EventTarget,
-    selector: string,
+    selectors: string,
     type: string,
     listener: DelegateListenerOrListenerObj,
     options?: boolean | AddEventListenerOptions
@@ -43,20 +49,20 @@ function addDelegateEventListener(
     // 1. An attached `AbortController` is aborted.
     // 2. Option `once` is set to true and we're cleaning up.
     const remove = () =>
-        removeDelegateEventListener(target, selector, type, listener, options);
+        removeDelegateEventListener(target, selectors, type, listener, options);
 
     // Build a model of properties we can use at a later date to identify
     // and remove a delegate event listener, should we need to.
     const cacheItem: CacheItem = {
         delegate: delegateFactory(
-            selector,
+            selectors,
             listener,
             optionsSanitised.origOnce ? remove : undefined
         ),
         listener,
         options: optionsSanitised,
         remove,
-        selector,
+        selectors,
         type,
     };
 

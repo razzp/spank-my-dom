@@ -6,7 +6,7 @@ import type { DelegateListenerOrListenerObj } from '../aliases/DelegateListenerO
  * be stored in memory and referenced in the future.
  */
 function delegateFactory(
-    selector: string,
+    selectors: string,
     listener: DelegateListenerOrListenerObj,
     callback?: () => void
 ) {
@@ -28,8 +28,8 @@ function delegateFactory(
             current !== event.currentTarget &&
             !shouldStop
         ) {
-            // Check if the current element matches the selector query.
-            if (current.matches(selector)) {
+            // Check if the current element matches the given selectors.
+            if (current.matches(selectors)) {
                 // Create a proxy around the event to trap any get request for
                 // the `target` property. Return the current element instead.
                 const delegateEvent = new Proxy(event, {

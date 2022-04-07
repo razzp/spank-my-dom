@@ -17,7 +17,7 @@ function removeDelegateEventListener<
     TEventType extends keyof TEventMap
 >(
     target: TTarget,
-    selector: string,
+    selectors: string,
     type: TEventType,
     listener: DelegateListenerOrListenerObjFor<TTarget, TEventMap, TEventType>,
     options?: boolean | AddEventListenerOptions
@@ -25,7 +25,7 @@ function removeDelegateEventListener<
 
 function removeDelegateEventListener(
     target: EventTarget,
-    selector: string,
+    selectors: string,
     type: string,
     listener: DelegateListenerOrListenerObj,
     options?: boolean | AddEventListenerOptions
@@ -44,7 +44,7 @@ function removeDelegateEventListener(
     const itemToRemove: CacheItemComparable = {
         options: optionsSanitised,
         listener,
-        selector,
+        selectors,
         type,
     };
 

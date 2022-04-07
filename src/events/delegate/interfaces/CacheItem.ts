@@ -6,7 +6,7 @@ interface CacheItem {
     listener: DelegateListenerOrListenerObj;
     options: SanitisedListenerOptions;
     remove: () => void;
-    selector: string;
+    selectors: string;
     type: string;
 }
 
