@@ -5,14 +5,24 @@ interface ElementOptions {
     innerHTML?: string;
 }
 
+/**
+ * Creates an instance of the element for the specified tag, allowing you to
+ * define attributes and content at the same time.
+ * 
+ * @param tagName The name of an element.
+ * @param options Additional options.
+ */
 function createElement<T extends keyof HTMLElementTagNameMap>(
     tagName: T,
     options?: ElementOptions
 ): HTMLElementTagNameMap[T] {
+    // Create the new element.
     const newElement = document.createElement(tagName);
 
+    // If there are no additional options then we're done.
     if (!options) return newElement;
 
+    // Ensure we have an attributes object.
     const attributes = options.attributes ?? {};
 
     if (options.classes) {
@@ -31,9 +41,11 @@ function createElement<T extends keyof HTMLElementTagNameMap>(
     }
 
     for (const [name, value] of Object.entries(attributes)) {
+        // Set each attribute on the element.
         newElement.setAttribute(name, value);
     }
 
+    // Return the element.
     return newElement;
 }
 

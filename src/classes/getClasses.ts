@@ -1,7 +1,7 @@
 type SearchType = 'containing' | 'startingwith' | 'endingwith';
 type PatternFactory = (searchString: string) => string;
 
-// This is used to map search types to dynamic RegExp patterns.
+// Map search types to dynamic RegExp patterns.
 const patternMap = new Map<SearchType, PatternFactory>([
     ['containing', (str) => `[^\\s]+${str}[^\\s]+`],
     ['startingwith', (str) => `${str}[^\\s]+`],
@@ -10,6 +10,7 @@ const patternMap = new Map<SearchType, PatternFactory>([
 
 /**
  * Get classes from an element that satisfy a predicate search type.
+ * 
  * @param searchType The type of search to perform.
  * @param searchString The string to search for.
  * @param element The element to perform the search on.
@@ -24,6 +25,7 @@ function getClasses(
 
 /**
  * Get classes from a string that satisfy a predicate search type.
+ * 
  * @param searchType The type of search to perform.
  * @param searchString The string to search for.
  * @param classList The string to perform the search on.
