@@ -21,8 +21,8 @@ describe('Creating a new element', () => {
     test('Element with `attributes` option is created successfully', () => {
         const element = createElement('div', {
             attributes: {
-                class: 'foo bar'
-            }
+                class: 'foo bar',
+            },
         });
 
         expect(element.className).toBe('foo bar');
@@ -30,7 +30,7 @@ describe('Creating a new element', () => {
 
     test('Element with `classes` option is created successfully', () => {
         const element = createElement('div', {
-            classes: ['foo', 'bar']
+            classes: ['foo', 'bar'],
         });
 
         expect(element.className).toBe('foo bar');
@@ -40,7 +40,7 @@ describe('Creating a new element', () => {
         const childElement = document.createElement('div');
 
         const element = createElement('div', {
-            children: [childElement]
+            children: [childElement],
         });
 
         expect(element.childElementCount).toBe(1);
@@ -51,7 +51,7 @@ describe('Creating a new element', () => {
         const innerHtml = '<div></div>';
 
         const element = createElement('div', {
-            innerHTML: innerHtml
+            innerHTML: innerHtml,
         });
 
         expect(element.childElementCount).toBe(1);
@@ -65,11 +65,11 @@ describe('Creating a new element', () => {
         const element = createElement('div', {
             attributes: {
                 class: 'foo',
-                id: 'bar'
+                id: 'bar',
             },
             classes: ['baz'],
             children: [childElement],
-            innerHTML: innerHtml
+            innerHTML: innerHtml,
         });
 
         // `classes` should have overwritten `attributes.class`.

@@ -4,8 +4,10 @@ import { getClasses } from '../../src/classes/getClasses';
 
 describe('Get classes from string', () => {
     beforeEach(() => {
+        const { window: jsdomWindow } = new JSDOM();
+
         // Ensure that required globals are available.
-        global.Element = new JSDOM().window.Element;
+        global.Element = jsdomWindow.Element;
     });
 
     test('Case-sensitive search for classes starting with value', () => {

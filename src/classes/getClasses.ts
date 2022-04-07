@@ -10,7 +10,7 @@ const patternMap = new Map<SearchType, PatternFactory>([
 
 /**
  * Get classes from an element that satisfy a predicate search type.
- * 
+ *
  * @param searchType The type of search to perform.
  * @param searchString The string to search for.
  * @param element The element to perform the search on.
@@ -25,7 +25,7 @@ function getClasses(
 
 /**
  * Get classes from a string that satisfy a predicate search type.
- * 
+ *
  * @param searchType The type of search to perform.
  * @param searchString The string to search for.
  * @param classList The string to perform the search on.

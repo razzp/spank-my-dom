@@ -10,7 +10,7 @@ import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOr
 
 /**
  * Remove a delegate listener from the target.
- * 
+ *
  * @param target The target to remove the listener from.
  * @param selectors The selectors that would have been matched against.
  * @param type The listener type.

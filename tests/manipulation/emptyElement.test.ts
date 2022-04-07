@@ -1,10 +1,8 @@
-import { DOMWindow, JSDOM } from 'jsdom';
+import { JSDOM } from 'jsdom';
 import { emptyElement } from '../../src/manipulation/emptyElement';
 
-let jsdomWindow: DOMWindow;
-
 beforeAll(() => {
-    jsdomWindow = new JSDOM().window;
+    const { window: jsdomWindow } = new JSDOM();
 
     // Ensure that required globals are available.
     global.document = jsdomWindow.document;
@@ -13,7 +11,7 @@ beforeAll(() => {
 describe('Emptying an element', () => {
     test('Emptying an element successfully removes all child nodes', () => {
         const element = document.createElement('div');
-        
+
         element.innerHTML = `
             foo
             <div></div>

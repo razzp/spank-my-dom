@@ -3,7 +3,7 @@ import type { ListenerOrListenerObjFor } from './aliases/ListenerOrListenerObjFo
 
 /**
  * Add an event listener to the target.
- * 
+ *
  * @param target The target to add the listener to.
  * @param type The listener type.
  * @param listener The listener callback.

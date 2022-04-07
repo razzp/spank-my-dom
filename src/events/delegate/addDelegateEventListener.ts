@@ -12,7 +12,7 @@ import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOr
  * Add a delegate event listener to the target. The callback argument will be
  * invoked when the event is dispatched on any descendant element that matches
  * the given selectors.
- * 
+ *
  * @param target The target to add the listener to.
  * @param selectors The selectors to match against when an event is dispatched.
  * @param type The listener type.

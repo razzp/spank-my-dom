@@ -8,7 +8,7 @@ interface ElementOptions {
 /**
  * Creates an instance of the element for the specified tag, allowing you to
  * define attributes and content at the same time.
- * 
+ *
  * @param tagName The name of an element.
  * @param options Additional options.
  */

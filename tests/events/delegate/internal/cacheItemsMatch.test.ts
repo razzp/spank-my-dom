@@ -2,15 +2,12 @@ import { cacheItemsMatch } from '../../../../src/events/delegate/internal/cacheI
 
 import type { CacheItemComparable } from '../../../../src/events/delegate/aliases/CacheItemComparable';
 
+const noop = () => void 0;
+
 describe('Comparing two `CacheItem` instances', () => {
     let cacheItem: CacheItemComparable;
-    let noop: () => void;
 
     beforeEach(() => {
-        noop = () => {
-            /* noop */
-        };
-
         cacheItem = {
             listener: noop,
             options: {},
@@ -48,9 +45,7 @@ describe('Comparing two `CacheItem` instances', () => {
         expect(
             cacheItemsMatch(cacheItem, {
                 ...cacheItem,
-                listener: () => {
-                    /* noop */
-                },
+                listener: () => void 0,
             })
         ).toBe(false);
 
@@ -58,9 +53,7 @@ describe('Comparing two `CacheItem` instances', () => {
             cacheItemsMatch(cacheItem, {
                 ...cacheItem,
                 listener: {
-                    handleEvent: () => {
-                        /* noop */
-                    },
+                    handleEvent: () => void 0,
                 },
             })
         ).toBe(false);
