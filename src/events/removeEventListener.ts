@@ -3,6 +3,11 @@ import type { ListenerOrListenerObjFor } from './aliases/ListenerOrListenerObjFo
 
 /**
  * Remove an event listener from the target.
+ * 
+ * @param target The target to remove the listener from.
+ * @param type The listener type.
+ * @param listener The listener callback.
+ * @param options The listener options.
  */
 function removeEventListener<
     TTarget extends EventTarget,

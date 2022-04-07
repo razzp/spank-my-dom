@@ -10,6 +10,12 @@ import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOr
 
 /**
  * Remove a delegate listener from the target.
+ * 
+ * @param target The target to remove the listener from.
+ * @param selectors The selectors that would have been matched against.
+ * @param type The listener type.
+ * @param listener The listener callback.
+ * @param options The listener options.
  */
 function removeDelegateEventListener<
     TTarget extends EventTarget,
