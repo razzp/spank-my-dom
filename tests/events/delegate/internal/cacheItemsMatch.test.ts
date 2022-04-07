@@ -22,8 +22,7 @@ describe('Comparing two `CacheItem` instances', () => {
     test('Identical instances successfully match', () => {
         expect(cacheItemsMatch(cacheItem, cacheItem)).toBe(true);
 
-        // Certain `options` props are disregarded when removing an event listener.
-        // For all intents and purposes these are identical.
+        // `passive` property is irrelevant and should not alter result.
         expect(
             cacheItemsMatch(cacheItem, {
                 ...cacheItem,
@@ -33,8 +32,8 @@ describe('Comparing two `CacheItem` instances', () => {
             })
         ).toBe(true);
 
-        // If a listener object is provided, we will compare the `handleEvent` prop.
-        // If it matches then for all intents and purposes these are identical.
+        // As long as the values match, a function reference and an object with
+        // a `handleEvent` property are considered identical.
         expect(
             cacheItemsMatch(cacheItem, {
                 ...cacheItem,

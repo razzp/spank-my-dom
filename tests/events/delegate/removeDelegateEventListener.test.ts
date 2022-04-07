@@ -19,29 +19,23 @@ beforeEach(() => {
     jsdomWindow = window;
     jsdomDocument = jsdomWindow.document;
 
-    // This ensures that the `instanceof` operator works inside JSDOM.
+    // Ensure that required globals are available.
     global.Element = jsdomWindow.Element;
 });
 
 describe('Removing delegate event listeners', () => {
     test('Removing listener updates corresponding cache entry', () => {
-        // Create an empty function.
         const noop = () => void 0;
 
-        // Create delegate event listener and define the `once` prop.
         addDelegateEventListener(jsdomDocument, '.target-1', 'click', noop);
 
-        // Grab the cache entry.
         const cacheEntry = delegateCache.get(jsdomDocument);
 
-        // Check that the cache entry is defined and that it contains an entry.
         expect(cacheEntry).toBeDefined();
         expect(cacheEntry?.size).toBe(1);
 
-        // Remove the delegate event listener.
         removeDelegateEventListener(jsdomDocument, '.target-1', 'click', noop);
 
-        // Check that the delegate cache has been cleared.
         expect(delegateCache.has(jsdomDocument)).toBe(false);
     });
 

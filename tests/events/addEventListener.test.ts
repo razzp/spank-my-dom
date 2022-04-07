@@ -18,19 +18,13 @@ beforeEach(() => {
 
 describe('Adding event listeners', () => {
     test('Event listener is added and invoked as expected', () => {
-        // Create a mock callback.
         const callback = jest.fn((event: Event) => event.target);
-
-        // Grab the target element.
         const target = jsdomDocument.querySelector<HTMLElement>('.target-1');
 
-        // Create event listener.
         target && addEventListener(target, 'click', callback);
 
-        // Dispatch an event.
         target?.dispatchEvent(new jsdomWindow.MouseEvent('click'));
 
-        // Check that the callback was invoked once.
         expect(callback.mock.calls.length).toBe(1);
     });
 });
