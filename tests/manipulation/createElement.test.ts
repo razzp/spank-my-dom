@@ -1,10 +1,8 @@
-import { DOMWindow, JSDOM } from 'jsdom';
+import { JSDOM } from 'jsdom';
 import { createElement } from '../../src/manipulation/createElement';
 
-let jsdomWindow: DOMWindow;
-
 beforeAll(() => {
-    jsdomWindow = new JSDOM().window;
+    const { window: jsdomWindow } = new JSDOM();
 
     // Ensure that required globals are available.
     global.document = jsdomWindow.document;
