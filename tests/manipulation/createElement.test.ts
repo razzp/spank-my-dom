@@ -9,71 +9,69 @@ beforeAll(() => {
     global.HTMLDivElement = jsdomWindow.HTMLDivElement;
 });
 
-describe('Creating a new element', () => {
-    test('Simple element is created successfully', () => {
-        const element = createElement('div');
+test('Given a tag name, creates and returns an element', () => {
+    const element = createElement('div');
 
-        expect(element).toBeInstanceOf(HTMLDivElement);
+    expect(element).toBeInstanceOf(HTMLDivElement);
+});
+
+test('Given an `attributes` object, returns an element with corresponding attributes', () => {
+    const element = createElement('div', {
+        attributes: {
+            class: 'foo bar',
+        },
     });
 
-    test('Element with `attributes` option is created successfully', () => {
-        const element = createElement('div', {
-            attributes: {
-                class: 'foo bar',
-            },
-        });
+    expect(element.className).toBe('foo bar');
+});
 
-        expect(element.className).toBe('foo bar');
+test('Given a `classes` array, returns an element with corresponding classes', () => {
+    const element = createElement('div', {
+        classes: ['foo', 'bar'],
     });
 
-    test('Element with `classes` option is created successfully', () => {
-        const element = createElement('div', {
-            classes: ['foo', 'bar'],
-        });
+    expect(element.className).toBe('foo bar');
+});
 
-        expect(element.className).toBe('foo bar');
+test('Given a `children` array, returns an element with corresponding children', () => {
+    const childElement = document.createElement('div');
+
+    const element = createElement('div', {
+        children: [childElement],
     });
 
-    test('Element with `children` option is created successfully', () => {
-        const childElement = document.createElement('div');
+    expect(element.childElementCount).toBe(1);
+    expect(element.children[0]).toBe(childElement);
+});
 
-        const element = createElement('div', {
-            children: [childElement],
-        });
+test('Given an `innerHTML` string, returns an element with corresponding content', () => {
+    const innerHtml = '<div></div>';
 
-        expect(element.childElementCount).toBe(1);
-        expect(element.children[0]).toBe(childElement);
+    const element = createElement('div', {
+        innerHTML: innerHtml,
     });
 
-    test('Element with `innerHTML` option is created successfully', () => {
-        const innerHtml = '<div></div>';
+    expect(element.childElementCount).toBe(1);
+    expect(element.innerHTML).toBe(innerHtml);
+});
 
-        const element = createElement('div', {
-            innerHTML: innerHtml,
-        });
+test('Given multiple properties, returns a corresponding element', () => {
+    const childElement = document.createElement('div');
+    const innerHtml = '<div></div>';
 
-        expect(element.childElementCount).toBe(1);
-        expect(element.innerHTML).toBe(innerHtml);
+    const element = createElement('div', {
+        attributes: {
+            class: 'foo',
+            id: 'bar',
+        },
+        classes: ['baz'],
+        children: [childElement],
+        innerHTML: innerHtml,
     });
 
-    test('Element with multiple options is created successfully', () => {
-        const childElement = document.createElement('div');
-        const innerHtml = '<div></div>';
+    // `classes` should have overwritten `attributes.class`.
+    expect(element.className).toBe('baz');
 
-        const element = createElement('div', {
-            attributes: {
-                class: 'foo',
-                id: 'bar',
-            },
-            classes: ['baz'],
-            children: [childElement],
-            innerHTML: innerHtml,
-        });
-
-        // `classes` should have overwritten `attributes.class`.
-        expect(element.className).toBe('baz');
-
-        expect(element.hasAttribute('id')).toBe(true);
-        expect(element.childElementCount).toBe(2);
-    });
+    expect(element.hasAttribute('id')).toBe(true);
+    expect(element.childElementCount).toBe(2);
 });

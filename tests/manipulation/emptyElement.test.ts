@@ -8,21 +8,19 @@ beforeAll(() => {
     global.document = jsdomWindow.document;
 });
 
-describe('Emptying an element', () => {
-    test('Emptying an element successfully removes all child nodes', () => {
-        const element = document.createElement('div');
+test('Given an element, remove all of its child nodes', () => {
+    const element = document.createElement('div');
 
-        element.innerHTML = `
+    element.innerHTML = `
             foo
             <div></div>
             <div></div>
         `;
 
-        // We use GTE here because breaks/spaces count as nodes.
-        expect(element.childNodes.length).toBeGreaterThanOrEqual(3);
+    // We use GTE here because breaks/spaces count as nodes.
+    expect(element.childNodes.length).toBeGreaterThanOrEqual(3);
 
-        emptyElement(element);
+    emptyElement(element);
 
-        expect(element.childNodes.length).toBe(0);
-    });
+    expect(element.childNodes.length).toBe(0);
 });

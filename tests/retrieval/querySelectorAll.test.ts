@@ -17,22 +17,24 @@ beforeAll(() => {
     global.document = jsdomWindow.document;
 });
 
-describe('Retrieving elements from the DOM', () => {
-    test('Simple query finds matches successfully', () => {
-        const result = querySelectorAll('.target');
+test('Given a valid string, returns all matches', () => {
+    const result = querySelectorAll('.target');
 
-        expect(result.length).toBe(2);
-    });
+    expect(result.length).toBe(2);
+});
 
-    test('Query with custom context finds matches successfully', () => {
-        const result = querySelectorAll('.target', jsdomDocument);
+test('Given a valid string and context, returns all matches within the context', () => {
+    const result = querySelectorAll('.target', jsdomDocument);
 
-        expect(result.length).toBe(2);
-    });
+    expect(result.length).toBe(2);
+});
 
-    test('Query with no matches returns empty array', () => {
-        const result = querySelectorAll('.foo');
+test('Given a valid but non-matching string, returns an empty array', () => {
+    const result = querySelectorAll('.foo');
 
-        expect(result).toEqual([]);
-    });
+    expect(result).toEqual([]);
+});
+
+test('Given an invalid string, throws an error', () => {
+    expect(() => querySelectorAll('.')).toThrowError();
 });

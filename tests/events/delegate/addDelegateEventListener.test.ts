@@ -25,7 +25,7 @@ beforeEach(() => {
 });
 
 describe('Adding delegate event listeners', () => {
-    test('Adding listener to a new target adds a new entry to the cache', () => {
+    test('Adding a listener to a new target adds a new entry to the cache', () => {
         addDelegateEventListener(
             jsdomDocument,
             '.target-1',
@@ -36,7 +36,7 @@ describe('Adding delegate event listeners', () => {
         expect(delegateCache.has(jsdomDocument)).toBe(true);
     });
 
-    test('Adding listener to an existing target updates the existing cache entry', () => {
+    test('Adding a listener to an existing target updates the existing cache entry', () => {
         delegateCache.set(jsdomDocument, new Set([undefined as never]));
 
         addDelegateEventListener(

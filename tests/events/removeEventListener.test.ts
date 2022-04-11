@@ -17,23 +17,21 @@ beforeEach(() => {
     jsdomDocument = jsdomWindow.document;
 });
 
-describe('Removing event listeners', () => {
-    test('Event listener is removed successfully', () => {
-        const callback = jest.fn((event: Event) => event.target);
-        const target = jsdomDocument.querySelector<HTMLElement>('.target-1');
+test('Event listener is removed successfully', () => {
+    const callback = jest.fn((event: Event) => event.target);
+    const target = jsdomDocument.querySelector<HTMLElement>('.target-1');
 
-        target && addEventListener(target, 'click', callback);
+    target && addEventListener(target, 'click', callback);
 
-        target?.dispatchEvent(new jsdomWindow.MouseEvent('click'));
+    target?.dispatchEvent(new jsdomWindow.MouseEvent('click'));
 
-        expect(callback.mock.calls.length).toBe(1);
+    expect(callback.mock.calls.length).toBe(1);
 
-        callback.mockReset();
+    callback.mockReset();
 
-        target && removeEventListener(target, 'click', callback);
+    target && removeEventListener(target, 'click', callback);
 
-        target?.dispatchEvent(new jsdomWindow.MouseEvent('click'));
+    target?.dispatchEvent(new jsdomWindow.MouseEvent('click'));
 
-        expect(callback.mock.calls.length).toBe(0);
-    });
+    expect(callback.mock.calls.length).toBe(0);
 });
