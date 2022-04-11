@@ -1,6 +1,8 @@
 export { arrayFrom } from './array/arrayFrom';
 
-export { getClasses } from './classes/getClasses';
+export { getClassesEndingWith } from './classes/getClassesEndingWith';
+export { getClassesContaining } from './classes/getClassesContaining';
+export { getClassesStartingWith } from './classes/getClassesStartingWith';
 
 export { addEventListener } from './events/addEventListener';
 export { removeEventListener } from './events/removeEventListener';
