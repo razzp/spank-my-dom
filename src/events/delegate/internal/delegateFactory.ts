@@ -4,6 +4,7 @@ import type { DelegateListenerOrListenerObj } from '../aliases/DelegateListenerO
 /**
  * Higher-order function to wrap delegate logic with a listener so that it can
  * be stored in memory and referenced in the future.
+ * @private
  */
 function delegateFactory(
     selectors: string,

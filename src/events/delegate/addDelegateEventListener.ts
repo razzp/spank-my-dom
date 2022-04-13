@@ -13,11 +13,11 @@ import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOr
  * invoked when the event is dispatched on any descendant element that matches
  * the given selectors.
  *
- * @param target The target to add the listener to.
- * @param selectors The selectors to match against when an event is dispatched.
- * @param type The listener type.
- * @param listener The listener callback.
- * @param options The listener options.
+ * @param {EventTarget} target The target to add the listener to.
+ * @param {string} selectors The selectors to match against when an event is dispatched.
+ * @param {string} type The listener type.
+ * @param {DelegateEventListener|DelegateEventListenerObject} listener The listener callback.
+ * @param {boolean|AddEventListenerOptions} [options] The listener options.
  */
 function addDelegateEventListener<
     TTarget extends EventTarget,
@@ -31,6 +31,21 @@ function addDelegateEventListener<
     options?: boolean | AddEventListenerOptions
 ): void;
 
+/**
+ * Add a delegate event listener to the target. The callback argument will be
+ * invoked when the event is dispatched on any descendant element that matches
+ * the given selectors.
+ * @category Events
+ * @since 1.0.0
+ *
+ * @param {EventTarget} target The target to add the listener to.
+ * @param {string} selectors The selectors to match against when an event is dispatched.
+ * @param {string} type The listener type.
+ * @param {DelegateEventListener|DelegateEventListenerObject} listener The listener callback.
+ * @param {boolean|AddEventListenerOptions} [options] The listener options.
+ *
+ * @returns {void}
+ */
 function addDelegateEventListener(
     target: EventTarget,
     selectors: string,

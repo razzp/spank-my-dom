@@ -3,6 +3,7 @@ import type { SanitisedListenerOptions } from '../interfaces/SanitisedListenerOp
 /**
  * Given an input of either a boolean or a list of options, sanitise it into a
  * model that is consistent and contains all the data we need.
+ * @private
  */
 function sanitiseOptions(
     options?: boolean | AddEventListenerOptions

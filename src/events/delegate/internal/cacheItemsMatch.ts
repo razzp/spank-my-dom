@@ -2,6 +2,7 @@ import type { CacheItemComparable } from '../aliases/CacheItemComparable';
 
 /**
  * Check if two `CacheItem` instances match.
+ * @private
  */
 function cacheItemsMatch(
     itemA: CacheItemComparable,

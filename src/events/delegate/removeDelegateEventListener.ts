@@ -11,11 +11,11 @@ import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOr
 /**
  * Remove a delegate listener from the target.
  *
- * @param target The target to remove the listener from.
- * @param selectors The selectors that would have been matched against.
- * @param type The listener type.
- * @param listener The listener callback.
- * @param options The listener options.
+ * @param {EventTarget} target The target to remove the listener from.
+ * @param {string} selectors The selectors that would have been matched against.
+ * @param {string} type The listener type.
+ * @param {DelegateEventListener|DelegateEventListenerObject} listener The listener callback.
+ * @param {boolean|AddEventListenerOptions} options The listener options.
  */
 function removeDelegateEventListener<
     TTarget extends EventTarget,
@@ -29,6 +29,19 @@ function removeDelegateEventListener<
     options?: boolean | AddEventListenerOptions
 ): void;
 
+/**
+ * Remove a delegate listener from the target.
+ * @category Events
+ * @since 1.0.0
+ *
+ * @param {EventTarget} target The target to remove the listener from.
+ * @param {string} selectors The selectors that would have been matched against.
+ * @param {string} type The listener type.
+ * @param {DelegateEventListener|DelegateEventListenerObject} listener The listener callback.
+ * @param {boolean|AddEventListenerOptions} options The listener options.
+ *
+ * @returns {void}
+ */
 function removeDelegateEventListener(
     target: EventTarget,
     selectors: string,

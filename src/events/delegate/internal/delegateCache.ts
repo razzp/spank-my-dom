@@ -5,6 +5,7 @@ type DelegateCache = WeakMap<EventTarget, Set<CacheItem>>;
 /**
  * The cache stores information about delegate event listeners so that they can
  * be safely removed in the future.
+ * @private
  */
 const delegateCache: DelegateCache = new WeakMap();
 

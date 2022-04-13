@@ -1,7 +1,11 @@
 /**
  * Creates an array from an iterable object.
+ * @category Array
+ * @since 1.0.0
  *
- * @param iterable An iterable object to convert to an array.
+ * @param {(Iterable|ArrayLike)} iterable The iterable object to convert to an array.
+ *
+ * @returns {T[]}
  */
 function arrayFrom<T>(iterable: Iterable<T> | ArrayLike<T>): T[] {
     return Array.from(iterable);

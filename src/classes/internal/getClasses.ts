@@ -1,6 +1,6 @@
 /**
  * Given a search pattern, find any classes that match.
- * @internal
+ * @private
  */
 function getClasses(
     context: Element | string,

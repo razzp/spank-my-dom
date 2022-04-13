@@ -1,7 +1,7 @@
 /**
  * Escape any special characters in a string prior to it being used in a
  * regular expression.
- * @internal
+ * @private
  */
 function escapeRegExp(input: string) {
     return input.replace(/[-[\]{}()*+?.,\\^$|]/g, '\\$&');
