@@ -3,9 +3,13 @@ import type { Queryable } from './aliases/Queryable';
 
 /**
  * Returns the first element within context that matches the given selectors.
- *
- * @param selectors The selectors to match against.
- * @param context The element from which to search from.
+ * @category Retrieval
+ * @since 1.0.0
+ * 
+ * @param {string} selectors The selectors to match against.
+ * @param {Document|DocumentFragment|Element} context The context from which to search from.
+ * 
+ * @returns {null|Element}
  */
 function querySelector<T extends Element>(
     selectors: string,

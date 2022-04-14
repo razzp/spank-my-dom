@@ -3,7 +3,7 @@
  * @category Array
  * @since 1.0.0
  *
- * @param {(Iterable|ArrayLike)} iterable The iterable object to convert to an array.
+ * @param {(Iterable<T>|ArrayLike<T>)} iterable The iterable object to convert to an array.
  *
  * @returns {T[]}
  */

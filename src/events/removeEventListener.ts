@@ -4,10 +4,10 @@ import type { ListenerOrListenerObjFor } from './aliases/ListenerOrListenerObjFo
 /**
  * Remove an event listener from the target.
  *
- * @param target The target to remove the listener from.
- * @param type The listener type.
- * @param listener The listener callback.
- * @param options The listener options.
+ * @param {EventTarget} target The target to remove the listener from.
+ * @param {string} type The listener type.
+ * @param {EventListener|EventListenerObject} listener The listener callback.
+ * @param {boolean|AddEventListenerOptions} [options] The listener options.
  */
 function removeEventListener<
     TTarget extends EventTarget,
@@ -20,6 +20,18 @@ function removeEventListener<
     options?: boolean | AddEventListenerOptions
 ): void;
 
+/**
+ * Remove an event listener from the target.
+ * @category Events
+ * @since 1.0.0
+ * 
+ * @param {EventTarget} target The target to remove the listener from.
+ * @param {string} type The listener type.
+ * @param {EventListener|EventListenerObject} listener The listener callback.
+ * @param {boolean|AddEventListenerOptions} [options] The listener options.
+ * 
+ * @returns {void}
+ */
 function removeEventListener(
     target: EventTarget,
     type: string,

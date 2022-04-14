@@ -8,9 +8,13 @@ interface ElementOptions {
 /**
  * Creates an instance of the element for the specified tag, allowing you to
  * define attributes and content at the same time.
- *
- * @param tagName The name of an element.
- * @param options Additional options.
+ * @category Manipulation
+ * @since 1.0.0
+ * 
+ * @param {string} tagName The type of element to be created.
+ * @param {CreateElementOptions} options Additional options.
+ * 
+ * @returns {Element}
  */
 function createElement<T extends keyof HTMLElementTagNameMap>(
     tagName: T,

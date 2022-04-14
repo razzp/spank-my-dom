@@ -4,9 +4,13 @@ import type { Queryable } from './aliases/Queryable';
 
 /**
  * Returns all descendant elements within context that match the given selectors.
- *
- * @param selectors The selectors to match against.
- * @param context The element from which to search from.
+ * @category Retrieval
+ * @since 1.0.0
+ * 
+ * @param {string} selectors The selectors to match against.
+ * @param {Document|DocumentFragment|Element} context The context from which to search from.
+ * 
+ * @returns {Element[]}
  */
 function querySelectorAll<T extends Element>(
     selectors: string,
