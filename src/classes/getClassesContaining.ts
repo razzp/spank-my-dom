@@ -30,7 +30,7 @@ function getClassesContaining(
 /**
  * Get classes from an element or string that contain a specified string.
  * @category Classes
- * @since 1.0.0
+ * @since 0.1.0
  *
  * @param {string} search The string to search for.
  * @param {(Element|string)} context The context to perform the search on.

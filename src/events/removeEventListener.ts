@@ -23,7 +23,7 @@ function removeEventListener<
 /**
  * Remove an event listener from the target.
  * @category Events
- * @since 1.0.0
+ * @since 0.1.0
  *
  * @param {EventTarget} target The target to remove the listener from.
  * @param {string} type The listener type.

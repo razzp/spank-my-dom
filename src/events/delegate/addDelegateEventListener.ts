@@ -36,7 +36,7 @@ function addDelegateEventListener<
  * invoked when the event is dispatched on any descendant element that matches
  * the given selectors.
  * @category Events
- * @since 1.0.0
+ * @since 0.1.0
  *
  * @param {EventTarget} target The target to add the listener to.
  * @param {string} selectors The selectors to match against when an event is dispatched.
