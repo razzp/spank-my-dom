@@ -1,7 +1,7 @@
 {
   "name": "spank-my-dom",
   "version": "0.1.0",
-  "description": "A small, modular set of DOM utilities",
+  "description": "A tiny, modular set of DOM utilities, written in TypeScript.",
   "license": "MIT",
   "main": "./dist/main.js",
   "exports": "./dist/main.js",
@@ -13,7 +13,8 @@
     "lint": "eslint --fix src/** tests/**",
     "prettier": "prettier --list-different --write *.js docs/**/*.js src/** tests/**",
     "types": "rimraf types && tsc --project tsconfig.types.json",
-    "test": "jest --verbose --coverage"
+    "test": "jest --verbose --coverage",
+    "docs": "jsdoc2md --global-index-format grouped --template docs/readme.hbs --partial docs/partials/*.hbs --helper docs/helpers.js --files dist/main.js > README.md"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.1.3",
@@ -25,6 +26,7 @@
     "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.5.0",
     "jest": "^27.5.1",
+    "jsdoc-to-markdown": "^7.1.1",
     "jsdom": "^19.0.0",
     "prettier": "^2.6.0",
     "rimraf": "^3.0.2",
