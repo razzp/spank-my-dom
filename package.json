@@ -1,11 +1,31 @@
 {
   "name": "spank-my-dom",
+  "author": "Robert Wells",
   "version": "0.1.0",
   "description": "A tiny, modular set of DOM utilities, written in TypeScript.",
+  "keywords": [
+    "html",
+    "dom",
+    "javascript",
+    "typescript",
+    "utilities",
+    "helpers"
+  ],
   "license": "MIT",
-  "main": "./dist/main.js",
-  "exports": "./dist/main.js",
+  "bugs": "https://github.com/razzp/spank-my-dom/issues",
+  "homepage": "https://github.com/razzp/spank-my-dom#readme",
+  "repository": "github:razzp/spank-my-dom",
+  "type": "module",
+  "main": "./dist/main.cjs",
+  "exports": {
+    "import": "./dist/main.js",
+    "require": "./dist/main.cjs"
+  },
   "types": "./types/main.d.ts",
+  "files": [
+    "dist/**/*.c?js",
+    "types/**/*.d.ts"
+  ],
   "scripts": {
     "prebuild": "npm run lint && npm run prettier",
     "build": "rimraf dist && rollup --config && npm run types",
@@ -14,7 +34,7 @@
     "prettier": "prettier --list-different --write *.js docs/**/*.js src/** tests/**",
     "types": "rimraf types && tsc --project tsconfig.types.json",
     "test": "jest --verbose --coverage",
-    "docs": "jsdoc2md --global-index-format grouped --template docs/readme.hbs --partial docs/partials/*.hbs --helper docs/helpers.js --files dist/main.js > README.md"
+    "docs": "jsdoc2md --global-index-format grouped --template docs/readme.hbs --partial docs/partials/*.hbs --helper docs/helpers.cjs --files dist/main.js > README.md"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.1.3",
