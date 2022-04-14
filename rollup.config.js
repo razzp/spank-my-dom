@@ -1,5 +1,4 @@
 import resolve from '@rollup/plugin-node-resolve';
-//import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import fs from 'fs';
 
@@ -17,7 +16,6 @@ const config = {
             extensions: ['.ts'],
         }),
         typescript(),
-        //terser()
     ],
 };
 
