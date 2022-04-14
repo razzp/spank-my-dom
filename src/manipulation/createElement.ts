@@ -10,10 +10,10 @@ interface CreateElementOptions {
  * define attributes and content at the same time.
  * @category Manipulation
  * @since 1.0.0
- * 
+ *
  * @param {string} tagName The type of element to be created.
  * @param {CreateElementOptions} options Additional options.
- * 
+ *
  * @returns {Element}
  */
 function createElement<T extends keyof HTMLElementTagNameMap>(
