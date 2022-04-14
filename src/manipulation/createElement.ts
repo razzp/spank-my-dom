@@ -1,4 +1,4 @@
-interface ElementOptions {
+interface CreateElementOptions {
     attributes?: Record<string, string>;
     classes?: string[];
     children?: Element[];
@@ -18,7 +18,7 @@ interface ElementOptions {
  */
 function createElement<T extends keyof HTMLElementTagNameMap>(
     tagName: T,
-    options?: ElementOptions
+    options?: CreateElementOptions
 ): HTMLElementTagNameMap[T] {
     // Create the new element.
     const newElement = document.createElement(tagName);
