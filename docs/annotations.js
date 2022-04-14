@@ -16,5 +16,5 @@
 /**
  * @typedef DelegateEventListener
  * @type {function}
- * @param  {DelegateEvent} event
+ * @param {DelegateEvent} event
  */
