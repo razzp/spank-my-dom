@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-env node */
+/* eslint-env node, commonjs */
 
 const package = require('../package.json');
 

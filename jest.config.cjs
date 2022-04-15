@@ -1,8 +1,6 @@
-/* eslint-env node */
+/* eslint-env node, commonjs */
 
-const config = {
+module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'node',
 };
-
-module.exports = config;
