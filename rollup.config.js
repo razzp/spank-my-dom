@@ -2,6 +2,8 @@ import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import fs from 'fs';
 
+// Load any additional annotations (for JSDoc) that would otherwise be
+// removed during the compilation process.
 const annotations = fs.readFileSync('docs/annotations.js', 'utf8');
 
 const config = {
