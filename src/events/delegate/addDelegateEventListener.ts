@@ -1,5 +1,6 @@
 import { delegateCache } from './internal/delegateCache';
 import { delegateFactory } from './internal/delegateFactory';
+import { findItemInCache } from './internal/findItemInCache';
 import { sanitiseOptions } from './internal/sanitiseOptions';
 import { removeDelegateEventListener } from './removeDelegateEventListener';
 
@@ -53,7 +54,7 @@ function addDelegateEventListener(
     listener: DelegateListenerOrListenerObj,
     options?: boolean | AddEventListenerOptions
 ): void {
-    // Get the cache associated with the target (it may not exist yet).
+    // Get the cache associated with the target.
     const targetCache = delegateCache.get(target);
 
     // Create a sanitised collection of options.
@@ -81,19 +82,26 @@ function addDelegateEventListener(
         type,
     };
 
-    // If an `AbortSignal` is attached then listen for its `abort` event.
-    // This will only need to be caught once.
-    optionsSanitised.origSignal?.addEventListener('abort', remove, {
-        once: true,
-    });
-
     if (targetCache) {
+        if (findItemInCache(targetCache, cacheItem)) {
+            // If an effectively identical listener has already been added
+            // to this target's cache, then bail out. As per the spec we
+            // won't add the same listener twice.
+            return;
+        }
+
         // Push the item to the cache.
         targetCache.add(cacheItem);
     } else {
         // The cache doesn't exist, so create it first.
         delegateCache.set(target, new Set([cacheItem]));
     }
+
+    // If an `AbortSignal` exists then listen for its `abort` event.
+    // This will only need to be caught once.
+    optionsSanitised.origSignal?.addEventListener('abort', remove, {
+        once: true,
+    });
 
     // Add the listener to the target.
     target.addEventListener(type, cacheItem.delegate, optionsSanitised);

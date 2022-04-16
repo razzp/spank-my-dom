@@ -37,7 +37,7 @@ describe('Adding delegate event listeners', () => {
     });
 
     test('Adding a listener to an existing target updates the existing cache entry', () => {
-        delegateCache.set(jsdomDocument, new Set([undefined as never]));
+        delegateCache.set(jsdomDocument, new Set());
 
         addDelegateEventListener(
             jsdomDocument,
@@ -49,7 +49,22 @@ describe('Adding delegate event listeners', () => {
         const cacheEntry = delegateCache.get(jsdomDocument);
 
         expect(cacheEntry).toBeDefined();
-        expect(cacheEntry?.size).toBe(2);
+        expect(cacheEntry?.size).toBe(1);
+    });
+
+    test('Attempting to add the same listener again does nothing', () => {
+        const noop = () => void 0;
+
+        delegateCache.set(jsdomDocument, new Set());
+
+        for (let i = 0; i < 2; i++) {
+            addDelegateEventListener(jsdomDocument, '.target-1', 'click', noop);
+        }
+
+        const cacheEntry = delegateCache.get(jsdomDocument);
+
+        expect(cacheEntry).toBeDefined();
+        expect(cacheEntry?.size).toBe(1);
     });
 });
 

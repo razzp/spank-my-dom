@@ -39,7 +39,20 @@ describe('Removing delegate event listeners', () => {
         expect(delegateCache.has(jsdomDocument)).toBe(false);
     });
 
-    test("Trying to remove a listener that doesn't exist does nothing", () => {
+    test("Trying to remove a listener from a target that doesn't exist in the cache does nothing", () => {
+        expect(() =>
+            removeDelegateEventListener(
+                jsdomDocument,
+                '.foo',
+                'click',
+                () => void 0
+            )
+        ).not.toThrow();
+    });
+
+    test("Trying to remove a listener that doesn't exist in the cache does nothing", () => {
+        delegateCache.set(jsdomDocument, new Set());
+
         expect(() =>
             removeDelegateEventListener(
                 jsdomDocument,

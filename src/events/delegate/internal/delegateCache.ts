@@ -1,12 +1,10 @@
 import type { CacheItem } from '../interfaces/CacheItem';
 
-type DelegateCache = WeakMap<EventTarget, Set<CacheItem>>;
-
 /**
  * The cache stores information about delegate event listeners so that they can
- * be safely removed in the future.
+ * be safely removed in the future. Items are grouped by event target.
  * @private
  */
-const delegateCache: DelegateCache = new WeakMap();
+const delegateCache: WeakMap<EventTarget, Set<CacheItem>> = new WeakMap();
 
 export { delegateCache };
