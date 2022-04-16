@@ -1,9 +1,4 @@
-interface CreateElementOptions {
-    attributes?: Record<string, string>;
-    classes?: string[];
-    children?: Element[];
-    innerHTML?: string;
-}
+import type { CreateElementOptions } from './interfaces/CreateElementOptions';
 
 /**
  * Creates an instance of the element for the specified tag, allowing you to
