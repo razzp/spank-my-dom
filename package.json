@@ -31,7 +31,7 @@
     "build": "rimraf dist && rollup --config && npm run types",
     "watch": "rollup --watch --config",
     "lint": "eslint --fix src/** tests/**",
-    "prettier": "prettier --list-different --write *.js docs/**/*.js src/** tests/**",
+    "prettier": "prettier --list-different --write *.js src/** tests/**",
     "types": "rimraf types && tsc --project tsconfig.types.json",
     "test": "jest --verbose --coverage",
     "docs": "jsdoc2md --global-index-format grouped --template docs/readme.hbs --partial docs/partials/*.hbs --helper docs/helpers.cjs --files dist/main.js > README.md"

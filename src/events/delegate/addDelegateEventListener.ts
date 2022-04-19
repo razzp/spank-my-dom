@@ -14,10 +14,20 @@ import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOr
  * invoked when the event is dispatched on any descendant element that matches
  * the given selectors.
  *
+ * The `Event` object returned in the listener callback includes a non-standard
+ * method `stopDelegation()`, which stops any further traversal up the DOM tree
+ * in search of matches.
+ *
+ * The listener callback includes a second argument `index`, which indicates
+ * how many times the callback has been fired during the current event.
+ *
+ * @category Events
+ * @since 0.1.0
+ *
  * @param {EventTarget} target The target to add the listener to.
  * @param {string} selectors The selectors to match against when an event is dispatched.
  * @param {string} type The listener type.
- * @param {DelegateEventListener|DelegateEventListenerObject} listener The listener callback.
+ * @param {EventListener|EventListenerObject} listener The listener callback.
  * @param {boolean|AddEventListenerOptions} [options] The listener options.
  */
 function addDelegateEventListener<
@@ -36,13 +46,21 @@ function addDelegateEventListener<
  * Add a delegate event listener to the target. The callback argument will be
  * invoked when the event is dispatched on any descendant element that matches
  * the given selectors.
+ *
+ * The `Event` object returned in the listener callback includes a non-standard
+ * method `stopDelegation()`, which stops any further traversal up the DOM tree
+ * in search of matches.
+ *
+ * The listener callback includes a second argument `index`, which indicates
+ * how many times the callback has been fired during the current event.
+ *
  * @category Events
  * @since 0.1.0
  *
  * @param {EventTarget} target The target to add the listener to.
  * @param {string} selectors The selectors to match against when an event is dispatched.
  * @param {string} type The listener type.
- * @param {DelegateEventListener|DelegateEventListenerObject} listener The listener callback.
+ * @param {EventListener|EventListenerObject} listener The listener callback.
  * @param {boolean|AddEventListenerOptions} [options] The listener options.
  *
  * @returns {void}

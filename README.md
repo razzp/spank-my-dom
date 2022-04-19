@@ -23,42 +23,6 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 * [querySelector(selectors, context)](#querySelector) ⇒ <code>null</code> \| <code>Element</code>
 * [querySelectorAll(selectors, context)](#querySelectorAll) ⇒ <code>Array.&lt;Element&gt;</code>
 
-## Typedefs
-
-* [DelegateEvent](#DelegateEvent) : <code>object</code>
-* [DelegateEventListenerObject](#DelegateEventListenerObject) : <code>object</code>
-* [DelegateEventListener](#DelegateEventListener) : <code>function</code>
-
-<a name="DelegateEvent"></a>
-
-## DelegateEvent : <code>object</code>
-A delegate event is identical to a native `Event`, but also includes a non-standard
-method `stopDelegation()` which stops any further traversal through the DOM.
-
-**Extends**: <code>Event</code>  
-**Properties**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| stopDelegation | <code>function</code> | Stop any further traversal through the DOM. |
-
-<a name="DelegateEventListenerObject"></a>
-
-## DelegateEventListenerObject : <code>object</code>
-**Properties**
-
-| Name | Type |
-| --- | --- |
-| handleEvent | [<code>DelegateEventListener</code>](#DelegateEventListener) | 
-
-<a name="DelegateEventListener"></a>
-
-## DelegateEventListener : <code>function</code>
-
-| Param | Type |
-| --- | --- |
-| event | [<code>DelegateEvent</code>](#DelegateEvent) | 
-
 <a name="arrayFrom"></a>
 
 ## arrayFrom(iterable) ⇒ <code>Array.&lt;T&gt;</code>
@@ -156,13 +120,13 @@ Remove a delegate listener from the target.
 | target | <code>EventTarget</code> | The target to remove the listener from. |
 | selectors | <code>string</code> | The selectors that would have been matched against. |
 | type | <code>string</code> | The listener type. |
-| listener | [<code>DelegateEventListener</code>](#DelegateEventListener) \| [<code>DelegateEventListenerObject</code>](#DelegateEventListenerObject) | The listener callback. |
+| listener | <code>EventListener</code> \| <code>EventListenerObject</code> | The listener callback. |
 | [options] | <code>boolean</code> \| <code>AddEventListenerOptions</code> | The listener options. |
 
 <a name="addDelegateEventListener"></a>
 
 ## addDelegateEventListener(target, selectors, type, listener, [options]) ⇒ <code>void</code>
-Add a delegate event listener to the target. The callback argument will beinvoked when the event is dispatched on any descendant element that matchesthe given selectors.
+Add a delegate event listener to the target. The callback argument will beinvoked when the event is dispatched on any descendant element that matchesthe given selectors.The `Event` object returned in the listener callback includes a non-standardmethod `stopDelegation()`, which stops any further traversal up the DOM treein search of matches.The listener callback includes a second argument `index`, which indicateshow many times the callback has been fired during the current event.
 
 **Category**: Events  
 **Since**: 0.1.0  
@@ -172,7 +136,7 @@ Add a delegate event listener to the target. The callback argument will beinvok
 | target | <code>EventTarget</code> | The target to add the listener to. |
 | selectors | <code>string</code> | The selectors to match against when an event is dispatched. |
 | type | <code>string</code> | The listener type. |
-| listener | [<code>DelegateEventListener</code>](#DelegateEventListener) \| [<code>DelegateEventListenerObject</code>](#DelegateEventListenerObject) | The listener callback. |
+| listener | <code>EventListener</code> \| <code>EventListenerObject</code> | The listener callback. |
 | [options] | <code>boolean</code> \| <code>AddEventListenerOptions</code> | The listener options. |
 
 <a name="createElement"></a>
