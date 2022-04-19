@@ -13,7 +13,7 @@ import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOr
  * @param {string} selectors The selectors that would have been matched against.
  * @param {string} type The listener type.
  * @param {DelegateEventListener|DelegateEventListenerObject} listener The listener callback.
- * @param {boolean|AddEventListenerOptions} options The listener options.
+ * @param {boolean|AddEventListenerOptions} [options] The listener options.
  */
 function removeDelegateEventListener<
     TTarget extends EventTarget,
@@ -36,7 +36,7 @@ function removeDelegateEventListener<
  * @param {string} selectors The selectors that would have been matched against.
  * @param {string} type The listener type.
  * @param {DelegateEventListener|DelegateEventListenerObject} listener The listener callback.
- * @param {boolean|AddEventListenerOptions} options The listener options.
+ * @param {boolean|AddEventListenerOptions} [options] The listener options.
  *
  * @returns {void}
  */

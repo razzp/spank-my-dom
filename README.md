@@ -16,7 +16,7 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 * [getClassesStartingWith(search, context, [ignoreCase])](#getClassesStartingWith) ⇒ <code>Array.&lt;string&gt;</code>
 * [addEventListener(target, type, listener, [options])](#addEventListener) ⇒ <code>void</code>
 * [removeEventListener(target, type, listener, [options])](#removeEventListener) ⇒ <code>void</code>
-* [removeDelegateEventListener(target, selectors, type, listener, options)](#removeDelegateEventListener) ⇒ <code>void</code>
+* [removeDelegateEventListener(target, selectors, type, listener, [options])](#removeDelegateEventListener) ⇒ <code>void</code>
 * [addDelegateEventListener(target, selectors, type, listener, [options])](#addDelegateEventListener) ⇒ <code>void</code>
 * [createElement(tagName, [options])](#createElement) ⇒ <code>Element</code>
 * [emptyElement(element)](#emptyElement) ⇒ <code>void</code>
@@ -145,7 +145,7 @@ Remove an event listener from the target.
 
 <a name="removeDelegateEventListener"></a>
 
-## removeDelegateEventListener(target, selectors, type, listener, options) ⇒ <code>void</code>
+## removeDelegateEventListener(target, selectors, type, listener, [options]) ⇒ <code>void</code>
 Remove a delegate listener from the target.
 
 **Category**: Events  
@@ -157,7 +157,7 @@ Remove a delegate listener from the target.
 | selectors | <code>string</code> | The selectors that would have been matched against. |
 | type | <code>string</code> | The listener type. |
 | listener | [<code>DelegateEventListener</code>](#DelegateEventListener) \| [<code>DelegateEventListenerObject</code>](#DelegateEventListenerObject) | The listener callback. |
-| options | <code>boolean</code> \| <code>AddEventListenerOptions</code> | The listener options. |
+| [options] | <code>boolean</code> \| <code>AddEventListenerOptions</code> | The listener options. |
 
 <a name="addDelegateEventListener"></a>
 
