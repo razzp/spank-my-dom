@@ -16,6 +16,8 @@ import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOr
  * @param {string} type The listener type.
  * @param {EventListener|EventListenerObject} listener The listener callback.
  * @param {boolean|AddEventListenerOptions} [options] The listener options.
+ *
+ * @returns {void}
  */
 function removeDelegateEventListener<
     TTarget extends EventTarget,

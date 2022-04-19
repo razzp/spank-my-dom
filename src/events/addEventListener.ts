@@ -3,11 +3,14 @@ import type { ListenerOrListenerObjFor } from './aliases/ListenerOrListenerObjFo
 
 /**
  * Add an event listener to the target.
+ * @since 0.1.0
  *
  * @param {EventTarget} target The target to add the listener to.
  * @param {string} type The listener type.
  * @param {EventListener|EventListenerObject} listener The listener callback.
  * @param {boolean|AddEventListenerOptions} [options] The listener options.
+ *
+ * @returns {void}
  */
 function addEventListener<
     TTarget extends EventTarget,
