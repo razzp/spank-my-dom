@@ -18,9 +18,3 @@
  * @type {function}
  * @param {DelegateEvent} event
  */
-
-/**
- * @typedef CreateElementOptions
- * @type {object}
- * @property {DelegateEventListener} handleEvent
- */

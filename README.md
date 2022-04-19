@@ -18,7 +18,7 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 * [removeEventListener(target, type, listener, [options])](#removeEventListener) ⇒ <code>void</code>
 * [removeDelegateEventListener(target, selectors, type, listener, options)](#removeDelegateEventListener) ⇒ <code>void</code>
 * [addDelegateEventListener(target, selectors, type, listener, [options])](#addDelegateEventListener) ⇒ <code>void</code>
-* [createElement(tagName, options)](#createElement) ⇒ <code>Element</code>
+* [createElement(tagName, [options])](#createElement) ⇒ <code>Element</code>
 * [emptyElement(element)](#emptyElement) ⇒ <code>void</code>
 * [querySelector(selectors, context)](#querySelector) ⇒ <code>null</code> \| <code>Element</code>
 * [querySelectorAll(selectors, context)](#querySelectorAll) ⇒ <code>Array.&lt;Element&gt;</code>
@@ -28,7 +28,6 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 * [DelegateEvent](#DelegateEvent) : <code>object</code>
 * [DelegateEventListenerObject](#DelegateEventListenerObject) : <code>object</code>
 * [DelegateEventListener](#DelegateEventListener) : <code>function</code>
-* [CreateElementOptions](#CreateElementOptions) : <code>object</code>
 
 <a name="DelegateEvent"></a>
 
@@ -59,15 +58,6 @@ method `stopDelegation()` which stops any further traversal through the DOM.
 | Param | Type |
 | --- | --- |
 | event | [<code>DelegateEvent</code>](#DelegateEvent) | 
-
-<a name="CreateElementOptions"></a>
-
-## CreateElementOptions : <code>object</code>
-**Properties**
-
-| Name | Type |
-| --- | --- |
-| handleEvent | [<code>DelegateEventListener</code>](#DelegateEventListener) | 
 
 <a name="arrayFrom"></a>
 
@@ -187,7 +177,7 @@ Add a delegate event listener to the target. The callback argument will beinvok
 
 <a name="createElement"></a>
 
-## createElement(tagName, options) ⇒ <code>Element</code>
+## createElement(tagName, [options]) ⇒ <code>Element</code>
 Creates an instance of the element for the specified tag, allowing you todefine attributes and content at the same time.
 
 **Category**: Manipulation  
@@ -196,7 +186,11 @@ Creates an instance of the element for the specified tag, allowing you todefine
 | Param | Type | Description |
 | --- | --- | --- |
 | tagName | <code>string</code> | The type of element to be created. |
-| options | [<code>CreateElementOptions</code>](#CreateElementOptions) | Additional options. |
+| [options] | <code>Object</code> | Additional options. |
+| [options.attributes] | <code>Object.&lt;string, string&gt;</code> | Attributes to be added to the element. |
+| [options.classes] | <code>Array.&lt;string&gt;</code> | Classes to be added to the element. |
+| [options.children] | <code>Array.&lt;Element&gt;</code> | Child elements to append to the element. |
+| [options.innerHTML] | <code>string</code> | Set the HTML of the element. |
 
 <a name="emptyElement"></a>
 
