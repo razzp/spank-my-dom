@@ -7,10 +7,10 @@ import type { CreateElementOptions } from './interfaces/CreateElementOptions';
  *
  * @param {string} tagName The type of element to be created.
  * @param {Object} [options] Additional options.
- * @param {Object.<string, string>} [options.attributes] - Attributes to be added to the element.
- * @param {string[]} [options.classes] - Classes to be added to the element.
- * @param {Element[]} [options.children] - Child elements to append to the element.
- * @param {string} [options.innerHTML] - Set the HTML of the element.
+ * @param {Object.<string, string>} [options.attributes] Attributes to be added to the element.
+ * @param {string[]} [options.classes] Classes to be added to the element.
+ * @param {Element[]} [options.children] Child elements to append to the element.
+ * @param {string} [options.innerHTML] Set the HTML of the element.
  *
  * @returns {Element}
  */
