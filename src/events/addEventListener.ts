@@ -22,7 +22,6 @@ function addEventListener<
 
 /**
  * Add an event listener to the target.
- * @category Events
  * @since 0.1.0
  *
  * @param {EventTarget} target The target to add the listener to.

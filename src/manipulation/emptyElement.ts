@@ -1,6 +1,5 @@
 /**
  * Empty an element.
- * @category Manipulation
  * @since 0.1.0
  *
  * @param {Element} element The element to empty.

@@ -29,7 +29,6 @@ function getClassesStartingWith(
 
 /**
  * Get classes from an element or string that start with a specified string.
- * @category Classes
  * @since 0.1.0
  *
  * @param {string} search The string to search for.

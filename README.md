@@ -28,7 +28,6 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 ## arrayFrom(iterable) ⇒ <code>Array.&lt;T&gt;</code>
 Creates an array from an iterable object.
 
-**Category**: Array  
 **Since**: 0.1.0  
 
 | Param | Type | Description |
@@ -40,7 +39,6 @@ Creates an array from an iterable object.
 ## getClassesEndingWith(search, context, [ignoreCase]) ⇒ <code>Array.&lt;string&gt;</code>
 Get classes from an element or string that end with a specified string.
 
-**Category**: Classes  
 **Since**: 0.1.0  
 
 | Param | Type | Default | Description |
@@ -54,7 +52,6 @@ Get classes from an element or string that end with a specified string.
 ## getClassesContaining(search, context, [ignoreCase]) ⇒ <code>Array.&lt;string&gt;</code>
 Get classes from an element or string that contain a specified string.
 
-**Category**: Classes  
 **Since**: 0.1.0  
 
 | Param | Type | Default | Description |
@@ -68,7 +65,6 @@ Get classes from an element or string that contain a specified string.
 ## getClassesStartingWith(search, context, [ignoreCase]) ⇒ <code>Array.&lt;string&gt;</code>
 Get classes from an element or string that start with a specified string.
 
-**Category**: Classes  
 **Since**: 0.1.0  
 
 | Param | Type | Default | Description |
@@ -82,7 +78,6 @@ Get classes from an element or string that start with a specified string.
 ## addEventListener(target, type, listener, [options]) ⇒ <code>void</code>
 Add an event listener to the target.
 
-**Category**: Events  
 **Since**: 0.1.0  
 
 | Param | Type | Description |
@@ -97,7 +92,6 @@ Add an event listener to the target.
 ## removeEventListener(target, type, listener, [options]) ⇒ <code>void</code>
 Remove an event listener from the target.
 
-**Category**: Events  
 **Since**: 0.1.0  
 
 | Param | Type | Description |
@@ -112,7 +106,6 @@ Remove an event listener from the target.
 ## removeDelegateEventListener(target, selectors, type, listener, [options]) ⇒ <code>void</code>
 Remove a delegate listener from the target.
 
-**Category**: Events  
 **Since**: 0.1.0  
 
 | Param | Type | Description |
@@ -128,7 +121,6 @@ Remove a delegate listener from the target.
 ## addDelegateEventListener(target, selectors, type, listener, [options]) ⇒ <code>void</code>
 Add a delegate event listener to the target. The callback argument will beinvoked when the event is dispatched on any descendant element that matchesthe given selectors.The `Event` object returned in the listener callback includes a non-standardmethod `stopDelegation()`, which stops any further traversal up the DOM treein search of matches.The listener callback includes a second argument `index`, which indicateshow many times the callback has been fired during the current event.
 
-**Category**: Events  
 **Since**: 0.1.0  
 
 | Param | Type | Description |
@@ -144,7 +136,6 @@ Add a delegate event listener to the target. The callback argument will beinvok
 ## createElement(tagName, [options]) ⇒ <code>Element</code>
 Creates an instance of the element for the specified tag, allowing you todefine attributes and content at the same time.
 
-**Category**: Manipulation  
 **Since**: 0.1.0  
 
 | Param | Type | Description |
@@ -161,7 +152,6 @@ Creates an instance of the element for the specified tag, allowing you todefine
 ## emptyElement(element) ⇒ <code>void</code>
 Empty an element.
 
-**Category**: Manipulation  
 **Since**: 0.1.0  
 
 | Param | Type | Description |
@@ -173,7 +163,6 @@ Empty an element.
 ## querySelector(selectors, context) ⇒ <code>null</code> \| <code>Element</code>
 Returns the first element within context that matches the given selectors.
 
-**Category**: Retrieval  
 **Since**: 0.1.0  
 
 | Param | Type | Description |
@@ -186,7 +175,6 @@ Returns the first element within context that matches the given selectors.
 ## querySelectorAll(selectors, context) ⇒ <code>Array.&lt;Element&gt;</code>
 Returns all descendant elements within context that match the given selectors.
 
-**Category**: Retrieval  
 **Since**: 0.1.0  
 
 | Param | Type | Description |

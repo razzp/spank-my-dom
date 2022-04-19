@@ -21,7 +21,6 @@ import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOr
  * The listener callback includes a second argument `index`, which indicates
  * how many times the callback has been fired during the current event.
  *
- * @category Events
  * @since 0.1.0
  *
  * @param {EventTarget} target The target to add the listener to.
@@ -54,7 +53,6 @@ function addDelegateEventListener<
  * The listener callback includes a second argument `index`, which indicates
  * how many times the callback has been fired during the current event.
  *
- * @category Events
  * @since 0.1.0
  *
  * @param {EventTarget} target The target to add the listener to.

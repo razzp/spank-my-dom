@@ -3,7 +3,6 @@ import type { Queryable } from './aliases/Queryable';
 
 /**
  * Returns the first element within context that matches the given selectors.
- * @category Retrieval
  * @since 0.1.0
  *
  * @param {string} selectors The selectors to match against.
