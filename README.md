@@ -18,6 +18,7 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 * [removeEventListener(target, type, listener, [options])](#removeEventListener) ⇒ <code>void</code>
 * [removeDelegateEventListener(target, selectors, type, listener, [options])](#removeDelegateEventListener) ⇒ <code>void</code>
 * [addDelegateEventListener(target, selectors, type, listener, [options])](#addDelegateEventListener) ⇒ <code>void</code>
+* [serialise(...items)](#serialise) ⇒ <code>string</code>
 * [createElement(tagName, [options])](#createElement) ⇒ <code>Element</code>
 * [emptyElement(element)](#emptyElement) ⇒ <code>void</code>
 * [querySelector(selectors, context)](#querySelector) ⇒ <code>null</code> \| <code>Element</code>
@@ -130,6 +131,17 @@ Add a delegate event listener to the target. The callback argument will beinvok
 | type | <code>string</code> | The listener type. |
 | listener | <code>EventListener</code> \| <code>EventListenerObject</code> | The listener callback. |
 | [options] | <code>boolean</code> \| <code>AddEventListenerOptions</code> | The listener options. |
+
+<a name="serialise"></a>
+
+## serialise(...items) ⇒ <code>string</code>
+Encode one or more serialisable items as a query string. This is aimedprimarily, but not exclusively, at form elements.
+
+**Since**: 0.2.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ...items | <code>HTMLFormElement</code> \| <code>Object.&lt;string, any&gt;</code> \| <code>Array.&lt;Array.&lt;string, any&gt;&gt;</code> | The item(s) to encode. |
 
 <a name="createElement"></a>
 

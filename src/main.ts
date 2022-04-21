@@ -10,6 +10,8 @@ export { removeEventListener } from './events/removeEventListener';
 export { addDelegateEventListener } from './events/delegate/addDelegateEventListener';
 export { removeDelegateEventListener } from './events/delegate/removeDelegateEventListener';
 
+export { serialise } from './forms/serialise';
+
 export { createElement } from './manipulation/createElement';
 export { emptyElement } from './manipulation/emptyElement';
 
