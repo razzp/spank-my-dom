@@ -6,7 +6,6 @@ import { addDelegateEventListener } from '../../../src/events/delegate/addDelega
 import type { DelegateEvent } from '../../../src/events/delegate/aliases/DelegateEvent';
 
 let jsdomWindow: DOMWindow;
-let jsdomDocument: Document;
 
 beforeEach(() => {
     const { window } = new JSDOM(
@@ -18,35 +17,25 @@ beforeEach(() => {
     );
 
     jsdomWindow = window;
-    jsdomDocument = jsdomWindow.document;
 
-    // Ensure that required globals are available.
-    global.Element = jsdomWindow.Element;
+    // Ensure that required globals are set.
+    global.document = window.document;
+    global.Element = window.Element;
 });
 
 describe('Adding delegate event listeners', () => {
     test('Adding a listener to a new target adds a new entry to the cache', () => {
-        addDelegateEventListener(
-            jsdomDocument,
-            '.target-1',
-            'click',
-            () => void 0
-        );
+        addDelegateEventListener(document, '.target-1', 'click', () => void 0);
 
-        expect(delegateCache.has(jsdomDocument)).toBe(true);
+        expect(delegateCache.has(document)).toBe(true);
     });
 
     test('Adding a listener to an existing target updates the existing cache entry', () => {
-        delegateCache.set(jsdomDocument, new Set());
+        delegateCache.set(document, new Set());
 
-        addDelegateEventListener(
-            jsdomDocument,
-            '.target-1',
-            'click',
-            () => void 0
-        );
+        addDelegateEventListener(document, '.target-1', 'click', () => void 0);
 
-        const cacheEntry = delegateCache.get(jsdomDocument);
+        const cacheEntry = delegateCache.get(document);
 
         expect(cacheEntry).toBeDefined();
         expect(cacheEntry?.size).toBe(1);
@@ -55,13 +44,13 @@ describe('Adding delegate event listeners', () => {
     test('Attempting to add the same listener again does nothing', () => {
         const noop = () => void 0;
 
-        delegateCache.set(jsdomDocument, new Set());
+        delegateCache.set(document, new Set());
 
         for (let i = 0; i < 2; i++) {
-            addDelegateEventListener(jsdomDocument, '.target-1', 'click', noop);
+            addDelegateEventListener(document, '.target-1', 'click', noop);
         }
 
-        const cacheEntry = delegateCache.get(jsdomDocument);
+        const cacheEntry = delegateCache.get(document);
 
         expect(cacheEntry).toBeDefined();
         expect(cacheEntry?.size).toBe(1);
@@ -71,9 +60,9 @@ describe('Adding delegate event listeners', () => {
 describe('Triggering delegate event listeners', () => {
     test('Single matching descendant of target is found and listener is called with correct target', () => {
         const callback = jest.fn((event: Event) => event.target);
-        const target = jsdomDocument.querySelector('.target-1');
+        const target = document.querySelector('.target-1');
 
-        addDelegateEventListener(jsdomDocument, '.target-1', 'click', callback);
+        addDelegateEventListener(document, '.target-1', 'click', callback);
 
         target?.dispatchEvent(
             new jsdomWindow.MouseEvent('click', { bubbles: true })
@@ -85,10 +74,10 @@ describe('Triggering delegate event listeners', () => {
 
     test('Multiple matching descendants of target are found and listeners are called with correct targets', () => {
         const callback = jest.fn((event: Event) => event.target);
-        const target1 = jsdomDocument.querySelector('.target-1');
-        const target2 = jsdomDocument.querySelector('.target-2');
+        const target1 = document.querySelector('.target-1');
+        const target2 = document.querySelector('.target-2');
 
-        addDelegateEventListener(jsdomDocument, '.target', 'click', callback);
+        addDelegateEventListener(document, '.target', 'click', callback);
 
         target2?.dispatchEvent(
             new jsdomWindow.MouseEvent('click', { bubbles: true })
@@ -101,9 +90,9 @@ describe('Triggering delegate event listeners', () => {
 
     test('Listener object with `handleEvent` prop is called with correct target', () => {
         const callback = jest.fn((event: Event) => event.target);
-        const target = jsdomDocument.querySelector('.target-1');
+        const target = document.querySelector('.target-1');
 
-        addDelegateEventListener(jsdomDocument, '.target-1', 'click', {
+        addDelegateEventListener(document, '.target-1', 'click', {
             handleEvent: callback,
         });
 
@@ -121,9 +110,9 @@ describe('Triggering delegate event listeners', () => {
             return event.target;
         });
 
-        const target = jsdomDocument.querySelector('.target-2');
+        const target = document.querySelector('.target-2');
 
-        addDelegateEventListener(jsdomDocument, '.target', 'click', callback);
+        addDelegateEventListener(document, '.target', 'click', callback);
 
         target?.dispatchEvent(
             new jsdomWindow.MouseEvent('click', { bubbles: true })
@@ -135,24 +124,18 @@ describe('Triggering delegate event listeners', () => {
 
     test('Listener with `once` flag is removed after first invocation', () => {
         const callback = jest.fn((event: Event) => event.target);
-        const target = jsdomDocument.querySelector('.target-1');
+        const target = document.querySelector('.target-1');
 
-        addDelegateEventListener(
-            jsdomDocument,
-            '.target-1',
-            'click',
-            callback,
-            {
-                once: true,
-            }
-        );
+        addDelegateEventListener(document, '.target-1', 'click', callback, {
+            once: true,
+        });
 
         target?.dispatchEvent(
             new jsdomWindow.MouseEvent('click', { bubbles: true })
         );
 
         expect(callback.mock.calls.length).toBe(1);
-        expect(delegateCache.has(jsdomDocument)).toBe(false);
+        expect(delegateCache.has(document)).toBe(false);
 
         callback.mockReset();
 
@@ -166,17 +149,11 @@ describe('Triggering delegate event listeners', () => {
     test('Listener is successfully removed when signal is aborted', () => {
         const callback = jest.fn((event: Event) => event.target);
         const abortController = new AbortController();
-        const target = jsdomDocument.querySelector('.target-1');
+        const target = document.querySelector('.target-1');
 
-        addDelegateEventListener(
-            jsdomDocument,
-            '.target-1',
-            'click',
-            callback,
-            {
-                signal: abortController.signal,
-            }
-        );
+        addDelegateEventListener(document, '.target-1', 'click', callback, {
+            signal: abortController.signal,
+        });
 
         target?.dispatchEvent(
             new jsdomWindow.MouseEvent('click', { bubbles: true })

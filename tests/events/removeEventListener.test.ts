@@ -4,7 +4,6 @@ import { addEventListener } from '../../src/events/addEventListener';
 import { removeEventListener } from '../../src/events/removeEventListener';
 
 let jsdomWindow: DOMWindow;
-let jsdomDocument: Document;
 
 beforeEach(() => {
     const { window } = new JSDOM(
@@ -14,12 +13,14 @@ beforeEach(() => {
     );
 
     jsdomWindow = window;
-    jsdomDocument = jsdomWindow.document;
+
+    // Ensure that required globals are set.
+    global.document = window.document;
 });
 
 test('Event listener is removed successfully', () => {
     const callback = jest.fn((event: Event) => event.target);
-    const target = jsdomDocument.querySelector<HTMLElement>('.target-1');
+    const target = document.querySelector<HTMLElement>('.target-1');
 
     target && addEventListener(target, 'click', callback);
 

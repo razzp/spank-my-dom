@@ -1,20 +1,17 @@
 import { JSDOM } from 'jsdom';
+
 import { querySelectorAll } from '../../src/retrieval/querySelectorAll';
 
-let jsdomDocument: Document;
-
 beforeAll(() => {
-    const { window: jsdomWindow } = new JSDOM(
+    const { window } = new JSDOM(
         `<!DOCTYPE html>
         <div class="target target-1"></div>
         <div class="target target-2"></div>
         `
     );
 
-    jsdomDocument = jsdomWindow.document;
-
-    // Ensure that required globals are available.
-    global.document = jsdomWindow.document;
+    // Ensure that required globals are set.
+    global.document = window.document;
 });
 
 test('Given a valid string, returns all matches', () => {
@@ -24,7 +21,7 @@ test('Given a valid string, returns all matches', () => {
 });
 
 test('Given a valid string and context, returns all matches within the context', () => {
-    const result = querySelectorAll('.target', jsdomDocument);
+    const result = querySelectorAll('.target', document);
 
     expect(result.length).toBe(2);
 });

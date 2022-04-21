@@ -8,7 +8,6 @@ import type { CacheItem } from '../../../../src/events/delegate/interfaces/Cache
 const noop = () => void 0;
 
 let cacheItem: CacheItem;
-let jsdomDocument: Document;
 
 beforeEach(() => {
     const { window } = new JSDOM();
@@ -22,13 +21,14 @@ beforeEach(() => {
         type: 'foo',
     };
 
-    jsdomDocument = window.document;
+    // Ensure that required globals are set.
+    global.document = window.document;
 
-    delegateCache.set(jsdomDocument, new Set([cacheItem]));
+    delegateCache.set(document, new Set([cacheItem]));
 });
 
 test('Searching for an item that exists yields that item', () => {
-    const targetCache = delegateCache.get(jsdomDocument);
+    const targetCache = delegateCache.get(document);
 
     if (!targetCache) {
         throw new Error('Target cache not found');
@@ -41,7 +41,7 @@ test('Searching for an item that exists yields that item', () => {
 });
 
 test("Searching for an item that doesn't exist returns undefined", () => {
-    const targetCache = delegateCache.get(jsdomDocument);
+    const targetCache = delegateCache.get(document);
 
     if (!targetCache) {
         throw new Error('Target cache not found');

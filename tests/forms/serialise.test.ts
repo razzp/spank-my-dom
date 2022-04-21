@@ -1,10 +1,11 @@
 import { JSDOM } from 'jsdom';
+
 import { serialise } from '../../src/forms/serialise';
 
 function makeDOM(html: string): void {
     const { window } = new JSDOM(html);
 
-    // Ensure that required globals are available.
+    // Ensure that required globals are set.
     global.document = window.document;
     global.FormData = window.FormData;
     global.URLSearchParams = window.URLSearchParams;

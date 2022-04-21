@@ -1,11 +1,8 @@
-import { DOMWindow, JSDOM } from 'jsdom';
+import { JSDOM } from 'jsdom';
 
 import { delegateCache } from '../../../src/events/delegate/internal/delegateCache';
 import { addDelegateEventListener } from '../../../src/events/delegate/addDelegateEventListener';
 import { removeDelegateEventListener } from '../../../src/events/delegate/removeDelegateEventListener';
-
-let jsdomWindow: DOMWindow;
-let jsdomDocument: Document;
 
 beforeEach(() => {
     const { window } = new JSDOM(
@@ -16,50 +13,38 @@ beforeEach(() => {
         `
     );
 
-    jsdomWindow = window;
-    jsdomDocument = jsdomWindow.document;
-
-    // Ensure that required globals are available.
-    global.Element = jsdomWindow.Element;
+    // Ensure that required globals are set.
+    global.document = window.document;
+    global.Element = window.Element;
 });
 
 describe('Removing delegate event listeners', () => {
     test('Removing listener updates corresponding cache entry', () => {
         const noop = () => void 0;
 
-        addDelegateEventListener(jsdomDocument, '.target-1', 'click', noop);
+        addDelegateEventListener(document, '.target-1', 'click', noop);
 
-        const cacheEntry = delegateCache.get(jsdomDocument);
+        const cacheEntry = delegateCache.get(document);
 
         expect(cacheEntry).toBeDefined();
         expect(cacheEntry?.size).toBe(1);
 
-        removeDelegateEventListener(jsdomDocument, '.target-1', 'click', noop);
+        removeDelegateEventListener(document, '.target-1', 'click', noop);
 
-        expect(delegateCache.has(jsdomDocument)).toBe(false);
+        expect(delegateCache.has(document)).toBe(false);
     });
 
     test("Trying to remove a listener from a target that doesn't exist in the cache does nothing", () => {
         expect(() =>
-            removeDelegateEventListener(
-                jsdomDocument,
-                '.foo',
-                'click',
-                () => void 0
-            )
+            removeDelegateEventListener(document, '.foo', 'click', () => void 0)
         ).not.toThrow();
     });
 
     test("Trying to remove a listener that doesn't exist in the cache does nothing", () => {
-        delegateCache.set(jsdomDocument, new Set());
+        delegateCache.set(document, new Set());
 
         expect(() =>
-            removeDelegateEventListener(
-                jsdomDocument,
-                '.foo',
-                'click',
-                () => void 0
-            )
+            removeDelegateEventListener(document, '.foo', 'click', () => void 0)
         ).not.toThrow();
     });
 });

@@ -14,17 +14,18 @@ test('Given an iterable, returns an array of corresponding values', () => {
 });
 
 test('Given a `NodeList`, returns an array of corresponding nodes', () => {
-    const { window: jsdomWindow } = new JSDOM(
+    const { window } = new JSDOM(
         `<!DOCTYPE html>
             <div class="target"></div>
             <div class="target"></div>
             `
     );
 
-    // Ensure that required globals are available.
-    global.Element = jsdomWindow.Element;
+    // Ensure that required globals are set.
+    global.document = window.document;
+    global.Element = window.Element;
 
-    const result = arrayFrom(jsdomWindow.document.querySelectorAll('.target'));
+    const result = arrayFrom(document.querySelectorAll('.target'));
 
     expect(result.length).toBe(2);
     expect(result.every((item) => item instanceof Element)).toBe(true);

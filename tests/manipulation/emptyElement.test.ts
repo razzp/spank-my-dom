@@ -1,11 +1,12 @@
 import { JSDOM } from 'jsdom';
+
 import { emptyElement } from '../../src/manipulation/emptyElement';
 
 beforeAll(() => {
-    const { window: jsdomWindow } = new JSDOM();
+    const { window } = new JSDOM();
 
-    // Ensure that required globals are available.
-    global.document = jsdomWindow.document;
+    // Ensure that required globals are set.
+    global.document = window.document;
 });
 
 test('Given an element, remove all of its child nodes', () => {

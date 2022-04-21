@@ -1,9 +1,6 @@
-import { DOMWindow, JSDOM } from 'jsdom';
+import { JSDOM } from 'jsdom';
 
 import { getClassesStartingWith } from '../../src/classes/getClassesStartingWith';
-
-let jsdomWindow: DOMWindow;
-let jsdomDocument: Document;
 
 beforeEach(() => {
     const { window } = new JSDOM(
@@ -12,11 +9,9 @@ beforeEach(() => {
             `
     );
 
-    jsdomWindow = window;
-    jsdomDocument = jsdomWindow.document;
-
-    // Ensure that required globals are available.
-    global.Element = jsdomWindow.Element;
+    // Ensure that required globals are set.
+    global.document = window.document;
+    global.Element = window.Element;
 });
 
 describe('Get classes from string', () => {
@@ -48,7 +43,7 @@ describe('Get classes from string', () => {
 
 describe('Get classes from element', () => {
     test('Case-sensitive search for classes starting with value', () => {
-        const element = jsdomDocument.querySelector('.target');
+        const element = document.querySelector('.target');
 
         if (!element) {
             throw new Error('Element not found');

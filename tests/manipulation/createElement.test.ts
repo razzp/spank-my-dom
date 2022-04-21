@@ -1,12 +1,13 @@
 import { JSDOM } from 'jsdom';
+
 import { createElement } from '../../src/manipulation/createElement';
 
 beforeAll(() => {
-    const { window: jsdomWindow } = new JSDOM();
+    const { window } = new JSDOM();
 
-    // Ensure that required globals are available.
-    global.document = jsdomWindow.document;
-    global.HTMLDivElement = jsdomWindow.HTMLDivElement;
+    // Ensure that required globals are set.
+    global.document = window.document;
+    global.HTMLDivElement = window.HTMLDivElement;
 });
 
 test('Given a tag name, creates and returns an element', () => {

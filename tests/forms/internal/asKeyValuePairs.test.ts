@@ -1,4 +1,5 @@
 import { JSDOM } from 'jsdom';
+
 import { asKeyValuePairs } from '../../../src/forms/internal/asKeyValuePairs';
 
 beforeAll(() => {
@@ -9,7 +10,7 @@ beforeAll(() => {
         </form>
     `);
 
-    // Ensure that required globals are available.
+    // Ensure that required globals are set.
     global.document = window.document;
     global.HTMLFormElement = window.HTMLFormElement;
     global.FormData = window.FormData;

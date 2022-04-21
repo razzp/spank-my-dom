@@ -1,20 +1,17 @@
 import { JSDOM } from 'jsdom';
+
 import { querySelector } from '../../src/retrieval/querySelector';
 
-let jsdomDocument: Document;
-
 beforeAll(() => {
-    const { window: jsdomWindow } = new JSDOM(
+    const { window } = new JSDOM(
         `<!DOCTYPE html>
         <div class="target target-1"></div>
         <div class="target target-2"></div>
         `
     );
 
-    jsdomDocument = jsdomWindow.document;
-
-    // Ensure that required globals are available.
-    global.document = jsdomWindow.document;
+    // Ensure that required globals are set.
+    global.document = window.document;
 });
 
 test('Simple query finds first match successfully', () => {
@@ -25,7 +22,7 @@ test('Simple query finds first match successfully', () => {
 });
 
 test('Query with custom context finds match successfully', () => {
-    const result = querySelector('.target', jsdomDocument);
+    const result = querySelector('.target', document);
 
     expect(result).toBeDefined();
     expect(result?.className.includes('target-1')).toBe(true);
