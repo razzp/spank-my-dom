@@ -1,5 +1,7 @@
 import { emptyElement } from './emptyElement';
 
+import type { Replacement } from './aliases/Replacement';
+
 /**
  * Replace the contents of an element with one or more items.
  * @since 0.2.0
@@ -11,7 +13,7 @@ import { emptyElement } from './emptyElement';
  */
 function replaceContents(
     element: Element,
-    ...replacements: (Node | string)[]
+    ...replacements: Replacement[]
 ): void {
     // Empty the element.
     emptyElement(element);
