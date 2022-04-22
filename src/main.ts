@@ -17,6 +17,7 @@ export { loadImages } from './images/loadImages';
 
 export { createElement } from './manipulation/createElement';
 export { emptyElement } from './manipulation/emptyElement';
+export { replaceContents } from './manipulation/replaceContents';
 
 export { querySelector } from './retrieval/querySelector';
 export { querySelectorAll } from './retrieval/querySelectorAll';

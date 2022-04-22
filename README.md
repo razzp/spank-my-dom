@@ -23,6 +23,7 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 * [loadImages(...paths)](#loadImages) ⇒ <code>Promise.&lt;Array.&lt;HTMLImageElement&gt;&gt;</code>
 * [createElement(tagName, [options])](#createElement) ⇒ <code>Element</code>
 * [emptyElement(element)](#emptyElement) ⇒ <code>void</code>
+* [replaceContents(element, ...replacements)](#replaceContents) ⇒ <code>void</code>
 * [querySelector(selectors, context)](#querySelector) ⇒ <code>null</code> \| <code>Element</code>
 * [querySelectorAll(selectors, context)](#querySelectorAll) ⇒ <code>Array.&lt;Element&gt;</code>
 
@@ -193,6 +194,18 @@ Empty an element.
 | Param | Type | Description |
 | --- | --- | --- |
 | element | <code>Element</code> | The element to empty. |
+
+<a name="replaceContents"></a>
+
+## replaceContents(element, ...replacements) ⇒ <code>void</code>
+Replace the contents of an element with one or more items.
+
+**Since**: 0.2.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| element | <code>Element</code> | The element to replace the contents of. |
+| ...replacements | <code>Array.&lt;Node, string&gt;</code> | The new items to insert into the element. |
 
 <a name="querySelector"></a>
 
