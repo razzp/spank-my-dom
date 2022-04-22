@@ -19,6 +19,8 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 * [removeDelegateEventListener(target, selectors, type, listener, [options])](#removeDelegateEventListener) ⇒ <code>void</code>
 * [addDelegateEventListener(target, selectors, type, listener, [options])](#addDelegateEventListener) ⇒ <code>void</code>
 * [serialise(...items)](#serialise) ⇒ <code>string</code>
+* [loadImage(path)](#loadImage) ⇒ <code>Promise.&lt;HTMLImageElement&gt;</code>
+* [loadImages(...paths)](#loadImages) ⇒ <code>Promise.&lt;Array.&lt;HTMLImageElement&gt;&gt;</code>
 * [createElement(tagName, [options])](#createElement) ⇒ <code>Element</code>
 * [emptyElement(element)](#emptyElement) ⇒ <code>void</code>
 * [querySelector(selectors, context)](#querySelector) ⇒ <code>null</code> \| <code>Element</code>
@@ -142,6 +144,28 @@ Encode one or more serialisable items as a query string. This is aimedprimarily
 | Param | Type | Description |
 | --- | --- | --- |
 | ...items | <code>HTMLFormElement</code> \| <code>Object.&lt;string, any&gt;</code> \| <code>Array.&lt;Array.&lt;string, any&gt;&gt;</code> | The item(s) to encode. |
+
+<a name="loadImage"></a>
+
+## loadImage(path) ⇒ <code>Promise.&lt;HTMLImageElement&gt;</code>
+Load an image asynchronously.
+
+**Since**: 0.2.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| path | <code>string</code> | The image to load. |
+
+<a name="loadImages"></a>
+
+## loadImages(...paths) ⇒ <code>Promise.&lt;Array.&lt;HTMLImageElement&gt;&gt;</code>
+Load one or more images asynchronously.
+
+**Since**: 0.2.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ...paths | <code>Array.&lt;string&gt;</code> | The image(s) to load. |
 
 <a name="createElement"></a>
 

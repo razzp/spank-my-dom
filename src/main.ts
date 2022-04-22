@@ -12,6 +12,9 @@ export { removeDelegateEventListener } from './events/delegate/removeDelegateEve
 
 export { serialise } from './forms/serialise';
 
+export { loadImage } from './images/loadImage';
+export { loadImages } from './images/loadImages';
+
 export { createElement } from './manipulation/createElement';
 export { emptyElement } from './manipulation/emptyElement';
 
