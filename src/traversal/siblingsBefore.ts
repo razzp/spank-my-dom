@@ -7,7 +7,7 @@ import { siblingAccumulator } from './internal/siblingAccumulator';
  * @param {Element} element The element whose siblings will be returned.
  * @param {string} [selector] Optional selector to match siblings against.
  *
- * @returns {T[]}
+ * @returns {Element[]}
  */
 function siblingsBefore<T extends Element>(
     element: Element,

@@ -27,9 +27,9 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 * [querySelector(selectors, context)](#querySelector) ⇒ <code>null</code> \| <code>Element</code>
 * [querySelectorAll(selectors, context)](#querySelectorAll) ⇒ <code>Array.&lt;Element&gt;</code>
 * [closest(element, selector)](#closest) ⇒ <code>null</code> \| <code>Element</code>
-* [siblingsAfter(element, [selector])](#siblingsAfter) ⇒ <code>Array.&lt;T&gt;</code>
-* [siblingsBefore(element, [selector])](#siblingsBefore) ⇒ <code>Array.&lt;T&gt;</code>
-* [siblings(element, [selector])](#siblings) ⇒ <code>Array.&lt;T&gt;</code>
+* [siblingsAfter(element, [selector])](#siblingsAfter) ⇒ <code>Array.&lt;Element&gt;</code>
+* [siblingsBefore(element, [selector])](#siblingsBefore) ⇒ <code>Array.&lt;Element&gt;</code>
+* [siblings(element, [selector])](#siblings) ⇒ <code>Array.&lt;Element&gt;</code>
 
 <a name="arrayFrom"></a>
 
@@ -249,7 +249,7 @@ Returns the first ancestor that matches selector. Not inclusive of element.
 
 <a name="siblingsAfter"></a>
 
-## siblingsAfter(element, [selector]) ⇒ <code>Array.&lt;T&gt;</code>
+## siblingsAfter(element, [selector]) ⇒ <code>Array.&lt;Element&gt;</code>
 Get the following siblings of an element, optionally filtered by a selector.
 
 **Since**: 0.2.0  
@@ -261,7 +261,7 @@ Get the following siblings of an element, optionally filtered by a selector.
 
 <a name="siblingsBefore"></a>
 
-## siblingsBefore(element, [selector]) ⇒ <code>Array.&lt;T&gt;</code>
+## siblingsBefore(element, [selector]) ⇒ <code>Array.&lt;Element&gt;</code>
 Get the preceding siblings of an element, optionally filtered by a selector.
 
 **Since**: 0.2.0  
@@ -273,7 +273,7 @@ Get the preceding siblings of an element, optionally filtered by a selector.
 
 <a name="siblings"></a>
 
-## siblings(element, [selector]) ⇒ <code>Array.&lt;T&gt;</code>
+## siblings(element, [selector]) ⇒ <code>Array.&lt;Element&gt;</code>
 Get the siblings of an element, optionally filtered by a selector.
 
 **Since**: 0.2.0  

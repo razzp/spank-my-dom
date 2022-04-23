@@ -8,7 +8,7 @@ import { siblingsBefore } from './siblingsBefore';
  * @param {Element} element The element whose siblings will be returned.
  * @param {string} [selector] Optional selector to match siblings against.
  *
- * @returns {T[]}
+ * @returns {Element[]}
  */
 function siblings<T extends Element>(element: Element, selector?: string): T[] {
     return [
