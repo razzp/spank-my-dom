@@ -26,6 +26,9 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 * [replaceContents(element, ...replacements)](#replaceContents) ⇒ <code>void</code>
 * [querySelector(selectors, context)](#querySelector) ⇒ <code>null</code> \| <code>Element</code>
 * [querySelectorAll(selectors, context)](#querySelectorAll) ⇒ <code>Array.&lt;Element&gt;</code>
+* [siblingsAfter(element, [selector])](#siblingsAfter) ⇒ <code>Array.&lt;T&gt;</code>
+* [siblingsBefore(element, [selector])](#siblingsBefore) ⇒ <code>Array.&lt;T&gt;</code>
+* [siblings(element, [selector])](#siblings) ⇒ <code>Array.&lt;T&gt;</code>
 
 <a name="arrayFrom"></a>
 
@@ -230,4 +233,40 @@ Returns all descendant elements within context that match the given selectors.
 | --- | --- | --- |
 | selectors | <code>string</code> | The selectors to match against. |
 | context | <code>Document</code> \| <code>DocumentFragment</code> \| <code>Element</code> | The context from which to search from. |
+
+<a name="siblingsAfter"></a>
+
+## siblingsAfter(element, [selector]) ⇒ <code>Array.&lt;T&gt;</code>
+Get the following siblings of an element, optionally filtered by a selector.
+
+**Since**: 0.2.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| element | <code>Element</code> | The element whose siblings will be returned. |
+| [selector] | <code>string</code> | Optional selector to match siblings against. |
+
+<a name="siblingsBefore"></a>
+
+## siblingsBefore(element, [selector]) ⇒ <code>Array.&lt;T&gt;</code>
+Get the preceding siblings of an element, optionally filtered by a selector.
+
+**Since**: 0.2.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| element | <code>Element</code> | The element whose siblings will be returned. |
+| [selector] | <code>string</code> | Optional selector to match siblings against. |
+
+<a name="siblings"></a>
+
+## siblings(element, [selector]) ⇒ <code>Array.&lt;T&gt;</code>
+Get the siblings of an element, optionally filtered by a selector.
+
+**Since**: 0.2.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| element | <code>Element</code> | The element whose siblings will be returned. |
+| [selector] | <code>string</code> | Optional selector to match siblings against. |
 
