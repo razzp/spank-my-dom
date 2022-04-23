@@ -7,7 +7,7 @@ import type { Replacement } from './aliases/Replacement';
  * @since 0.2.0
  *
  * @param {Element} element The element to replace the contents of.
- * @param {Array.<Node,string>} replacements The new items to insert into the element.
+ * @param {Array.<Node, string>} replacements The new items to insert into the element.
  *
  * @returns {void}
  */

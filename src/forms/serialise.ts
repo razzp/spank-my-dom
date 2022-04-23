@@ -7,7 +7,7 @@ import type { Serialisable } from './aliases/Serialisable';
  * primarily, but not exclusively, at form elements.
  * @since 0.2.0
  *
- * @param {HTMLFormElement|Object.<string,any>|Array.<Array.<string,any>>} items The item(s) to encode.
+ * @param {HTMLFormElement|Object.<string, any>|Array.<Array.<string, any>>} items The item(s) to encode.
  *
  * @returns {string}
  */
