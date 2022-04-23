@@ -22,6 +22,7 @@ export { replaceContents } from './manipulation/replaceContents';
 export { querySelector } from './retrieval/querySelector';
 export { querySelectorAll } from './retrieval/querySelectorAll';
 
+export { closest } from './traversal/closest';
 export { siblings } from './traversal/siblings';
 export { siblingsAfter } from './traversal/siblingsAfter';
 export { siblingsBefore } from './traversal/siblingsBefore';

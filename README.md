@@ -26,6 +26,7 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 * [replaceContents(element, ...replacements)](#replaceContents) ⇒ <code>void</code>
 * [querySelector(selectors, context)](#querySelector) ⇒ <code>null</code> \| <code>Element</code>
 * [querySelectorAll(selectors, context)](#querySelectorAll) ⇒ <code>Array.&lt;Element&gt;</code>
+* [closest(element, selector)](#closest) ⇒ <code>null</code> \| <code>Element</code>
 * [siblingsAfter(element, [selector])](#siblingsAfter) ⇒ <code>Array.&lt;T&gt;</code>
 * [siblingsBefore(element, [selector])](#siblingsBefore) ⇒ <code>Array.&lt;T&gt;</code>
 * [siblings(element, [selector])](#siblings) ⇒ <code>Array.&lt;T&gt;</code>
@@ -233,6 +234,18 @@ Returns all descendant elements within context that match the given selectors.
 | --- | --- | --- |
 | selectors | <code>string</code> | The selectors to match against. |
 | context | <code>Document</code> \| <code>DocumentFragment</code> \| <code>Element</code> | The context from which to search from. |
+
+<a name="closest"></a>
+
+## closest(element, selector) ⇒ <code>null</code> \| <code>Element</code>
+Returns the first ancestor that matches selector. Not inclusive of element.
+
+**Since**: 0.2.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| element | <code>Element</code> | The element from which to search. |
+| selector | <code>string</code> | Selector to match ancestors against. |
 
 <a name="siblingsAfter"></a>
 
