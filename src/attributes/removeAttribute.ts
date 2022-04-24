@@ -7,7 +7,7 @@ import { toggleAttribute } from './toggleAttribute';
  * @param {Element} element The element to remove the attribute from.
  * @param {string} name The name of the attribute.
  *
- * @returns {boolean}
+ * @returns {void}
  */
 function removeAttribute(element: Element, name: string): void {
     toggleAttribute(element, name, '', false);

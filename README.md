@@ -12,10 +12,10 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 
 * [arrayFrom(iterable)](#arrayFrom) ⇒ <code>Array.&lt;T&gt;</code>
 * [toggleAttribute(element, name, value, [force])](#toggleAttribute) ⇒ <code>boolean</code>
-* [addAttribute(element, name, value)](#addAttribute) ⇒ <code>boolean</code>
+* [addAttribute(element, name, value)](#addAttribute) ⇒ <code>void</code>
 * [getAttribute(element, name, [type])](#getAttribute) ⇒ <code>null</code> \| <code>string</code> \| <code>T</code>
 * [hasAttribute(element, name)](#hasAttribute) ⇒ <code>boolean</code>
-* [removeAttribute(element, name)](#removeAttribute) ⇒ <code>boolean</code>
+* [removeAttribute(element, name)](#removeAttribute) ⇒ <code>void</code>
 * [getClassesEndingWith(search, context, [ignoreCase])](#getClassesEndingWith) ⇒ <code>Array.&lt;string&gt;</code>
 * [getClassesContaining(search, context, [ignoreCase])](#getClassesContaining) ⇒ <code>Array.&lt;string&gt;</code>
 * [getClassesStartingWith(search, context, [ignoreCase])](#getClassesStartingWith) ⇒ <code>Array.&lt;string&gt;</code>
@@ -63,7 +63,7 @@ Toggle the attribute of an element. If force is included, turns the toggleinto 
 
 <a name="addAttribute"></a>
 
-## addAttribute(element, name, value) ⇒ <code>boolean</code>
+## addAttribute(element, name, value) ⇒ <code>void</code>
 Add an attribute to an element.
 
 **Since**: 0.2.0  
@@ -101,7 +101,7 @@ Check if an attribute exists on an element.
 
 <a name="removeAttribute"></a>
 
-## removeAttribute(element, name) ⇒ <code>boolean</code>
+## removeAttribute(element, name) ⇒ <code>void</code>
 Remove an attribute from an element.
 
 **Since**: 0.2.0  

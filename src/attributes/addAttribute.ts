@@ -10,7 +10,7 @@ import type { AttributeType } from './aliases/AttributeType';
  * @param {string} name The name of the attribute.
  * @param {string|number|boolean} value The value of the attribute.
  *
- * @returns {boolean}
+ * @returns {void}
  */
 function addAttribute(
     element: Element,
