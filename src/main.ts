@@ -1,9 +1,9 @@
 export { arrayFrom } from './array/arrayFrom';
 
-export { addAttribute } from './attributes/addAttribute'; // (!)
+export { addAttribute } from './attributes/addAttribute';
 export { getAttribute } from './attributes/getAttribute';
-export { hasAttribute } from './attributes/hasAttribute'; // (!)
-export { removeAttribute } from './attributes/removeAttribute'; // (!)
+export { hasAttribute } from './attributes/hasAttribute';
+export { removeAttribute } from './attributes/removeAttribute';
 export { toggleAttribute } from './attributes/toggleAttribute';
 
 export { addClass } from './classes/addClass';
