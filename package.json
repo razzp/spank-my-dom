@@ -1,7 +1,7 @@
 {
   "name": "spank-my-dom",
   "author": "Robert Wells",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A tiny, modular set of DOM utilities, written in TypeScript.",
   "keywords": [
     "html",
