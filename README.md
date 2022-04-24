@@ -252,8 +252,7 @@ Creates an instance of the element for the specified tag, allowing you todefine
 | --- | --- | --- |
 | tagName | <code>string</code> | The type of element to be created. |
 | [options] | <code>Object</code> | Additional options. |
-| [options.attributes] | <code>Object.&lt;string, string&gt;</code> | Attributes to be added to the element. |
-| [options.classes] | <code>Array.&lt;string&gt;</code> | Classes to be added to the element. |
+| [options.attributes] | <code>Object.&lt;string, (string\|number\|boolean)&gt;</code> | Attributes to be added to the element. |
 | [options.children] | <code>Array.&lt;Element&gt;</code> | Child elements to append to the element. |
 | [options.innerHTML] | <code>string</code> | Set the HTML of the element. |
 

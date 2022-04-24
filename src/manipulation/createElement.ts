@@ -8,7 +8,6 @@ import type { CreateElementOptions } from './interfaces/CreateElementOptions';
  * @param {string} tagName The type of element to be created.
  * @param {Object} [options] Additional options.
  * @param {Object.<string, string|number|boolean>} [options.attributes] Attributes to be added to the element.
- * @param {string[]} [options.classes] Classes to be added to the element.
  * @param {Element[]} [options.children] Child elements to append to the element.
  * @param {string} [options.innerHTML] Set the HTML of the element.
  *
@@ -26,11 +25,6 @@ function createElement<T extends keyof HTMLElementTagNameMap>(
 
     // Ensure we have an attributes object.
     const attributes = options.attributes ?? {};
-
-    if (options.classes) {
-        // Concatenate classes and add to the attributes object.
-        attributes.class = options.classes.join(' ');
-    }
 
     if (options.innerHTML) {
         // Append any content to the element.

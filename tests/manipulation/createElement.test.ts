@@ -26,14 +26,6 @@ test('Given an `attributes` object, returns an element with corresponding attrib
     expect(element.className).toBe('foo bar');
 });
 
-test('Given a `classes` array, returns an element with corresponding classes', () => {
-    const element = createElement('div', {
-        classes: ['foo', 'bar'],
-    });
-
-    expect(element.className).toBe('foo bar');
-});
-
 test('Given a `children` array, returns an element with corresponding children', () => {
     const childElement = document.createElement('div');
 
@@ -65,13 +57,12 @@ test('Given multiple properties, returns a corresponding element', () => {
             class: 'foo',
             id: 'bar',
         },
-        classes: ['baz'],
         children: [childElement],
         innerHTML: innerHtml,
     });
 
     // `classes` should have overwritten `attributes.class`.
-    expect(element.className).toBe('baz');
+    expect(element.className).toBe('foo');
 
     expect(element.hasAttribute('id')).toBe(true);
     expect(element.childElementCount).toBe(2);
