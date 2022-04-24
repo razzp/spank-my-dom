@@ -11,6 +11,11 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 ## Functions
 
 * [arrayFrom(iterable)](#arrayFrom) ⇒ <code>Array.&lt;T&gt;</code>
+* [toggleAttribute(element, name, value, [force])](#toggleAttribute) ⇒ <code>boolean</code>
+* [addAttribute(element, name, value)](#addAttribute) ⇒ <code>boolean</code>
+* [getAttribute(element, name, [type])](#getAttribute) ⇒ <code>null</code> \| <code>string</code> \| <code>T</code>
+* [hasAttribute(element, name)](#hasAttribute) ⇒ <code>boolean</code>
+* [removeAttribute(element, name)](#removeAttribute) ⇒ <code>boolean</code>
 * [getClassesEndingWith(search, context, [ignoreCase])](#getClassesEndingWith) ⇒ <code>Array.&lt;string&gt;</code>
 * [getClassesContaining(search, context, [ignoreCase])](#getClassesContaining) ⇒ <code>Array.&lt;string&gt;</code>
 * [getClassesStartingWith(search, context, [ignoreCase])](#getClassesStartingWith) ⇒ <code>Array.&lt;string&gt;</code>
@@ -41,6 +46,70 @@ Creates an array from an iterable object.
 | Param | Type | Description |
 | --- | --- | --- |
 | iterable | <code>Iterable.&lt;T&gt;</code> \| <code>ArrayLike.&lt;T&gt;</code> | The iterable object to convert to an array. |
+
+<a name="toggleAttribute"></a>
+
+## toggleAttribute(element, name, value, [force]) ⇒ <code>boolean</code>
+Toggle the attribute of an element. If force is included, turns the toggleinto a one way-only operation. If set to false, the attribute will only beremoved. If set to true, the attribute will only be added.
+
+**Since**: 0.2.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| element | <code>Element</code> | The element to toggle the attribute on. |
+| name | <code>string</code> | The name of the attribute. |
+| value | <code>string</code> \| <code>number</code> \| <code>boolean</code> | The value of the attribute. |
+| [force] | <code>boolean</code> | Restrict toggle to a one-way operation only. |
+
+<a name="addAttribute"></a>
+
+## addAttribute(element, name, value) ⇒ <code>boolean</code>
+Add an attribute to an element.
+
+**Since**: 0.2.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| element | <code>Element</code> | The element to add the attribute to. |
+| name | <code>string</code> | The name of the attribute. |
+| value | <code>string</code> \| <code>number</code> \| <code>boolean</code> | The value of the attribute. |
+
+<a name="getAttribute"></a>
+
+## getAttribute(element, name, [type]) ⇒ <code>null</code> \| <code>string</code> \| <code>T</code>
+Get the attribute from an element, optionally converting it to another type.If the attribute doesn't exist then null is returned instead.
+
+**Since**: 0.2.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| element | <code>Element</code> | The element to retrieve the attribute from. |
+| name | <code>string</code> | The name of the attribute. |
+| [type] | <code>boolean</code> \| <code>number</code> | The type to convert the value to. |
+
+<a name="hasAttribute"></a>
+
+## hasAttribute(element, name) ⇒ <code>boolean</code>
+Check if an attribute exists on an element.
+
+**Since**: 0.2.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| element | <code>Element</code> | The element to check. |
+| name | <code>string</code> | The name of the attribute. |
+
+<a name="removeAttribute"></a>
+
+## removeAttribute(element, name) ⇒ <code>boolean</code>
+Remove an attribute from an element.
+
+**Since**: 0.2.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| element | <code>Element</code> | The element to remove the attribute from. |
+| name | <code>string</code> | The name of the attribute. |
 
 <a name="getClassesEndingWith"></a>
 

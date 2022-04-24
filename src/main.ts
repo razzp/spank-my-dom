@@ -1,5 +1,11 @@
 export { arrayFrom } from './array/arrayFrom';
 
+export { addAttribute } from './attributes/addAttribute'; // (!)
+export { getAttribute } from './attributes/getAttribute';
+export { hasAttribute } from './attributes/hasAttribute'; // (!)
+export { removeAttribute } from './attributes/removeAttribute'; // (!)
+export { toggleAttribute } from './attributes/toggleAttribute';
+
 export { getClassesEndingWith } from './classes/getClassesEndingWith';
 export { getClassesContaining } from './classes/getClassesContaining';
 export { getClassesStartingWith } from './classes/getClassesStartingWith';
