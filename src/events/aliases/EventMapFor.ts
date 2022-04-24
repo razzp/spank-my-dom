@@ -8,6 +8,6 @@ type EventMapFor<T extends EventTarget> = T extends Window
     ? ElementEventMap
     : T extends SVGElement
     ? SVGElementEventMap
-    : never;
+    : Record<string, Event>;
 
 export { EventMapFor };

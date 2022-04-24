@@ -21,10 +21,10 @@ import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOr
  */
 function removeDelegateEventListener<
     TTarget extends EventTarget,
-    TEventMap extends EventMapFor<TTarget>,
-    TEventType extends keyof TEventMap
+    TEventType extends keyof TEventMap,
+    TEventMap extends EventMapFor<TTarget> = EventMapFor<TTarget>
 >(
-    target: TTarget,
+    target: EventTarget,
     selectors: string,
     type: TEventType,
     listener: DelegateListenerOrListenerObjFor<TTarget, TEventMap, TEventType>,
