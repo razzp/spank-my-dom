@@ -16,6 +16,9 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 * [getAttribute(element, name, [type])](#getAttribute) ⇒ <code>null</code> \| <code>string</code> \| <code>T</code>
 * [hasAttribute(element, name)](#hasAttribute) ⇒ <code>boolean</code>
 * [removeAttribute(element, name)](#removeAttribute) ⇒ <code>void</code>
+* [toggleClass(element, tokens, [force])](#toggleClass) ⇒ <code>boolean</code>
+* [addClass(element, tokens)](#addClass) ⇒ <code>void</code>
+* [removeClass(element, tokens)](#removeClass) ⇒ <code>void</code>
 * [getClassesEndingWith(search, context, [ignoreCase])](#getClassesEndingWith) ⇒ <code>Array.&lt;string&gt;</code>
 * [getClassesContaining(search, context, [ignoreCase])](#getClassesContaining) ⇒ <code>Array.&lt;string&gt;</code>
 * [getClassesStartingWith(search, context, [ignoreCase])](#getClassesStartingWith) ⇒ <code>Array.&lt;string&gt;</code>
@@ -110,6 +113,43 @@ Remove an attribute from an element.
 | --- | --- | --- |
 | element | <code>Element</code> | The element to remove the attribute from. |
 | name | <code>string</code> | The name of the attribute. |
+
+<a name="toggleClass"></a>
+
+## toggleClass(element, tokens, [force]) ⇒ <code>boolean</code>
+Toggle one or more classes of an element. If force is included, turns thetoggle into a one way-only operation. If set to false, the classes will onlybe removed. If set to true, the classes will only be added.
+
+**Since**: 0.2.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| element | <code>Element</code> | The element to toggle the class(es) on. |
+| tokens | <code>string</code> | The class(es) to toggle. |
+| [force] | <code>boolean</code> | Restrict toggle to a one-way operation only. |
+
+<a name="addClass"></a>
+
+## addClass(element, tokens) ⇒ <code>void</code>
+Add one or more classes to an element.
+
+**Since**: 0.2.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| element | <code>Element</code> | The element to add the class(es) to. |
+| tokens | <code>string</code> | The class(es) to add. |
+
+<a name="removeClass"></a>
+
+## removeClass(element, tokens) ⇒ <code>void</code>
+Remove one or more classes from an element.
+
+**Since**: 0.2.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| element | <code>Element</code> | The element to remove the class(es) from. |
+| tokens | <code>string</code> | The class(es) to remove. |
 
 <a name="getClassesEndingWith"></a>
 

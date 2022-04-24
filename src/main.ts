@@ -6,6 +6,10 @@ export { hasAttribute } from './attributes/hasAttribute'; // (!)
 export { removeAttribute } from './attributes/removeAttribute'; // (!)
 export { toggleAttribute } from './attributes/toggleAttribute';
 
+export { addClass } from './classes/addClass';
+export { removeClass } from './classes/removeClass';
+export { toggleClass } from './classes/toggleClass';
+
 export { getClassesEndingWith } from './classes/getClassesEndingWith';
 export { getClassesContaining } from './classes/getClassesContaining';
 export { getClassesStartingWith } from './classes/getClassesStartingWith';
