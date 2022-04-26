@@ -65,9 +65,7 @@ describe('Triggering delegate event listeners', () => {
 
         addDelegateEventListener(document, '.target-1', 'click', callback);
 
-        target.dispatchEvent(
-            new MouseEvent('click', { bubbles: true })
-        );
+        target.dispatchEvent(new MouseEvent('click', { bubbles: true }));
 
         expect(callback.mock.calls.length).toBe(1);
         expect(callback.mock.results[0].value).toBe(target);
@@ -84,9 +82,7 @@ describe('Triggering delegate event listeners', () => {
 
         addDelegateEventListener(document, '.target', 'click', callback);
 
-        target2.dispatchEvent(
-            new MouseEvent('click', { bubbles: true })
-        );
+        target2.dispatchEvent(new MouseEvent('click', { bubbles: true }));
 
         expect(callback.mock.calls.length).toBe(2);
         expect(callback.mock.results[0].value).toBe(target2);
@@ -105,9 +101,7 @@ describe('Triggering delegate event listeners', () => {
             handleEvent: callback,
         });
 
-        target.dispatchEvent(
-            new MouseEvent('click', { bubbles: true })
-        );
+        target.dispatchEvent(new MouseEvent('click', { bubbles: true }));
 
         expect(callback.mock.calls.length).toBe(1);
         expect(callback.mock.results[0].value).toBe(target);
@@ -127,9 +121,7 @@ describe('Triggering delegate event listeners', () => {
 
         addDelegateEventListener(document, '.target', 'click', callback);
 
-        target.dispatchEvent(
-            new MouseEvent('click', { bubbles: true })
-        );
+        target.dispatchEvent(new MouseEvent('click', { bubbles: true }));
 
         expect(callback.mock.calls.length).toBe(1);
         expect(callback.mock.results[0].value).toBe(target);
@@ -147,18 +139,14 @@ describe('Triggering delegate event listeners', () => {
             once: true,
         });
 
-        target.dispatchEvent(
-            new MouseEvent('click', { bubbles: true })
-        );
+        target.dispatchEvent(new MouseEvent('click', { bubbles: true }));
 
         expect(callback.mock.calls.length).toBe(1);
         expect(delegateCache.has(document)).toBe(false);
 
         callback.mockReset();
 
-        target.dispatchEvent(
-            new MouseEvent('click', { bubbles: true })
-        );
+        target.dispatchEvent(new MouseEvent('click', { bubbles: true }));
 
         expect(callback.mock.calls.length).toBe(0);
     });
@@ -176,9 +164,7 @@ describe('Triggering delegate event listeners', () => {
             signal: abortController.signal,
         });
 
-        target.dispatchEvent(
-            new MouseEvent('click', { bubbles: true })
-        );
+        target.dispatchEvent(new MouseEvent('click', { bubbles: true }));
 
         expect(callback.mock.calls.length).toBe(1);
 
@@ -186,9 +172,7 @@ describe('Triggering delegate event listeners', () => {
 
         callback.mockReset();
 
-        target.dispatchEvent(
-            new MouseEvent('click', { bubbles: true })
-        );
+        target.dispatchEvent(new MouseEvent('click', { bubbles: true }));
 
         expect(callback.mock.calls.length).toBe(0);
     });
