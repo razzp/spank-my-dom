@@ -1,7 +1,7 @@
 import { JSDOM } from 'jsdom';
 
 import { loadImages } from '../../src/images/loadImages';
-import { MockImage, MockImageFails, MockImageSucceeds } from './loadImage.test';
+import { MockImage, MockImageFails, MockImageSucceeds } from './MockImage';
 
 beforeAll(() => {
     const { window } = new JSDOM();

@@ -1,34 +1,7 @@
 import { JSDOM } from 'jsdom';
 
 import { loadImage } from '../../src/images/loadImage';
-
-export abstract class MockImage {
-    public src?: string;
-
-    constructor(private readonly succeed: boolean) {}
-
-    public decode(): Promise<void> {
-        return new Promise((resolve, reject) => {
-            if (this.succeed) {
-                resolve();
-            } else {
-                reject(new DOMException());
-            }
-        });
-    }
-}
-
-export class MockImageSucceeds extends MockImage {
-    constructor() {
-        super(true);
-    }
-}
-
-export class MockImageFails extends MockImage {
-    constructor() {
-        super(false);
-    }
-}
+import { MockImage, MockImageFails, MockImageSucceeds } from './MockImage';
 
 beforeAll(() => {
     const { window } = new JSDOM();
