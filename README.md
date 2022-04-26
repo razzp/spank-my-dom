@@ -26,6 +26,7 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 * [removeEventListener(target, type, listener, [options])](#removeEventListener) ⇒ <code>void</code>
 * [removeDelegateEventListener(target, selectors, type, listener, [options])](#removeDelegateEventListener) ⇒ <code>void</code>
 * [addDelegateEventListener(target, selectors, type, listener, [options])](#addDelegateEventListener) ⇒ <code>void</code>
+* [dispatchNewEvent(target, type, [options])](#dispatchNewEvent) ⇒ <code>boolean</code>
 * [serialise(...items)](#serialise) ⇒ <code>string</code>
 * [loadImage(path)](#loadImage) ⇒ <code>Promise.&lt;HTMLImageElement&gt;</code>
 * [loadImages(...paths)](#loadImages) ⇒ <code>Promise.&lt;Array.&lt;HTMLImageElement&gt;&gt;</code>
@@ -247,6 +248,20 @@ Add a delegate event listener to the target. The callback argument will beinvok
 | type | <code>string</code> | The listener type. |
 | listener | <code>EventListener</code> \| <code>EventListenerObject</code> | The listener callback. |
 | [options] | <code>boolean</code> \| <code>AddEventListenerOptions</code> | The listener options. |
+
+<a name="dispatchNewEvent"></a>
+
+## dispatchNewEvent(target, type, [options]) ⇒ <code>boolean</code>
+Dispatch a synthetic event to a target.
+
+**Returns**: <code>boolean</code> - `false` if `event` is cancelable, and at least one of the eventhandlers which received `event` called `preventDefault()`. Otherwise `true`.  
+**Since**: 0.3.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| target | <code>EventTarget</code> | The target to dispatch the event to. |
+| type | <code>string</code> | The name of the event. |
+| [options] | <code>CustomEventInit</code> \| <code>EventInit</code> | Additional event properties. |
 
 <a name="serialise"></a>
 

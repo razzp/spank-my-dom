@@ -20,6 +20,8 @@ export { removeEventListener } from './events/removeEventListener';
 export { addDelegateEventListener } from './events/delegate/addDelegateEventListener';
 export { removeDelegateEventListener } from './events/delegate/removeDelegateEventListener';
 
+export { dispatchNewEvent } from './events/dispatchNewEvent';
+
 export { serialise } from './forms/serialise';
 
 export { loadImage } from './images/loadImage';
