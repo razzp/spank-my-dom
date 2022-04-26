@@ -1,8 +1,6 @@
-import { DOMWindow, JSDOM } from 'jsdom';
+import { JSDOM } from 'jsdom';
 
 import { addEventListener } from '../../src/events/addEventListener';
-
-let jsdomWindow: DOMWindow;
 
 beforeEach(() => {
     const { window } = new JSDOM(
@@ -11,19 +9,22 @@ beforeEach(() => {
         `
     );
 
-    jsdomWindow = window;
-
     // Ensure that required globals are set.
     global.document = window.document;
+    global.MouseEvent = window.MouseEvent;
 });
 
 test('Event listener is added and invoked as expected', () => {
     const callback = jest.fn((event: Event) => event.target);
     const target = document.querySelector<HTMLElement>('.target-1');
 
-    target && addEventListener(target, 'click', callback);
+    if (!target) {
+        throw new Error('Element not found');
+    }
 
-    target?.dispatchEvent(new jsdomWindow.MouseEvent('click'));
+    addEventListener(target, 'click', callback);
+
+    target.dispatchEvent(new MouseEvent('click'));
 
     expect(callback.mock.calls.length).toBe(1);
 });

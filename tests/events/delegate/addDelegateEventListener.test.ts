@@ -1,11 +1,9 @@
-import { DOMWindow, JSDOM } from 'jsdom';
+import { JSDOM } from 'jsdom';
 
 import { delegateCache } from '../../../src/events/delegate/internal/delegateCache';
 import { addDelegateEventListener } from '../../../src/events/delegate/addDelegateEventListener';
 
 import type { DelegateEvent } from '../../../src/events/delegate/aliases/DelegateEvent';
-
-let jsdomWindow: DOMWindow;
 
 beforeEach(() => {
     const { window } = new JSDOM(
@@ -16,11 +14,10 @@ beforeEach(() => {
         `
     );
 
-    jsdomWindow = window;
-
     // Ensure that required globals are set.
     global.document = window.document;
     global.Element = window.Element;
+    global.MouseEvent = window.MouseEvent;
 });
 
 describe('Adding delegate event listeners', () => {
@@ -62,10 +59,14 @@ describe('Triggering delegate event listeners', () => {
         const callback = jest.fn((event: Event) => event.target);
         const target = document.querySelector('.target-1');
 
+        if (!target) {
+            throw new Error('Element not found');
+        }
+
         addDelegateEventListener(document, '.target-1', 'click', callback);
 
-        target?.dispatchEvent(
-            new jsdomWindow.MouseEvent('click', { bubbles: true })
+        target.dispatchEvent(
+            new MouseEvent('click', { bubbles: true })
         );
 
         expect(callback.mock.calls.length).toBe(1);
@@ -77,10 +78,14 @@ describe('Triggering delegate event listeners', () => {
         const target1 = document.querySelector('.target-1');
         const target2 = document.querySelector('.target-2');
 
+        if (!target1 || !target2) {
+            throw new Error('Element not found');
+        }
+
         addDelegateEventListener(document, '.target', 'click', callback);
 
-        target2?.dispatchEvent(
-            new jsdomWindow.MouseEvent('click', { bubbles: true })
+        target2.dispatchEvent(
+            new MouseEvent('click', { bubbles: true })
         );
 
         expect(callback.mock.calls.length).toBe(2);
@@ -92,12 +97,16 @@ describe('Triggering delegate event listeners', () => {
         const callback = jest.fn((event: Event) => event.target);
         const target = document.querySelector('.target-1');
 
+        if (!target) {
+            throw new Error('Element not found');
+        }
+
         addDelegateEventListener(document, '.target-1', 'click', {
             handleEvent: callback,
         });
 
-        target?.dispatchEvent(
-            new jsdomWindow.MouseEvent('click', { bubbles: true })
+        target.dispatchEvent(
+            new MouseEvent('click', { bubbles: true })
         );
 
         expect(callback.mock.calls.length).toBe(1);
@@ -112,10 +121,14 @@ describe('Triggering delegate event listeners', () => {
 
         const target = document.querySelector('.target-2');
 
+        if (!target) {
+            throw new Error('Element not found');
+        }
+
         addDelegateEventListener(document, '.target', 'click', callback);
 
-        target?.dispatchEvent(
-            new jsdomWindow.MouseEvent('click', { bubbles: true })
+        target.dispatchEvent(
+            new MouseEvent('click', { bubbles: true })
         );
 
         expect(callback.mock.calls.length).toBe(1);
@@ -126,12 +139,16 @@ describe('Triggering delegate event listeners', () => {
         const callback = jest.fn((event: Event) => event.target);
         const target = document.querySelector('.target-1');
 
+        if (!target) {
+            throw new Error('Element not found');
+        }
+
         addDelegateEventListener(document, '.target-1', 'click', callback, {
             once: true,
         });
 
-        target?.dispatchEvent(
-            new jsdomWindow.MouseEvent('click', { bubbles: true })
+        target.dispatchEvent(
+            new MouseEvent('click', { bubbles: true })
         );
 
         expect(callback.mock.calls.length).toBe(1);
@@ -139,8 +156,8 @@ describe('Triggering delegate event listeners', () => {
 
         callback.mockReset();
 
-        target?.dispatchEvent(
-            new jsdomWindow.MouseEvent('click', { bubbles: true })
+        target.dispatchEvent(
+            new MouseEvent('click', { bubbles: true })
         );
 
         expect(callback.mock.calls.length).toBe(0);
@@ -151,12 +168,16 @@ describe('Triggering delegate event listeners', () => {
         const abortController = new AbortController();
         const target = document.querySelector('.target-1');
 
+        if (!target) {
+            throw new Error('Element not found');
+        }
+
         addDelegateEventListener(document, '.target-1', 'click', callback, {
             signal: abortController.signal,
         });
 
-        target?.dispatchEvent(
-            new jsdomWindow.MouseEvent('click', { bubbles: true })
+        target.dispatchEvent(
+            new MouseEvent('click', { bubbles: true })
         );
 
         expect(callback.mock.calls.length).toBe(1);
@@ -165,8 +186,8 @@ describe('Triggering delegate event listeners', () => {
 
         callback.mockReset();
 
-        target?.dispatchEvent(
-            new jsdomWindow.MouseEvent('click', { bubbles: true })
+        target.dispatchEvent(
+            new MouseEvent('click', { bubbles: true })
         );
 
         expect(callback.mock.calls.length).toBe(0);
