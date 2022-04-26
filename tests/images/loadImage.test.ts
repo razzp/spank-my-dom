@@ -1,34 +1,41 @@
+import { JSDOM } from 'jsdom';
+
 import { loadImage } from '../../src/images/loadImage';
 
 export abstract class MockImage {
-    private __src = '';
+    public src?: string;
 
-    public onerror?: () => void;
-    public onload?: () => void;
+    constructor(private readonly succeed: boolean) {}
 
-    public abstract callback(): void;
-
-    public get src(): string {
-        return this.__src;
-    }
-
-    public set src(value: string) {
-        this.__src = value;
-        globalThis.setTimeout(() => this.callback(), 100);
+    public decode(): Promise<void> {
+        return new Promise((resolve, reject) => {
+            if (this.succeed) {
+                resolve();
+            } else {
+                reject(new DOMException());
+            }
+        });
     }
 }
 
 export class MockImageSucceeds extends MockImage {
-    public override callback(): void {
-        this.onload?.();
+    constructor() {
+        super(true);
     }
 }
 
 export class MockImageFails extends MockImage {
-    public override callback(): void {
-        this.onerror?.();
+    constructor() {
+        super(false);
     }
 }
+
+beforeAll(() => {
+    const { window } = new JSDOM();
+
+    // Ensure that required globals are set.
+    global.DOMException = window.DOMException;
+});
 
 test('Successful load resolves with image', async () => {
     (global.Image as any) = MockImageSucceeds;
@@ -53,6 +60,6 @@ test('Unsuccessful load rejects', async () => {
     try {
         await loadImage('');
     } catch (error) {
-        expect(error).toBeUndefined();
+        expect(error).toBeInstanceOf(DOMException);
     }
 });

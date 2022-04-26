@@ -1,5 +1,14 @@
+import { JSDOM } from 'jsdom';
+
 import { loadImages } from '../../src/images/loadImages';
 import { MockImage, MockImageFails, MockImageSucceeds } from './loadImage.test';
+
+beforeAll(() => {
+    const { window } = new JSDOM();
+
+    // Ensure that required globals are set.
+    global.DOMException = window.DOMException;
+});
 
 test('Successful load resolves with images', async () => {
     (global.Image as any) = MockImageSucceeds;
@@ -24,6 +33,6 @@ test('Unsuccessful load rejects', async () => {
     try {
         await loadImages('');
     } catch (error) {
-        expect(error).toBeUndefined();
+        expect(error).toBeInstanceOf(DOMException);
     }
 });

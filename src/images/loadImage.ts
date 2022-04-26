@@ -7,13 +7,15 @@
  * @returns {Promise<HTMLImageElement>}
  */
 function loadImage(path: string): Promise<HTMLImageElement> {
-    return new Promise<HTMLImageElement>((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         const image = new Image();
 
-        image.onload = () => resolve(image);
-        image.onerror = reject;
-
         image.src = path;
+
+        image
+            .decode()
+            .then(() => resolve(image))
+            .catch(reject);
     });
 }
 
