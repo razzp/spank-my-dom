@@ -1,7 +1,7 @@
 import { JSDOM } from 'jsdom';
 
 import { addEventListener } from '../../src/events/addEventListener';
-import { dispatchNewEvent } from '../../src/main';
+import { dispatchNewEvent } from '../../src/events/dispatchNewEvent';
 
 beforeEach(() => {
     const { window } = new JSDOM(
