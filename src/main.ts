@@ -18,6 +18,14 @@ export { hasAria } from './attributes/aria/hasAria';
 export { removeAria } from './attributes/aria/removeAria';
 export { toggleAria } from './attributes/aria/toggleAria';
 
+// Attributes > Data
+
+export { addData } from './attributes/data/addData';
+export { getData } from './attributes/data/getData';
+export { hasData } from './attributes/data/hasData';
+export { removeData } from './attributes/data/removeData';
+export { toggleData } from './attributes/data/toggleData';
+
 // Classes
 
 export { addClass } from './classes/addClass';
