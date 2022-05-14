@@ -1,7 +1,5 @@
-import type { AttributeType } from '../../attributes/aliases/AttributeType';
-
 interface CreateElementOptions {
-    attributes?: Record<string, AttributeType>;
+    attributes?: Record<string, unknown>;
     children?: Element[];
     innerHTML?: string;
 }

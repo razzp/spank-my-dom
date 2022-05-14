@@ -1,5 +1,3 @@
-import type { AttributeType } from './aliases/AttributeType';
-
 /**
  * Toggle the attribute of an element. If force is included, turns the toggle
  * into a one way-only operation. If set to false, the attribute will only be
@@ -16,7 +14,7 @@ import type { AttributeType } from './aliases/AttributeType';
 function toggleAttribute(
     element: Element,
     name: string,
-    value: AttributeType,
+    value: unknown,
     force?: boolean
 ): boolean {
     const hasAttr = element.hasAttribute(name);
