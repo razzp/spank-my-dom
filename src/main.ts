@@ -4,7 +4,7 @@ export { arrayFrom } from './array/arrayFrom';
 
 // Attributes
 
-export { addAttribute } from './attributes/addAttribute';
+export { setAttribute } from './attributes/setAttribute';
 export { getAttribute } from './attributes/getAttribute';
 export { hasAttribute } from './attributes/hasAttribute';
 export { removeAttribute } from './attributes/removeAttribute';
@@ -12,7 +12,7 @@ export { toggleAttribute } from './attributes/toggleAttribute';
 
 // Attributes > Aria
 
-export { addAria } from './attributes/aria/addAria';
+export { setAria } from './attributes/aria/setAria';
 export { getAria } from './attributes/aria/getAria';
 export { hasAria } from './attributes/aria/hasAria';
 export { removeAria } from './attributes/aria/removeAria';
@@ -20,7 +20,7 @@ export { toggleAria } from './attributes/aria/toggleAria';
 
 // Attributes > Data
 
-export { addData } from './attributes/data/addData';
+export { setData } from './attributes/data/setData';
 export { getData } from './attributes/data/getData';
 export { hasData } from './attributes/data/hasData';
 export { removeData } from './attributes/data/removeData';

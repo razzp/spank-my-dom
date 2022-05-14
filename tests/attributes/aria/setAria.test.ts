@@ -1,7 +1,7 @@
 import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
-import { addAria } from '../../../src/attributes/aria/addAria';
+import { setAria } from '../../../src/attributes/aria/setAria';
 
 beforeEach(() => {
     const { window } = new JSDOM(
@@ -19,7 +19,7 @@ test('Aria attribute is successfully added to element', () => {
 
     expect(target.hasAttribute('aria-foo')).toBe(false);
 
-    addAria(target, 'foo', 'bar');
+    setAria(target, 'foo', 'bar');
 
     expect(target.hasAttribute('aria-foo')).toBe(true);
     expect(target.getAttribute('aria-foo')).toBe('bar');

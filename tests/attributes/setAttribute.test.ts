@@ -1,7 +1,7 @@
 import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
-import { addData } from '../../../src/attributes/data/addData';
+import { setAttribute } from '../../src/attributes/setAttribute';
 
 beforeEach(() => {
     const { window } = new JSDOM(
@@ -14,13 +14,13 @@ beforeEach(() => {
     global.document = window.document;
 });
 
-test('Data attribute is successfully added to element', () => {
+test('Attribute is successfully added to element', () => {
     const target = guarantee(document.querySelector('.target'));
 
-    expect(target.hasAttribute('data-foo')).toBe(false);
+    expect(target.hasAttribute('foo')).toBe(false);
 
-    addData(target, 'foo', 'bar');
+    setAttribute(target, 'foo', 'bar');
 
-    expect(target.hasAttribute('data-foo')).toBe(true);
-    expect(target.getAttribute('data-foo')).toBe('bar');
+    expect(target.hasAttribute('foo')).toBe(true);
+    expect(target.getAttribute('foo')).toBe('bar');
 });
