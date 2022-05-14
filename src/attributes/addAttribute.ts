@@ -10,11 +10,7 @@ import { toggleAttribute } from './toggleAttribute';
  *
  * @returns {void}
  */
-function addAttribute(
-    element: Element,
-    name: string,
-    value: unknown
-): void {
+function addAttribute(element: Element, name: string, value: unknown): void {
     toggleAttribute(element, name, value, true);
 }
 
