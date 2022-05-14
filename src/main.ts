@@ -10,6 +10,14 @@ export { hasAttribute } from './attributes/hasAttribute';
 export { removeAttribute } from './attributes/removeAttribute';
 export { toggleAttribute } from './attributes/toggleAttribute';
 
+// Attributes > Aria
+
+export { addAria } from './attributes/aria/addAria';
+export { getAria } from './attributes/aria/getAria';
+export { hasAria } from './attributes/aria/hasAria';
+export { removeAria } from './attributes/aria/removeAria';
+export { toggleAria } from './attributes/aria/toggleAria';
+
 // Classes
 
 export { addClass } from './classes/addClass';
