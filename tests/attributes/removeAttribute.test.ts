@@ -1,8 +1,7 @@
+import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
 import { removeAttribute } from '../../src/attributes/removeAttribute';
-
-let globalTarget: Element;
 
 beforeEach(() => {
     const { window } = new JSDOM(
@@ -13,16 +12,14 @@ beforeEach(() => {
 
     // Ensure that required globals are set.
     global.document = window.document;
-
-    const target = document.querySelector('.target');
-
-    target && (globalTarget = target);
 });
 
 test('Attribute is successfully removed from element', () => {
-    expect(globalTarget.hasAttribute('foo')).toBe(true);
+    const target = guarantee(document.querySelector('.target'));
 
-    removeAttribute(globalTarget, 'foo');
+    expect(target.hasAttribute('foo')).toBe(true);
 
-    expect(globalTarget.hasAttribute('foo')).toBe(false);
+    removeAttribute(target, 'foo');
+
+    expect(target.hasAttribute('foo')).toBe(false);
 });

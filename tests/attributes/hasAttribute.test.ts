@@ -1,8 +1,7 @@
+import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
 import { hasAttribute } from '../../src/attributes/hasAttribute';
-
-let globalTarget: Element;
 
 beforeEach(() => {
     const { window } = new JSDOM(
@@ -13,20 +12,16 @@ beforeEach(() => {
 
     // Ensure that required globals are set.
     global.document = window.document;
-
-    const target = document.querySelector('.target');
-
-    target && (globalTarget = target);
 });
 
 test('Given a value with a matching attribute, returns true', () => {
-    const result = hasAttribute(globalTarget, 'foo');
+    const target = guarantee(document.querySelector('.target'));
 
-    expect(result).toBe(true);
+    expect(hasAttribute(target, 'foo')).toBe(true);
 });
 
 test('Given a value without a matching attribute, returns false', () => {
-    const result = hasAttribute(globalTarget, 'bar');
+    const target = guarantee(document.querySelector('.target'));
 
-    expect(result).toBe(false);
+    expect(hasAttribute(target, 'bar')).toBe(false);
 });

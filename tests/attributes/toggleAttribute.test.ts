@@ -1,57 +1,45 @@
+import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
-import { createElement } from '../../src/manipulation/createElement';
 import { toggleAttribute } from '../../src/attributes/toggleAttribute';
 
 beforeEach(() => {
-    const { window } = new JSDOM();
+    const { window } = new JSDOM(
+        `<!DOCTYPE html>
+        <div class="target" baz="qux"></div>
+        `
+    );
 
     // Ensure that required globals are set.
     global.document = window.document;
 });
 
 test('Toggling new attribute on element successfully adds attribute', () => {
-    const element = createElement('div');
-    const result = toggleAttribute(element, 'foo', 'bar');
+    const target = guarantee(document.querySelector('.target'));
 
-    expect(result).toBe(true);
-    expect(element.getAttribute('foo')).toBe('bar');
+    expect(toggleAttribute(target, 'foo', 'bar')).toBe(true);
+    expect(target.getAttribute('foo')).toBe('bar');
 });
 
 test('Toggling new attribute on element with force set to false does not add attribute', () => {
-    const element = createElement('div');
-    const result = toggleAttribute(element, 'foo', 'bar', false);
+    const target = guarantee(document.querySelector('.target'));
 
-    expect(result).toBe(false);
-    expect(element.hasAttribute('foo')).toBe(false);
+    expect(toggleAttribute(target, 'foo', 'bar', false)).toBe(false);
+    expect(target.hasAttribute('foo')).toBe(false);
 });
 
 test('Toggling existing attribute on element successfully removes attribute', () => {
-    const element = createElement('div', {
-        attributes: {
-            foo: 'bar',
-        },
-    });
+    const target = guarantee(document.querySelector('.target'));
 
-    expect(element.hasAttribute('foo')).toBe(true);
-
-    const result = toggleAttribute(element, 'foo', 'bar');
-
-    expect(result).toBe(false);
-    expect(element.hasAttribute('foo')).toBe(false);
+    expect(target.hasAttribute('baz')).toBe(true);
+    expect(toggleAttribute(target, 'baz', 'qux')).toBe(false);
+    expect(target.hasAttribute('baz')).toBe(false);
 });
 
 test('Toggling existing attribute on element with force set to true does not remove attribute', () => {
-    const element = createElement('div', {
-        attributes: {
-            foo: 'bar',
-        },
-    });
+    const target = guarantee(document.querySelector('.target'));
 
-    expect(element.hasAttribute('foo')).toBe(true);
-
-    const result = toggleAttribute(element, 'foo', 'bar', true);
-
-    expect(result).toBe(true);
-    expect(element.hasAttribute('foo')).toBe(true);
+    expect(target.hasAttribute('baz')).toBe(true);
+    expect(toggleAttribute(target, 'baz', 'qux', true)).toBe(true);
+    expect(target.hasAttribute('baz')).toBe(true);
 });

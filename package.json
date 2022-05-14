@@ -43,6 +43,7 @@
     "@types/jsdom": "^16.2.14",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
+    "bossy-boots": "^1.0.1",
     "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.5.0",
     "jest": "^27.5.1",

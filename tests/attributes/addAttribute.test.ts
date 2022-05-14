@@ -1,8 +1,7 @@
+import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
 import { addAttribute } from '../../src/attributes/addAttribute';
-
-let globalTarget: Element;
 
 beforeEach(() => {
     const { window } = new JSDOM(
@@ -13,17 +12,15 @@ beforeEach(() => {
 
     // Ensure that required globals are set.
     global.document = window.document;
-
-    const target = document.querySelector('.target');
-
-    target && (globalTarget = target);
 });
 
 test('Attribute is successfully added to element', () => {
-    expect(globalTarget.hasAttribute('foo')).toBe(false);
+    const target = guarantee(document.querySelector('.target'));
 
-    addAttribute(globalTarget, 'foo', 'bar');
+    expect(target.hasAttribute('foo')).toBe(false);
 
-    expect(globalTarget.hasAttribute('foo')).toBe(true);
-    expect(globalTarget.getAttribute('foo')).toBe('bar');
+    addAttribute(target, 'foo', 'bar');
+
+    expect(target.hasAttribute('foo')).toBe(true);
+    expect(target.getAttribute('foo')).toBe('bar');
 });
