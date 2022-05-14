@@ -1,3 +1,4 @@
+import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
 import { getClassesContaining } from '../../src/classes/getClassesContaining';
@@ -16,41 +17,36 @@ beforeEach(() => {
 
 describe('Get classes from string', () => {
     test('Case-sensitive search for classes containing value', () => {
-        const classes = getClassesContaining(
+        const result = getClassesContaining(
             '-mid-',
             'f-mid-oo bar b-mid-az q-MID-ux'
         );
 
-        expect(classes).toEqual(['f-mid-oo', 'b-mid-az']);
+        expect(result).toEqual(['f-mid-oo', 'b-mid-az']);
     });
 
     test('Case-insensitive search for classes containing value', () => {
-        const classes = getClassesContaining(
+        const result = getClassesContaining(
             '-mid-',
             'f-mid-oo bar b-mid-az q-MID-ux',
             true
         );
 
-        expect(classes).toEqual(['f-mid-oo', 'b-mid-az', 'q-MID-ux']);
+        expect(result).toEqual(['f-mid-oo', 'b-mid-az', 'q-MID-ux']);
     });
 
     test('Successfully returns an empty array if there are no matches', () => {
-        const classes = getClassesContaining('-mid-', 'foo bar');
+        const result = getClassesContaining('-mid-', 'foo bar');
 
-        expect(classes).toEqual([]);
+        expect(result).toEqual([]);
     });
 });
 
 describe('Get classes from element', () => {
     test('Case-sensitive search for classes starting with value', () => {
-        const element = document.querySelector('.target');
+        const target = guarantee(document.querySelector('.target'));
+        const result = getClassesContaining('-mid-', target);
 
-        if (!element) {
-            throw new Error('Element not found');
-        }
-
-        const classes = getClassesContaining('-mid-', element);
-
-        expect(classes).toEqual(['f-mid-oo']);
+        expect(result).toEqual(['f-mid-oo']);
     });
 });

@@ -1,23 +1,23 @@
+import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
-import { createElement } from '../../src/manipulation/createElement';
 import { removeClass } from '../../src/classes/removeClass';
 
 beforeEach(() => {
-    const { window } = new JSDOM();
+    const { window } = new JSDOM(
+        `<!DOCTYPE html>
+            <div class="target foo bar"></div>
+            `
+    );
 
     // Ensure that required globals are set.
     global.document = window.document;
 });
 
 test('Class is successfully removed from element', () => {
-    const element = createElement('div', {
-        attributes: {
-            class: 'foo bar',
-        },
-    });
+    const target = guarantee(document.querySelector('.target'));
 
-    removeClass(element, 'foo');
+    removeClass(target, 'foo');
 
-    expect(element.className).toBe('bar');
+    expect(target.className).toBe('target bar');
 });

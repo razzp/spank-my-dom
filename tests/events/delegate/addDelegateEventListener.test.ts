@@ -1,7 +1,8 @@
+import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
-import { delegateCache } from '../../../src/events/delegate/internal/delegateCache';
 import { addDelegateEventListener } from '../../../src/events/delegate/addDelegateEventListener';
+import { delegateCache } from '../../../src/events/delegate/internal/delegateCache';
 
 import type { DelegateEvent } from '../../../src/events/delegate/aliases/DelegateEvent';
 
@@ -57,11 +58,7 @@ describe('Adding delegate event listeners', () => {
 describe('Triggering delegate event listeners', () => {
     test('Single matching descendant of target is found and listener is called with correct target', () => {
         const callback = jest.fn((event: Event) => event.target);
-        const target = document.querySelector('.target-1');
-
-        if (!target) {
-            throw new Error('Element not found');
-        }
+        const target = guarantee(document.querySelector('.target-1'));
 
         addDelegateEventListener(document, '.target-1', 'click', callback);
 
@@ -73,12 +70,8 @@ describe('Triggering delegate event listeners', () => {
 
     test('Multiple matching descendants of target are found and listeners are called with correct targets', () => {
         const callback = jest.fn((event: Event) => event.target);
-        const target1 = document.querySelector('.target-1');
-        const target2 = document.querySelector('.target-2');
-
-        if (!target1 || !target2) {
-            throw new Error('Element not found');
-        }
+        const target1 = guarantee(document.querySelector('.target-1'));
+        const target2 = guarantee(document.querySelector('.target-2'));
 
         addDelegateEventListener(document, '.target', 'click', callback);
 
@@ -91,11 +84,7 @@ describe('Triggering delegate event listeners', () => {
 
     test('Listener object with `handleEvent` prop is called with correct target', () => {
         const callback = jest.fn((event: Event) => event.target);
-        const target = document.querySelector('.target-1');
-
-        if (!target) {
-            throw new Error('Element not found');
-        }
+        const target = guarantee(document.querySelector('.target-1'));
 
         addDelegateEventListener(document, '.target-1', 'click', {
             handleEvent: callback,
@@ -113,11 +102,7 @@ describe('Triggering delegate event listeners', () => {
             return event.target;
         });
 
-        const target = document.querySelector('.target-2');
-
-        if (!target) {
-            throw new Error('Element not found');
-        }
+        const target = guarantee(document.querySelector('.target-2'));
 
         addDelegateEventListener(document, '.target', 'click', callback);
 
@@ -129,11 +114,7 @@ describe('Triggering delegate event listeners', () => {
 
     test('Listener with `once` flag is removed after first invocation', () => {
         const callback = jest.fn((event: Event) => event.target);
-        const target = document.querySelector('.target-1');
-
-        if (!target) {
-            throw new Error('Element not found');
-        }
+        const target = guarantee(document.querySelector('.target-1'));
 
         addDelegateEventListener(document, '.target-1', 'click', callback, {
             once: true,
@@ -154,11 +135,7 @@ describe('Triggering delegate event listeners', () => {
     test('Listener is successfully removed when signal is aborted', () => {
         const callback = jest.fn((event: Event) => event.target);
         const abortController = new AbortController();
-        const target = document.querySelector('.target-1');
-
-        if (!target) {
-            throw new Error('Element not found');
-        }
+        const target = guarantee(document.querySelector('.target-1'));
 
         addDelegateEventListener(document, '.target-1', 'click', callback, {
             signal: abortController.signal,

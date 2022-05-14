@@ -1,8 +1,7 @@
+import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
 import { siblings } from '../../src/traversal/siblings';
-
-let globalTarget: Element;
 
 beforeAll(() => {
     const { window } = new JSDOM(
@@ -21,26 +20,24 @@ beforeAll(() => {
 
     // Ensure that required globals are set.
     global.document = window.document;
-
-    const target = document.querySelector('.target');
-
-    target && (globalTarget = target);
 });
 
 test('Given no selector, successfully returns all siblings', () => {
-    const result = siblings(globalTarget);
+    const target = guarantee(document.querySelector('.target'));
+    const result = siblings(target);
 
     expect(result.length).toBe(8);
 });
 
 test('Given a selector, successfully returns all siblings that match', () => {
-    const result = siblings(globalTarget, '.foo');
+    const target = guarantee(document.querySelector('.target'));
+    const result = siblings(target, '.foo');
 
     expect(result.length).toBe(4);
 });
 
 test('Given a selector that will yield no matches, returns an empty array', () => {
-    const result = siblings(globalTarget, '.baz');
+    const target = guarantee(document.querySelector('.target'));
 
-    expect(result).toEqual([]);
+    expect(siblings(target, '.baz')).toEqual([]);
 });

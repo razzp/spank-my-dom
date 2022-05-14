@@ -1,3 +1,4 @@
+import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
 import { addEventListener } from '../../src/events/addEventListener';
@@ -18,11 +19,7 @@ beforeEach(() => {
 
 test('Dispatching event without bubbles set does not bubble', () => {
     const callback = jest.fn((event: Event) => event.target);
-    const target = document.querySelector<HTMLElement>('.target');
-
-    if (!target) {
-        throw new Error('Element not found');
-    }
+    const target = guarantee(document.querySelector<HTMLElement>('.target'));
 
     addEventListener(document, 'click', callback);
     dispatchNewEvent(target, 'click');
@@ -32,11 +29,7 @@ test('Dispatching event without bubbles set does not bubble', () => {
 
 test('Dispatching event with bubbles set to true successfully bubbles', () => {
     const callback = jest.fn((event: Event) => event.target);
-    const target = document.querySelector<HTMLElement>('.target');
-
-    if (!target) {
-        throw new Error('Element not found');
-    }
+    const target = guarantee(document.querySelector<HTMLElement>('.target'));
 
     addEventListener(document, 'click', callback);
 
@@ -49,11 +42,7 @@ test('Dispatching event with bubbles set to true successfully bubbles', () => {
 
 test('Dispatching event without detail set creates normal event', () => {
     const callback = jest.fn((event: Event) => event);
-    const target = document.querySelector<HTMLElement>('.target');
-
-    if (!target) {
-        throw new Error('Element not found');
-    }
+    const target = guarantee(document.querySelector<HTMLElement>('.target'));
 
     addEventListener(target, 'click', callback);
     dispatchNewEvent(target, 'click');
@@ -64,11 +53,7 @@ test('Dispatching event without detail set creates normal event', () => {
 
 test('Dispatching event with detail set creates custom event with detail prop', () => {
     const callback = jest.fn((event: Event) => event);
-    const target = document.querySelector<HTMLElement>('.target');
-
-    if (!target) {
-        throw new Error('Element not found');
-    }
+    const target = guarantee(document.querySelector<HTMLElement>('.target'));
 
     addEventListener(target, 'click', callback);
 
@@ -82,11 +67,7 @@ test('Dispatching event with detail set creates custom event with detail prop', 
 });
 
 test('If event is not cancellable, returns true', () => {
-    const target = document.querySelector<HTMLElement>('.target');
-
-    if (!target) {
-        throw new Error('Element not found');
-    }
+    const target = guarantee(document.querySelector<HTMLElement>('.target'));
 
     addEventListener(target, 'click', () => void 0);
     const result = dispatchNewEvent(target, 'click');
@@ -95,11 +76,7 @@ test('If event is not cancellable, returns true', () => {
 });
 
 test('If event is cancellable and preventDefault() is called, returns false', () => {
-    const target = document.querySelector<HTMLElement>('.target');
-
-    if (!target) {
-        throw new Error('Element not found');
-    }
+    const target = guarantee(document.querySelector<HTMLElement>('.target'));
 
     addEventListener(target, 'click', (event) => event.preventDefault());
 

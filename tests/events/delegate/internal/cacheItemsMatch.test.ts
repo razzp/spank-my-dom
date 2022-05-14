@@ -4,16 +4,12 @@ import type { CacheItemComparable } from '../../../../src/events/delegate/aliase
 
 const noop = () => void 0;
 
-let cacheItem: CacheItemComparable;
-
-beforeEach(() => {
-    cacheItem = {
-        listener: noop,
-        options: {},
-        selectors: '',
-        type: '',
-    };
-});
+const cacheItem: CacheItemComparable = {
+    listener: noop,
+    options: {},
+    selectors: '',
+    type: '',
+};
 
 test('Given two instances that are identical, returns `true`', () => {
     expect(cacheItemsMatch(cacheItem, cacheItem)).toBe(true);

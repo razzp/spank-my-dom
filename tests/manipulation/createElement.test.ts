@@ -11,9 +11,7 @@ beforeAll(() => {
 });
 
 test('Given a tag name, creates and returns an element', () => {
-    const element = createElement('div');
-
-    expect(element).toBeInstanceOf(HTMLDivElement);
+    expect(createElement('div')).toBeInstanceOf(HTMLDivElement);
 });
 
 test('Given an `attributes` object, returns an element with corresponding attributes', () => {

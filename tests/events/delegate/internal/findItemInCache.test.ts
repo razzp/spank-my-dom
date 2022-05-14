@@ -1,3 +1,4 @@
+import { assertIsNotUndefined } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
 import { delegateCache } from '../../../../src/events/delegate/internal/delegateCache';
@@ -7,19 +8,17 @@ import type { CacheItem } from '../../../../src/events/delegate/interfaces/Cache
 
 const noop = () => void 0;
 
-let cacheItem: CacheItem;
+const cacheItem: CacheItem = {
+    delegate: noop,
+    listener: noop,
+    remove: noop,
+    options: {},
+    selectors: 'foo',
+    type: 'foo',
+};
 
 beforeEach(() => {
     const { window } = new JSDOM();
-
-    cacheItem = {
-        delegate: noop,
-        listener: noop,
-        remove: noop,
-        options: {},
-        selectors: 'foo',
-        type: 'foo',
-    };
 
     // Ensure that required globals are set.
     global.document = window.document;
@@ -30,9 +29,7 @@ beforeEach(() => {
 test('Searching for an item that exists yields that item', () => {
     const targetCache = delegateCache.get(document);
 
-    if (!targetCache) {
-        throw new Error('Target cache not found');
-    }
+    assertIsNotUndefined(targetCache);
 
     const result = findItemInCache(targetCache, cacheItem);
 
@@ -43,9 +40,7 @@ test('Searching for an item that exists yields that item', () => {
 test("Searching for an item that doesn't exist returns undefined", () => {
     const targetCache = delegateCache.get(document);
 
-    if (!targetCache) {
-        throw new Error('Target cache not found');
-    }
+    assertIsNotUndefined(targetCache);
 
     const result = findItemInCache(targetCache, {
         ...cacheItem,

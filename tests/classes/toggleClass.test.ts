@@ -1,74 +1,63 @@
+import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
-import { createElement } from '../../src/manipulation/createElement';
 import { toggleClass } from '../../src/classes/toggleClass';
 
 beforeEach(() => {
-    const { window } = new JSDOM();
+    const { window } = new JSDOM(
+        `<!DOCTYPE html>
+            <div class="target qux quux"></div>
+            `
+    );
 
     // Ensure that required globals are set.
     global.document = window.document;
 });
 
 test('Given a single token that does not exist, adds token and returns true', () => {
-    const element = createElement('div');
-    const result = toggleClass(element, 'foo');
+    const target = guarantee(document.querySelector('.target'));
+    const result = toggleClass(target, 'foo');
 
-    expect(element.className).toBe('foo');
+    expect(target.className).toBe('target qux quux foo');
     expect(result).toBe(true);
 });
 
 test('Given multiple tokens that do no exist, adds tokens and returns true', () => {
-    const element = createElement('div');
-    const result = toggleClass(element, 'foo bar');
+    const target = guarantee(document.querySelector('.target'));
+    const result = toggleClass(target, 'foo bar');
 
-    expect(element.className).toBe('foo bar');
+    expect(target.className).toBe('target qux quux foo bar');
     expect(result).toBe(true);
 });
 
 test('Given multiple tokens with excess whitespace, adds tokens and returns true', () => {
-    const element = createElement('div');
-    const result = toggleClass(element, 'foo     bar');
+    const target = guarantee(document.querySelector('.target'));
+    const result = toggleClass(target, 'foo     bar');
 
-    expect(element.className).toBe('foo bar');
+    expect(target.className).toBe('target qux quux foo bar');
     expect(result).toBe(true);
 });
 
 test('Given a single token that already exists, removes token and returns false', () => {
-    const element = createElement('div', {
-        attributes: {
-            class: 'foo',
-        },
-    });
+    const target = guarantee(document.querySelector('.target'));
+    const result = toggleClass(target, 'qux');
 
-    const result = toggleClass(element, 'foo');
-
-    expect(element.className).toBe('');
+    expect(target.className).toBe('target quux');
     expect(result).toBe(false);
 });
 
 test('Given multiple tokens that already exist, removes tokens and returns false', () => {
-    const element = createElement('div', {
-        attributes: {
-            class: 'foo bar',
-        },
-    });
+    const target = guarantee(document.querySelector('.target'));
+    const result = toggleClass(target, 'qux quux');
 
-    const result = toggleClass(element, 'foo bar');
-
-    expect(element.className).toBe('');
+    expect(target.className).toBe('target');
     expect(result).toBe(false);
 });
 
 test('Given multiple tokens, some of which already exist, toggles tokens and returns false', () => {
-    const element = createElement('div', {
-        attributes: {
-            class: 'foo',
-        },
-    });
+    const target = guarantee(document.querySelector('.target'));
+    const result = toggleClass(target, 'foo qux');
 
-    const result = toggleClass(element, 'foo bar');
-
-    expect(element.className).toBe('bar');
+    expect(target.className).toBe('target quux foo');
     expect(result).toBe(false);
 });

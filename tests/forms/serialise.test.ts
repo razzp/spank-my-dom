@@ -1,3 +1,4 @@
+import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
 import { serialise } from '../../src/forms/serialise';
@@ -20,12 +21,7 @@ test('Given a form element, serialises its form data into a valid query string',
         </form>
     `);
 
-    const form = document.querySelector<HTMLFormElement>('form');
-
-    if (!form) {
-        throw new Error('Element not found');
-    }
-
+    const form = guarantee(document.querySelector<HTMLFormElement>('form'));
     const serialised = serialise(form);
 
     expect(serialised).toEqual('foo=1&bar=2');

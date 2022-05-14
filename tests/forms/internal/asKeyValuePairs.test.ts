@@ -1,3 +1,4 @@
+import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
 import { asKeyValuePairs } from '../../../src/forms/internal/asKeyValuePairs';
@@ -17,12 +18,7 @@ beforeAll(() => {
 });
 
 test('Given a form element, returns an array of key/value pairs', () => {
-    const form = document.querySelector<HTMLFormElement>('form');
-
-    if (!form) {
-        throw new Error('Element not found');
-    }
-
+    const form = guarantee(document.querySelector<HTMLFormElement>('form'));
     const pairs = asKeyValuePairs(form);
 
     expect(pairs).toEqual([
@@ -66,7 +62,5 @@ test('Given an array containing unsuitable members, returns a sanitised array of
 });
 
 test('Given an incompatible item, returns an empty array', () => {
-    const pairs = asKeyValuePairs(null as any);
-
-    expect(pairs).toEqual([]);
+    expect(asKeyValuePairs(null as any)).toEqual([]);
 });

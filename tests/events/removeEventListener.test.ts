@@ -1,3 +1,4 @@
+import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
 import { addEventListener } from '../../src/events/addEventListener';
@@ -17,11 +18,7 @@ beforeEach(() => {
 
 test('Event listener is removed successfully', () => {
     const callback = jest.fn((event: Event) => event.target);
-    const target = document.querySelector<HTMLElement>('.target-1');
-
-    if (!target) {
-        throw new Error('Element not found');
-    }
+    const target = guarantee(document.querySelector<HTMLElement>('.target-1'));
 
     addEventListener(target, 'click', callback);
 

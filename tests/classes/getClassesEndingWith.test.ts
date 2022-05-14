@@ -1,3 +1,4 @@
+import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
 import { getClassesEndingWith } from '../../src/classes/getClassesEndingWith';
@@ -16,41 +17,36 @@ beforeEach(() => {
 
 describe('Get classes from string', () => {
     test('Case-sensitive search for classes ending with value', () => {
-        const classes = getClassesEndingWith(
+        const result = getClassesEndingWith(
             '-post',
             'foo-post bar baz-post qux-POST'
         );
 
-        expect(classes).toEqual(['foo-post', 'baz-post']);
+        expect(result).toEqual(['foo-post', 'baz-post']);
     });
 
     test('Case-insensitive search for classes ending with value', () => {
-        const classes = getClassesEndingWith(
+        const result = getClassesEndingWith(
             '-post',
             'foo-post bar baz-post qux-POST',
             true
         );
 
-        expect(classes).toEqual(['foo-post', 'baz-post', 'qux-POST']);
+        expect(result).toEqual(['foo-post', 'baz-post', 'qux-POST']);
     });
 
     test('Successfully returns an empty array if there are no matches', () => {
-        const classes = getClassesEndingWith('-post', 'foo bar');
+        const result = getClassesEndingWith('-post', 'foo bar');
 
-        expect(classes).toEqual([]);
+        expect(result).toEqual([]);
     });
 });
 
 describe('Get classes from element', () => {
     test('Case-sensitive search for classes starting with value', () => {
-        const element = document.querySelector('.target');
+        const target = guarantee(document.querySelector('.target'));
+        const result = getClassesEndingWith('-post', target);
 
-        if (!element) {
-            throw new Error('Element not found');
-        }
-
-        const classes = getClassesEndingWith('-post', element);
-
-        expect(classes).toEqual(['foo-post']);
+        expect(result).toEqual(['foo-post']);
     });
 });

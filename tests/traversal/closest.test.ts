@@ -1,8 +1,7 @@
+import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
 import { closest } from '../../src/traversal/closest';
-
-let globalTarget: Element;
 
 beforeAll(() => {
     const { window } = new JSDOM(
@@ -19,33 +18,30 @@ beforeAll(() => {
 
     // Ensure that required globals are set.
     global.document = window.document;
-
-    const target = document.querySelector('.target');
-
-    target && (globalTarget = target);
 });
 
 test('Given a selector that matches an ancestor, returns that element', () => {
-    const result = closest(globalTarget, '.foo');
+    const target = guarantee(document.querySelector('.target'));
+    const result = closest(target, '.foo');
 
     expect(result).toBeDefined();
     expect(result?.classList.contains('foo')).toBe(true);
 });
 
 test('Given a selector that does not match any ancestors, returns null', () => {
-    const result = closest(globalTarget, '.bar');
+    const target = guarantee(document.querySelector('.target'));
 
-    expect(result).toBeNull();
+    expect(closest(target, '.bar')).toBeNull();
 });
 
 test('Given an element which does not have a parent element, returns null', () => {
+    const target = guarantee(document.querySelector('.target'));
+
     // Brute force the `parentElement` property to undefined so that we can
     // test the optional chaining logic.
-    Object.defineProperty(globalTarget, 'parentElement', {
+    Object.defineProperty(target, 'parentElement', {
         value: undefined,
     });
 
-    const result = closest(globalTarget, '.bar');
-
-    expect(result).toBeNull();
+    expect(closest(target, '.bar')).toBeNull();
 });

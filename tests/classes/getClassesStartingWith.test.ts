@@ -1,3 +1,4 @@
+import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
 import { getClassesStartingWith } from '../../src/classes/getClassesStartingWith';
@@ -16,41 +17,36 @@ beforeEach(() => {
 
 describe('Get classes from string', () => {
     test('Case-sensitive search for classes starting with value', () => {
-        const classes = getClassesStartingWith(
+        const result = getClassesStartingWith(
             'pre-',
             'pre-foo bar pre-baz PRE-qux'
         );
 
-        expect(classes).toEqual(['pre-foo', 'pre-baz']);
+        expect(result).toEqual(['pre-foo', 'pre-baz']);
     });
 
     test('Case-insensitive search for classes starting with value', () => {
-        const classes = getClassesStartingWith(
+        const result = getClassesStartingWith(
             'pre-',
             'pre-foo bar pre-baz PRE-qux',
             true
         );
 
-        expect(classes).toEqual(['pre-foo', 'pre-baz', 'PRE-qux']);
+        expect(result).toEqual(['pre-foo', 'pre-baz', 'PRE-qux']);
     });
 
     test('Successfully returns an empty array if there are no matches', () => {
-        const classes = getClassesStartingWith('pre-', 'foo bar');
+        const result = getClassesStartingWith('pre-', 'foo bar');
 
-        expect(classes).toEqual([]);
+        expect(result).toEqual([]);
     });
 });
 
 describe('Get classes from element', () => {
     test('Case-sensitive search for classes starting with value', () => {
-        const element = document.querySelector('.target');
+        const target = guarantee(document.querySelector('.target'));
+        const result = getClassesStartingWith('pre-', target);
 
-        if (!element) {
-            throw new Error('Element not found');
-        }
-
-        const classes = getClassesStartingWith('pre-', element);
-
-        expect(classes).toEqual(['pre-foo']);
+        expect(result).toEqual(['pre-foo']);
     });
 });

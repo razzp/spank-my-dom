@@ -40,11 +40,12 @@ test('Given a selector, successfully returns all preceding siblings that match',
         '.foo'
     );
 
-    expect(result.length).toBe(2);
-
-    expect(result.every((element) => element.classList.contains('foo'))).toBe(
-        true
+    const allMatch = result.every((element) =>
+        element.classList.contains('foo')
     );
+
+    expect(result.length).toBe(2);
+    expect(allMatch).toBe(true);
 });
 
 test('Given no selector, successfully returns all following siblings', () => {
@@ -60,11 +61,12 @@ test('Given a selector, successfully returns all following siblings that match',
         '.bar'
     );
 
-    expect(result.length).toBe(2);
-
-    expect(result.every((element) => element.classList.contains('bar'))).toBe(
-        true
+    const allMatch = result.every((element) =>
+        element.classList.contains('bar')
     );
+
+    expect(result.length).toBe(2);
+    expect(allMatch).toBe(true);
 });
 
 test('Given a selector that will yield no matches, returns an empty array', () => {
