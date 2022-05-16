@@ -2,8 +2,8 @@ import { delegateCache } from './internal/delegateCache';
 import { findItemInCache } from './internal/findItemInCache';
 import { sanitiseOptions } from './internal/sanitiseOptions';
 
-import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOrListenerObj';
-import type { DelegateListenerOrListenerObjFor } from './aliases/DelegateListenerOrListenerObjFor';
+import type { DelegateListener } from './aliases/DelegateListener';
+import type { DelegateListenerFor } from './aliases/DelegateListenerFor';
 
 /**
  * Remove a delegate listener from the target.
@@ -22,7 +22,7 @@ function removeDelegateEventListener<T extends Event | CustomEvent = Event>(
     target: EventTarget,
     selectors: string,
     type: string,
-    listener: DelegateListenerOrListenerObjFor<T>,
+    listener: DelegateListenerFor<T>,
     options?: boolean | AddEventListenerOptions
 ): void {
     // Get the cache associated with the target.
@@ -37,7 +37,7 @@ function removeDelegateEventListener<T extends Event | CustomEvent = Event>(
     // Find the item in the cache.
     const itemToRemove = findItemInCache(targetCache, {
         options: optionsSanitised,
-        listener: listener as DelegateListenerOrListenerObj,
+        listener: listener as DelegateListener,
         selectors,
         type,
     });

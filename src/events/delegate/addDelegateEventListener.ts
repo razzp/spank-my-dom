@@ -5,8 +5,8 @@ import { sanitiseOptions } from './internal/sanitiseOptions';
 import { removeDelegateEventListener } from './removeDelegateEventListener';
 
 import type { CacheItem } from './interfaces/CacheItem';
-import type { DelegateListenerOrListenerObjFor } from './aliases/DelegateListenerOrListenerObjFor';
-import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOrListenerObj';
+import type { DelegateListenerFor } from './aliases/DelegateListenerFor';
+import type { DelegateListener } from './aliases/DelegateListener';
 
 /**
  * Add a delegate event listener to the target. The callback argument will be
@@ -34,7 +34,7 @@ function addDelegateEventListener<T extends Event | CustomEvent = Event>(
     target: EventTarget,
     selectors: string,
     type: string,
-    listener: DelegateListenerOrListenerObjFor<T>,
+    listener: DelegateListenerFor<T>,
     options?: boolean | AddEventListenerOptions
 ): void {
     // Get the cache associated with the target.
@@ -55,10 +55,10 @@ function addDelegateEventListener<T extends Event | CustomEvent = Event>(
     const cacheItem: CacheItem = {
         delegate: delegateFactory(
             selectors,
-            listener as DelegateListenerOrListenerObj,
+            listener as DelegateListener,
             optionsSanitised.origOnce ? remove : undefined
         ),
-        listener: listener as DelegateListenerOrListenerObj,
+        listener: listener as DelegateListener,
         options: optionsSanitised,
         remove,
         selectors,

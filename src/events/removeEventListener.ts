@@ -1,4 +1,4 @@
-import type { ListenerOrListenerObjFor } from './aliases/ListenerOrListenerObjFor';
+import type { ListenerFor } from './aliases/ListenerFor';
 
 /**
  * Remove an event listener from the target.
@@ -14,7 +14,7 @@ import type { ListenerOrListenerObjFor } from './aliases/ListenerOrListenerObjFo
 function removeEventListener<T extends Event | CustomEvent = Event>(
     target: EventTarget,
     type: string,
-    listener: ListenerOrListenerObjFor<T>,
+    listener: ListenerFor<T>,
     options?: boolean | AddEventListenerOptions
 ): void {
     target.removeEventListener(

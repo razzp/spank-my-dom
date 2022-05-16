@@ -1,5 +1,5 @@
 import type { NullOr } from '../../../aliases/NullOr';
-import type { DelegateListenerOrListenerObj } from '../aliases/DelegateListenerOrListenerObj';
+import type { DelegateListener } from '../aliases/DelegateListener';
 
 /**
  * Higher-order function to wrap delegate logic with a listener so that it can
@@ -8,7 +8,7 @@ import type { DelegateListenerOrListenerObj } from '../aliases/DelegateListenerO
  */
 function delegateFactory(
     selectors: string,
-    listener: DelegateListenerOrListenerObj,
+    listener: DelegateListener,
     callback?: () => void
 ) {
     return (event: Event): void => {
