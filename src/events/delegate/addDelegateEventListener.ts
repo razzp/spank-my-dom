@@ -5,7 +5,6 @@ import { sanitiseOptions } from './internal/sanitiseOptions';
 import { removeDelegateEventListener } from './removeDelegateEventListener';
 
 import type { CacheItem } from './interfaces/CacheItem';
-import type { EventMapFor } from '../aliases/EventMapFor';
 import type { DelegateListenerOrListenerObjFor } from './aliases/DelegateListenerOrListenerObjFor';
 import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOrListenerObj';
 
@@ -31,45 +30,11 @@ import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOr
  *
  * @returns {void}
  */
-function addDelegateEventListener<
-    TTarget extends EventTarget,
-    TEventType extends keyof TEventMap,
-    TEventMap extends EventMapFor<TTarget> = EventMapFor<TTarget>
->(
-    target: EventTarget,
-    selectors: string,
-    type: TEventType,
-    listener: DelegateListenerOrListenerObjFor<TTarget, TEventMap, TEventType>,
-    options?: boolean | AddEventListenerOptions
-): void;
-
-/**
- * Add a delegate event listener to the target. The callback argument will be
- * invoked when the event is dispatched on any descendant element that matches
- * the given selectors.
- *
- * The `Event` object returned in the listener callback includes a non-standard
- * method `stopDelegation()`, which stops any further traversal up the DOM tree
- * in search of matches.
- *
- * The listener callback includes a second argument `index`, which indicates
- * how many times the callback has been fired during the current event.
- *
- * @since 0.1.0
- *
- * @param {EventTarget} target The target to add the listener to.
- * @param {string} selectors The selectors to match against when an event is dispatched.
- * @param {string} type The listener type.
- * @param {EventListener|EventListenerObject} listener The listener callback.
- * @param {boolean|AddEventListenerOptions} [options] The listener options.
- *
- * @returns {void}
- */
-function addDelegateEventListener(
+function addDelegateEventListener<T extends Event | CustomEvent = Event>(
     target: EventTarget,
     selectors: string,
     type: string,
-    listener: DelegateListenerOrListenerObj,
+    listener: DelegateListenerOrListenerObjFor<T>,
     options?: boolean | AddEventListenerOptions
 ): void {
     // Get the cache associated with the target.
@@ -90,10 +55,10 @@ function addDelegateEventListener(
     const cacheItem: CacheItem = {
         delegate: delegateFactory(
             selectors,
-            listener,
+            listener as DelegateListenerOrListenerObj,
             optionsSanitised.origOnce ? remove : undefined
         ),
-        listener,
+        listener: listener as DelegateListenerOrListenerObj,
         options: optionsSanitised,
         remove,
         selectors,

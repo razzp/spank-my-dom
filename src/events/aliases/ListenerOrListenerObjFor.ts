@@ -1,24 +1,5 @@
-import type { EventMap } from './EventMap';
-
-type EventListenerFor<
-    TTarget extends EventTarget,
-    TEventMap extends EventMap,
-    TEventType extends keyof TEventMap
-> = (this: TTarget, event: TEventMap[TEventType]) => unknown;
-
-type EventListenerObjectFor<
-    TEventMap extends EventMap,
-    TEventType extends keyof TEventMap
-> = {
-    handleEvent(event: TEventMap[TEventType]): unknown;
-};
-
-type ListenerOrListenerObjFor<
-    TTarget extends EventTarget,
-    TEventMap extends EventMap,
-    TEventType extends keyof TEventMap
-> =
-    | EventListenerFor<TTarget, TEventMap, TEventType>
-    | EventListenerObjectFor<TEventMap, TEventType>;
+type ListenerOrListenerObjFor<T extends Event | CustomEvent = Event> =
+    | ((this: EventTarget, event: T, index: number) => void)
+    | { handleEvent(event: T, index: number): void };
 
 export { ListenerOrListenerObjFor };

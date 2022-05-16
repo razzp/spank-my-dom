@@ -2,9 +2,8 @@ import { delegateCache } from './internal/delegateCache';
 import { findItemInCache } from './internal/findItemInCache';
 import { sanitiseOptions } from './internal/sanitiseOptions';
 
-import type { EventMapFor } from '../aliases/EventMapFor';
-import type { DelegateListenerOrListenerObjFor } from './aliases/DelegateListenerOrListenerObjFor';
 import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOrListenerObj';
+import type { DelegateListenerOrListenerObjFor } from './aliases/DelegateListenerOrListenerObjFor';
 
 /**
  * Remove a delegate listener from the target.
@@ -19,36 +18,11 @@ import type { DelegateListenerOrListenerObj } from './aliases/DelegateListenerOr
  *
  * @returns {void}
  */
-function removeDelegateEventListener<
-    TTarget extends EventTarget,
-    TEventType extends keyof TEventMap,
-    TEventMap extends EventMapFor<TTarget> = EventMapFor<TTarget>
->(
-    target: EventTarget,
-    selectors: string,
-    type: TEventType,
-    listener: DelegateListenerOrListenerObjFor<TTarget, TEventMap, TEventType>,
-    options?: boolean | AddEventListenerOptions
-): void;
-
-/**
- * Remove a delegate listener from the target.
- *
- * @since 0.1.0
- *
- * @param {EventTarget} target The target to remove the listener from.
- * @param {string} selectors The selectors that would have been matched against.
- * @param {string} type The listener type.
- * @param {EventListener|EventListenerObject} listener The listener callback.
- * @param {boolean|AddEventListenerOptions} [options] The listener options.
- *
- * @returns {void}
- */
-function removeDelegateEventListener(
+function removeDelegateEventListener<T extends Event | CustomEvent = Event>(
     target: EventTarget,
     selectors: string,
     type: string,
-    listener: DelegateListenerOrListenerObj,
+    listener: DelegateListenerOrListenerObjFor<T>,
     options?: boolean | AddEventListenerOptions
 ): void {
     // Get the cache associated with the target.
@@ -63,7 +37,7 @@ function removeDelegateEventListener(
     // Find the item in the cache.
     const itemToRemove = findItemInCache(targetCache, {
         options: optionsSanitised,
-        listener,
+        listener: listener as DelegateListenerOrListenerObj,
         selectors,
         type,
     });
