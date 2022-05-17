@@ -1,4 +1,4 @@
-import { toggleAttribute } from '../toggleAttribute';
+import { toggleAttr } from '../toggleAttr';
 
 /**
  * Toggle the data attribute of an element. If force is included, turns the toggle
@@ -19,7 +19,7 @@ function toggleData(
     value: unknown,
     force?: boolean
 ): boolean {
-    return toggleAttribute(element, `data-${name}`, value, force);
+    return toggleAttr(element, `data-${name}`, value, force);
 }
 
 export { toggleData };

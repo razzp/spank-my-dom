@@ -1,4 +1,4 @@
-import { hasAttribute } from '../hasAttribute';
+import { hasAttr } from '../hasAttr';
 
 /**
  * Check if a data attribute exists on an element.
@@ -10,7 +10,7 @@ import { hasAttribute } from '../hasAttribute';
  * @returns {boolean}
  */
 function hasData(element: Element, name: string): boolean {
-    return hasAttribute(element, `data-${name}`);
+    return hasAttr(element, `data-${name}`);
 }
 
 export { hasData };

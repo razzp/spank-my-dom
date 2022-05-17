@@ -1,4 +1,4 @@
-import { toggleAttribute } from '../toggleAttribute';
+import { toggleAttr } from '../toggleAttr';
 
 /**
  * Toggle the aria attribute of an element. If force is included, turns the toggle
@@ -19,7 +19,7 @@ function toggleAria(
     value: unknown,
     force?: boolean
 ): boolean {
-    return toggleAttribute(element, `aria-${name}`, value, force);
+    return toggleAttr(element, `aria-${name}`, value, force);
 }
 
 export { toggleAria };

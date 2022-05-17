@@ -1,4 +1,4 @@
-import { hasAttribute } from '../hasAttribute';
+import { hasAttr } from '../hasAttr';
 
 /**
  * Check if an aria attribute exists on an element.
@@ -10,7 +10,7 @@ import { hasAttribute } from '../hasAttribute';
  * @returns {boolean}
  */
 function hasAria(element: Element, name: string): boolean {
-    return hasAttribute(element, `aria-${name}`);
+    return hasAttr(element, `aria-${name}`);
 }
 
 export { hasAria };

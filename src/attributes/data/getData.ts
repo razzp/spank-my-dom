@@ -1,4 +1,4 @@
-import { getAttribute } from '../getAttribute';
+import { getAttr } from '../getAttr';
 
 /**
  * Get the data attribute from an element.
@@ -10,7 +10,7 @@ import { getAttribute } from '../getAttribute';
  * @returns {string|null}
  */
 function getData(element: Element, name: string): string | null {
-    return getAttribute(element, `data-${name}`);
+    return getAttr(element, `data-${name}`);
 }
 
 export { getData };

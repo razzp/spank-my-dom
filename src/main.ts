@@ -1,14 +1,14 @@
 // Array
 
-export { arrayFrom } from './array/arrayFrom';
+export { toArray } from './array/toArray';
 
 // Attributes
 
-export { setAttribute } from './attributes/setAttribute';
-export { getAttribute } from './attributes/getAttribute';
-export { hasAttribute } from './attributes/hasAttribute';
-export { removeAttribute } from './attributes/removeAttribute';
-export { toggleAttribute } from './attributes/toggleAttribute';
+export { setAttr } from './attributes/setAttr';
+export { getAttr } from './attributes/getAttr';
+export { hasAttr } from './attributes/hasAttr';
+export { removeAttr } from './attributes/removeAttr';
+export { toggleAttr } from './attributes/toggleAttr';
 
 // Attributes > Aria
 
@@ -32,20 +32,20 @@ export { addClass } from './classes/addClass';
 export { removeClass } from './classes/removeClass';
 export { toggleClass } from './classes/toggleClass';
 
-export { getClassesEndingWith } from './classes/getClassesEndingWith';
-export { getClassesContaining } from './classes/getClassesContaining';
-export { getClassesStartingWith } from './classes/getClassesStartingWith';
+export { classesContaining } from './classes/classesContaining';
+export { classesEndingWith } from './classes/classesEndingWith';
+export { classesStartingWith } from './classes/classesStartingWith';
 
 // Events
 
-export { addEventListener } from './events/addEventListener';
-export { removeEventListener } from './events/removeEventListener';
-export { dispatchNewEvent } from './events/dispatchNewEvent';
+export { dispatch } from './events/dispatch';
+export { on } from './events/on';
+export { off } from './events/off';
 
 // Events > Delegate
 
-export { addDelegateEventListener } from './events/delegate/addDelegateEventListener';
-export { removeDelegateEventListener } from './events/delegate/removeDelegateEventListener';
+export { onDelegate } from './events/delegate/onDelegate';
+export { offDelegate } from './events/delegate/offDelegate';
 
 // Forms
 
@@ -58,14 +58,14 @@ export { loadImages } from './images/loadImages';
 
 // Manipulation
 
-export { createElement } from './manipulation/createElement';
-export { emptyElement } from './manipulation/emptyElement';
-export { replaceContents } from './manipulation/replaceContents';
+export { create } from './manipulation/create';
+export { empty } from './manipulation/empty';
+export { replace } from './manipulation/replace';
 
 // Retrieval
 
-export { querySelector } from './retrieval/querySelector';
-export { querySelectorAll } from './retrieval/querySelectorAll';
+export { find } from './retrieval/find';
+export { findAll } from './retrieval/findAll';
 
 // Traversal
 

@@ -1,4 +1,4 @@
-import { getAttribute } from '../getAttribute';
+import { getAttr } from '../getAttr';
 
 /**
  * Get the aria attribute from an element.
@@ -10,7 +10,7 @@ import { getAttribute } from '../getAttribute';
  * @returns {string|null}
  */
 function getAria(element: Element, name: string): string | null {
-    return getAttribute(element, `aria-${name}`);
+    return getAttr(element, `aria-${name}`);
 }
 
 export { getAria };
