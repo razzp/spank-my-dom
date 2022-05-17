@@ -1,5 +1,3 @@
-import type { NullOr } from '../aliases/NullOr';
-
 /**
  * Returns the first ancestor that matches selector. Not inclusive of element.
  * @since 0.2.0
@@ -12,7 +10,7 @@ import type { NullOr } from '../aliases/NullOr';
 function closest<T extends Element>(
     element: Element,
     selector: string
-): NullOr<T> {
+): null | T {
     return element.parentElement?.closest(selector) ?? null;
 }
 

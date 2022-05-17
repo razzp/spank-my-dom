@@ -1,4 +1,3 @@
-import type { NullOr } from '../aliases/NullOr';
 import type { Queryable } from './aliases/Queryable';
 
 /**
@@ -13,7 +12,7 @@ import type { Queryable } from './aliases/Queryable';
 function find<T extends Element>(
     selectors: string,
     context: Queryable = document
-): NullOr<T> {
+): null | T {
     return context.querySelector(selectors);
 }
 

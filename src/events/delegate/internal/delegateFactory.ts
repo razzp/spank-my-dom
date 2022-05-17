@@ -1,4 +1,3 @@
-import type { NullOr } from '../../../aliases/NullOr';
 import type { DelegateListener } from '../aliases/DelegateListener';
 
 /**
@@ -12,7 +11,7 @@ function delegateFactory(
     callback?: () => void
 ) {
     return (event: Event): void => {
-        let current = event.target as NullOr<Node>;
+        let current = event.target as null | Node;
         let atLeastOneMatch = false;
         let shouldStop = false;
         let index = 0;
