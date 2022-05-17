@@ -65,6 +65,7 @@ export { replace } from './manipulation/replace';
 // Retrieval
 
 export { find } from './retrieval/find';
+export { findOrThrow } from './retrieval/findOrThrow';
 export { findAll } from './retrieval/findAll';
 
 // Traversal
