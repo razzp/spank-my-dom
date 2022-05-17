@@ -7,9 +7,9 @@ import { getAttr } from '../getAttr';
  * @param {Element} element The element to retrieve the data attribute from.
  * @param {string} name The name of the data attribute.
  *
- * @returns {string|null}
+ * @returns {null|string}
  */
-function getData(element: Element, name: string): string | null {
+function getData(element: Element, name: string): null | string {
     return getAttr(element, `data-${name}`);
 }
 

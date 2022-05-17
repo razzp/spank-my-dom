@@ -7,9 +7,9 @@ import { getAttr } from '../getAttr';
  * @param {Element} element The element to retrieve the aria attribute from.
  * @param {string} name The name of the aria attribute.
  *
- * @returns {string|null}
+ * @returns {null|string}
  */
-function getAria(element: Element, name: string): string | null {
+function getAria(element: Element, name: string): null | string {
     return getAttr(element, `aria-${name}`);
 }
 

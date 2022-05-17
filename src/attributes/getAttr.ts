@@ -5,9 +5,9 @@
  * @param {Element} element The element to retrieve the attribute from.
  * @param {string} name The name of the attribute.
  *
- * @returns {string|null}
+ * @returns {null|string}
  */
-function getAttr(element: Element, name: string): string | null {
+function getAttr(element: Element, name: string): null | string {
     return element.getAttribute(name);
 }
 
