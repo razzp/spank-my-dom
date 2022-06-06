@@ -34,7 +34,8 @@
     "prettier": "prettier --list-different --write *.js src/** tests/**",
     "types": "rimraf types && tsc --project tsconfig.types.json",
     "test": "jest --verbose --coverage",
-    "docs": "jsdoc2md --global-index-format grouped --template docs/readme.hbs --partial docs/partials/*.hbs --helper docs/helpers.cjs --files dist/main.js > README.md"
+    "docs": "jsdoc2md --global-index-format grouped --template docs/readme.hbs --partial docs/partials/*.hbs --helper docs/helpers.cjs --files dist/main.js > README.md",
+    "prepublishOnly": "npm run test"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.1.3",
