@@ -74,3 +74,7 @@ export { closest } from './traversal/closest';
 export { siblings } from './traversal/siblings';
 export { siblingsAfter } from './traversal/siblingsAfter';
 export { siblingsBefore } from './traversal/siblingsBefore';
+
+// Utils
+
+export { strConvert } from './utils/strConvert';
