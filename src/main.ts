@@ -77,5 +77,5 @@ export { siblingsBefore } from './traversal/siblingsBefore';
 
 // Utils
 
+export { convertString } from './utils/convertString';
 export { parseJson } from './utils/parseJson';
-export { strConvert } from './utils/strConvert';

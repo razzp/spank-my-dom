@@ -9,7 +9,7 @@ import { ConvertibleTypes } from './interfaces/ConvertibleTypes';
  *
  * @returns {boolean|number}
  */
-function strConvert<T extends keyof ConvertibleTypes>(
+function convertString<T extends keyof ConvertibleTypes>(
     input: string,
     type: T
 ): ConvertibleTypes[T] {
@@ -24,4 +24,4 @@ function strConvert<T extends keyof ConvertibleTypes>(
     throw new Error(`Cannot convert to type: ${type}`);
 }
 
-export { strConvert };
+export { convertString };
