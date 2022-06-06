@@ -1,4 +1,4 @@
-import { parseJson } from '../../src/utils/parseJson';
+import { parseJson } from '../../src/json/parseJson';
 
 test('Given a valid JSON string, parses and returns the value', () => {
     const obj = {

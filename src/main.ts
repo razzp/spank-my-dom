@@ -56,6 +56,10 @@ export { serialise } from './forms/serialise';
 export { loadImage } from './images/loadImage';
 export { loadImages } from './images/loadImages';
 
+// JSON
+
+export { parseJson } from './json/parseJson';
+
 // Manipulation
 
 export { create } from './manipulation/create';
@@ -79,7 +83,3 @@ export { closest } from './traversal/closest';
 export { siblings } from './traversal/siblings';
 export { siblingsAfter } from './traversal/siblingsAfter';
 export { siblingsBefore } from './traversal/siblingsBefore';
-
-// Utils
-
-export { parseJson } from './utils/parseJson';
