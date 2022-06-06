@@ -68,6 +68,11 @@ export { find } from './retrieval/find';
 export { findOrThrow } from './retrieval/findOrThrow';
 export { findAll } from './retrieval/findAll';
 
+// String
+
+export { toBoolean } from './string/toBoolean';
+export { toNumber } from './string/toNumber';
+
 // Traversal
 
 export { closest } from './traversal/closest';
@@ -77,5 +82,4 @@ export { siblingsBefore } from './traversal/siblingsBefore';
 
 // Utils
 
-export { convertString } from './utils/convertString';
 export { parseJson } from './utils/parseJson';
