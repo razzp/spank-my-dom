@@ -8,7 +8,7 @@ import type { DelegateListenerFor } from './aliases/DelegateListenerFor';
 /**
  * Remove a delegate listener from the target.
  *
- * @since 0.3.0
+ * @since 1.0.0
  *
  * @param {EventTarget} target The target to remove the listener from.
  * @param {string} selectors The selectors that would have been matched against.

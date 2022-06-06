@@ -3,7 +3,7 @@ import type { CreateElementOptions } from './interfaces/CreateElementOptions';
 /**
  * Creates an instance of the element for the specified tag, allowing you to
  * define attributes and content at the same time.
- * @since 0.3.0
+ * @since 1.0.0
  *
  * @param {string} tagName The type of element to be created.
  * @param {Object} [options] Additional options.

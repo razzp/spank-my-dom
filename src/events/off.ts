@@ -2,7 +2,7 @@ import type { ListenerFor } from './aliases/ListenerFor';
 
 /**
  * Remove an event listener from the target.
- * @since 0.3.0
+ * @since 1.0.0
  *
  * @param {EventTarget} target The target to remove the listener from.
  * @param {string} type The listener type.

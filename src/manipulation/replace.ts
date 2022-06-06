@@ -4,7 +4,7 @@ import type { Replacement } from './aliases/Replacement';
 
 /**
  * Replace the contents of an element with one or more items.
- * @since 0.3.0
+ * @since 1.0.0
  *
  * @param {Element} element The element to replace the contents of.
  * @param {Array.<Node, string>} replacements The new items to insert into the element.

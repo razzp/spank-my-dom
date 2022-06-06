@@ -2,7 +2,7 @@ import { toggleAria } from './toggleAria';
 
 /**
  * Remove a aria attribute from an element.
- * @since 0.3.0
+ * @since 1.0.0
  *
  * @param {Element} element The element to remove the aria attribute from.
  * @param {string} name The name of the aria attribute.

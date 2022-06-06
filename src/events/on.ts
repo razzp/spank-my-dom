@@ -2,7 +2,7 @@ import type { ListenerFor } from './aliases/ListenerFor';
 
 /**
  * Add an event listener to the target.
- * @since 0.3.0
+ * @since 1.0.0
  *
  * @param {EventTarget} target The target to add the listener to.
  * @param {string} type The listener type.

@@ -1,6 +1,6 @@
 /**
  * Creates an array from an iterable object.
- * @since 0.3.0
+ * @since 1.0.0
  *
  * @param {(Iterable<T>|ArrayLike<T>)} iterable The iterable object to convert to an array.
  *

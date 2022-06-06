@@ -20,7 +20,7 @@ import type { DelegateListener } from './aliases/DelegateListener';
  * The listener callback includes a second argument `index`, which indicates
  * how many times the callback has been fired during the current event.
  *
- * @since 0.3.0
+ * @since 1.0.0
  *
  * @param {EventTarget} target The target to add the listener to.
  * @param {string} selectors The selectors to match against when an event is dispatched.

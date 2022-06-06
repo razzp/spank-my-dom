@@ -3,7 +3,7 @@ import { getClasses } from './internal/getClasses';
 
 /**
  * Get classes from an element or string that end with a specified string.
- * @since 0.3.0
+ * @since 1.0.0
  *
  * @param {string} search The string to search for.
  * @param {Element|string} context The context to perform the search on.

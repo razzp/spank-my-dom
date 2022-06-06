@@ -2,7 +2,7 @@ import type { DispatchEventOptions } from './interfaces/DispatchEventOptions';
 
 /**
  * Dispatch a synthetic event to a target.
- * @since 0.3.0
+ * @since 1.0.0
  *
  * @param {EventTarget} target The target to dispatch the event to.
  * @param {string} type The name of the event.
