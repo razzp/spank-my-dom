@@ -40,18 +40,19 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 * [serialise(...items)](#serialise) ⇒ <code>string</code>
 * [loadImage(path)](#loadImage) ⇒ <code>Promise.&lt;HTMLImageElement&gt;</code>
 * [loadImages(...paths)](#loadImages) ⇒ <code>Promise.&lt;Array.&lt;HTMLImageElement&gt;&gt;</code>
+* [parseJson(input, reviver)](#parseJson) ⇒ <code>object</code>
 * [create(tagName, [options])](#create) ⇒ <code>Element</code>
 * [empty(element)](#empty) ⇒ <code>void</code>
 * [replace(element, ...replacements)](#replace) ⇒ <code>void</code>
 * [find(selectors, context)](#find) ⇒ <code>null</code> \| <code>Element</code>
 * [findOrThrow(selectors, context)](#findOrThrow) ⇒ <code>Element</code>
 * [findAll(selectors, context)](#findAll) ⇒ <code>Array.&lt;Element&gt;</code>
+* [toBoolean(input)](#toBoolean) ⇒ <code>boolean</code>
+* [toNumber(input)](#toNumber) ⇒ <code>number</code>
 * [closest(element, selector)](#closest) ⇒ <code>null</code> \| <code>Element</code>
 * [siblingsAfter(element, [selector])](#siblingsAfter) ⇒ <code>Array.&lt;Element&gt;</code>
 * [siblingsBefore(element, [selector])](#siblingsBefore) ⇒ <code>Array.&lt;Element&gt;</code>
 * [siblings(element, [selector])](#siblings) ⇒ <code>Array.&lt;Element&gt;</code>
-* [convertString(input, type)](#convertString) ⇒ <code>boolean</code> \| <code>number</code>
-* [parseJson(input, reviver)](#parseJson) ⇒ <code>object</code>
 
 <a name="toArray"></a>
 
@@ -434,6 +435,18 @@ Load one or more images asynchronously.
 | --- | --- | --- |
 | ...paths | <code>Array.&lt;string&gt;</code> | The image(s) to load. |
 
+<a name="parseJson"></a>
+
+## parseJson(input, reviver) ⇒ <code>object</code>
+Convert a JSON string into an object.
+
+**Since**: 1.0.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| input | <code>string</code> | A valid JSON string. |
+| reviver | <code>function</code> | A function that transforms the results. |
+
 <a name="create"></a>
 
 ## create(tagName, [options]) ⇒ <code>Element</code>
@@ -508,6 +521,28 @@ Returns all descendant elements within context that match the given selectors.
 | selectors | <code>string</code> | The selectors to match against. |
 | context | <code>Document</code> \| <code>DocumentFragment</code> \| <code>Element</code> | The context from which to search from. |
 
+<a name="toBoolean"></a>
+
+## toBoolean(input) ⇒ <code>boolean</code>
+Convert a string into a boolean.
+
+**Since**: 1.0.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| input | <code>string</code> | The string to convert. |
+
+<a name="toNumber"></a>
+
+## toNumber(input) ⇒ <code>number</code>
+Convert a string into a number.
+
+**Since**: 1.0.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| input | <code>string</code> | The string to convert. |
+
 <a name="closest"></a>
 
 ## closest(element, selector) ⇒ <code>null</code> \| <code>Element</code>
@@ -555,28 +590,4 @@ Get the siblings of an element, optionally filtered by a selector.
 | --- | --- | --- |
 | element | <code>Element</code> | The element whose siblings will be returned. |
 | [selector] | <code>string</code> | Optional selector to match siblings against. |
-
-<a name="convertString"></a>
-
-## convertString(input, type) ⇒ <code>boolean</code> \| <code>number</code>
-Convert a string into another primitive type.
-
-**Since**: 1.0.0  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| input | <code>string</code> | The string to convert. |
-| type | <code>&#x27;boolean&#x27;</code> \| <code>&#x27;number&#x27;</code> | The type to convert to. |
-
-<a name="parseJson"></a>
-
-## parseJson(input, reviver) ⇒ <code>object</code>
-Convert a JSON string into an object.
-
-**Since**: 1.0.0  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| input | <code>string</code> | A valid JSON string. |
-| reviver | <code>function</code> | A function that transforms the results. |
 
