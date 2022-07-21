@@ -27,8 +27,8 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 * [hasData(element, name)](#hasData) ⇒ <code>boolean</code>
 * [removeData(element, name)](#removeData) ⇒ <code>void</code>
 * [toggleClass(element, tokens, [force])](#toggleClass) ⇒ <code>boolean</code>
-* [addClass(element, tokens)](#addClass) ⇒ <code>void</code>
-* [removeClass(element, tokens)](#removeClass) ⇒ <code>void</code>
+* [addClass(element, ...tokens)](#addClass) ⇒ <code>void</code>
+* [removeClass(element, ...tokens)](#removeClass) ⇒ <code>void</code>
 * [classesContaining(search, context, [ignoreCase])](#classesContaining) ⇒ <code>Array.&lt;string&gt;</code>
 * [classesEndingWith(search, context, [ignoreCase])](#classesEndingWith) ⇒ <code>Array.&lt;string&gt;</code>
 * [classesStartingWith(search, context, [ignoreCase])](#classesStartingWith) ⇒ <code>Array.&lt;string&gt;</code>
@@ -264,12 +264,12 @@ Toggle one or more classes of an element. If force is included, turns thetoggle
 | Param | Type | Description |
 | --- | --- | --- |
 | element | <code>Element</code> | The element to toggle the class(es) on. |
-| tokens | <code>string</code> | The class(es) to toggle. |
+| tokens | <code>string</code> \| <code>Array.&lt;string&gt;</code> | The class(es) to toggle. |
 | [force] | <code>boolean</code> | Restrict toggle to a one-way operation only. |
 
 <a name="addClass"></a>
 
-## addClass(element, tokens) ⇒ <code>void</code>
+## addClass(element, ...tokens) ⇒ <code>void</code>
 Add one or more classes to an element.
 
 **Since**: 0.2.0  
@@ -277,11 +277,11 @@ Add one or more classes to an element.
 | Param | Type | Description |
 | --- | --- | --- |
 | element | <code>Element</code> | The element to add the class(es) to. |
-| tokens | <code>string</code> | The class(es) to add. |
+| ...tokens | <code>Array.&lt;string&gt;</code> | The class(es) to add. |
 
 <a name="removeClass"></a>
 
-## removeClass(element, tokens) ⇒ <code>void</code>
+## removeClass(element, ...tokens) ⇒ <code>void</code>
 Remove one or more classes from an element.
 
 **Since**: 0.2.0  
@@ -289,7 +289,7 @@ Remove one or more classes from an element.
 | Param | Type | Description |
 | --- | --- | --- |
 | element | <code>Element</code> | The element to remove the class(es) from. |
-| tokens | <code>string</code> | The class(es) to remove. |
+| ...tokens | <code>Array.&lt;string&gt;</code> | The class(es) to remove. |
 
 <a name="classesContaining"></a>
 
