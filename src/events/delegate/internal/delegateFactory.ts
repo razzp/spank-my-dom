@@ -15,13 +15,22 @@ function delegateFactory(
         let atLeastOneMatch = false;
         let stopDelegation = false;
 
-        // Define non-standard property `stopDelegation` on the event object.
-        // This can be called to prevent any further traversal up the DOM.
-        Object.defineProperty(event, 'stopDelegation', {
-            value: () => (stopDelegation = true),
-            // Keeps the proxy happy:
-            // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/get#invariants
-            configurable: true,
+        // Define non-standard properties on the event object.
+        Object.defineProperties(event, {
+            // We will proxy `target` so that it is always the target that
+            // matches the delegate selector, however this might not always be
+            // the same target that dispatched the event. The `originalTarget`
+            // property will return this target.
+            originalTarget: {
+                value: event.target,
+            },
+            // This can be called to prevent any further traversal up the DOM.
+            stopDelegation: {
+                value: () => (stopDelegation = true),
+                // Keeps the proxy happy:
+                // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/get#invariants
+                configurable: true,
+            },
         });
 
         while (
