@@ -14,7 +14,6 @@ function delegateFactory(
         let current = event.target as null | Node;
         let atLeastOneMatch = false;
         let shouldStop = false;
-        let index = 0;
 
         // Define non-standard property `stopDelegation` on the event object.
         // This can be called to prevent any further traversal up the DOM.
@@ -40,11 +39,10 @@ function delegateFactory(
                     },
                 });
 
-                // Invoke the listener. We are also passing an index that can
-                // be useful if multiple matches are expected.
+                // Invoke the listener.
                 'handleEvent' in listener
-                    ? listener.handleEvent.call(current, delegateEvent, ++index)
-                    : listener.call(current, delegateEvent, ++index);
+                    ? listener.handleEvent.call(current, delegateEvent)
+                    : listener.call(current, delegateEvent);
 
                 // Flag that there's been at least one match.
                 atLeastOneMatch = true;
