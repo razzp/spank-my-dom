@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.0 (2022-07-22)
+
+Minor release to add some features and fix some bugs.
+
+### Changed
+- `addClass` now accepts an array of tokens.
+- `removeClass` now accepts an array of tokens.
+- `toggleClass` now accepts an array of tokens.
+
+### Fixed
+- Solved illegal invocation errors with the `Proxy` that wraps delegate events.
+
 ## 1.0.0 (2022-06-06)
 
 The first major release includes various bug fixes, improvements and additions.
