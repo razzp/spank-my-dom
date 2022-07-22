@@ -13,38 +13,59 @@ function delegateFactory(
     return (event: Event): void => {
         let current = event.target as null | Node;
         let atLeastOneMatch = false;
-        let shouldStop = false;
-        let index = 0;
+        let stopDelegation = false;
 
-        // Define non-standard property `stopDelegation` on the event object.
-        // This can be called to prevent any further traversal up the DOM.
-        Object.defineProperty(event, 'stopDelegation', {
-            value: () => (shouldStop = true),
+        // Define non-standard properties on the event object.
+        Object.defineProperties(event, {
+            // We will proxy `target` so that it is always the target that
+            // matches the delegate selector, however this might not always be
+            // the same target that dispatched the event. The `originalTarget`
+            // property will return this target.
+            originalTarget: {
+                value: event.target,
+            },
+            // This can be called to prevent any further traversal up the DOM.
+            stopDelegation: {
+                value: () => (stopDelegation = true),
+                // Keeps the proxy happy:
+                // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/get#invariants
+                configurable: true,
+            },
         });
 
         while (
             current &&
             current instanceof Element &&
             current !== event.currentTarget &&
-            !shouldStop
+            !stopDelegation
         ) {
             // Check if the current element matches the given selectors.
             if (current.matches(selectors)) {
                 // Create a proxy around the event to trap any get request for
-                // the `target` property. Return the current element instead.
+                // the `target` property. This ensures that the target which
+                // matched the delegate selector is returned.
                 const delegateEvent = new Proxy(event, {
-                    get(target, property, receiver) {
-                        return property === 'target'
-                            ? current
-                            : Reflect.get(target, property, receiver);
+                    get(target, property) {
+                        switch (property) {
+                            case 'target':
+                                return current;
+                            default: {
+                                const value = Reflect.get(target, property);
+
+                                return typeof value === 'function'
+                                    ? // We need to re-bind `event` as the scope seems to get lost
+                                      // in the proxy which causes illegal invocation errors.
+                                      value.bind(event)
+                                    : value;
+                            }
+                        }
                     },
                 });
 
-                // Invoke the listener. We are also passing an index that can
-                // be useful if multiple matches are expected.
+                // Invoke the listener.
                 'handleEvent' in listener
-                    ? listener.handleEvent.call(current, delegateEvent, ++index)
-                    : listener.call(current, delegateEvent, ++index);
+                    ? listener.handleEvent.call(current, delegateEvent)
+                    : listener.call(current, delegateEvent);
 
                 // Flag that there's been at least one match.
                 atLeastOneMatch = true;

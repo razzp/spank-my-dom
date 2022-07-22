@@ -5,11 +5,11 @@ import { toggleClass } from './toggleClass';
  * @since 0.2.0
  *
  * @param {Element} element The element to add the class(es) to.
- * @param {string} tokens The class(es) to add.
+ * @param {string[]} tokens The class(es) to add.
  *
  * @returns {void}
  */
-function addClass(element: Element, tokens: string): void {
+function addClass(element: Element, ...tokens: string[]): void {
     toggleClass(element, tokens, true);
 }
 

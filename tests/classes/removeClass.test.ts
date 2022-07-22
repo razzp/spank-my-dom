@@ -14,10 +14,26 @@ beforeEach(() => {
     global.document = window.document;
 });
 
-test('Class is successfully removed from element', () => {
+test('Single class is successfully removed from element', () => {
     const target = guarantee(document.querySelector('.target'));
 
     removeClass(target, 'foo');
 
     expect(target.className).toBe('target bar');
+});
+
+test('Multiple classes are successfully removed from element', () => {
+    const target = guarantee(document.querySelector('.target'));
+
+    removeClass(target, 'foo', 'bar');
+
+    expect(target.className).toBe('target');
+});
+
+test('Multiple space-separated classes are successfully removed from element', () => {
+    const target = guarantee(document.querySelector('.target'));
+
+    removeClass(target, 'foo bar');
+
+    expect(target.className).toBe('target');
 });

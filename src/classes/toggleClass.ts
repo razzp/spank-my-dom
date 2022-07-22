@@ -5,19 +5,23 @@
  * @since 0.2.0
  *
  * @param {Element} element The element to toggle the class(es) on.
- * @param {string} tokens The class(es) to toggle.
+ * @param {string|string[]} tokens The class(es) to toggle.
  * @param {boolean} [force] Restrict toggle to a one-way operation only.
  *
  * @returns {boolean}
  */
 function toggleClass(
     element: Element,
-    tokens: string,
+    tokens: string | string[],
     force?: boolean
 ): boolean {
-    const results = tokens
-        .split(/\s+/)
-        .map((token) => element.classList.toggle(token, force));
+    const normalised = Array.isArray(tokens) ? tokens : [tokens];
+
+    const results = normalised.flatMap((token) =>
+        token
+            .split(/\s+/)
+            .map((token) => element.classList.toggle(token, force))
+    );
 
     // Return true or false depending on whether every token was added or not.
     return results.every(Boolean);

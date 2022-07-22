@@ -1,5 +1,5 @@
 type DelegateListener =
-    | ((event: Event | CustomEvent, index: number) => void)
-    | { handleEvent(event: Event | CustomEvent, index: number): void };
+    | ((event: Event | CustomEvent) => void)
+    | { handleEvent(event: Event | CustomEvent): void };
 
 export { DelegateListener };
