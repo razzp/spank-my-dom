@@ -1,4 +1,4 @@
-import { toggleData } from './toggleData';
+import { setAttr } from '../setAttr';
 
 /**
  * Set a data attribute on an element.
@@ -11,7 +11,7 @@ import { toggleData } from './toggleData';
  * @returns {void}
  */
 function setData(element: Element, name: string, value: unknown): void {
-    toggleData(element, name, value, true);
+    setAttr(element, `data-${name}`, value);
 }
 
 export { setData };

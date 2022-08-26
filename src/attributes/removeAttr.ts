@@ -1,5 +1,3 @@
-import { toggleAttr } from './toggleAttr';
-
 /**
  * Remove an attribute from an element.
  * @since 1.0.0
@@ -10,7 +8,7 @@ import { toggleAttr } from './toggleAttr';
  * @returns {void}
  */
 function removeAttr(element: Element, name: string): void {
-    toggleAttr(element, name, '', false);
+    element.removeAttribute(name);
 }
 
 export { removeAttr };

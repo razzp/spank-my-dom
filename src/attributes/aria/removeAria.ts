@@ -1,4 +1,4 @@
-import { toggleAria } from './toggleAria';
+import { removeAttr } from '../removeAttr';
 
 /**
  * Remove a aria attribute from an element.
@@ -10,7 +10,7 @@ import { toggleAria } from './toggleAria';
  * @returns {void}
  */
 function removeAria(element: Element, name: string): void {
-    toggleAria(element, name, '', false);
+    removeAttr(element, `aria-${name}`);
 }
 
 export { removeAria };

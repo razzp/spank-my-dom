@@ -1,3 +1,6 @@
+import { removeAttr } from './removeAttr';
+import { setAttr } from './setAttr';
+
 /**
  * Toggle the attribute of an element. If force is included, turns the toggle
  * into a one way-only operation. If set to false, the attribute will only be
@@ -24,7 +27,7 @@ function toggleAttr(
         if (!hasForce || !force) {
             // Remove the attribute and return false as the attribute no longer
             // exists on the element.
-            element.removeAttribute(name);
+            removeAttr(element, name);
             return false;
         } else {
             // Return true as the attribute exists on the element.
@@ -34,7 +37,7 @@ function toggleAttr(
         if (!hasForce || force) {
             // Set the attribute and return true as the attribute now exists on
             // the element.
-            element.setAttribute(name, String(value));
+            setAttr(element, name, value);
             return true;
         } else {
             // Return false as the attribute does not exist on the element.

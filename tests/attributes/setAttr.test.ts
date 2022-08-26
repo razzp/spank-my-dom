@@ -6,7 +6,7 @@ import { setAttr } from '../../src/attributes/setAttr';
 beforeEach(() => {
     const { window } = new JSDOM(
         `<!DOCTYPE html>
-        <div class="target"></div>
+        <div class="target" bar="true"></div>
         `
     );
 
@@ -23,4 +23,15 @@ test('Attribute is successfully added to element', () => {
 
     expect(target.hasAttribute('foo')).toBe(true);
     expect(target.getAttribute('foo')).toBe('bar');
+});
+
+test('Attribute is successfully overridden on element', () => {
+    const target = guarantee(document.querySelector('.target'));
+
+    expect(target.hasAttribute('bar')).toBe(true);
+    expect(target.getAttribute('bar')).toBe('true');
+
+    setAttr(target, 'bar', 'false');
+
+    expect(target.getAttribute('bar')).toBe('false');
 });

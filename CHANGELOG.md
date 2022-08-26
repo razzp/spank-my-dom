@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1 (2022-08-26)
+
+### Fixed
+- `setAttr` and its abstractions now correctly override existing values.
+
 ## 1.1.0 (2022-07-22)
 
 Minor release to add some features and fix some bugs.

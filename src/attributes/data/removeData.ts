@@ -1,4 +1,4 @@
-import { toggleData } from './toggleData';
+import { removeAttr } from '../removeAttr';
 
 /**
  * Remove a data attribute from an element.
@@ -10,7 +10,7 @@ import { toggleData } from './toggleData';
  * @returns {void}
  */
 function removeData(element: Element, name: string): void {
-    toggleData(element, name, '', false);
+    removeAttr(element, `data-${name}`);
 }
 
 export { removeData };

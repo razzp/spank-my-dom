@@ -1,5 +1,3 @@
-import { toggleAttr } from './toggleAttr';
-
 /**
  * Set an attribute on an element.
  * @since 1.0.0
@@ -11,7 +9,7 @@ import { toggleAttr } from './toggleAttr';
  * @returns {void}
  */
 function setAttr(element: Element, name: string, value: unknown): void {
-    toggleAttr(element, name, value, true);
+    element.setAttribute(name, String(value));
 }
 
 export { setAttr };

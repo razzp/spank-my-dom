@@ -1,4 +1,4 @@
-import { toggleAria } from './toggleAria';
+import { setAttr } from '../setAttr';
 
 /**
  * Set an aria attribute on an element.
@@ -11,7 +11,7 @@ import { toggleAria } from './toggleAria';
  * @returns {void}
  */
 function setAria(element: Element, name: string, value: unknown): void {
-    toggleAria(element, name, value, true);
+    setAttr(element, `aria-${name}`, value);
 }
 
 export { setAria };
