@@ -1,5 +1,3 @@
-import type { Queryable } from './aliases/Queryable';
-
 /**
  * Returns all descendant elements within context that match the given selectors.
  * @since 1.0.0
@@ -11,7 +9,7 @@ import type { Queryable } from './aliases/Queryable';
  */
 function findAll<T extends Element>(
     selectors: string,
-    context: Queryable = document
+    context: Document | DocumentFragment | Element = document,
 ): T[] {
     return [...context.querySelectorAll<T>(selectors)];
 }

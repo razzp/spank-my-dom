@@ -1,5 +1,3 @@
-import type { Queryable } from './aliases/Queryable';
-
 /**
  * Returns the first element within context that matches the given selectors.
  * @since 1.0.0
@@ -9,11 +7,11 @@ import type { Queryable } from './aliases/Queryable';
  *
  * @returns {null|Element}
  */
-function find<T extends Element>(
+function findSingle<T extends Element>(
     selectors: string,
-    context: Queryable = document
+    context: Document | DocumentFragment | Element = document,
 ): null | T {
     return context.querySelector(selectors);
 }
 
-export { find };
+export { findSingle };

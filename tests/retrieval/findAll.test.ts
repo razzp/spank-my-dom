@@ -7,7 +7,7 @@ beforeAll(() => {
         `<!DOCTYPE html>
         <div class="target target-1"></div>
         <div class="target target-2"></div>
-        `
+        `,
     );
 
     // Ensure that required globals are set.

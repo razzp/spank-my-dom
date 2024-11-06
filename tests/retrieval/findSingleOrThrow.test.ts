@@ -1,12 +1,12 @@
 import { JSDOM } from 'jsdom';
 
-import { findOrThrow } from '../../src/retrieval/findOrThrow';
+import { findSingleOrThrow } from '../../src/retrieval/findSingleOrThrow';
 
 beforeAll(() => {
     const { window } = new JSDOM(
         `<!DOCTYPE html>
         <div class="target"></div>
-        `
+        `,
     );
 
     // Ensure that required globals are set.
@@ -17,12 +17,12 @@ test('Given a selector that matches an element, returns that element', () => {
     expect.assertions(1);
 
     try {
-        expect(findOrThrow('.target')).toBeDefined();
+        expect(findSingleOrThrow('.target')).toBeDefined();
     } catch {
         // Do nothing.
     }
 });
 
 test('Given a selector with no matches, throws', () => {
-    expect(() => findOrThrow('.foo', document)).toThrowError();
+    expect(() => findSingleOrThrow('.foo', document)).toThrowError();
 });

@@ -1,5 +1,3 @@
-import type { Queryable } from './aliases/Queryable';
-
 /**
  * Returns the first element within context that matches the given selectors.
  * @since 1.0.0
@@ -9,9 +7,9 @@ import type { Queryable } from './aliases/Queryable';
  *
  * @returns {Element}
  */
-function findOrThrow<T extends Element>(
+function findSingleOrThrow<T extends Element>(
     selectors: string,
-    context: Queryable = document
+    context: Document | DocumentFragment | Element = document,
 ): T {
     const result = context.querySelector<T>(selectors);
 
@@ -22,4 +20,4 @@ function findOrThrow<T extends Element>(
     return result;
 }
 
-export { findOrThrow };
+export { findSingleOrThrow };
