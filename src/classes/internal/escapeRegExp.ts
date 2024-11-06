@@ -3,7 +3,7 @@
  * regular expression.
  * @private
  */
-function escapeRegExp(input: string) {
+function escapeRegExp(input: string): string {
     return input.replace(/[-[\]{}()*+?.,\\^$|]/g, '\\$&');
 }
 

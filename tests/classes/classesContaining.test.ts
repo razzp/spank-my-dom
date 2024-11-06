@@ -7,7 +7,7 @@ beforeEach(() => {
     const { window } = new JSDOM(
         `<!DOCTYPE html>
             <div class="target f-mid-oo bar"></div>
-            `
+            `,
     );
 
     // Ensure that required globals are set.
@@ -19,7 +19,7 @@ describe('Get classes from string', () => {
     test('Case-sensitive search for classes containing value', () => {
         const result = classesContaining(
             '-mid-',
-            'f-mid-oo bar b-mid-az q-MID-ux'
+            'f-mid-oo bar b-mid-az q-MID-ux',
         );
 
         expect(result).toEqual(['f-mid-oo', 'b-mid-az']);
@@ -29,7 +29,7 @@ describe('Get classes from string', () => {
         const result = classesContaining(
             '-mid-',
             'f-mid-oo bar b-mid-az q-MID-ux',
-            true
+            true,
         );
 
         expect(result).toEqual(['f-mid-oo', 'b-mid-az', 'q-MID-ux']);

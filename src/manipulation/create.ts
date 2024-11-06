@@ -15,7 +15,7 @@ import type { CreateElementOptions } from './interfaces/CreateElementOptions';
  */
 function create<T extends keyof HTMLElementTagNameMap>(
     tagName: T,
-    options?: CreateElementOptions
+    options?: CreateElementOptions,
 ): HTMLElementTagNameMap[T] {
     // Create the new element.
     const newElement = document.createElement(tagName);

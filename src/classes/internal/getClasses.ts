@@ -5,7 +5,7 @@
 function getClasses(
     context: Element | string,
     pattern: string,
-    ignoreCase: boolean
+    ignoreCase: boolean,
 ): string[] {
     // Build a RegExp for the search.
     const matcher = new RegExp(pattern, `g${ignoreCase ? 'i' : ''}`);

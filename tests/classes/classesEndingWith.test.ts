@@ -7,7 +7,7 @@ beforeEach(() => {
     const { window } = new JSDOM(
         `<!DOCTYPE html>
             <div class="target foo-post bar"></div>
-            `
+            `,
     );
 
     // Ensure that required globals are set.
@@ -19,7 +19,7 @@ describe('Get classes from string', () => {
     test('Case-sensitive search for classes ending with value', () => {
         const result = classesEndingWith(
             '-post',
-            'foo-post bar baz-post qux-POST'
+            'foo-post bar baz-post qux-POST',
         );
 
         expect(result).toEqual(['foo-post', 'baz-post']);
@@ -29,7 +29,7 @@ describe('Get classes from string', () => {
         const result = classesEndingWith(
             '-post',
             'foo-post bar baz-post qux-POST',
-            true
+            true,
         );
 
         expect(result).toEqual(['foo-post', 'baz-post', 'qux-POST']);

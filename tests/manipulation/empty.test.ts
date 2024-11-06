@@ -11,7 +11,7 @@ beforeAll(() => {
             <div></div>
             <div></div>
         </div>
-        `
+        `,
     );
 
     // Ensure that required globals are set.

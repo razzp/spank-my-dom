@@ -14,7 +14,7 @@ import { getClasses } from './internal/getClasses';
 function classesStartingWith(
     search: string,
     context: Element | string,
-    ignoreCase = false
+    ignoreCase: boolean = false,
 ): string[] {
     return getClasses(context, `${escapeRegExp(search)}[^\\s]+`, ignoreCase);
 }

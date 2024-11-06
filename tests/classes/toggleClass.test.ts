@@ -7,7 +7,7 @@ beforeEach(() => {
     const { window } = new JSDOM(
         `<!DOCTYPE html>
             <div class="target qux quux"></div>
-            `
+            `,
     );
 
     // Ensure that required globals are set.

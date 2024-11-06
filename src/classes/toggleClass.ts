@@ -13,14 +13,14 @@
 function toggleClass(
     element: Element,
     tokens: string | string[],
-    force?: boolean
+    force?: boolean,
 ): boolean {
     const normalised = Array.isArray(tokens) ? tokens : [tokens];
 
     const results = normalised.flatMap((token) =>
         token
             .split(/\s+/)
-            .map((token) => element.classList.toggle(token, force))
+            .map((token) => element.classList.toggle(token, force)),
     );
 
     // Return true or false depending on whether every token was added or not.

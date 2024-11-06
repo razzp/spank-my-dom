@@ -14,12 +14,12 @@ import { getClasses } from './internal/getClasses';
 function classesContaining(
     search: string,
     context: Element | string,
-    ignoreCase = false
+    ignoreCase: boolean = false,
 ): string[] {
     return getClasses(
         context,
         `[^\\s]+${escapeRegExp(search)}[^\\s]+`,
-        ignoreCase
+        ignoreCase,
     );
 }
 
