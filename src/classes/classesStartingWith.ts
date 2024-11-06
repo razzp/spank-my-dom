@@ -1,4 +1,4 @@
-import { escapeRegExp } from './internal/escapeRegExp';
+import { escapeRegExp } from '../utils/escapeRegExp';
 import { getClasses } from './internal/getClasses';
 
 /**
