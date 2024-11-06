@@ -1,6 +1,6 @@
 import { JSDOM } from 'jsdom';
 
-import { siblingAccumulator } from '../../../src/traversal/internal/siblingAccumulator';
+import { getSiblings } from '../../../src/traversal/internal/getSiblings';
 
 let globalTarget: Element;
 
@@ -16,7 +16,7 @@ beforeAll(() => {
         <div class="bar"></div>
         <div class="bar"></div>
         <div></div>
-        `
+        `,
     );
 
     // Ensure that required globals are set.
@@ -28,20 +28,16 @@ beforeAll(() => {
 });
 
 test('Given no selector, successfully returns all preceding siblings', () => {
-    const result = siblingAccumulator('previousElementSibling', globalTarget);
+    const result = getSiblings('previousElementSibling', globalTarget);
 
     expect(result.length).toBe(4);
 });
 
 test('Given a selector, successfully returns all preceding siblings that match', () => {
-    const result = siblingAccumulator(
-        'previousElementSibling',
-        globalTarget,
-        '.foo'
-    );
+    const result = getSiblings('previousElementSibling', globalTarget, '.foo');
 
     const allMatch = result.every((element) =>
-        element.classList.contains('foo')
+        element.classList.contains('foo'),
     );
 
     expect(result.length).toBe(2);
@@ -49,20 +45,16 @@ test('Given a selector, successfully returns all preceding siblings that match',
 });
 
 test('Given no selector, successfully returns all following siblings', () => {
-    const result = siblingAccumulator('nextElementSibling', globalTarget);
+    const result = getSiblings('nextElementSibling', globalTarget);
 
     expect(result.length).toBe(4);
 });
 
 test('Given a selector, successfully returns all following siblings that match', () => {
-    const result = siblingAccumulator(
-        'nextElementSibling',
-        globalTarget,
-        '.bar'
-    );
+    const result = getSiblings('nextElementSibling', globalTarget, '.bar');
 
     const allMatch = result.every((element) =>
-        element.classList.contains('bar')
+        element.classList.contains('bar'),
     );
 
     expect(result.length).toBe(2);
@@ -70,11 +62,7 @@ test('Given a selector, successfully returns all following siblings that match',
 });
 
 test('Given a selector that will yield no matches, returns an empty array', () => {
-    const result = siblingAccumulator(
-        'nextElementSibling',
-        globalTarget,
-        '.baz'
-    );
+    const result = getSiblings('nextElementSibling', globalTarget, '.baz');
 
     expect(result).toEqual([]);
 });

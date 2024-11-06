@@ -1,4 +1,4 @@
-import { siblingAccumulator } from './internal/siblingAccumulator';
+import { getSiblings } from './internal/getSiblings';
 
 /**
  * Get the preceding siblings of an element, optionally filtered by a selector.
@@ -11,9 +11,13 @@ import { siblingAccumulator } from './internal/siblingAccumulator';
  */
 function siblingsBefore<T extends Element>(
     element: Element,
-    selector?: string
+    selector?: string,
 ): T[] {
-    return siblingAccumulator('previousElementSibling', element, selector);
+    return getSiblings<T>(
+        'previousElementSibling',
+        element,
+        selector,
+    );
 }
 
 export { siblingsBefore };
