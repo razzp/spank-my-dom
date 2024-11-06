@@ -1,6 +1,3 @@
-import { removeAttr } from './removeAttr';
-import { setAttr } from './setAttr';
-
 /**
  * Toggle the attribute of an element. If force is included, turns the toggle
  * into a one way-only operation. If set to false, the attribute will only be
@@ -9,25 +6,24 @@ import { setAttr } from './setAttr';
  *
  * @param {Element} element The element to toggle the attribute on.
  * @param {string} name The name of the attribute.
- * @param {string|number|boolean} value The value of the attribute.
+ * @param {} value The value of the attribute.
  * @param {boolean} [force] Restrict toggle to a one-way operation only.
  *
  * @returns {boolean}
  */
-function toggleAttr(
+function toggleAttribute(
     element: Element,
     name: string,
     value: unknown,
-    force?: boolean
+    force?: boolean,
 ): boolean {
-    const hasAttr = element.hasAttribute(name);
     const hasForce = typeof force === 'boolean';
 
-    if (hasAttr) {
+    if (element.hasAttribute(name)) {
         if (!hasForce || !force) {
             // Remove the attribute and return false as the attribute no longer
             // exists on the element.
-            removeAttr(element, name);
+            element.removeAttribute(name);
             return false;
         } else {
             // Return true as the attribute exists on the element.
@@ -37,7 +33,7 @@ function toggleAttr(
         if (!hasForce || force) {
             // Set the attribute and return true as the attribute now exists on
             // the element.
-            setAttr(element, name, value);
+            element.setAttribute(name, String(value));
             return true;
         } else {
             // Return false as the attribute does not exist on the element.
@@ -46,4 +42,4 @@ function toggleAttr(
     }
 }
 
-export { toggleAttr };
+export { toggleAttribute };
