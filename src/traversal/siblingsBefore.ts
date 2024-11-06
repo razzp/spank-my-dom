@@ -17,7 +17,7 @@ function siblingsBefore<T extends Element>(
         'previousElementSibling',
         element,
         selector,
-    );
+    ).reverse();
 }
 
 export { siblingsBefore };
