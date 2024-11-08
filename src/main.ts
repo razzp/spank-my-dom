@@ -12,7 +12,15 @@ export { classesStartingWith } from './classes/classesStartingWith';
 
 // Events
 
+export { debounce } from './events/debounce';
+export { delegate } from './events/delegate';
+export { onPixelRatioChange } from './events/onPixelRatioChange';
+export { throttle } from './events/throttle';
+
 // Forms
+
+export { getFormData } from './forms/getFormData';
+export { serialiseForm } from './forms/serialiseForm';
 
 // Images
 
@@ -23,6 +31,8 @@ export { loadImages } from './images/loadImages';
 
 export { create } from './manipulation/create';
 export { empty } from './manipulation/empty';
+export { hideElement } from './manipulation/hideElement';
+export { showElement } from './manipulation/showElement';
 
 // Retrieval
 
@@ -39,4 +49,9 @@ export { siblingsBefore } from './traversal/siblingsBefore';
 
 // Utils
 
+export { clamp } from './utils/clamp';
 export { escapeRegExp } from './utils/escapeRegExp';
+export { isMobileDevice } from './utils/isMobileDevice';
+export { scaleToPixelRatio } from './utils/scaleToPixelRatio';
+export { waitAtLeast } from './utils/waitAtLeast';
+export { waitForReadyState } from './utils/waitForReadyState';
