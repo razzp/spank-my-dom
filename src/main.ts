@@ -14,6 +14,7 @@ export { classesStartingWith } from './classes/classesStartingWith';
 
 export { debounce } from './events/debounce';
 export { delegate } from './events/delegate';
+export { dispatch } from './events/dispatch';
 export { onPixelRatioChange } from './events/onPixelRatioChange';
 export { throttle } from './events/throttle';
 
