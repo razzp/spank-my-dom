@@ -1,7 +1,7 @@
 import { guarantee } from 'bossy-boots';
 import { JSDOM } from 'jsdom';
 
-import { empty } from '../../src/manipulation/empty';
+import { emptyElement } from '../../src/manipulation/emptyElement';
 
 beforeAll(() => {
     const { window } = new JSDOM(

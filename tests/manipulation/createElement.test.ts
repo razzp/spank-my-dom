@@ -1,6 +1,6 @@
 import { JSDOM } from 'jsdom';
 
-import { create } from '../../src/manipulation/create';
+import { createElement } from '../../src/manipulation/createElement';
 
 beforeAll(() => {
     const { window } = new JSDOM();

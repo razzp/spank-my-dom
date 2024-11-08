@@ -30,8 +30,8 @@ export { loadImages } from './images/loadImages';
 
 // Manipulation
 
-export { create } from './manipulation/create';
-export { empty } from './manipulation/empty';
+export { createElement } from './manipulation/createElement';
+export { emptyElement } from './manipulation/emptyElement';
 export { hideElement } from './manipulation/hideElement';
 export { showElement } from './manipulation/showElement';
 
