@@ -4,15 +4,19 @@ type CreateElementOptions = ElementCreationOptions & {
     props?: { [key: string]: unknown };
 };
 
+type TagNameMap = HTMLElementTagNameMap &
+    SVGElementTagNameMap &
+    MathMLElementTagNameMap;
+
 /**
  * Creates an instance of the element for the specified tag, allowing you to
  * define attributes and child nodes at the same time.
  * @since 2.0.0
  */
-function createElement<T extends keyof HTMLElementTagNameMap>(
+function createElement<T extends keyof TagNameMap>(
     tagName: T,
     options?: CreateElementOptions,
-): HTMLElementTagNameMap[T] {
+): TagNameMap[T] {
     const { children, namespace, props } = { ...options };
 
     const element = namespace
@@ -34,7 +38,7 @@ function createElement<T extends keyof HTMLElementTagNameMap>(
         element.append(...children);
     }
 
-    return element as HTMLElementTagNameMap[T];
+    return element as TagNameMap[T];
 }
 
 export { createElement };
