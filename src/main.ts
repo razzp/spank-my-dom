@@ -4,7 +4,9 @@ export { toggleAttribute } from './attributes/toggleAttribute';
 
 // Classes
 
+export { addClass } from './classes/addClass';
 export { toggleClass } from './classes/toggleClass';
+export { removeClass } from './classes/removeClass';
 
 export { classesContaining } from './classes/classesContaining';
 export { classesEndingWith } from './classes/classesEndingWith';
