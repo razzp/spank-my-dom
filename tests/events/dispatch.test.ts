@@ -1,24 +1,20 @@
-import { guarantee } from 'bossy-boots';
-import { JSDOM } from 'jsdom';
+/**
+ * @jest-environment jsdom
+ */
+
+import { assertIsNotNull } from 'bossy-boots';
 
 import { dispatch } from '../../src/events/dispatch';
 
 beforeEach(() => {
-    const { window } = new JSDOM(
-        `<!DOCTYPE html>
-        <div class="target"></div>
-        `,
-    );
-
-    // Ensure that required globals are set.
-    global.document = window.document;
-    global.CustomEvent = window.CustomEvent;
-    global.Event = window.Event;
+    document.body.innerHTML = '<div class="target"></div>';
 });
 
 test('Dispatching event without bubbles set does not bubble', () => {
     const callback = jest.fn((event: Event) => event.target);
-    const target = guarantee(document.querySelector<HTMLElement>('.target'));
+    const target = document.querySelector<HTMLElement>('.target');
+
+    assertIsNotNull(target);
 
     document.addEventListener('click', callback);
 
@@ -29,7 +25,9 @@ test('Dispatching event without bubbles set does not bubble', () => {
 
 test('Dispatching event with bubbles set to true successfully bubbles', () => {
     const callback = jest.fn((event: Event) => event.target);
-    const target = guarantee(document.querySelector<HTMLElement>('.target'));
+    const target = document.querySelector<HTMLElement>('.target');
+
+    assertIsNotNull(target);
 
     document.addEventListener('click', callback);
 
@@ -42,7 +40,9 @@ test('Dispatching event with bubbles set to true successfully bubbles', () => {
 
 test('Dispatching event without detail set creates normal event', () => {
     const callback = jest.fn((event: Event) => event);
-    const target = guarantee(document.querySelector<HTMLElement>('.target'));
+    const target = document.querySelector<HTMLElement>('.target');
+
+    assertIsNotNull(target);
 
     target.addEventListener('click', callback);
 
@@ -54,7 +54,9 @@ test('Dispatching event without detail set creates normal event', () => {
 
 test('Dispatching event with detail set creates custom event with detail prop', () => {
     const callback = jest.fn((event: Event) => event);
-    const target = guarantee(document.querySelector<HTMLElement>('.target'));
+    const target = document.querySelector<HTMLElement>('.target');
+
+    assertIsNotNull(target);
 
     target.addEventListener('click', callback);
 
@@ -68,7 +70,9 @@ test('Dispatching event with detail set creates custom event with detail prop', 
 });
 
 test('If event is not cancellable, returns true', () => {
-    const target = guarantee(document.querySelector<HTMLElement>('.target'));
+    const target = document.querySelector<HTMLElement>('.target');
+
+    assertIsNotNull(target);
 
     target.addEventListener('click', () => void 0);
 
@@ -78,7 +82,9 @@ test('If event is not cancellable, returns true', () => {
 });
 
 test('If event is cancellable and preventDefault() is called, returns false', () => {
-    const target = guarantee(document.querySelector<HTMLElement>('.target'));
+    const target = document.querySelector<HTMLElement>('.target');
+
+    assertIsNotNull(target);
 
     target.addEventListener('click', (event) => event.preventDefault());
 

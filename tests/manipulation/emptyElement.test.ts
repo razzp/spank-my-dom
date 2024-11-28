@@ -1,30 +1,30 @@
-import { guarantee } from 'bossy-boots';
-import { JSDOM } from 'jsdom';
+/**
+ * @jest-environment jsdom
+ */
+
+import { assertIsNotNull } from 'bossy-boots';
 
 import { emptyElement } from '../../src/manipulation/emptyElement';
 
 beforeAll(() => {
-    const { window } = new JSDOM(
-        `<!DOCTYPE html>
+    document.body.innerHTML = `
         <div class="target">
             foo
             <div></div>
             <div></div>
         </div>
-        `,
-    );
-
-    // Ensure that required globals are set.
-    global.document = window.document;
+    `;
 });
 
 test('Given an element, remove all of its child nodes', () => {
-    const target = guarantee(document.querySelector('.target'));
+    const target = document.querySelector('.target');
+
+    assertIsNotNull(target);
 
     // We use GTE here because breaks/spaces count as nodes.
     expect(target.childNodes.length).toBeGreaterThanOrEqual(3);
 
-    empty(target);
+    emptyElement(target);
 
     expect(target.childNodes.length).toBe(0);
 });

@@ -1,14 +1,9 @@
-import { JSDOM } from 'jsdom';
+/**
+ * @jest-environment jsdom
+ */
 
 import { loadImages } from '../../src/images/loadImages';
 import { MockImage, MockImageFails, MockImageSucceeds } from './MockImage';
-
-beforeAll(() => {
-    const { window } = new JSDOM();
-
-    // Ensure that required globals are set.
-    global.DOMException = window.DOMException;
-});
 
 test('Successful load resolves with images', async () => {
     (global.Image as any) = MockImageSucceeds;

@@ -1,16 +1,11 @@
-import { JSDOM } from 'jsdom';
+/**
+ * @jest-environment jsdom
+ */
 
 import { findSingleOrThrow } from '../../src/retrieval/findSingleOrThrow';
 
 beforeAll(() => {
-    const { window } = new JSDOM(
-        `<!DOCTYPE html>
-        <div class="target"></div>
-        `,
-    );
-
-    // Ensure that required globals are set.
-    global.document = window.document;
+    document.body.innerHTML = '<div class="target"></div>';
 });
 
 test('Given a selector that matches an element, returns that element', () => {

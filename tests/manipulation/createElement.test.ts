@@ -1,22 +1,16 @@
-import { JSDOM } from 'jsdom';
+/**
+ * @jest-environment jsdom
+ */
 
 import { createElement } from '../../src/manipulation/createElement';
 
-beforeAll(() => {
-    const { window } = new JSDOM();
-
-    // Ensure that required globals are set.
-    global.document = window.document;
-    global.HTMLDivElement = window.HTMLDivElement;
+test('Given just a tag name, creates and returns an element', () => {
+    expect(createElement('div')).toBeInstanceOf(HTMLDivElement);
 });
 
-test('Given a tag name, creates and returns an element', () => {
-    expect(create('div')).toBeInstanceOf(HTMLDivElement);
-});
-
-test('Given an `attributes` object, returns an element with corresponding attributes', () => {
-    const element = create('div', {
-        attributes: {
+test('Given a `props` object, returns an element with corresponding props', () => {
+    const element = createElement('div', {
+        props: {
             class: 'foo bar',
         },
     });
@@ -27,7 +21,7 @@ test('Given an `attributes` object, returns an element with corresponding attrib
 test('Given a `children` array, returns an element with corresponding children', () => {
     const childElement = document.createElement('div');
 
-    const element = create('div', {
+    const element = createElement('div', {
         children: [childElement],
     });
 
@@ -35,33 +29,37 @@ test('Given a `children` array, returns an element with corresponding children',
     expect(element.children[0]).toBe(childElement);
 });
 
-test('Given an `innerHTML` string, returns an element with corresponding content', () => {
-    const innerHtml = '<div></div>';
-
-    const element = create('div', {
-        innerHTML: innerHtml,
-    });
-
-    expect(element.childElementCount).toBe(1);
-    expect(element.innerHTML).toBe(innerHtml);
-});
-
-test('Given multiple properties, returns a corresponding element', () => {
+test('Given multiple props, returns a corresponding element', () => {
     const childElement = document.createElement('div');
-    const innerHtml = '<div></div>';
 
-    const element = create('div', {
-        attributes: {
+    const element = createElement('div', {
+        props: {
             class: 'foo',
             id: 'bar',
         },
-        children: [childElement],
-        innerHTML: innerHtml,
+        children: [childElement, childElement.cloneNode()],
     });
 
-    // `classes` should have overwritten `attributes.class`.
     expect(element.className).toBe('foo');
-
     expect(element.hasAttribute('id')).toBe(true);
     expect(element.childElementCount).toBe(2);
+});
+
+test('Given a `class` prop of type `Array`, converts value to string', () => {
+    const element = createElement('div', {
+        props: {
+            class: ['foo', 'bar'],
+        },
+    });
+
+    expect(element.className).toBe('foo bar');
+});
+
+test('Given a `namespace` prop, invokes `createElementNS` instead', () => {
+    const element = createElement('svg', {
+        namespace: 'http://www.w3.org/2000/svg',
+    });
+
+    expect(element instanceof SVGSVGElement).toBe(true);
+    expect(element.namespaceURI).toBe('http://www.w3.org/2000/svg');
 });

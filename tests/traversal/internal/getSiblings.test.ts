@@ -1,12 +1,15 @@
-import { JSDOM } from 'jsdom';
+/**
+ * @jest-environment jsdom
+ */
+
+import { assertIsNotNull } from 'bossy-boots';
 
 import { getSiblings } from '../../../src/traversal/internal/getSiblings';
 
 let globalTarget: Element;
 
 beforeAll(() => {
-    const { window } = new JSDOM(
-        `<!DOCTYPE html>
+    document.body.innerHTML = `
         <div></div>
         <div class="foo"></div>
         <div class="foo"></div>
@@ -16,15 +19,13 @@ beforeAll(() => {
         <div class="bar"></div>
         <div class="bar"></div>
         <div></div>
-        `,
-    );
-
-    // Ensure that required globals are set.
-    global.document = window.document;
+    `;
 
     const target = document.querySelector('.target');
 
-    target && (globalTarget = target);
+    assertIsNotNull(target);
+
+    globalTarget = target;
 });
 
 test('Given no selector, successfully returns all preceding siblings', () => {
