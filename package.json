@@ -16,14 +16,13 @@
   "homepage": "https://github.com/razzp/spank-my-dom#readme",
   "repository": "github:razzp/spank-my-dom",
   "type": "module",
-  "main": "./dist/main.cjs",
+  "main": "./dist/main.js",
   "exports": {
-    "import": "./dist/main.js",
-    "require": "./dist/main.cjs"
+    "import": "./dist/main.js"
   },
   "types": "./types/main.d.ts",
   "files": [
-    "dist/**/*.?(c)js",
+    "dist/**/*.js",
     "types/**/*.d.ts"
   ],
   "scripts": {
