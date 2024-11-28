@@ -28,7 +28,6 @@ export { serialiseForm } from './forms/serialiseForm';
 // Images
 
 export { loadImage } from './images/loadImage';
-export { loadImages } from './images/loadImages';
 
 // Manipulation
 
