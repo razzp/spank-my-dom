@@ -3,25 +3,32 @@
  */
 
 import { loadImage } from '../../src/images/loadImage';
-import { MockImage, MockImageFails, MockImageSucceeds } from './MockImage';
+import { MockImage } from './MockImage';
+
+beforeAll(() => {
+    // JSDOM doesn't implement the `decode` method.
+    global.Image = MockImage as any;
+});
 
 test('Successful load resolves with image', async () => {
-    (global.Image as any) = MockImageSucceeds;
+    MockImage.decodeWillSucceed = true;
 
     expect.assertions(2);
 
     try {
-        const image = await loadImage('foo');
+        const src =
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII';
+        const image = await loadImage(src);
 
         expect(image).toBeInstanceOf(MockImage);
-        expect(image.src).toBe('foo');
+        expect(image.src).toBe(src);
     } catch {
         // Do nothing.
     }
 });
 
 test('Unsuccessful load rejects', async () => {
-    (global.Image as any) = MockImageFails;
+    MockImage.decodeWillSucceed = false;
 
     expect.assertions(1);
 
