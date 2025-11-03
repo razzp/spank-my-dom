@@ -10,6 +10,11 @@ function onPixelRatioChange(
     options?: { fireImmediately: boolean; signal?: AbortSignal },
 ): void {
     const { fireImmediately, signal } = { fireImmediately: false, ...options };
+
+    if (signal?.aborted) {
+        return;
+    }
+
     const handler = () => callback(window.devicePixelRatio);
 
     const register = () => {
