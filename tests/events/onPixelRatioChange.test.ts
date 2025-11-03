@@ -51,7 +51,7 @@ beforeAll(() => {
     });
 });
 
-test('foo', () => {
+test('Callback is successfully fired when pixel ratio changes', () => {
     const callback = jest.fn();
 
     onPixelRatioChange(callback);
@@ -59,4 +59,34 @@ test('foo', () => {
     MockMediaQueryList.triggerAll();
 
     expect(callback).toHaveBeenCalled();
+});
+
+test('Callback is not called if signal is already aborted', () => {
+    const callback = jest.fn();
+    const controller = new AbortController();
+
+    controller.abort();
+
+    onPixelRatioChange(callback, {
+        signal: controller.signal,
+    });
+
+    MockMediaQueryList.triggerAll();
+
+    expect(callback).not.toHaveBeenCalled();
+});
+
+test('Callback is not called if signal is aborted after instantiation', () => {
+    const callback = jest.fn();
+    const controller = new AbortController();
+
+    onPixelRatioChange(callback, {
+        signal: controller.signal,
+    });
+
+    controller.abort();
+
+    MockMediaQueryList.triggerAll();
+
+    expect(callback).not.toHaveBeenCalled();
 });
