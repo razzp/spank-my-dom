@@ -20,6 +20,7 @@ function formDataToSearchParams(
         handleFile: (file: File) => file.name,
         ...options,
     };
+
     return new URLSearchParams(
         [...formData.entries()].map(([key, value]) => [
             key,
