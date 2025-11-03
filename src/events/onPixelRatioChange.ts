@@ -4,6 +4,8 @@
  *
  * @param callback - The function called when the pixel ratio changes.
  * @param options - Optional arguments (TODO).
+ *
+ * @public
  */
 function onPixelRatioChange(
     callback: (pixelRatio: number) => void,
