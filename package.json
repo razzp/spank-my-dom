@@ -1,55 +1,60 @@
 {
-  "name": "spank-my-dom",
-  "author": "Robert Wells",
-  "version": "1.1.1",
-  "description": "A tiny, modular set of DOM utilities, written in TypeScript.",
-  "keywords": [
-    "html",
-    "dom",
-    "javascript",
-    "typescript",
-    "utilities",
-    "helpers"
-  ],
-  "license": "MIT",
-  "bugs": "https://github.com/razzp/spank-my-dom/issues",
-  "homepage": "https://github.com/razzp/spank-my-dom#readme",
-  "repository": "github:razzp/spank-my-dom",
-  "type": "module",
-  "main": "./dist/main.js",
-  "exports": {
-    "import": "./dist/main.js"
-  },
-  "types": "./types/main.d.ts",
-  "files": [
-    "dist/**/*.js",
-    "types/**/*.d.ts"
-  ],
-  "scripts": {
-    "prebuild": "npm run prettier",
-    "build": "rimraf dist && rollup --config && npm run types",
-    "watch": "rollup --watch --config",
-    "prettier": "prettier --list-different --write *.js src/** tests/**",
-    "types": "rimraf types && tsc --project tsconfig.types.json",
-    "test": "jest --verbose --coverage",
-    "docs": "jsdoc2md --global-index-format grouped --template docs/readme.hbs --partial docs/partials/*.hbs --helper docs/helpers.cjs --files dist/main.js > README.md",
-    "prepublishOnly": "npm run test"
-  },
-  "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.3.0",
-    "@rollup/plugin-typescript": "^12.1.1",
-    "@types/jest": "^29.5.14",
-    "@types/jsdom": "^21.1.7",
-    "bossy-boots": "^1.0.1",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "jsdoc-to-markdown": "^9.0.5",
-    "jsdom": "^25.0.1",
-    "prettier": "^3.3.3",
-    "rimraf": "^6.0.1",
-    "rollup": "^4.24.4",
-    "ts-jest": "^29.2.5",
-    "tslib": "^2.8.1",
-    "typescript": "^5.6.3"
-  }
+    "name": "spank-my-dom",
+    "author": "Robert Wells",
+    "version": "1.1.1",
+    "description": "A tiny, modular set of DOM utilities, written in TypeScript.",
+    "keywords": [
+        "html",
+        "dom",
+        "javascript",
+        "typescript",
+        "utilities",
+        "helpers"
+    ],
+    "license": "MIT",
+    "bugs": "https://github.com/razzp/spank-my-dom/issues",
+    "homepage": "https://github.com/razzp/spank-my-dom#readme",
+    "repository": "github:razzp/spank-my-dom",
+    "type": "module",
+    "sideEffects": false,
+    "main": "./dist/bossy-boots.cjs",
+    "module": "./dist/bossy-boots.js",
+    "exports": {
+        ".": {
+            "import": "./dist/bossy-boots.js",
+            "require": "./dist/bossy-boots.cjs"
+        }
+    },
+    "types": "./dist/bossy-boots.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "npm run biome && rimraf dist && rollup --config && npm run types",
+        "types": "rimraf types && tsc --project tsconfig.types.json && api-extractor run --local --verbose",
+        "test": "jest",
+        "docs": "api-documenter markdown --input-folder temp --output-folder docs",
+        "biome": "biome check --write",
+        "release": "release-it"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "2.3.2",
+        "@microsoft/api-documenter": "^7.27.3",
+        "@microsoft/api-extractor": "^7.53.3",
+        "@rollup/plugin-typescript": "^12.3.0",
+        "@types/jest": "^30.0.0",
+        "@types/jsdom": "^27.0.0",
+        "bossy-boots": "^1.1.1",
+        "jest": "^30.2.0",
+        "jest-environment-jsdom": "^30.2.0",
+        "jsdom": "^27.1.0",
+        "release-it": "^19.0.5",
+        "rimraf": "^6.1.0",
+        "rollup": "^4.52.5",
+        "ts-jest": "^29.4.5",
+        "typescript": "~5.9.3"
+    },
+    "dependencies": {
+        "tslib": "^2.8.1"
+    }
 }

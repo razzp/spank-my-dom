@@ -1,20 +1,16 @@
-import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 
-const config = {
-    input: 'src/main.ts',
+export default {
+    input: 'src/index.ts',
     output: [
         {
-            file: 'dist/main.js',
+            file: 'dist/spank-my-dom.cjs',
+            format: 'cjs',
+        },
+        {
+            file: 'dist/spank-my-dom.js',
             format: 'esm',
         },
     ],
-    plugins: [
-        resolve({
-            extensions: ['.ts'],
-        }),
-        typescript(),
-    ],
+    plugins: [typescript()],
 };
-
-export default config;

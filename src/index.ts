@@ -9,8 +9,8 @@ export { onPixelRatioChange } from './events/onPixelRatioChange';
 
 // Forms
 
-export { getFormData } from './forms/getFormData';
 export { formDataToSearchParams } from './forms/formDataToSearchParams';
+export { getFormData } from './forms/getFormData';
 
 // Images
 
