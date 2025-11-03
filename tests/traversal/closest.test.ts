@@ -3,7 +3,6 @@
  */
 
 import { assertIsNotNull } from 'bossy-boots';
-
 import { closest } from '../../src/traversal/closest';
 
 beforeAll(() => {

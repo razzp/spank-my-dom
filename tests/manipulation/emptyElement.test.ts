@@ -3,7 +3,6 @@
  */
 
 import { assertIsNotNull } from 'bossy-boots';
-
 import { emptyElement } from '../../src/manipulation/emptyElement';
 
 beforeAll(() => {

@@ -3,7 +3,6 @@
  */
 
 import { assertIsNotNull } from 'bossy-boots';
-
 import { toggleAttribute } from '../../src/attributes/toggleAttribute';
 
 beforeEach(() => {

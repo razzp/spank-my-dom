@@ -3,7 +3,6 @@
  */
 
 import { assertIsNotNull } from 'bossy-boots';
-
 import { siblingsAfter } from '../../src/traversal/siblingsAfter';
 
 beforeAll(() => {

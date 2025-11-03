@@ -3,7 +3,6 @@
  */
 
 import { assertIsNotNull } from 'bossy-boots';
-
 import { getSiblings } from '../../../src/traversal/internal/getSiblings';
 
 let globalTarget: Element;
