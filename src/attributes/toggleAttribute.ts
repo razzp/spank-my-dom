@@ -42,5 +42,3 @@ function toggleAttribute(
 }
 
 export { toggleAttribute };
-
-// TODO: check signature
