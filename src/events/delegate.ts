@@ -39,12 +39,3 @@ function delegate<T extends EventTarget, U extends Event | CustomEvent>(
 }
 
 export { delegate };
-
-document.addEventListener(
-    'click',
-    delegate('.foo', ({ delegateTarget, event, stopDelegation }) => {
-        //
-    }),
-);
-
-// TODO: JSDOC
