@@ -17,15 +17,15 @@
     "repository": "github:razzp/spank-my-dom",
     "type": "module",
     "sideEffects": false,
-    "main": "./dist/bossy-boots.cjs",
-    "module": "./dist/bossy-boots.js",
+    "main": "./dist/spank-my-dom.cjs",
+    "module": "./dist/spank-my-dom.js",
     "exports": {
         ".": {
-            "import": "./dist/bossy-boots.js",
-            "require": "./dist/bossy-boots.cjs"
+            "import": "./dist/spank-my-dom.js",
+            "require": "./dist/spank-my-dom.cjs"
         }
     },
-    "types": "./dist/bossy-boots.d.ts",
+    "types": "./dist/spank-my-dom.d.ts",
     "files": [
         "dist"
     ],
