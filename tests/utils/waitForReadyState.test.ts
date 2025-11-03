@@ -35,32 +35,39 @@ describe('Wait for state "loading"', () => {
 
 describe('Wait for state "interactive"', () => {
     test('State is reached or exceeded, so resolve immediately', async () => {
-        expect.assertions(3);
+        const callback = jest.fn();
+
+        expect.assertions(2);
 
         setReadyState('interactive');
 
         expect(document.readyState).toBe('interactive');
 
         try {
-            const interactiveResult = await waitForReadyState('interactive');
-            const loadingResult = await waitForReadyState('loading');
+            await Promise.all([
+                waitForReadyState('interactive').then(callback),
+                waitForReadyState('loading').then(callback),
+            ]);
 
-            expect(typeof interactiveResult).toBe('number');
-            expect(typeof loadingResult).toBe('number');
+            expect(callback).toHaveBeenCalledTimes(2);
         } catch {}
     });
 
     test('State is not reached, so attach a listener and wait', async () => {
+        const callback = jest.fn();
+
         expect.assertions(3);
 
         expect(document.readyState).toBe('loading');
 
         try {
-            const result = waitForReadyState('interactive');
+            const result = waitForReadyState('interactive').then(callback);
 
             setReadyState('interactive');
 
-            expect(typeof (await result)).toBe('number');
+            await result;
+
+            expect(callback).toHaveBeenCalledTimes(1);
             expect(document.readyState).toBe('interactive');
         } catch {}
     });
@@ -68,34 +75,40 @@ describe('Wait for state "interactive"', () => {
 
 describe('Wait for state "complete"', () => {
     test('State is reached or exceeded, so resolve immediately', async () => {
-        expect.assertions(4);
+        const callback = jest.fn();
+
+        expect.assertions(2);
 
         setReadyState('complete');
 
         expect(document.readyState).toBe('complete');
 
         try {
-            const completeResult = await waitForReadyState('complete');
-            const interactiveResult = await waitForReadyState('interactive');
-            const loadingResult = await waitForReadyState('loading');
+            await Promise.all([
+                waitForReadyState('complete').then(callback),
+                waitForReadyState('interactive').then(callback),
+                waitForReadyState('loading').then(callback),
+            ]);
 
-            expect(typeof completeResult).toBe('number');
-            expect(typeof interactiveResult).toBe('number');
-            expect(typeof loadingResult).toBe('number');
+            expect(callback).toHaveBeenCalledTimes(3);
         } catch {}
     });
 
     test('State is not reached, so attach a listener and wait', async () => {
+        const callback = jest.fn();
+
         expect.assertions(3);
 
         expect(document.readyState).toBe('loading');
 
         try {
-            const result = waitForReadyState('complete');
+            const result = waitForReadyState('complete').then(callback);
 
             setReadyState('complete');
 
-            expect(typeof (await result)).toBe('number');
+            await result;
+
+            expect(callback).toHaveBeenCalledTimes(1);
             expect(document.readyState).toBe('complete');
         } catch {}
     });
