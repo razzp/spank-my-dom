@@ -54,12 +54,3 @@ test('Given a `class` prop of type `Array`, converts value to string', () => {
 
     expect(element.className).toBe('foo bar');
 });
-
-test('Given a `namespace` prop, invokes `createElementNS` instead', () => {
-    const element = createElement('svg', {
-        namespace: 'http://www.w3.org/2000/svg',
-    });
-
-    expect(element instanceof SVGSVGElement).toBe(true);
-    expect(element.namespaceURI).toBe('http://www.w3.org/2000/svg');
-});

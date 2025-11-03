@@ -1,23 +1,21 @@
 /**
- * Returns the first ancestor of `element` that matches selector, or optionally itself.
- * @since 0.2.0
+ * Returns the first ancestor of `element` that matches
+ * the selector(s), or, optionally, itself.
  *
- * @param {Element} element The element from which to search.
- * @param {string} selector Selector to match against.
- * @param {boolean} [skipSelf=true] Ignore `element` even if it matches.
+ * @param element - The element from which to search.
+ * @param selectors - One or more selectors to match.
+ * @param skipSelf - Ignore `element` even if it matches.
  *
- * @returns {null|Element}
+ * @public
  */
 function closest<T extends Element>(
     element: Element,
-    selector: string,
+    selectors: string,
     skipSelf: boolean = false,
 ): null | T {
     return skipSelf
-        ? (element.parentElement?.closest(selector) ?? null)
-        : element.closest(selector);
+        ? (element.parentElement?.closest(selectors) ?? null)
+        : element.closest(selectors);
 }
 
 export { closest };
-
-// TODO: should `skipself` default be false?

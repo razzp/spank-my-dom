@@ -1,11 +1,10 @@
 /**
- * Returns the first element within context that matches the given selectors.
- * @since 1.0.0
+ * Returns the first element within context that matches the given selector(s).
  *
- * @param {string} selectors The selectors to match against.
- * @param {Document|DocumentFragment|Element} context The context from which to search from.
+ * @param selectors - One or more selectors to match.
+ * @param context - The context from which to search from.
  *
- * @returns {null|Element}
+ * @public
  */
 function findSingle<T extends Element>(
     selectors: string,

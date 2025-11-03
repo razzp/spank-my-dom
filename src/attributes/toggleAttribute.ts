@@ -1,15 +1,14 @@
 /**
- * Toggle the attribute of an element. If force is included, turns the toggle
- * into a one way-only operation. If set to false, the attribute will only be
- * removed. If set to true, the attribute will only be added.
- * @since 1.0.0
+ * Toggle the attribute of an element. If `force` is defined, turns the toggle
+ * into a one way-only operation. If set to `false`, the attribute will only
+ * be removed. If set to `true`, the attribute will only be added.
  *
- * @param {Element} element The element to toggle the attribute on.
- * @param {string} name The name of the attribute.
- * @param {} value The value of the attribute.
- * @param {boolean} [force] Restrict toggle to a one-way operation only.
+ * @param element - The element to toggle the attribute on.
+ * @param name - The name of the attribute.
+ * @param value - The value of the attribute.
+ * @param force - Restrict toggle to a one-way operation only.
  *
- * @returns {boolean}
+ * @public
  */
 function toggleAttribute(
     element: Element,

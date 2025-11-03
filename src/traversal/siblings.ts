@@ -2,18 +2,20 @@ import { siblingsAfter } from './siblingsAfter';
 import { siblingsBefore } from './siblingsBefore';
 
 /**
- * Get the siblings of an element, optionally filtered by a selector.
- * @since 0.2.0
+ * Get the siblings of an element, optionally filtered by selector(s).
  *
- * @param {Element} element The element whose siblings will be returned.
- * @param {string} [selector] Optional selector to match siblings against.
+ * @param element - The element whose siblings will be returned.
+ * @param selectors - One or more selectors to match.
  *
- * @returns {Element[]}
+ * @public
  */
-function siblings<T extends Element>(element: Element, selector?: string): T[] {
+function siblings<T extends Element>(
+    element: Element,
+    selectors?: string,
+): T[] {
     return [
-        ...siblingsBefore<T>(element, selector),
-        ...siblingsAfter<T>(element, selector),
+        ...siblingsBefore<T>(element, selectors),
+        ...siblingsAfter<T>(element, selectors),
     ];
 }
 

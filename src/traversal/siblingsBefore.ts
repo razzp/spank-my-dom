@@ -1,22 +1,21 @@
 import { getSiblings } from './internal/getSiblings';
 
 /**
- * Get the preceding siblings of an element, optionally filtered by a selector.
- * @since 0.2.0
+ * Get the siblings after an element, optionally filtered by selector(s).
  *
- * @param {Element} element The element whose siblings will be returned.
- * @param {string} [selector] Optional selector to match siblings against.
+ * @param element - The element whose siblings will be returned.
+ * @param selectors - One or more selectors to match.
  *
- * @returns {Element[]}
+ * @public
  */
 function siblingsBefore<T extends Element>(
     element: Element,
-    selector?: string,
+    selectors?: string,
 ): T[] {
     return getSiblings<T>(
         'previousElementSibling',
         element,
-        selector,
+        selectors,
     ).reverse();
 }
 

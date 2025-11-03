@@ -9,9 +9,15 @@ function toNumerical(state: DocumentReadyState): number {
     }
 }
 
-function waitForReadyState(
-    state: DocumentReadyState,
-): Promise<DOMHighResTimeStamp> {
+/**
+ * Create a `Promise` that will resolve once the document reaches the
+ * specified `readyState`, or immediately if it already has.
+ *
+ * @param state - The state to wait for.
+ *
+ * @public
+ */
+function waitForReadyState(state: DocumentReadyState): Promise<void> {
     const numericalState = toNumerical(state);
     const controller = new AbortController();
 
@@ -19,7 +25,7 @@ function waitForReadyState(
         const check = () => {
             if (toNumerical(document.readyState) >= numericalState) {
                 controller.abort();
-                resolve(window.performance.now());
+                resolve();
             }
         };
 
@@ -34,5 +40,3 @@ function waitForReadyState(
 }
 
 export { waitForReadyState };
-
-// TODO: JSDOC

@@ -1,3 +1,10 @@
+/**
+ * Create a listener that will fire a callback whenever the
+ * pixel ratio of the current window changes.
+ *
+ * @param callback - The function called when the pixel ratio changes.
+ * @param options - Optional arguments (TODO).
+ */
 function onPixelRatioChange(
     callback: (pixelRatio: number) => void,
     options?: { fireImmediately: boolean; signal?: AbortSignal },
@@ -26,5 +33,3 @@ function onPixelRatioChange(
 }
 
 export { onPixelRatioChange };
-
-// TODO: JSDOC

@@ -1,11 +1,11 @@
 /**
- * Returns all descendant elements within context that match the given selectors.
- * @since 1.0.0
+ * Fins all descendant elements within a given context,
+ * that also match the given selector(s).
  *
- * @param {string} selectors The selectors to match against.
- * @param {Document|DocumentFragment|Element} context The context from which to search from.
+ * @param selectors - One or more selectors to match.
+ * @param context - The context from which to search from.
  *
- * @returns {Element[]}
+ * @public
  */
 function findAll<T extends Element>(
     selectors: string,

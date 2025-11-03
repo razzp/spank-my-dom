@@ -10,7 +10,7 @@ export { onPixelRatioChange } from './events/onPixelRatioChange';
 // Forms
 
 export { getFormData } from './forms/getFormData';
-export { serialiseForm } from './forms/serialiseForm';
+export { formDataToSearchParams } from './forms/formDataToSearchParams';
 
 // Images
 
@@ -38,9 +38,5 @@ export { siblingsBefore } from './traversal/siblingsBefore';
 
 // Utils
 
-export { clamp } from './utils/clamp';
-export { escapeRegExp } from './utils/escapeRegExp';
-export { isMobileDevice } from './utils/isMobileDevice';
-export { scaleToPixelRatio } from './utils/scaleToPixelRatio';
 export { waitAtLeast } from './utils/waitAtLeast';
 export { waitForReadyState } from './utils/waitForReadyState';

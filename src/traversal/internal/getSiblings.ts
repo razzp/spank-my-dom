@@ -1,7 +1,3 @@
-/**
- * Accumulate siblings that optionally match a selector.
- * @private
- */
 function getSiblings<T extends Element>(
     method: `${'next' | 'previous'}ElementSibling`,
     element: Element,

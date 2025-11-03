@@ -1,3 +1,14 @@
+/**
+ * Given a `Promise`, wait a minimum period of time before resolving.
+ *
+ * @remarks
+ * Useful for delaying near instantaneous actions that might affect UI.
+ *
+ * @param minimumWaitMs - The minimum wait time in milliseconds.
+ * @param promise - The `Promise` to wait for.
+ *
+ * @public
+ */
 function waitAtLeast<T>(
     minimumWaitMs: number,
     promise: Promise<T> | PromiseLike<T>,
@@ -13,5 +24,3 @@ function waitAtLeast<T>(
 }
 
 export { waitAtLeast };
-
-// TODO: JSDOC
