@@ -20,7 +20,8 @@ class MockImage {
 }
 
 beforeAll(() => {
-    global.Image = <any>MockImage;
+    // biome-ignore lint/suspicious/noExplicitAny: Mock implementation
+    global.Image = MockImage as any;
 });
 
 test('Successful load resolves with image', async () => {
