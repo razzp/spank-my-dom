@@ -7,9 +7,9 @@
  */
 function onPixelRatioChange(
     callback: (pixelRatio: number) => void,
-    options?: { fireImmediately: boolean; signal?: AbortSignal },
+    options?: { signal?: AbortSignal },
 ): void {
-    const { fireImmediately, signal } = { fireImmediately: false, ...options };
+    const { signal } = { ...options };
 
     if (signal?.aborted) {
         return;
@@ -29,10 +29,6 @@ function onPixelRatioChange(
                 { once: true, signal },
             );
     };
-
-    if (fireImmediately) {
-        handler();
-    }
 
     register();
 }
