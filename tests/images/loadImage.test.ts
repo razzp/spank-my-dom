@@ -3,11 +3,24 @@
  */
 
 import { loadImage } from '../../src/images/loadImage';
-import { MockImage } from './MockImage';
+
+const testImage =
+    'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+
+class MockImage {
+    static decodeWillSucceed = false;
+
+    public src?: string;
+
+    public async decode(): Promise<void> {
+        if (!MockImage.decodeWillSucceed) {
+            throw new DOMException();
+        }
+    }
+}
 
 beforeAll(() => {
-    // JSDOM doesn't implement the `decode` method.
-    global.Image = MockImage as any;
+    global.Image = <any>MockImage;
 });
 
 test('Successful load resolves with image', async () => {
@@ -16,15 +29,12 @@ test('Successful load resolves with image', async () => {
     expect.assertions(2);
 
     try {
-        const src =
-            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII';
+        const src = testImage;
         const image = await loadImage(src);
 
         expect(image).toBeInstanceOf(MockImage);
         expect(image.src).toBe(src);
-    } catch {
-        // Do nothing.
-    }
+    } catch {}
 });
 
 test('Unsuccessful load rejects', async () => {

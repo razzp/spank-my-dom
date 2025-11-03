@@ -24,7 +24,7 @@ describe('Non-inclusive of self', () => {
 
         assertIsNotNull(target);
 
-        const result = closest(target, '.foo');
+        const result = closest(target, '.foo', true);
 
         expect(result).toBeDefined();
         expect(result?.classList.contains('ancestor')).toBe(true);
@@ -49,7 +49,7 @@ describe('Non-inclusive of self', () => {
             value: undefined,
         });
 
-        expect(closest(target, '.bar')).toBeNull();
+        expect(closest(target, '.bar', true)).toBeNull();
     });
 });
 

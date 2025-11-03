@@ -14,7 +14,7 @@
 function toggleAttribute(
     element: Element,
     name: string,
-    value: unknown,
+    value: string,
     force?: boolean,
 ): boolean {
     const hasForce = typeof force === 'boolean';
@@ -33,7 +33,7 @@ function toggleAttribute(
         if (!hasForce || force) {
             // Set the attribute and return true as the attribute now exists on
             // the element.
-            element.setAttribute(name, String(value));
+            element.setAttribute(name, value);
             return true;
         } else {
             // Return false as the attribute does not exist on the element.
@@ -43,3 +43,5 @@ function toggleAttribute(
 }
 
 export { toggleAttribute };
+
+// TODO: check signature

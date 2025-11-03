@@ -10,3 +10,5 @@ function escapeRegExp(input: string): string {
 }
 
 export { escapeRegExp };
+
+// TODO: UPDATE SIGNATURE

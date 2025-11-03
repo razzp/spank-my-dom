@@ -13,9 +13,7 @@ test('Given a selector that matches an element, returns that element', () => {
 
     try {
         expect(findSingleOrThrow('.target')).toBeDefined();
-    } catch {
-        // Do nothing.
-    }
+    } catch {}
 });
 
 test('Given a selector with no matches, throws', () => {

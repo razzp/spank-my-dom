@@ -11,36 +11,24 @@ function toNumerical(state: DocumentReadyState): number {
 
 function waitForReadyState(
     state: DocumentReadyState,
-    timeoutMs?: number,
 ): Promise<DOMHighResTimeStamp> {
     const numericalState = toNumerical(state);
     const controller = new AbortController();
 
-    return new Promise((resolve, reject) => {
-        let timeout: number;
-
+    return new Promise((resolve) => {
         const check = () => {
             if (toNumerical(document.readyState) >= numericalState) {
-                window.clearTimeout(timeout);
                 controller.abort();
                 resolve(window.performance.now());
-                return true;
-            } else {
-                return false;
             }
         };
 
-        if (!check()) {
+        check();
+
+        if (!controller.signal.aborted) {
             document.addEventListener('readystatechange', () => check(), {
                 signal: controller.signal,
             });
-
-            if (timeoutMs) {
-                timeout = window.setTimeout(() => {
-                    controller.abort();
-                    reject('TIMEOUT');
-                }, timeoutMs);
-            }
         }
     });
 }

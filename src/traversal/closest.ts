@@ -11,7 +11,7 @@
 function closest<T extends Element>(
     element: Element,
     selector: string,
-    skipSelf: boolean = true,
+    skipSelf: boolean = false,
 ): null | T {
     return skipSelf
         ? (element.parentElement?.closest(selector) ?? null)
@@ -20,4 +20,4 @@ function closest<T extends Element>(
 
 export { closest };
 
-// TODO: UPDATE TESTS FOR `skipSelf`
+// TODO: should `skipself` default be false?

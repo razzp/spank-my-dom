@@ -2,23 +2,10 @@
 
 export { toggleAttribute } from './attributes/toggleAttribute';
 
-// Classes
-
-export { addClass } from './classes/addClass';
-export { toggleClass } from './classes/toggleClass';
-export { removeClass } from './classes/removeClass';
-
-export { classesContaining } from './classes/classesContaining';
-export { classesEndingWith } from './classes/classesEndingWith';
-export { classesStartingWith } from './classes/classesStartingWith';
-
 // Events
 
-export { debounce } from './events/debounce';
 export { delegate } from './events/delegate';
-export { dispatch } from './events/dispatch';
 export { onPixelRatioChange } from './events/onPixelRatioChange';
-export { throttle } from './events/throttle';
 
 // Forms
 

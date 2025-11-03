@@ -2,16 +2,19 @@ type UserAgentData = {
     readonly mobile?: boolean;
 };
 
-type NavigatorWithExperimental = Navigator & {
+declare var navigator: Navigator & {
     readonly userAgentData?: UserAgentData;
 };
 
 function isMobileDevice(useExperimental: boolean = false): boolean {
-    const { userAgent, userAgentData } = navigator as NavigatorWithExperimental;
-
-    return useExperimental && typeof userAgentData?.mobile === 'boolean'
-        ? userAgentData.mobile
-        : /Mobi|Android|iPhone/i.test(userAgent);
+    return useExperimental &&
+        typeof navigator.userAgentData?.mobile === 'boolean'
+        ? navigator.userAgentData.mobile
+        : /Mobi|Android|iPhone/i.test(navigator.userAgent);
 }
 
 export { isMobileDevice };
+
+// TODO: JSDOC
+
+// https://www.youtube.com/watch?v=ftDVCo8SFD4
