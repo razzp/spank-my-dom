@@ -17,5 +17,5 @@ test('Given a selector that matches an element, returns that element', () => {
 });
 
 test('Given a selector with no matches, throws', () => {
-    expect(() => findSingleOrThrow('.foo', document)).toThrowError();
+    expect(() => findSingleOrThrow('.foo', document)).toThrow();
 });
