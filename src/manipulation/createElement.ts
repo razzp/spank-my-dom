@@ -1,46 +1,63 @@
-type CreateElementOptions = ElementCreationOptions & {
-    children?: Node[];
-    namespace?: string;
-    props?: { [key: string]: unknown };
-};
-
-type TagNameMap = HTMLElementTagNameMap &
-    SVGElementTagNameMap &
-    MathMLElementTagNameMap;
-
 /**
- * Creates an instance of the element for the specified tag, allowing you to
- * define attributes and child nodes at the same time.
- * @since 2.0.0
+ * Creates a new element, allowing you to define properties
+ * and child nodes at the same time.
+ *
+ * @param tagName - The type of element to create.
+ * @param options - Optional arguments (TODO).
+ *
+ * @public
  */
-function createElement<T extends keyof TagNameMap>(
+function createElement<T extends keyof HTMLElementTagNameMap>(
     tagName: T,
-    options?: CreateElementOptions,
-): TagNameMap[T] {
-    const { children, namespace, props } = { ...options };
+    options?: ElementCreationOptions & {
+        content?: string;
+        attributes?: {
+            [A in keyof HTMLElementTagNameMap[T]]?: HTMLElementTagNameMap[T][A];
+        };
+        classes?: string[];
+        styles?: { [key: string]: string };
+        data?: { [key: string]: unknown };
+        append?: Node[];
+        prepend?: Node[];
+    },
+): HTMLElementTagNameMap[T] {
+    const { content, attributes, classes, styles, data, append, prepend } = {
+        ...options,
+    };
 
-    const element = namespace
-        ? document.createElementNS(namespace, tagName, options)
-        : document.createElement(tagName, options);
+    const element = document.createElement(tagName, options);
 
-    if (props) {
-        for (const [key, value] of Object.entries(props)) {
-            element.setAttribute(
-                key,
-                key === 'class' && Array.isArray(value)
-                    ? value.join(' ')
-                    : String(value),
-            );
+    if (content && content.trim() !== '') {
+        element.innerHTML = content;
+    }
+
+    if (attributes) {
+        Object.assign(element, attributes);
+    }
+
+    if (styles) {
+        Object.assign(element.style, styles);
+    }
+
+    if (data) {
+        Object.assign(element.dataset, data);
+    }
+
+    if (classes) {
+        for (const token of classes.filter((x) => x.trim() !== '')) {
+            element.classList.add(token);
         }
     }
 
-    if (children) {
-        element.append(...children);
+    if (append) {
+        element.append(...append);
     }
 
-    return element as TagNameMap[T];
+    if (prepend) {
+        element.prepend(...prepend);
+    }
+
+    return element;
 }
 
 export { createElement };
-
-// TODO: JSDOC
