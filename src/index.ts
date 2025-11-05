@@ -6,6 +6,10 @@ export { toggleAttribute } from './attributes/toggleAttribute';
 
 export { delegate } from './events/delegate';
 export {
+    type OnElementAddedOptions,
+    onElementAdded,
+} from './events/onElementAdded';
+export {
     type OnPixelRatioChangeOptions,
     onPixelRatioChange,
 } from './events/onPixelRatioChange';
