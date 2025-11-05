@@ -5,12 +5,18 @@ export { toggleAttribute } from './attributes/toggleAttribute';
 // Events
 
 export { delegate } from './events/delegate';
-export { onPixelRatioChange } from './events/onPixelRatioChange';
+export {
+    type OnPixelRatioChangeOptions,
+    onPixelRatioChange,
+} from './events/onPixelRatioChange';
 
 // Forms
 
-export { formDataToSearchParams } from './forms/formDataToSearchParams';
-export { getFormData } from './forms/getFormData';
+export {
+    type FormDataToSearchParamsOptions,
+    formDataToSearchParams,
+} from './forms/formDataToSearchParams';
+export { type GetFormDataOptions, getFormData } from './forms/getFormData';
 
 // Images
 
@@ -18,7 +24,10 @@ export { loadImage } from './images/loadImage';
 
 // Manipulation
 
-export { createElement } from './manipulation/createElement';
+export {
+    type CreateElementOptions,
+    createElement,
+} from './manipulation/createElement';
 export { emptyElement } from './manipulation/emptyElement';
 export { hideElement } from './manipulation/hideElement';
 export { showElement } from './manipulation/showElement';

@@ -1,15 +1,28 @@
 /**
+ * An optional configuration object for `getFormData`.
+ *
+ * @public
+ */
+type GetFormDataOptions = {
+    /**
+     * Additional entries to add to the `FormData` object.
+     */
+    additionalEntries?: { [key: string]: unknown };
+};
+
+/**
  * Create a `FormData` object representing form fields and their values.
  *
  * @param form - The form to use.
- * @param additionalEntries - Additional entries to add.
+ * @param options - An optional configuration object.
  *
  * @public
  */
 function getFormData(
     form: HTMLFormElement,
-    additionalEntries?: { [key: string]: unknown },
+    options?: GetFormDataOptions,
 ): FormData {
+    const { additionalEntries } = { ...options };
     const data = new FormData(form);
 
     if (additionalEntries) {
@@ -21,4 +34,4 @@ function getFormData(
     return data;
 }
 
-export { getFormData };
+export { getFormData, type GetFormDataOptions };

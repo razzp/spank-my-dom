@@ -1,4 +1,16 @@
 /**
+ * An optional configuration object for `formDataToSearchParams`.
+ *
+ * @public
+ */
+type FormDataToSearchParamsOptions = {
+    /**
+     * A function to handle the transformation of a `File` object.
+     */
+    handleFile?: (file: File) => string;
+};
+
+/**
  * Takes a `FormData` object and converts it into a `URLSearchParams` object.
  *
  * @remarks
@@ -6,20 +18,25 @@
  * format, or if you want to serialise a form's data using `URLSearchParams.toString()`.
  *
  * @param formData - The `FormData` object to convert.
- * @param fileHandler - Method to handle `File` objects.
+ * @param options - An optional configuration object.
  *
  * @public
  */
 function formDataToSearchParams(
     formData: FormData,
-    fileHandler: (file: File) => string = (file: File) => file.name,
+    options?: FormDataToSearchParamsOptions,
 ): URLSearchParams {
+    const { handleFile } = {
+        handleFile: (file: File) => file.name,
+        ...options,
+    };
+
     return new URLSearchParams(
         [...formData.entries()].map(([key, value]) => [
             key,
-            value instanceof File ? fileHandler(value) : value,
+            value instanceof File ? handleFile(value) : value,
         ]),
     );
 }
 
-export { formDataToSearchParams };
+export { formDataToSearchParams, type FormDataToSearchParamsOptions };

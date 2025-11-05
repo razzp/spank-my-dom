@@ -30,7 +30,9 @@ test('Successfully returns a populated FormData instance with additional entries
     assertIsNotNull(target);
 
     const data = getFormData(target, {
-        baz: 'qux',
+        additionalEntries: {
+            baz: 'qux',
+        },
     });
 
     expect(data).toBeInstanceOf(FormData);

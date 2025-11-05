@@ -29,7 +29,9 @@ test('File is successfully handles using a custom handler', () => {
 
     formData.append('foo', file);
 
-    const searchParams = formDataToSearchParams(formData, () => 'baz');
+    const searchParams = formDataToSearchParams(formData, {
+        handleFile: () => 'baz',
+    });
 
     expect(searchParams).toBeInstanceOf(URLSearchParams);
     expect(searchParams.get('foo')).toBe('baz');
