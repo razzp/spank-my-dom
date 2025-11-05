@@ -6,7 +6,7 @@
  *
  * @public
  */
-function find<T extends Element>(
+function find<T extends Element = HTMLElement>(
     selectors: string,
     context: Document | DocumentFragment | Element = document,
 ): null | T {

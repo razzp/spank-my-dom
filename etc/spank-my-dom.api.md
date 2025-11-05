@@ -35,13 +35,13 @@ export function delegate<T extends EventTarget, U extends Event | CustomEvent>(s
 export function emptyElement<T extends Element>(element: T): void;
 
 // @public
-export function find<T extends Element>(selectors: string, context?: Document | DocumentFragment | Element): null | T;
+export function find<T extends Element = HTMLElement>(selectors: string, context?: Document | DocumentFragment | Element): null | T;
 
 // @public
-export function findAll<T extends Element>(selectors: string, context?: Document | DocumentFragment | Element): T[];
+export function findAll<T extends Element = HTMLElement>(selectors: string, context?: Document | DocumentFragment | Element): T[];
 
 // @public
-export function findOrThrow<T extends Element>(selectors: string, context?: Document | DocumentFragment | Element): T;
+export function findOrThrow<T extends Element = HTMLElement>(selectors: string, context?: Document | DocumentFragment | Element): T;
 
 // @public
 export function formDataToSearchParams(formData: FormData, options?: {

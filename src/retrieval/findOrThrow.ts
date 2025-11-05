@@ -10,7 +10,7 @@
  *
  * @public
  */
-function findOrThrow<T extends Element>(
+function findOrThrow<T extends Element = HTMLElement>(
     selectors: string,
     context: Document | DocumentFragment | Element = document,
 ): T {

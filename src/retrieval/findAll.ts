@@ -7,7 +7,7 @@
  *
  * @public
  */
-function findAll<T extends Element>(
+function findAll<T extends Element = HTMLElement>(
     selectors: string,
     context: Document | DocumentFragment | Element = document,
 ): T[] {
