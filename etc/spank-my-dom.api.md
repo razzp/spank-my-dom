@@ -8,7 +8,10 @@
 export function closest<T extends Element>(element: Element, selectors: string, skipSelf?: boolean): null | T;
 
 // @public
-export function createElement<T extends keyof HTMLElementTagNameMap>(tagName: T, options?: ElementCreationOptions & {
+export function createElement<T extends keyof HTMLElementTagNameMap>(tagName: T, options?: CreateElementOptions<T>): HTMLElementTagNameMap[T];
+
+// @public
+export type CreateElementOptions<T extends keyof HTMLElementTagNameMap> = ElementCreationOptions & {
     content?: string;
     attributes?: {
         [A in keyof HTMLElementTagNameMap[T]]?: HTMLElementTagNameMap[T][A];
@@ -22,7 +25,7 @@ export function createElement<T extends keyof HTMLElementTagNameMap>(tagName: T,
     };
     append?: Node[];
     prepend?: Node[];
-}): HTMLElementTagNameMap[T];
+};
 
 // @public
 export function delegate<T extends EventTarget, U extends Event | CustomEvent>(selectors: string, callback: (this: T, data: {
@@ -44,12 +47,22 @@ export function findAll<T extends Element = HTMLElement>(selectors: string, cont
 export function findOrThrow<T extends Element = HTMLElement>(selectors: string, context?: Document | DocumentFragment | Element): T;
 
 // @public
-export function formDataToSearchParams(formData: FormData, fileHandler?: (file: File) => string): URLSearchParams;
+export function formDataToSearchParams(formData: FormData, options?: FormDataToSearchParamsOptions): URLSearchParams;
 
 // @public
-export function getFormData(form: HTMLFormElement, additionalEntries?: {
-    [key: string]: unknown;
-}): FormData;
+export type FormDataToSearchParamsOptions = {
+    handleFile?: (file: File) => string;
+};
+
+// @public
+export function getFormData(form: HTMLFormElement, options?: GetFormDataOptions): FormData;
+
+// @public
+export type GetFormDataOptions = {
+    additionalEntries?: {
+        [key: string]: unknown;
+    };
+};
 
 // @public
 export function hideElement(element: HTMLElement): void;
@@ -58,9 +71,22 @@ export function hideElement(element: HTMLElement): void;
 export function loadImage(path: string): Promise<HTMLImageElement>;
 
 // @public
-export function onPixelRatioChange(callback: (pixelRatio: number) => void, options?: {
+export function onElementAdded<T extends keyof HTMLElementTagNameMap>(tagName: T, callback: (element: HTMLElementTagNameMap[T]) => void, options?: OnElementAddedOptions): void;
+
+// @public
+export type OnElementAddedOptions = {
+    context?: Document | DocumentFragment | Element;
+    selectors?: string;
     signal?: AbortSignal;
-}): void;
+};
+
+// @public
+export function onPixelRatioChange(callback: (pixelRatio: number) => void, options?: OnPixelRatioChangeOptions): void;
+
+// @public
+export type OnPixelRatioChangeOptions = {
+    signal?: AbortSignal;
+};
 
 // @public
 export function showElement(element: HTMLElement): void;
