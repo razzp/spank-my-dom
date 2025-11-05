@@ -6,25 +6,18 @@
  * format, or if you want to serialise a form's data using `URLSearchParams.toString()`.
  *
  * @param formData - The `FormData` object to convert.
- * @param options - Optional arguments (TODO).
+ * @param fileHandler - Method to handle `File` objects.
  *
  * @public
  */
 function formDataToSearchParams(
     formData: FormData,
-    options?: {
-        handleFile?: (file: File) => string;
-    },
+    fileHandler: (file: File) => string = (file: File) => file.name,
 ): URLSearchParams {
-    const { handleFile } = {
-        handleFile: (file: File) => file.name,
-        ...options,
-    };
-
     return new URLSearchParams(
         [...formData.entries()].map(([key, value]) => [
             key,
-            value instanceof File ? handleFile(value) : value,
+            value instanceof File ? fileHandler(value) : value,
         ]),
     );
 }

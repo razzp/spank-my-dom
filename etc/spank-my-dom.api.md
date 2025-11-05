@@ -44,15 +44,11 @@ export function findAll<T extends Element = HTMLElement>(selectors: string, cont
 export function findOrThrow<T extends Element = HTMLElement>(selectors: string, context?: Document | DocumentFragment | Element): T;
 
 // @public
-export function formDataToSearchParams(formData: FormData, options?: {
-    handleFile?: (file: File) => string;
-}): URLSearchParams;
+export function formDataToSearchParams(formData: FormData, fileHandler?: (file: File) => string): URLSearchParams;
 
 // @public
-export function getFormData(form: HTMLFormElement, options?: {
-    additionalProps?: {
-        [key: string]: unknown;
-    };
+export function getFormData(form: HTMLFormElement, additionalEntries?: {
+    [key: string]: unknown;
 }): FormData;
 
 // @public
