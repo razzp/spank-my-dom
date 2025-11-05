@@ -7,8 +7,6 @@
 
 ## 1.1.0 (2022-07-22)
 
-Minor release to add some features and fix some bugs.
-
 ### Changed
 - `addClass` now accepts an array of tokens.
 - `removeClass` now accepts an array of tokens.
@@ -19,8 +17,7 @@ Minor release to add some features and fix some bugs.
 
 ## 1.0.0 (2022-06-06)
 
-The first major release includes various bug fixes, improvements and additions.
-Many existing methods have been renamed so that they are more concise and nicer to use.
+The first major release includes various bug fixes, improvements and additions. Many existing methods have been renamed so that they are more concise and nicer to use.
 
 ### Added
 
