@@ -10,7 +10,7 @@
  *
  * @public
  */
-function findSingleOrThrow<T extends Element>(
+function findOrThrow<T extends Element>(
     selectors: string,
     context: Document | DocumentFragment | Element = document,
 ): T {
@@ -23,4 +23,4 @@ function findSingleOrThrow<T extends Element>(
     return result;
 }
 
-export { findSingleOrThrow };
+export { findOrThrow };

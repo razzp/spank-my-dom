@@ -25,9 +25,9 @@ export { showElement } from './manipulation/showElement';
 
 // Retrieval
 
+export { find } from './retrieval/find';
 export { findAll } from './retrieval/findAll';
-export { findSingle } from './retrieval/findSingle';
-export { findSingleOrThrow } from './retrieval/findSingleOrThrow';
+export { findOrThrow } from './retrieval/findOrThrow';
 
 // Traversal
 

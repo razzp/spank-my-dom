@@ -6,11 +6,11 @@
  *
  * @public
  */
-function findSingle<T extends Element>(
+function find<T extends Element>(
     selectors: string,
     context: Document | DocumentFragment | Element = document,
 ): null | T {
     return context.querySelector(selectors);
 }
 
-export { findSingle };
+export { find };
