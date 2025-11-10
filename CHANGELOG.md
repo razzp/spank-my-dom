@@ -1,5 +1,51 @@
 # Changelog
 
+## 2.0.0 (2025-11-10)
+
+### Added
+- Added `delegate()` method.
+- Added `onPixelRatioChange()` method.
+- Added `onElementAdded()` method.
+- Added `formDataToSearchParams()` method.
+- Added `getFormData()` method.
+- Added `hideElement()` and `showElement()` methods.
+- Added `waitAtLeast()` method.
+- Added `waitForReadyState()` method.
+
+### Changed
+- Performance and readability improvements to typings.
+- Typings are now rolled up using Microsoft's API Extractor.
+- Docs are now generated using API Extractor's companion tool, api-documenter.
+- Annotations now adhere to TSDoc specification.
+- Replaced ESLint and Prettier with Biome.
+- Renamed `toggleAttr()` to `toggleAttribute()`.
+- Renamed `create()` to `createElement()` and refactored.
+- Renamed `empty()` to `emptyElement()`.
+- `closest()` now optionally matches the target `Element`.
+- Default return type for `find()`, `findAll()`, and `findOrTHrow()` methods is now `HTMLElement`.
+
+### Removed
+- Removed `toArray()`.
+- Removed `getAria()`, `hasAria()`, `removeAria()`, `setAria()`, `toggleAria()`.
+- Removed `getData()`, `hasData()`, `removeData()`, `setData()`, `toggleData()`.
+- Removed `getAttr()`, `hasAttr()`, `removeAttr()`, `setAttr()`.
+- Removed `addClass()`, `classesContaining()`, `classesEndingWith()`, `classesStartingWith()`, `removeClass()`, `toggleClass()`.
+- Removed `onDelegate()`, `offDelegate()`, `dispatch()`.
+- Removed `off()`, `on()`.
+- Removed `serialise()`.
+- Removed `loadImages()`.
+- Removed `parseJson()`.
+- Removed `replace()`.
+- Removed `toBoolean()`, `toNumber()`.
+
+### Fixed
+
+- Exported module now has a discernable name.
+
+### Security
+
+- Major version updates to all NPM packages.
+
 ## 1.1.1 (2022-08-26)
 
 ### Fixed
