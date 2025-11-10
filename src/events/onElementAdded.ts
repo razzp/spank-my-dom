@@ -20,7 +20,7 @@ type OnElementAddedOptions = {
 
 /**
  * Create an observer that will wait for specific elements to be
- * added to the DOM, optionally filtered by CSS selectors.
+ * added to the DOM later, optionally filtered by CSS selectors.
  *
  * @param tagName - The type of element to observe for.
  * @param callback - The function called for added elements.
