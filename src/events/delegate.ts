@@ -29,6 +29,25 @@ type DelegateEvent<T> = {
  * @param selectors - One or more selectors to match.
  * @param callback - The function called for each delegate match.
  *
+ * @example
+ * Do something with a matched element.
+ * ```ts
+ * document.addEventListener('click', delegate('.foo', ({ delegateTarget }) => {
+ *     console.log(delegateTarget);
+ * }));
+ * ```
+ *
+ * @example
+ * Stop delegation if there are multiple matches within the event bubble
+ * that you don't want to trigger callbacks for.
+ * ```ts
+ * document.addEventListener('click', delegate('.foo', ({ stopDelegation }) => {
+ *     if (condition) {
+ *         stopDelegation();
+ *     }
+ * }));
+ * ```
+ *
  * @public
  */
 function delegate<T extends EventTarget, U extends Event | CustomEvent>(

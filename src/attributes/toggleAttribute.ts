@@ -8,6 +8,18 @@
  * @param value - The value of the attribute.
  * @param force - Restrict toggle to a one-way operation only.
  *
+ * @example
+ * Two-way toggle (default).
+ * ```ts
+ * toggleAttribute(element, 'prop', 'value');
+ * ```
+ *
+ * @example
+ * One-way toggle.
+ * ```ts
+ * toggleAttribute(element, 'prop', 'value', true);
+ * ```
+ *
  * @public
  */
 function toggleAttribute(

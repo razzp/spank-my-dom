@@ -9,6 +9,24 @@
  * @param selectors - One or more selectors to match.
  * @param context - The context from which to search from.
  *
+ * @example
+ * Find an element using the entire document as context (default).
+ * ```ts
+ * const element = find('.foo');
+ * ```
+ *
+ * @example
+ * Find an element using another element as context.
+ * ```ts
+ * const element = find('.foo', contextElement);
+ * ```
+ *
+ * @example
+ * Infer the type of element using TypeScript.
+ * ```ts
+ * const element = find<HTMLButtonElement>('.foo');
+ * ```
+ *
  * @public
  */
 function find<T extends Element = HTMLElement>(

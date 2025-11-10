@@ -3,6 +3,11 @@
  *
  * @param element - The element to show.
  *
+ * @example
+ * ```ts
+ * showElement(element);
+ * ```
+ *
  * @public
  */
 function showElement(element: HTMLElement): void {

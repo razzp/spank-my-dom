@@ -3,6 +3,11 @@
  *
  * @param element - The element to hide.
  *
+ * @example
+ * ```ts
+ * hideElement(element);
+ * ```
+ *
  * @public
  */
 function hideElement(element: HTMLElement): void {

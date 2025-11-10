@@ -13,6 +13,24 @@
  * @throws
  * If no match is found.
  *
+ * @example
+ * Find an element using the entire document as context (default).
+ * ```ts
+ * const element = find('.foo');
+ * ```
+ *
+ * @example
+ * Find an element using another element as context.
+ * ```ts
+ * const element = find('.foo', contextElement);
+ * ```
+ *
+ * @example
+ * Infer the type of element using TypeScript.
+ * ```ts
+ * const element = find<HTMLButtonElement>('.foo');
+ * ```
+ *
  * @public
  */
 function findOrThrow<T extends Element = HTMLElement>(

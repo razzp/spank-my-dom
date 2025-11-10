@@ -7,6 +7,11 @@
  * @param minimumWaitMs - The minimum wait time in milliseconds.
  * @param promise - The `Promise` to wait for.
  *
+ * @example
+ * ```ts
+ * const result = await waitAtLeast(2000, promise);
+ * ```
+ *
  * @public
  */
 function waitAtLeast<T>(

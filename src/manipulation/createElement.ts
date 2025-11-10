@@ -44,6 +44,32 @@ type CreateElementOptions<T extends keyof HTMLElementTagNameMap> =
  * @param tagName - The type of element to create.
  * @param options - An optional configuration object.
  *
+ * @example
+ * Create a new element.
+ * ```ts
+ * const element = createElement('div');
+ * ```
+ *
+ * @example
+ * Create an element with a full range of options defined.
+ * ```ts
+ * const element = createElement('div', {
+ *     content: 'Hello World',
+ *     attributes: {
+ *         ariaHidden: 'true',
+ *     },
+ *     classes: ['foo', 'bar'],
+ *     styles: {
+ *         color: 'rebeccapurple',
+ *     },
+ *     data: {
+ *         baz: 'qux',
+ *     },
+ *     prepend: [node],
+ *     append: [node],
+ * });
+ * ```
+ *
  * @public
  */
 function createElement<T extends keyof HTMLElementTagNameMap>(

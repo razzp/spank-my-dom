@@ -6,6 +6,18 @@ import { getSiblings } from './internal/getSiblings';
  * @param element - The element whose siblings will be returned.
  * @param selectors - One or more selectors to match.
  *
+ * @example
+ * Find all siblings that succeed `element` in its parent's child list.
+ * ```ts
+ * const elements = siblingsAfter(element);
+ * ```
+ *
+ * @example
+ * Find all siblings that succeed `element`, filtered by CSS selectors.
+ * ```ts
+ * const elements = siblingsAfter(element, '.foo');
+ * ```
+ *
  * @public
  */
 function siblingsAfter<T extends Element>(

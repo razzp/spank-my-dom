@@ -21,6 +21,22 @@ type FormDataToSearchParamsOptions = {
  * @param formData - The `FormData` object to convert.
  * @param options - An optional configuration object.
  *
+ * @example
+ * Serialise a form.
+ * ```ts
+ * const formData = new FormData(formElement);
+ * const searchParams = formDataToSearchParams(formData);
+ * const serialised = searchParams.toString();
+ * ```
+ *
+ * @example
+ * Define a custom transformer for handling `File` objects.
+ * ```ts
+ * const searchParams = formDataToSearchParams(formData, {
+ *     handleFile: (file) => `Name: ${file.name}`;
+ * });
+ * ```
+ *
  * @public
  */
 function formDataToSearchParams(

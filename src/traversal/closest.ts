@@ -6,6 +6,18 @@
  * @param selectors - One or more selectors to match.
  * @param skipSelf - Ignore `element` and begin the search on its parent.
  *
+ * @example
+ * Traverse the element and its parents until a match is found.
+ * ```ts
+ * const element = closest('.foo');
+ * ```
+ *
+ * @example
+ * Traverse the element's parents only, until a match is found.
+ * ```ts
+ * const element = closest('.foo', true);
+ * ```
+ *
  * @public
  */
 function closest<T extends Element>(

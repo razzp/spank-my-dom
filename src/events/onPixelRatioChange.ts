@@ -17,6 +17,13 @@ type OnPixelRatioChangeOptions = {
  * @param callback - The function called when the pixel ratio changes.
  * @param options - An optional configuration object.
  *
+ * @example
+ * ```ts
+ * onPixelRatioChange((pixelRatio) => {
+ *     console.log(pixelRatio);
+ * });
+ * ```
+ *
  * @public
  */
 function onPixelRatioChange(

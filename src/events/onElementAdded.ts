@@ -26,6 +26,42 @@ type OnElementAddedOptions = {
  * @param callback - The function called for added elements.
  * @param options - An optional configuration object.
  *
+ * @example
+ * Observe the entire document for new elements of the given type.
+ * ```ts
+ * onElementAdded('div', (element) => {
+ *     console.log(element);
+ * });
+ * ```
+ *
+ * @example
+ * Filter matched elements by providing CSS selectors.
+ * ```ts
+ * onElementAdded(
+ *     'div',
+ *     (element) => {
+ *         console.log(element);
+ *     },
+ *     {
+ *         selectors: '.foo',
+ *     },
+ * );
+ * ```
+ *
+ * @example
+ * Narrow observation to a specific context.
+ * ```ts
+ * onElementAdded(
+ *     'div',
+ *     (element) => {
+ *         console.log(element);
+ *     },
+ *     {
+ *         context: contextElement,
+ *     },
+ * );
+ * ```
+ *
  * @public
  */
 function onElementAdded<T extends keyof HTMLElementTagNameMap>(

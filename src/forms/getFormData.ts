@@ -16,6 +16,22 @@ type GetFormDataOptions = {
  * @param form - The form to use.
  * @param options - An optional configuration object.
  *
+ * @example
+ * Get a `FormData` object representing a form element.
+ * ```ts
+ * const formData = getFormData(formElement);
+ * ```
+ *
+ * @example
+ * Provide additional entries that will be added to the `FormData` object.
+ * ```ts
+ * const formData = getFormData(formElement, {
+ *     additionalEntries: {
+ *         foo: 'bar',
+ *     },
+ * });
+ * ```
+ *
  * @public
  */
 function getFormData(

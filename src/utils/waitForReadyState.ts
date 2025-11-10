@@ -15,6 +15,20 @@ function toNumerical(state: DocumentReadyState): number {
  *
  * @param state - The state to wait for.
  *
+ * @example
+ * Wait for the document `readyState` to reach `interactive`. This can be
+ * used as an alternative to the `DOMContentLoaded` event.
+ * ```ts
+ * await waitForReadyState('interactive');
+ * ```
+ *
+ * @example
+ * Wait for the document `readyState` to reach `complete`. This can be
+ * used as an alternative to the `load` event.
+ * ```ts
+ * await waitForReadyState('complete');
+ * ```
+ *
  * @public
  */
 function waitForReadyState(state: DocumentReadyState): Promise<void> {
