@@ -4,89 +4,112 @@
 
 import { onPixelRatioChange } from '../../src/events/onPixelRatioChange';
 
-class MockMediaQueryList {
-    static instances = new Set<MockMediaQueryList>();
+class MockMediaQueryList implements MediaQueryList {
+    static readonly instances = new Set<MockMediaQueryList>();
 
-    static triggerAll(): void {
-        // Important to clone the set here otherwise it will loop infinitely
-        // as listeners are added during the callback logic.
-        for (const instance of [...MockMediaQueryList.instances]) {
-            instance.trigger();
-        }
-    }
+    private callback?: () => void;
 
     constructor() {
         MockMediaQueryList.instances.add(this);
     }
 
-    private readonly listeners = new Map<symbol, () => void>();
+    public media = '';
+    public matches = false;
+    public onchange = jest.fn();
+    public addListener = jest.fn();
+    public removeListener = jest.fn();
+    public removeEventListener = jest.fn();
+    public dispatchEvent = jest.fn();
 
-    public addEventListener(
-        _: never,
-        callback: () => void,
-        options?: AddEventListenerOptions,
-    ): void {
-        const id = Symbol();
+    public addEventListener = jest
+        .fn()
+        .mockImplementation(
+            (
+                _: never,
+                callback: () => void,
+                options?: AddEventListenerOptions,
+            ) => {
+                this.callback = callback;
 
-        this.listeners.set(id, callback);
-
-        options?.signal?.addEventListener('abort', () => {
-            this.listeners.delete(id);
-        });
-    }
+                options?.signal?.addEventListener('abort', () => {
+                    this.callback = undefined;
+                });
+            },
+        );
 
     public trigger(): void {
-        for (const [id, callback] of this.listeners) {
-            this.listeners.delete(id);
-            callback();
-        }
-
-        MockMediaQueryList.instances.delete(this);
+        this.callback?.();
     }
 }
 
+const initialValue = global.matchMedia;
+
 beforeAll(() => {
-    Object.defineProperty(window, 'matchMedia', {
-        value: () => new MockMediaQueryList(),
-    });
+    global.matchMedia = () => new MockMediaQueryList();
+});
+
+beforeEach(() => {
+    MockMediaQueryList.instances.clear();
+});
+
+afterAll(() => {
+    global.matchMedia = initialValue;
 });
 
 test('Callback is successfully fired when pixel ratio changes', () => {
     const callback = jest.fn();
 
+    expect(MockMediaQueryList.instances.size).toBe(0);
+
     onPixelRatioChange(callback);
 
-    MockMediaQueryList.triggerAll();
+    expect(MockMediaQueryList.instances.size).toBe(1);
+
+    const instance = [...MockMediaQueryList.instances][0];
+
+    expect(instance.addEventListener).toHaveBeenCalled();
+    expect(callback).not.toHaveBeenCalled();
+
+    instance.trigger();
 
     expect(callback).toHaveBeenCalled();
+    expect(typeof callback.mock.calls[0][0]).toBe('number');
 });
 
-test('Callback is not called if signal is already aborted', () => {
+test('Successfully stops if provided signal is aborted', () => {
     const callback = jest.fn();
     const controller = new AbortController();
 
-    controller.abort();
+    expect(MockMediaQueryList.instances.size).toBe(0);
 
     onPixelRatioChange(callback, {
         signal: controller.signal,
     });
 
-    MockMediaQueryList.triggerAll();
+    expect(MockMediaQueryList.instances.size).toBe(1);
+
+    const instance = [...MockMediaQueryList.instances][0];
+
+    expect(instance.addEventListener).toHaveBeenCalled();
+    expect(callback).not.toHaveBeenCalled();
+
+    controller.abort();
+    instance.trigger();
 
     expect(callback).not.toHaveBeenCalled();
 });
 
-test('Callback is not called if signal is aborted after instantiation', () => {
+test('Short circuits if signal is provided that has already been aborted', () => {
     const callback = jest.fn();
     const controller = new AbortController();
+
+    controller.abort();
+
+    expect(MockMediaQueryList.instances.size).toBe(0);
 
     onPixelRatioChange(callback, {
         signal: controller.signal,
     });
 
-    controller.abort();
-
-    MockMediaQueryList.triggerAll();
-
-    expect(callback).not.toHaveBeenCalled();
+    expect(MockMediaQueryList.instances.size).toBe(0);
 });
