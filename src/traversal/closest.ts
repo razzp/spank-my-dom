@@ -1,10 +1,10 @@
 /**
- * Returns the first ancestor of `element` that matches
- * the selector(s), or, optionally, itself.
+ * Traverse the element (unless skipped) and its parents until
+ * an element is found that matches the selector(s).
  *
  * @param element - The element from which to search.
  * @param selectors - One or more selectors to match.
- * @param skipSelf - Ignore `element` even if it matches.
+ * @param skipSelf - Ignore `element` and begin the search on its parent.
  *
  * @public
  */
