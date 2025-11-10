@@ -22,7 +22,7 @@
  * ```
  *
  * @example
- * Infer the type of element using TypeScript.
+ * Infer the type of element using the generic `find<T>`.
  * ```ts
  * const element = find<HTMLButtonElement>('.foo');
  * ```
