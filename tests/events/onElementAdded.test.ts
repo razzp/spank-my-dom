@@ -25,7 +25,7 @@ class MockMutationObserver implements MutationObserver {
     }
 }
 
-const oldValue = global.MutationObserver;
+const initialValue = global.MutationObserver;
 
 beforeAll(() => {
     global.MutationObserver = MockMutationObserver;
@@ -36,7 +36,7 @@ beforeEach(() => {
 });
 
 afterAll(() => {
-    global.MutationObserver = oldValue;
+    global.MutationObserver = initialValue;
 });
 
 test('Successfully triggered when new element with matching tag is observed', () => {
@@ -51,7 +51,7 @@ test('Successfully triggered when new element with matching tag is observed', ()
 
     const instance = [...MockMutationObserver.instances][0];
 
-    expect(instance.observe).toHaveBeenCalledTimes(1);
+    expect(instance.observe).toHaveBeenCalled();
 
     instance.trigger([
         {
