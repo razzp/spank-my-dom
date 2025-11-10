@@ -17,7 +17,7 @@ test('Element with options specified is successfully created', () => {
     const element = createElement('div', {
         content: 'foo',
         attributes: {
-            ariaExpanded: 'true',
+            ariaHidden: 'true',
         },
         classes: ['bar', 'baz'],
         styles: {
@@ -33,7 +33,7 @@ test('Element with options specified is successfully created', () => {
     const childNodes = [...element.childNodes];
 
     expect(element).toBeInstanceOf(HTMLDivElement);
-    expect(element.getAttribute('aria-expanded')).toBe('true');
+    expect(element.getAttribute('aria-hidden')).toBe('true');
     expect(element.style.color).toBe('rebeccapurple');
     expect(element.className).toBe('bar baz');
     expect(element.dataset.qux).toBe('quux');
