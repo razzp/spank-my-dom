@@ -68,3 +68,25 @@ The function called for each delegate match.
 
 (this: T, event: U) =&gt; void
 
+## Example 1
+
+Do something with a matched element.
+
+```ts
+document.addEventListener('click', delegate('.foo', ({ delegateTarget }) => {
+    console.log(delegateTarget);
+}));
+```
+
+## Example 2
+
+Stop delegation if there are multiple matches within the event bubble that you don't want to trigger callbacks for.
+
+```ts
+document.addEventListener('click', delegate('.foo', ({ stopDelegation }) => {
+    if (condition) {
+        stopDelegation();
+    }
+}));
+```
+

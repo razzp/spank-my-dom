@@ -24,7 +24,7 @@ Description
 
 </td><td>
 
-Returns the first ancestor of `element` that matches the selector(s), or, optionally, itself.
+Traverse the element (unless skipped) and its parents until an element is found that matches the selector(s).
 
 
 </td></tr>

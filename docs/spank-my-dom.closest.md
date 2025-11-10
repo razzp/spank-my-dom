@@ -4,7 +4,7 @@
 
 ## closest() function
 
-Returns the first ancestor of `element` that matches the selector(s), or, optionally, itself.
+Traverse the element (unless skipped) and its parents until an element is found that matches the selector(s).
 
 **Signature:**
 
@@ -74,7 +74,7 @@ boolean
 
 </td><td>
 
-_(Optional)_ Ignore `element` even if it matches.
+_(Optional)_ Ignore `element` and begin the search on its parent.
 
 
 </td></tr>
@@ -83,4 +83,20 @@ _(Optional)_ Ignore `element` even if it matches.
 **Returns:**
 
 null \| T
+
+## Example 1
+
+Traverse the element and its parents until a match is found.
+
+```ts
+const element = closest('.foo');
+```
+
+## Example 2
+
+Traverse the element's parents only, until a match is found.
+
+```ts
+const element = closest('.foo', true);
+```
 

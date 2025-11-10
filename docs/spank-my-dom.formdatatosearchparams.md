@@ -72,3 +72,23 @@ URLSearchParams
 
 Useful in cases where you want to send data in`application/x-www-form-urlencoded` format, or if you want to serialise a form's data using `URLSearchParams.toString()`<!-- -->.
 
+## Example 1
+
+Serialise a form.
+
+```ts
+const formData = new FormData(formElement);
+const searchParams = formDataToSearchParams(formData);
+const serialised = searchParams.toString();
+```
+
+## Example 2
+
+Define a custom transformer for handling `File` objects.
+
+```ts
+const searchParams = formDataToSearchParams(formData, {
+    handleFile: (file) => `Name: ${file.name}`;
+});
+```
+

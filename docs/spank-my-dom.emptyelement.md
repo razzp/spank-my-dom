@@ -52,3 +52,10 @@ The element to empty.
 
 void
 
+## Example
+
+
+```ts
+emptyElement(element);
+```
+

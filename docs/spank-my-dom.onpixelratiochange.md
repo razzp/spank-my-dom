@@ -68,3 +68,12 @@ _(Optional)_ An optional configuration object.
 
 void
 
+## Example
+
+
+```ts
+onPixelRatioChange((pixelRatio) => {
+    console.log(pixelRatio);
+});
+```
+

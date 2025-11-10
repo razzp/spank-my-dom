@@ -52,3 +52,10 @@ The element to hide.
 
 void
 
+## Example
+
+
+```ts
+hideElement(element);
+```
+

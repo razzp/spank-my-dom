@@ -100,3 +100,19 @@ _(Optional)_ Restrict toggle to a one-way operation only.
 
 boolean
 
+## Example 1
+
+Two-way toggle (default).
+
+```ts
+toggleAttribute(element, 'prop', 'value');
+```
+
+## Example 2
+
+One-way toggle.
+
+```ts
+toggleAttribute(element, 'prop', 'value', true);
+```
+

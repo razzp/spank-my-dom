@@ -68,3 +68,19 @@ _(Optional)_ One or more selectors to match.
 
 T\[\]
 
+## Example 1
+
+Find all siblings that precede `element` in its parent's child list.
+
+```ts
+const elements = siblingsBefore(element);
+```
+
+## Example 2
+
+Find all siblings that precede `element`<!-- -->, filtered by CSS selectors.
+
+```ts
+const elements = siblingsBefore(element, '.foo');
+```
+

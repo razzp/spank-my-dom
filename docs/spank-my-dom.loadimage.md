@@ -52,3 +52,20 @@ The image to load.
 
 Promise&lt;HTMLImageElement&gt;
 
+## Example 1
+
+Load an image.
+
+```ts
+const image = await loadImage('path/foo.jpg');
+```
+
+## Example 2
+
+Load multiple images.
+
+```ts
+const paths = ['path/foo.jpg', 'path/bar.jpg'];
+const images = await Promise.all(paths.map(loadImage));
+```
+

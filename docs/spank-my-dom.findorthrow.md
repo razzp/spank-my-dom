@@ -72,3 +72,31 @@ T
 
 If no match is found.
 
+## Remarks
+
+Unlike using `querySelector()`<!-- -->, the default inferred element type is `HTMLElement`<!-- -->, rather than `Element`<!-- -->. More often than not this is the preferred behaviour, so it saves having to explicitly type it.
+
+## Example 1
+
+Find an element using the entire document as context (default).
+
+```ts
+const element = find('.foo');
+```
+
+## Example 2
+
+Find an element using another element as context.
+
+```ts
+const element = find('.foo', contextElement);
+```
+
+## Example 3
+
+Infer the type of element using TypeScript.
+
+```ts
+const element = find<HTMLButtonElement>('.foo');
+```
+

@@ -72,3 +72,10 @@ Promise&lt;T&gt;
 
 Useful for delaying near instantaneous actions that might affect UI.
 
+## Example
+
+
+```ts
+const result = await waitAtLeast(2000, promise);
+```
+

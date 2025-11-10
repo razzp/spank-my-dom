@@ -68,3 +68,23 @@ _(Optional)_ An optional configuration object.
 
 FormData
 
+## Example 1
+
+Get a `FormData` object representing a form element.
+
+```ts
+const formData = getFormData(formElement);
+```
+
+## Example 2
+
+Provide additional entries that will be added to the `FormData` object.
+
+```ts
+const formData = getFormData(formElement, {
+    additionalEntries: {
+        foo: 'bar',
+    },
+});
+```
+

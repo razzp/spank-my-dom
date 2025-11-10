@@ -68,3 +68,31 @@ _(Optional)_ The context from which to search from.
 
 T\[\]
 
+## Remarks
+
+Unlike using `querySelectorAll()`<!-- -->, the default inferred element type is `HTMLElement`<!-- -->, rather than `Element`<!-- -->. More often than not this is the preferred behaviour, so it saves having to explicitly type it.
+
+## Example 1
+
+Find elements using the entire document as context (default).
+
+```ts
+const elements = findAll('.foo');
+```
+
+## Example 2
+
+Find elements using another element as context.
+
+```ts
+const elements = findAll('.foo', contextElement);
+```
+
+## Example 3
+
+Infer the type of elements using TypeScript.
+
+```ts
+const elements = findAll<HTMLButtonElement>('.foo');
+```
+

@@ -68,3 +68,33 @@ _(Optional)_ An optional configuration object.
 
 HTMLElementTagNameMap\[T\]
 
+## Example 1
+
+Create a new element.
+
+```ts
+const element = createElement('div');
+```
+
+## Example 2
+
+Create an element with a full range of options defined.
+
+```ts
+const element = createElement('div', {
+    content: 'Hello World',
+    attributes: {
+        ariaHidden: 'true',
+    },
+    classes: ['foo', 'bar'],
+    styles: {
+        color: 'rebeccapurple',
+    },
+    data: {
+        baz: 'qux',
+    },
+    prepend: [node],
+    append: [node],
+});
+```
+

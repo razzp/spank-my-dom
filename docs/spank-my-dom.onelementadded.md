@@ -84,3 +84,45 @@ _(Optional)_ An optional configuration object.
 
 void
 
+## Example 1
+
+Observe the entire document for new elements of the given type.
+
+```ts
+onElementAdded('div', (element) => {
+    console.log(element);
+});
+```
+
+## Example 2
+
+Filter matched elements by providing CSS selectors.
+
+```ts
+onElementAdded(
+    'div',
+    (element) => {
+        console.log(element);
+    },
+    {
+        selectors: '.foo',
+    },
+);
+```
+
+## Example 3
+
+Narrow observation to a specific context.
+
+```ts
+onElementAdded(
+    'div',
+    (element) => {
+        console.log(element);
+    },
+    {
+        context: contextElement,
+    },
+);
+```
+

@@ -52,3 +52,10 @@ The element to show.
 
 void
 
+## Example
+
+
+```ts
+showElement(element);
+```
+

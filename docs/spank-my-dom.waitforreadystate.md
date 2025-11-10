@@ -52,3 +52,19 @@ The state to wait for.
 
 Promise&lt;void&gt;
 
+## Example 1
+
+Wait for the document `readyState` to reach `interactive`<!-- -->. This can be used as an alternative to the `DOMContentLoaded` event.
+
+```ts
+await waitForReadyState('interactive');
+```
+
+## Example 2
+
+Wait for the document `readyState` to reach `complete`<!-- -->. This can be used as an alternative to the `load` event.
+
+```ts
+await waitForReadyState('complete');
+```
+
