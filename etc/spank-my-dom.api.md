@@ -28,11 +28,14 @@ export type CreateElementOptions<T extends keyof HTMLElementTagNameMap> = Elemen
 };
 
 // @public
-export function delegate<T extends EventTarget, U extends Event | CustomEvent>(selectors: string, callback: (this: T, data: {
+export function delegate<T extends EventTarget, U extends Event | CustomEvent>(selectors: string, callback: (this: T, delegateEvent: DelegateEvent<U>) => unknown): (this: T, event: U) => void;
+
+// @public
+export type DelegateEvent<T> = {
     delegateTarget: Element;
-    event: U;
+    event: T;
     stopDelegation: () => void;
-}) => unknown): (this: T, event: U) => void;
+};
 
 // @public
 export function emptyElement<T extends Element>(element: T): void;

@@ -4,7 +4,7 @@ export { toggleAttribute } from './attributes/toggleAttribute';
 
 // Events
 
-export { delegate } from './events/delegate';
+export { type DelegateEvent, delegate } from './events/delegate';
 export {
     type OnElementAddedOptions,
     onElementAdded,

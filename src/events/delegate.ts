@@ -1,4 +1,28 @@
 /**
+ * The event data returned in the callback.
+ *
+ * @public
+ */
+type DelegateEvent<T> = {
+    /**
+     * The target that has been matched.
+     */
+    delegateTarget: Element;
+    /**
+     * The original Event object.
+     *
+     * @remarks
+     * Be aware that `currentTarget` will be `null`.
+     * See: {@link https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget}
+     */
+    event: T;
+    /**
+     * Stop any further matches as the event bubbles.
+     */
+    stopDelegation: () => void;
+};
+
+/**
  * Create a delegate listener that fires on elements that match the
  * provided selectors, as the event bubbles up through the DOM.
  *
@@ -9,10 +33,7 @@
  */
 function delegate<T extends EventTarget, U extends Event | CustomEvent>(
     selectors: string,
-    callback: (
-        this: T,
-        data: { delegateTarget: Element; event: U; stopDelegation: () => void },
-    ) => unknown,
+    callback: (this: T, delegateEvent: DelegateEvent<U>) => unknown,
 ) {
     return function (this: T, event: U) {
         let current = event.target;
@@ -38,4 +59,4 @@ function delegate<T extends EventTarget, U extends Event | CustomEvent>(
     };
 }
 
-export { delegate };
+export { delegate, type DelegateEvent };
