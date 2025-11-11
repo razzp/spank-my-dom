@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.0.0 (2025-11-10)
+## 2.0.0 (2025-11-12)
 
 ### Added
 - Added `delegate()` method.
@@ -11,6 +11,7 @@
 - Added `hideElement()` and `showElement()` methods.
 - Added `waitAtLeast()` method.
 - Added `waitForReadyState()` method.
+- Added `getData()` and `getDataOrThrow()` methods.
 
 ### Changed
 - Performance and readability improvements to typings.
@@ -21,8 +22,9 @@
 - Renamed `toggleAttr()` to `toggleAttribute()`.
 - Renamed `create()` to `createElement()` and refactored.
 - Renamed `empty()` to `emptyElement()`.
+- Renamed `toBoolean()` to `parseBoolean()`.
 - `closest()` now optionally matches the target `Element`.
-- Default return type for `find()`, `findAll()`, and `findOrTHrow()` methods is now `HTMLElement`.
+- Default return type for `find()`, `findAll()`, and `findOrThrow()` methods is now `HTMLElement`.
 
 ### Removed
 - Removed `toArray()`.
@@ -36,7 +38,7 @@
 - Removed `loadImages()`.
 - Removed `parseJson()`.
 - Removed `replace()`.
-- Removed `toBoolean()`, `toNumber()`.
+- Removed `toNumber()`.
 
 ### Fixed
 
