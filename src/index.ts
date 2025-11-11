@@ -2,6 +2,10 @@
 
 export { toggleAttribute } from './attributes/toggleAttribute';
 
+// Conversion
+
+export { parseBoolean } from './conversion/parseBoolean';
+
 // Events
 
 export { type DelegateEvent, delegate } from './events/delegate';
@@ -41,6 +45,8 @@ export { showElement } from './manipulation/showElement';
 export { find } from './retrieval/find';
 export { findAll } from './retrieval/findAll';
 export { findOrThrow } from './retrieval/findOrThrow';
+export { getData } from './retrieval/getData';
+export { getDataOrThrow } from './retrieval/getDataOrThrow';
 
 // Traversal
 

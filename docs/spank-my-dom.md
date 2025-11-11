@@ -107,6 +107,28 @@ Takes a `FormData` object and converts it into a `URLSearchParams` object.
 </td></tr>
 <tr><td>
 
+[getData(element, name, reviver)](./spank-my-dom.getdata.md)
+
+
+</td><td>
+
+Get a data attribute's value from an element, optionally passing it through a reviver function to transform its value.
+
+
+</td></tr>
+<tr><td>
+
+[getDataOrThrow(element, name, reviver)](./spank-my-dom.getdataorthrow.md)
+
+
+</td><td>
+
+Get a data attribute's value from an element, optionally passing it through a reviver function to transform its value.
+
+
+</td></tr>
+<tr><td>
+
 [getFormData(form, options)](./spank-my-dom.getformdata.md)
 
 
@@ -157,6 +179,17 @@ Create an observer that will wait for specific elements to be added to the DOM l
 </td><td>
 
 Create a listener that will fire a callback whenever the pixel ratio of the current window changes.
+
+
+</td></tr>
+<tr><td>
+
+[parseBoolean(input)](./spank-my-dom.parseboolean.md)
+
+
+</td><td>
+
+Parse a string value as a boolean.
 
 
 </td></tr>

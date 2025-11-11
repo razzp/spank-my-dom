@@ -58,6 +58,12 @@ export type FormDataToSearchParamsOptions = {
 };
 
 // @public
+export function getData<T = string>(element: HTMLElement, name: string, reviver?: (value: string) => T): null | T;
+
+// @public
+export function getDataOrThrow<T = string>(element: HTMLElement, name: string, reviver?: (value: string) => T): T;
+
+// @public
 export function getFormData(form: HTMLFormElement, options?: GetFormDataOptions): FormData;
 
 // @public
@@ -90,6 +96,9 @@ export function onPixelRatioChange(callback: (pixelRatio: number) => void, optio
 export type OnPixelRatioChangeOptions = {
     signal?: AbortSignal;
 };
+
+// @public
+export function parseBoolean(input: string): boolean;
 
 // @public
 export function showElement(element: HTMLElement): void;
