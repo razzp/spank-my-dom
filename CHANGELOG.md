@@ -11,7 +11,7 @@
 - Added `hideElement()` and `showElement()` methods.
 - Added `waitAtLeast()` method.
 - Added `waitForReadyState()` method.
-- Added `getData()` and `getDataOrThrow()` methods.
+- Added `getDataOrThrow()` method.
 
 ### Changed
 - Performance and readability improvements to typings.
@@ -25,11 +25,12 @@
 - Renamed `toBoolean()` to `parseBoolean()`.
 - `closest()` now optionally matches the target `Element`.
 - Default return type for `find()`, `findAll()`, and `findOrThrow()` methods is now `HTMLElement`.
+- Rewritten `getData()` method.
 
 ### Removed
 - Removed `toArray()`.
 - Removed `getAria()`, `hasAria()`, `removeAria()`, `setAria()`, `toggleAria()`.
-- Removed `getData()`, `hasData()`, `removeData()`, `setData()`, `toggleData()`.
+- Removed `hasData()`, `removeData()`, `setData()`, `toggleData()`.
 - Removed `getAttr()`, `hasAttr()`, `removeAttr()`, `setAttr()`.
 - Removed `addClass()`, `classesContaining()`, `classesEndingWith()`, `classesStartingWith()`, `removeClass()`, `toggleClass()`.
 - Removed `onDelegate()`, `offDelegate()`, `dispatch()`.
