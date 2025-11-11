@@ -72,6 +72,8 @@ T\[\]
 
 Unlike using `querySelectorAll()`<!-- -->, the default inferred element type is `HTMLElement`<!-- -->, rather than `Element`<!-- -->. More often than not this is the preferred behaviour, so it saves having to explicitly type it.
 
+For runtime safety, consider using an assertion library such as [Bossy Boots](https://github.com/razzp/bossy-boots)<!-- -->.
+
 ## Example 1
 
 Find elements using the entire document as context (default).

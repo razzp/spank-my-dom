@@ -6,6 +6,9 @@
  * `HTMLElement`, rather than `Element`. More often than not this is the
  * preferred behaviour, so it saves having to explicitly type it.
  *
+ * For runtime safety, consider using an assertion library such as
+ * {@link https://github.com/razzp/bossy-boots | Bossy Boots}.
+ *
  * @param selectors - One or more selectors to match.
  * @param context - The context from which to search from.
  *
