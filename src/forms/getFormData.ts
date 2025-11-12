@@ -9,6 +9,11 @@ type GetFormDataOptions = {
      * except for `File` objects will be converted to strings.
      */
     additionalEntries?: { [key: string]: unknown };
+    /**
+     * Cherry-pick the form fields you want. Useful in very large forms where
+     * only a few fields are required. Does **not** affect `additionalEntries`.
+     */
+    filterFields?: string[];
 };
 
 /**
@@ -33,22 +38,39 @@ type GetFormDataOptions = {
  * });
  * ```
  *
+ * @example
+ * Cherry-pick specific form fields to be added to the `FormData` object.
+ * ```ts
+ * const formData = getFormData(formElement, {
+ *     filterFields: ['foo', 'bar'],
+ * });
+ * ```
+ *
  * @public
  */
 function getFormData(
     form: HTMLFormElement,
     options?: GetFormDataOptions,
 ): FormData {
-    const { additionalEntries } = { ...options };
+    const { additionalEntries, filterFields } = { ...options };
     const data = new FormData(form);
+    const output = filterFields ? new FormData() : data;
 
-    if (additionalEntries) {
-        for (const [key, value] of Object.entries(additionalEntries)) {
-            data.append(key, value instanceof File ? value : String(value));
+    if (filterFields) {
+        for (const [key, value] of [...data].filter(([key]) =>
+            filterFields.includes(key),
+        )) {
+            output.append(key, value);
         }
     }
 
-    return data;
+    if (additionalEntries) {
+        for (const [key, value] of Object.entries(additionalEntries)) {
+            output.append(key, value instanceof File ? value : String(value));
+        }
+    }
+
+    return output;
 }
 
 export { getFormData, type GetFormDataOptions };

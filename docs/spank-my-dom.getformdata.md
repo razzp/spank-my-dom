@@ -88,3 +88,13 @@ const formData = getFormData(formElement, {
 });
 ```
 
+## Example 3
+
+Cherry-pick specific form fields to be added to the `FormData` object.
+
+```ts
+const formData = getFormData(formElement, {
+    filterFields: ['foo', 'bar'],
+});
+```
+
