@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.1.0 (2025-11-13)
+
+### Added
+- `getFormData()` now supports form field filtering via optional argument.
+
+### Changes
+- Tweaks to annotations/docs.
+
+### Fixed
+- `getFormData()` no longer incorrectly converts `File` objects to strings.
+
 ## 2.0.0 (2025-11-12)
 
 ### Added
