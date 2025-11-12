@@ -86,7 +86,7 @@ null \| T
 
 ## Remarks
 
-Undefined attributes are returned as `null` to maintain consistency with other methods such as `querySelector()`<!-- -->, or our own `find()`<!-- -->.
+Undefined attributes are returned as `null` to maintain consistency with other methods such as `querySelector()`<!-- -->, or `getAttribute()`<!-- -->.
 
 ## Example 1
 
