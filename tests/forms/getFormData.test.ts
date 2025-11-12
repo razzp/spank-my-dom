@@ -26,16 +26,19 @@ test('Successfully returns a populated FormData instance', () => {
 
 test('Successfully returns a populated FormData instance with additional entries', () => {
     const target = document.querySelector<HTMLFormElement>('.target');
+    const file = new File([], 'file');
 
     assertIsNotNull(target);
 
     const data = getFormData(target, {
         additionalEntries: {
             baz: 'qux',
+            file,
         },
     });
 
     expect(data).toBeInstanceOf(FormData);
     expect(data.get('foo')).toBe('bar');
     expect(data.get('baz')).toBe('qux');
+    expect(data.get('file')).toBeInstanceOf(File);
 });

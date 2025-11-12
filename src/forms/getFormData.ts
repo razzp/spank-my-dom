@@ -5,7 +5,8 @@
  */
 type GetFormDataOptions = {
     /**
-     * Additional entries to add to the `FormData` object.
+     * Additional entries to add to the `FormData` object. All values
+     * except for `File` objects will be converted to strings.
      */
     additionalEntries?: { [key: string]: unknown };
 };
@@ -43,7 +44,7 @@ function getFormData(
 
     if (additionalEntries) {
         for (const [key, value] of Object.entries(additionalEntries)) {
-            data.append(key, String(value));
+            data.append(key, value instanceof File ? value : String(value));
         }
     }
 
