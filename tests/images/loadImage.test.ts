@@ -1,32 +1,45 @@
-import { JSDOM } from 'jsdom';
+/**
+ * @jest-environment jsdom
+ */
 
 import { loadImage } from '../../src/images/loadImage';
-import { MockImage, MockImageFails, MockImageSucceeds } from './MockImage';
+
+const testImage =
+    'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+
+class MockImage {
+    static decodeWillSucceed = false;
+
+    public src?: string;
+
+    public async decode(): Promise<void> {
+        if (!MockImage.decodeWillSucceed) {
+            throw new DOMException();
+        }
+    }
+}
 
 beforeAll(() => {
-    const { window } = new JSDOM();
-
-    // Ensure that required globals are set.
-    global.DOMException = window.DOMException;
+    // biome-ignore lint/suspicious/noExplicitAny: Mock implementation
+    global.Image = MockImage as any;
 });
 
 test('Successful load resolves with image', async () => {
-    (global.Image as any) = MockImageSucceeds;
+    MockImage.decodeWillSucceed = true;
 
     expect.assertions(2);
 
     try {
-        const image = await loadImage('foo');
+        const src = testImage;
+        const image = await loadImage(src);
 
         expect(image).toBeInstanceOf(MockImage);
-        expect(image.src).toBe('foo');
-    } catch {
-        // Do nothing.
-    }
+        expect(image.src).toBe(src);
+    } catch {}
 });
 
 test('Unsuccessful load rejects', async () => {
-    (global.Image as any) = MockImageFails;
+    MockImage.decodeWillSucceed = false;
 
     expect.assertions(1);
 

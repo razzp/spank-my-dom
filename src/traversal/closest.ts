@@ -1,17 +1,33 @@
 /**
- * Returns the first ancestor that matches selector. Not inclusive of element.
- * @since 0.2.0
+ * Traverse the element (unless skipped) and its parents until
+ * an element is found that matches the selector(s).
  *
- * @param {Element} element The element from which to search.
- * @param {string} selector Selector to match ancestors against.
+ * @param element - The element from which to search.
+ * @param selectors - One or more selectors to match.
+ * @param skipSelf - Ignore `element` and begin the search on its parent.
  *
- * @returns {null|Element}
+ * @example
+ * Traverse the element and its parents until a match is found.
+ * ```ts
+ * const element = closest('.foo');
+ * ```
+ *
+ * @example
+ * Traverse the element's parents only, until a match is found.
+ * ```ts
+ * const element = closest('.foo', true);
+ * ```
+ *
+ * @public
  */
 function closest<T extends Element>(
     element: Element,
-    selector: string
+    selectors: string,
+    skipSelf: boolean = false,
 ): null | T {
-    return element.parentElement?.closest(selector) ?? null;
+    return skipSelf
+        ? (element.parentElement?.closest(selectors) ?? null)
+        : element.closest(selectors);
 }
 
 export { closest };

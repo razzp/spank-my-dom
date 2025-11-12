@@ -1,17 +1,14 @@
-import { JSDOM } from 'jsdom';
+/**
+ * @jest-environment jsdom
+ */
 
 import { find } from '../../src/retrieval/find';
 
 beforeAll(() => {
-    const { window } = new JSDOM(
-        `<!DOCTYPE html>
+    document.body.innerHTML = `
         <div class="target target-1"></div>
         <div class="target target-2"></div>
-        `
-    );
-
-    // Ensure that required globals are set.
-    global.document = window.document;
+    `;
 });
 
 test('Simple query finds first match successfully', () => {

@@ -1,5 +1,5 @@
 {
-    "editor.rulers": [
-        80, 100
-    ]
+    "editor.rulers": [80, 100],
+    "files.associations": { "*.json": "jsonc" },
+    "typescript.tsdk": "node_modules\\typescript\\lib"
 }

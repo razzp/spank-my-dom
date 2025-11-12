@@ -1,17 +1,14 @@
-import { JSDOM } from 'jsdom';
+/**
+ * @jest-environment jsdom
+ */
 
 import { findAll } from '../../src/retrieval/findAll';
 
 beforeAll(() => {
-    const { window } = new JSDOM(
-        `<!DOCTYPE html>
+    document.body.innerHTML = `
         <div class="target target-1"></div>
         <div class="target target-2"></div>
-        `
-    );
-
-    // Ensure that required globals are set.
-    global.document = window.document;
+    `;
 });
 
 test('Given a valid string, returns all matches', () => {
@@ -33,5 +30,5 @@ test('Given a valid but non-matching string, returns an empty array', () => {
 });
 
 test('Given an invalid string, throws an error', () => {
-    expect(() => findAll('.')).toThrowError();
+    expect(() => findAll('.')).toThrow();
 });

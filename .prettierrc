@@ -1,12 +1,4 @@
 {
     "singleQuote": true,
-    "tabWidth": 4,
-    "overrides": [
-        {
-            "files": "*.ts",
-            "options": {
-                "parser": "typescript"
-            }
-        }
-    ]
+    "tabWidth": 4
 }

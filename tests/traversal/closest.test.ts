@@ -1,47 +1,66 @@
-import { guarantee } from 'bossy-boots';
-import { JSDOM } from 'jsdom';
+/**
+ * @jest-environment jsdom
+ */
 
+import { assertIsNotNull } from 'bossy-boots';
 import { closest } from '../../src/traversal/closest';
 
 beforeAll(() => {
-    const { window } = new JSDOM(
-        `<!DOCTYPE html>
-        <div class="foo">
+    document.body.innerHTML = `
+        <div class="foo ancestor">
             <div>
                 <div>
-                    <div class="target"></div>
+                    <div class="target foo self"></div>
                 </div>
             </div>
         </div>
-        `
-    );
-
-    // Ensure that required globals are set.
-    global.document = window.document;
+    `;
 });
 
-test('Given a selector that matches an ancestor, returns that element', () => {
-    const target = guarantee(document.querySelector('.target'));
-    const result = closest(target, '.foo');
+describe('Non-inclusive of self', () => {
+    test('Given a selector that matches an ancestor, returns that element', () => {
+        const target = document.querySelector('.target');
 
-    expect(result).toBeDefined();
-    expect(result?.classList.contains('foo')).toBe(true);
-});
+        assertIsNotNull(target);
 
-test('Given a selector that does not match any ancestors, returns null', () => {
-    const target = guarantee(document.querySelector('.target'));
+        const result = closest(target, '.foo', true);
 
-    expect(closest(target, '.bar')).toBeNull();
-});
-
-test('Given an element which does not have a parent element, returns null', () => {
-    const target = guarantee(document.querySelector('.target'));
-
-    // Brute force the `parentElement` property to undefined so that we can
-    // test the optional chaining logic.
-    Object.defineProperty(target, 'parentElement', {
-        value: undefined,
+        expect(result).toBeDefined();
+        expect(result?.classList.contains('ancestor')).toBe(true);
     });
 
-    expect(closest(target, '.bar')).toBeNull();
+    test('Given a selector that does not match any ancestors, returns null', () => {
+        const target = document.querySelector('.target');
+
+        assertIsNotNull(target);
+
+        expect(closest(target, '.bar')).toBeNull();
+    });
+
+    test('Given an element which does not have a parent element, returns null', () => {
+        const target = document.querySelector('.target');
+
+        assertIsNotNull(target);
+
+        // Brute force the `parentElement` property to undefined so that we can
+        // test the optional chaining logic.
+        Object.defineProperty(target, 'parentElement', {
+            value: undefined,
+        });
+
+        expect(closest(target, '.bar', true)).toBeNull();
+    });
+});
+
+describe('Inclusive of self', () => {
+    test('Given a selector that matches the provided element, returns element', () => {
+        const target = document.querySelector('.target');
+
+        assertIsNotNull(target);
+
+        const result = closest(target, '.foo', false);
+
+        expect(result).toBeDefined();
+        expect(result?.classList.contains('self')).toBe(true);
+    });
 });

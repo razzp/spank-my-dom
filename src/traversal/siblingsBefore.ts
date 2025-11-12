@@ -1,19 +1,34 @@
-import { siblingAccumulator } from './internal/siblingAccumulator';
+import { getSiblings } from './internal/getSiblings';
 
 /**
- * Get the preceding siblings of an element, optionally filtered by a selector.
- * @since 0.2.0
+ * Get the siblings after an element, optionally filtered by selector(s).
  *
- * @param {Element} element The element whose siblings will be returned.
- * @param {string} [selector] Optional selector to match siblings against.
+ * @param element - The element whose siblings will be returned.
+ * @param selectors - One or more selectors to match.
  *
- * @returns {Element[]}
+ * @example
+ * Find all siblings that precede `element` in its parent's child list.
+ * ```ts
+ * const elements = siblingsBefore(element);
+ * ```
+ *
+ * @example
+ * Find all siblings that precede `element`, filtered by CSS selectors.
+ * ```ts
+ * const elements = siblingsBefore(element, '.foo');
+ * ```
+ *
+ * @public
  */
 function siblingsBefore<T extends Element>(
     element: Element,
-    selector?: string
+    selectors?: string,
 ): T[] {
-    return siblingAccumulator('previousElementSibling', element, selector);
+    return getSiblings<T>(
+        'previousElementSibling',
+        element,
+        selectors,
+    ).reverse();
 }
 
 export { siblingsBefore };

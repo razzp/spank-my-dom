@@ -1,10 +1,22 @@
 /**
  * Load an image asynchronously.
- * @since 0.2.0
  *
- * @param {string} path The image to load.
+ * @param path - The image to load.
  *
- * @returns {Promise<HTMLImageElement>}
+ * @example
+ * Load an image.
+ * ```ts
+ * const image = await loadImage('path/foo.jpg');
+ * ```
+ *
+ * @example
+ * Load multiple images.
+ * ```ts
+ * const paths = ['path/foo.jpg', 'path/bar.jpg'];
+ * const images = await Promise.all(paths.map(loadImage));
+ * ```
+ *
+ * @public
  */
 function loadImage(path: string): Promise<HTMLImageElement> {
     return new Promise((resolve, reject) => {
