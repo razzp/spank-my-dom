@@ -4,7 +4,7 @@
 
 ## find() function
 
-Returns the first element within context that matches the given selector(s).
+Returns the first element within context that matches the given selectors.
 
 **Signature:**
 

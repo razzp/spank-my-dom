@@ -4,7 +4,7 @@
 
 ## findAll() function
 
-Fins all descendant elements within a given context, that also match the given selector(s).
+Fins all descendant elements within a given context, that also match the given selectors.
 
 **Signature:**
 

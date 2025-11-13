@@ -19,17 +19,6 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-[closest(element, selectors, skipSelf)](./spank-my-dom.closest.md)
-
-
-</td><td>
-
-Traverse the element (unless skipped) and its parents until an element is found that matches the selector(s).
-
-
-</td></tr>
-<tr><td>
-
 [createElement(tagName, options)](./spank-my-dom.createelement.md)
 
 
@@ -68,7 +57,7 @@ Empty an element.
 
 </td><td>
 
-Returns the first element within context that matches the given selector(s).
+Returns the first element within context that matches the given selectors.
 
 
 </td></tr>
@@ -79,7 +68,7 @@ Returns the first element within context that matches the given selector(s).
 
 </td><td>
 
-Fins all descendant elements within a given context, that also match the given selector(s).
+Fins all descendant elements within a given context, that also match the given selectors.
 
 
 </td></tr>
@@ -90,7 +79,7 @@ Fins all descendant elements within a given context, that also match the given s
 
 </td><td>
 
-Returns the first element within context that matches the given selector(s), or throws if nothing is found.
+Returns the first element within context that matches the given selectors, or throws if nothing is found.
 
 
 </td></tr>
@@ -102,6 +91,17 @@ Returns the first element within context that matches the given selector(s), or 
 </td><td>
 
 Takes a `FormData` object and converts it into a `URLSearchParams` object.
+
+
+</td></tr>
+<tr><td>
+
+[getClosest(element, selectors, skipSelf)](./spank-my-dom.getclosest.md)
+
+
+</td><td>
+
+Traverse the element (unless skipped) and its parents until an element is found that matches the selectors.
 
 
 </td></tr>
@@ -140,6 +140,28 @@ Create a `FormData` object representing form fields and their values.
 </td></tr>
 <tr><td>
 
+[getPartialClasses(searchType, element, partialValue)](./spank-my-dom.getpartialclasses.md)
+
+
+</td><td>
+
+Find classes on an element that partially match a value.
+
+
+</td></tr>
+<tr><td>
+
+[getSiblings(direction, element, selectors)](./spank-my-dom.getsiblings.md)
+
+
+</td><td>
+
+Get the siblings of an element, optionally filtered by selectors.
+
+
+</td></tr>
+<tr><td>
+
 [hideElement(element)](./spank-my-dom.hideelement.md)
 
 
@@ -173,7 +195,18 @@ Create an observer that will wait for specific elements to be added to the DOM l
 </td></tr>
 <tr><td>
 
-[onPixelRatioChange(callback, options)](./spank-my-dom.onpixelratiochange.md)
+[onElementResized(element, callback, options)](./spank-my-dom.onelementresized.md)
+
+
+</td><td>
+
+Create an observer that will fire a callback whenever an element is resized.
+
+
+</td></tr>
+<tr><td>
+
+[onPixelRatioChanged(callback, options)](./spank-my-dom.onpixelratiochanged.md)
 
 
 </td><td>
@@ -195,45 +228,23 @@ Parse a string value as a boolean.
 </td></tr>
 <tr><td>
 
+[setGlobalCSSVariable(property, value)](./spank-my-dom.setglobalcssvariable.md)
+
+
+</td><td>
+
+Set a global CSS variable.
+
+
+</td></tr>
+<tr><td>
+
 [showElement(element)](./spank-my-dom.showelement.md)
 
 
 </td><td>
 
 Visually show an element.
-
-
-</td></tr>
-<tr><td>
-
-[siblings(element, selectors)](./spank-my-dom.siblings.md)
-
-
-</td><td>
-
-Get the siblings of an element, optionally filtered by selector(s).
-
-
-</td></tr>
-<tr><td>
-
-[siblingsAfter(element, selectors)](./spank-my-dom.siblingsafter.md)
-
-
-</td><td>
-
-Get the siblings before an element, optionally filtered by selector(s).
-
-
-</td></tr>
-<tr><td>
-
-[siblingsBefore(element, selectors)](./spank-my-dom.siblingsbefore.md)
-
-
-</td><td>
-
-Get the siblings after an element, optionally filtered by selector(s).
 
 
 </td></tr>
@@ -342,12 +353,23 @@ An optional configuration object for `onElementAdded`<!-- -->.
 </td></tr>
 <tr><td>
 
-[OnPixelRatioChangeOptions](./spank-my-dom.onpixelratiochangeoptions.md)
+[OnElementResizedOptions](./spank-my-dom.onelementresizedoptions.md)
 
 
 </td><td>
 
-An optional configuration object for `onPixelRatioChange`<!-- -->.
+An optional configuration object for `onElementResized`<!-- -->.
+
+
+</td></tr>
+<tr><td>
+
+[OnPixelRatioChangedOptions](./spank-my-dom.onpixelratiochangedoptions.md)
+
+
+</td><td>
+
+An optional configuration object for `onPixelRatioChanged`<!-- -->.
 
 
 </td></tr>
