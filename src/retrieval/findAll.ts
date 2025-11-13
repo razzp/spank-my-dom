@@ -1,6 +1,6 @@
 /**
  * Fins all descendant elements within a given context,
- * that also match the given selector(s).
+ * that also match the given selectors.
  *
  * @remarks
  * Unlike using `querySelectorAll()`, the default inferred element type is
