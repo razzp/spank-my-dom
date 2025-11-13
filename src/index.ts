@@ -1,7 +1,3 @@
-// Attributes
-
-export { toggleAttribute } from './attributes/toggleAttribute';
-
 // Conversion
 
 export { parseBoolean } from './conversion/parseBoolean';

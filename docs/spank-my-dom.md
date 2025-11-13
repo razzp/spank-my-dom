@@ -250,17 +250,6 @@ Visually show an element.
 </td></tr>
 <tr><td>
 
-[toggleAttribute(element, name, value, force)](./spank-my-dom.toggleattribute.md)
-
-
-</td><td>
-
-Toggle the attribute of an element. If `force` is defined, turns the toggle into a one way-only operation. If set to `false`<!-- -->, the attribute will only be removed. If set to `true`<!-- -->, the attribute will only be added.
-
-
-</td></tr>
-<tr><td>
-
 [waitAtLeast(minimumWaitMs, promise)](./spank-my-dom.waitatleast.md)
 
 

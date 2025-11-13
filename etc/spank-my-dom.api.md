@@ -123,9 +123,6 @@ export function setGlobalCSSVariable(property: string, value: string | null): vo
 export function showElement(element: HTMLElement): void;
 
 // @public
-export function toggleAttribute(element: Element, name: string, value: string, force?: boolean): boolean;
-
-// @public
 export function waitAtLeast<T>(minimumWaitMs: number, promise: Promise<T> | PromiseLike<T>): Promise<T>;
 
 // @public
