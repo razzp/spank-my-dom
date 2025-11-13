@@ -18,9 +18,9 @@ export {
     onElementResized,
 } from './events/onElementResized';
 export {
-    type OnPixelRatioChangeOptions,
-    onPixelRatioChange,
-} from './events/onPixelRatioChange';
+    type OnPixelRatioChangedOptions,
+    onPixelRatioChanged,
+} from './events/onPixelRatioChanged';
 
 // Forms
 
@@ -56,7 +56,7 @@ export { getPartialClasses } from './retrieval/getPartialClasses';
 
 // Traversal
 
-export { closest } from './traversal/closest';
+export { getClosest } from './traversal/getClosest';
 export { getSiblings } from './traversal/getSiblings';
 
 // Utils

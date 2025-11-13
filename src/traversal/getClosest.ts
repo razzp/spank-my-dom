@@ -1,6 +1,6 @@
 /**
  * Traverse the element (unless skipped) and its parents until
- * an element is found that matches the selector(s).
+ * an element is found that matches the selectors.
  *
  * @param element - The element from which to search.
  * @param selectors - One or more selectors to match.
@@ -20,7 +20,7 @@
  *
  * @public
  */
-function closest<T extends Element>(
+function getClosest<T extends Element>(
     element: Element,
     selectors: string,
     skipSelf: boolean = false,
@@ -30,4 +30,4 @@ function closest<T extends Element>(
         : element.closest(selectors);
 }
 
-export { closest };
+export { getClosest };

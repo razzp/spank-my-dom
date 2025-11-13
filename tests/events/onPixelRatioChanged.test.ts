@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import { onPixelRatioChange } from '../../src/events/onPixelRatioChange';
+import { onPixelRatioChanged } from '../../src/events/onPixelRatioChanged';
 
 class MockMediaQueryList implements MediaQueryList {
     static readonly instances = new Set<MockMediaQueryList>();
@@ -61,7 +61,7 @@ test('Callback is successfully fired when pixel ratio changes', () => {
 
     expect(MockMediaQueryList.instances.size).toBe(0);
 
-    onPixelRatioChange(callback);
+    onPixelRatioChanged(callback);
 
     expect(MockMediaQueryList.instances.size).toBe(1);
 
@@ -82,7 +82,7 @@ test('Successfully stops if provided signal is aborted', () => {
 
     expect(MockMediaQueryList.instances.size).toBe(0);
 
-    onPixelRatioChange(callback, {
+    onPixelRatioChanged(callback, {
         signal: controller.signal,
     });
 
@@ -107,7 +107,7 @@ test('Short circuits if signal is provided that has already been aborted', () =>
 
     expect(MockMediaQueryList.instances.size).toBe(0);
 
-    onPixelRatioChange(callback, {
+    onPixelRatioChanged(callback, {
         signal: controller.signal,
     });
 
