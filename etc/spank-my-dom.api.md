@@ -5,9 +5,6 @@
 ```ts
 
 // @public
-export function closest<T extends Element>(element: Element, selectors: string, skipSelf?: boolean): null | T;
-
-// @public
 export function createElement<T extends keyof HTMLElementTagNameMap>(tagName: T, options?: CreateElementOptions<T>): HTMLElementTagNameMap[T];
 
 // @public
@@ -58,6 +55,9 @@ export type FormDataToSearchParamsOptions = {
 };
 
 // @public
+export function getClosest<T extends Element>(element: Element, selectors: string, skipSelf?: boolean): null | T;
+
+// @public
 export function getData<T = string>(element: HTMLElement, name: string, reviver?: (value: string) => T): null | T;
 
 // @public
@@ -73,6 +73,12 @@ export type GetFormDataOptions = {
     };
     filterFields?: string[];
 };
+
+// @public
+export function getPartialClasses(searchType: 'startingwith' | 'containing' | 'endingwith', element: Element, partialValue: string): string[];
+
+// @public
+export function getSiblings<T extends Element = HTMLElement>(direction: 'all' | 'before' | 'after', element: Element, selectors?: string): T[];
 
 // @public
 export function hideElement(element: HTMLElement): void;
@@ -91,10 +97,19 @@ export type OnElementAddedOptions = {
 };
 
 // @public
-export function onPixelRatioChange(callback: (pixelRatio: number) => void, options?: OnPixelRatioChangeOptions): void;
+export function onElementResized(element: Element, callback: (size: ResizeObserverSize) => void, options?: OnElementResizedOptions): void;
 
 // @public
-export type OnPixelRatioChangeOptions = {
+export type OnElementResizedOptions = {
+    boxModel?: 'borderBox' | 'contentBox';
+    signal?: AbortSignal;
+};
+
+// @public
+export function onPixelRatioChanged(callback: (pixelRatio: number) => void, options?: OnPixelRatioChangedOptions): void;
+
+// @public
+export type OnPixelRatioChangedOptions = {
     signal?: AbortSignal;
 };
 
@@ -102,16 +117,10 @@ export type OnPixelRatioChangeOptions = {
 export function parseBoolean(input: string): boolean;
 
 // @public
+export function setGlobalCSSVariable(property: string, value: string | null): void;
+
+// @public
 export function showElement(element: HTMLElement): void;
-
-// @public
-export function siblings<T extends Element>(element: Element, selectors?: string): T[];
-
-// @public
-export function siblingsAfter<T extends Element>(element: Element, selectors?: string): T[];
-
-// @public
-export function siblingsBefore<T extends Element>(element: Element, selectors?: string): T[];
 
 // @public
 export function toggleAttribute(element: Element, name: string, value: string, force?: boolean): boolean;
