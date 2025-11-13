@@ -20,7 +20,7 @@ class MockMutationObserver implements MutationObserver {
     public takeRecords = jest.fn().mockReturnValue([]);
 
     public trigger(mutations: MockMutationRecord[]): void {
-        // biome-ignore lint/suspicious/noExplicitAny: You can't mock `NodeList`.
+        // biome-ignore lint/suspicious/noExplicitAny: Partial implementation for mock.
         this.callback(mutations as any, this);
     }
 }

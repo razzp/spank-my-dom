@@ -49,7 +49,7 @@ function formDataToSearchParams(
     };
 
     return new URLSearchParams(
-        [...formData.entries()].map(([key, value]) => [
+        [...formData].map(([key, value]) => [
             key,
             value instanceof File ? handleFile(value) : value,
         ]),

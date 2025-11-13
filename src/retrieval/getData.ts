@@ -4,7 +4,7 @@
  *
  * @remarks
  * Undefined attributes are returned as `null` to maintain consistency with
- * other methods such as `querySelector()`, or our own `find()`.
+ * other methods such as `querySelector()`, or `getAttribute()`.
  *
  * @param element - The element to get the data from.
  * @param name - The name of the data attribute.

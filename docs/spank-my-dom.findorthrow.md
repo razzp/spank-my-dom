@@ -4,7 +4,7 @@
 
 ## findOrThrow() function
 
-Returns the first element within context that matches the given selector(s), or throws if nothing is found.
+Returns the first element within context that matches the given selectors, or throws if nothing is found.
 
 **Signature:**
 

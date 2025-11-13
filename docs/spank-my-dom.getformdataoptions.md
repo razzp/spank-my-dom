@@ -13,5 +13,6 @@ type GetFormDataOptions = {
     additionalEntries?: {
         [key: string]: unknown;
     };
+    filterFields?: string[];
 };
 ```
