@@ -57,9 +57,7 @@ export { getPartialClasses } from './retrieval/getPartialClasses';
 // Traversal
 
 export { closest } from './traversal/closest';
-export { siblings } from './traversal/siblings';
-export { siblingsAfter } from './traversal/siblingsAfter';
-export { siblingsBefore } from './traversal/siblingsBefore';
+export { getSiblings } from './traversal/getSiblings';
 
 // Utils
 
