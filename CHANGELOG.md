@@ -5,9 +5,16 @@
 ### Added
 
 - `getFormData()` now supports form field filtering via optional argument.
+- Added `getPartialClasses()` method.
+- Added `onElementResized()` method.
+- Added `setGlobalCSSVariables()` method.
 
-### Changes
-- Tweaks to annotations/docs.
+### Changed
+
+- Tweaks to annotations & documentation.
+- Renamed `onPixelRatioChange()` to `onPixelRatioChanged()`.
+- Renamed `closest()` to `getClosest()`.
+- Consolidated `siblings()`, `siblingsBefore()` and `siblingsAfter()` into `getSiblings()`.
 
 ### Fixed
 
