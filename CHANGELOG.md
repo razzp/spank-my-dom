@@ -1,8 +1,33 @@
 # Changelog
 
+## 2.1.0 (2025-11-15)
+
+### Added
+
+- `getFormData()` now supports form field filtering via optional argument.
+- Added `getPartialClasses()` method.
+- Added `onElementResized()` method.
+- Added `setGlobalCSSVariables()` method.
+
+### Changed
+
+- Tweaks to annotations & documentation.
+- Renamed `onPixelRatioChange()` to `onPixelRatioChanged()`.
+- Renamed `closest()` to `getClosest()`.
+- Consolidated `siblings()`, `siblingsBefore()` and `siblingsAfter()` into `getSiblings()`.
+
+### Removed
+
+- Removed `toggleAttribute()` method.
+
+### Fixed
+
+- `getFormData()` no longer incorrectly converts `File` objects to strings.
+
 ## 2.0.0 (2025-11-12)
 
 ### Added
+
 - Added `delegate()` method.
 - Added `onPixelRatioChange()` method.
 - Added `onElementAdded()` method.
@@ -14,6 +39,7 @@
 - Added `getDataOrThrow()` method.
 
 ### Changed
+
 - Performance and readability improvements to typings.
 - Typings are now rolled up using Microsoft's API Extractor.
 - Docs are now generated using API Extractor's companion tool, api-documenter.
@@ -28,6 +54,7 @@
 - Rewritten `getData()` method.
 
 ### Removed
+
 - Removed `toArray()`.
 - Removed `getAria()`, `hasAria()`, `removeAria()`, `setAria()`, `toggleAria()`.
 - Removed `hasData()`, `removeData()`, `setData()`, `toggleData()`.
@@ -52,16 +79,19 @@
 ## 1.1.1 (2022-08-26)
 
 ### Fixed
+
 - `setAttr` and its abstractions now correctly override existing values.
 
 ## 1.1.0 (2022-07-22)
 
 ### Changed
+
 - `addClass` now accepts an array of tokens.
 - `removeClass` now accepts an array of tokens.
 - `toggleClass` now accepts an array of tokens.
 
 ### Fixed
+
 - Solved illegal invocation errors with the `Proxy` that wraps delegate events.
 
 ## 1.0.0 (2022-06-06)

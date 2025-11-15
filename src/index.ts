@@ -1,7 +1,3 @@
-// Attributes
-
-export { toggleAttribute } from './attributes/toggleAttribute';
-
 // Conversion
 
 export { parseBoolean } from './conversion/parseBoolean';
@@ -14,9 +10,13 @@ export {
     onElementAdded,
 } from './events/onElementAdded';
 export {
-    type OnPixelRatioChangeOptions,
-    onPixelRatioChange,
-} from './events/onPixelRatioChange';
+    type OnElementResizedOptions,
+    onElementResized,
+} from './events/onElementResized';
+export {
+    type OnPixelRatioChangedOptions,
+    onPixelRatioChanged,
+} from './events/onPixelRatioChanged';
 
 // Forms
 
@@ -38,6 +38,7 @@ export {
 } from './manipulation/createElement';
 export { emptyElement } from './manipulation/emptyElement';
 export { hideElement } from './manipulation/hideElement';
+export { setGlobalCSSVariable } from './manipulation/setGlobalCSSVariable';
 export { showElement } from './manipulation/showElement';
 
 // Retrieval
@@ -47,13 +48,12 @@ export { findAll } from './retrieval/findAll';
 export { findOrThrow } from './retrieval/findOrThrow';
 export { getData } from './retrieval/getData';
 export { getDataOrThrow } from './retrieval/getDataOrThrow';
+export { getPartialClasses } from './retrieval/getPartialClasses';
 
 // Traversal
 
-export { closest } from './traversal/closest';
-export { siblings } from './traversal/siblings';
-export { siblingsAfter } from './traversal/siblingsAfter';
-export { siblingsBefore } from './traversal/siblingsBefore';
+export { getClosest } from './traversal/getClosest';
+export { getSiblings } from './traversal/getSiblings';
 
 // Utils
 

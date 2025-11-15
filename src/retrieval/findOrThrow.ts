@@ -1,6 +1,6 @@
 /**
  * Returns the first element within context that matches the
- * given selector(s), or throws if nothing is found.
+ * given selectors, or throws if nothing is found.
  *
  * @remarks
  * Unlike using `querySelector()`, the default inferred element type is
@@ -43,7 +43,7 @@ function findOrThrow<T extends Element = HTMLElement>(
     const result = context.querySelector<T>(selectors);
 
     if (!result) {
-        throw new Error(`No matches found for selector: ${selectors}`);
+        throw new Error(`No matches found for selectors: ${selectors}`);
     }
 
     return result;

@@ -1,9 +1,9 @@
 /**
- * An optional configuration object for `onPixelRatioChange`.
+ * An optional configuration object for `onPixelRatioChanged`.
  *
  * @public
  */
-type OnPixelRatioChangeOptions = {
+type OnPixelRatioChangedOptions = {
     /**
      * An `AbortSignal` that can be used to cancel the listener.
      */
@@ -19,16 +19,16 @@ type OnPixelRatioChangeOptions = {
  *
  * @example
  * ```ts
- * onPixelRatioChange((pixelRatio) => {
+ * onPixelRatioChanged((pixelRatio) => {
  *     console.log(pixelRatio);
  * });
  * ```
  *
  * @public
  */
-function onPixelRatioChange(
+function onPixelRatioChanged(
     callback: (pixelRatio: number) => void,
-    options?: OnPixelRatioChangeOptions,
+    options?: OnPixelRatioChangedOptions,
 ): void {
     const { signal } = { ...options };
 
@@ -52,4 +52,4 @@ function onPixelRatioChange(
     register();
 }
 
-export { onPixelRatioChange, type OnPixelRatioChangeOptions };
+export { onPixelRatioChanged, type OnPixelRatioChangedOptions };

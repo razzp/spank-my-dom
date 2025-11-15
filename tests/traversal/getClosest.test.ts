@@ -3,7 +3,7 @@
  */
 
 import { assertIsNotNull } from 'bossy-boots';
-import { closest } from '../../src/traversal/closest';
+import { getClosest } from '../../src/traversal/getClosest';
 
 beforeAll(() => {
     document.body.innerHTML = `
@@ -23,7 +23,7 @@ describe('Non-inclusive of self', () => {
 
         assertIsNotNull(target);
 
-        const result = closest(target, '.foo', true);
+        const result = getClosest(target, '.foo', true);
 
         expect(result).toBeDefined();
         expect(result?.classList.contains('ancestor')).toBe(true);
@@ -34,7 +34,7 @@ describe('Non-inclusive of self', () => {
 
         assertIsNotNull(target);
 
-        expect(closest(target, '.bar')).toBeNull();
+        expect(getClosest(target, '.bar')).toBeNull();
     });
 
     test('Given an element which does not have a parent element, returns null', () => {
@@ -48,7 +48,7 @@ describe('Non-inclusive of self', () => {
             value: undefined,
         });
 
-        expect(closest(target, '.bar', true)).toBeNull();
+        expect(getClosest(target, '.bar', true)).toBeNull();
     });
 });
 
@@ -58,7 +58,7 @@ describe('Inclusive of self', () => {
 
         assertIsNotNull(target);
 
-        const result = closest(target, '.foo', false);
+        const result = getClosest(target, '.foo', false);
 
         expect(result).toBeDefined();
         expect(result?.classList.contains('self')).toBe(true);
