@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.1.0 (2025-11-13)
+## 2.1.0 (2025-11-15)
 
 ### Added
 
@@ -15,6 +15,10 @@
 - Renamed `onPixelRatioChange()` to `onPixelRatioChanged()`.
 - Renamed `closest()` to `getClosest()`.
 - Consolidated `siblings()`, `siblingsBefore()` and `siblingsAfter()` into `getSiblings()`.
+
+### Removed
+
+- Removed `toggleAttribute()` method.
 
 ### Fixed
 
