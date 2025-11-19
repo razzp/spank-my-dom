@@ -16,6 +16,7 @@
 
 - Updated missing annotations.
 - Improved build times.
+- Removed Prettier artefacts.
 
 ### Security
 
