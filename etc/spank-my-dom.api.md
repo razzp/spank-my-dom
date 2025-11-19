@@ -128,6 +128,4 @@ export function waitAtLeast<T>(minimumWaitMs: number, promise: Promise<T> | Prom
 // @public
 export function waitForReadyState(state: DocumentReadyState): Promise<void>;
 
-// (No @packageDocumentation comment for this package)
-
 ```

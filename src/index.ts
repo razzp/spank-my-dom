@@ -1,3 +1,9 @@
+/**
+ * A tiny, modular set of DOM utilities, written in TypeScript.
+ *
+ * @packageDocumentation
+ */
+
 // Conversion
 
 export { parseBoolean } from './conversion/parseBoolean';
