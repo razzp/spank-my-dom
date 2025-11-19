@@ -22,6 +22,9 @@ type OnElementAddedOptions = {
  * Create an observer that will wait for specific elements to be
  * added to the DOM later, optionally filtered by CSS selectors.
  *
+ * @remarks
+ * Uses the {@link https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver | MutationObserver} interface internally.
+ *
  * @param tagName - The type of element to observe for.
  * @param callback - The function called for added elements.
  * @param options - An optional configuration object.
