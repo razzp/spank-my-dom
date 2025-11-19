@@ -24,6 +24,8 @@ Description
 
 </td><td>
 
+A tiny, modular set of DOM utilities, written in TypeScript.
+
 
 </td></tr>
 </tbody></table>

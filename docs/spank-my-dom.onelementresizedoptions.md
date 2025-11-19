@@ -2,15 +2,57 @@
 
 [Home](./index.md) &gt; [spank-my-dom](./spank-my-dom.md) &gt; [OnElementResizedOptions](./spank-my-dom.onelementresizedoptions.md)
 
-## OnElementResizedOptions type
+## OnElementResizedOptions interface
 
 An optional configuration object for `onElementResized`<!-- -->.
 
 **Signature:**
 
 ```typescript
-type OnElementResizedOptions = {
-    boxModel?: 'borderBox' | 'contentBox';
-    signal?: AbortSignal;
-};
+interface OnElementResizedOptions 
 ```
+
+## Properties
+
+<table><thead><tr><th>
+
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[signal?](./spank-my-dom.onelementresizedoptions.signal.md)
+
+
+</td><td>
+
+
+</td><td>
+
+AbortSignal
+
+
+</td><td>
+
+_(Optional)_ An `AbortSignal` that can be used to cancel the observer.
+
+
+</td></tr>
+</tbody></table>
+

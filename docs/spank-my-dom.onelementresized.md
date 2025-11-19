@@ -9,7 +9,7 @@ Create an observer that will fire a callback whenever an element is resized.
 **Signature:**
 
 ```typescript
-declare function onElementResized(element: Element, callback: (size: ResizeObserverSize) => void, options?: OnElementResizedOptions): void;
+declare function onElementResized<T extends Element>(element: T, callback: (info: OnElementResizedInfo<T>) => void, options?: OnElementResizedOptions): void;
 ```
 
 ## Parameters
@@ -37,7 +37,7 @@ element
 
 </td><td>
 
-Element
+T
 
 
 </td><td>
@@ -53,7 +53,7 @@ callback
 
 </td><td>
 
-(size: ResizeObserverSize) =&gt; void
+(info: [OnElementResizedInfo](./spank-my-dom.onelementresizedinfo.md)<!-- -->&lt;T&gt;) =&gt; void
 
 
 </td><td>
@@ -86,5 +86,18 @@ void
 
 ## Remarks
 
-By default, the CSS box model `borderBox` is used. This can be configured via the `options` argument. See [MDN](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model#what_is_the_css_box_model)<!-- -->.
+Uses the [Resize Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API) internally.
+
+Note that, natively, both `borderBoxSize` and `contentBoxSize` return arrays. This is due to rare cases where an observed element has multiple fragments, such as in a multi-column scenario. Since this is so rare, and for the sake of convenience, the first (and usually only) size object is returned.
+
+## Example
+
+Wait for an element to be resized.
+
+```ts
+onElementResized(element, (info) => {
+    // Element was resized.
+    console.log(`Element is ${info.borderBoxSize.blockSize}px in height.`);
+});
+```
 

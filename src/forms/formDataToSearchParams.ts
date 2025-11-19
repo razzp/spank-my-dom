@@ -3,13 +3,13 @@
  *
  * @public
  */
-type FormDataToSearchParamsOptions = {
+interface FormDataToSearchParamsOptions {
     /**
      * A function to handle the transformation of a `File` object.
      * By default, the name of the `File` is used.
      */
     handleFile?: (file: File) => string;
-};
+}
 
 /**
  * Takes a `FormData` object and converts it into a `URLSearchParams` object.

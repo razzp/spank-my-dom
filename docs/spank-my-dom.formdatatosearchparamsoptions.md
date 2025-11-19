@@ -2,14 +2,57 @@
 
 [Home](./index.md) &gt; [spank-my-dom](./spank-my-dom.md) &gt; [FormDataToSearchParamsOptions](./spank-my-dom.formdatatosearchparamsoptions.md)
 
-## FormDataToSearchParamsOptions type
+## FormDataToSearchParamsOptions interface
 
 An optional configuration object for `formDataToSearchParams`<!-- -->.
 
 **Signature:**
 
 ```typescript
-type FormDataToSearchParamsOptions = {
-    handleFile?: (file: File) => string;
-};
+interface FormDataToSearchParamsOptions 
 ```
+
+## Properties
+
+<table><thead><tr><th>
+
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[handleFile?](./spank-my-dom.formdatatosearchparamsoptions.handlefile.md)
+
+
+</td><td>
+
+
+</td><td>
+
+(file: File) =&gt; string
+
+
+</td><td>
+
+_(Optional)_ A function to handle the transformation of a `File` object. By default, the name of the `File` is used.
+
+
+</td></tr>
+</tbody></table>
+

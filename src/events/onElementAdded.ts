@@ -3,7 +3,7 @@
  *
  * @public
  */
-type OnElementAddedOptions = {
+interface OnElementAddedOptions {
     /**
      * The context from which to observe from (defaults to `document`)
      */
@@ -16,11 +16,14 @@ type OnElementAddedOptions = {
      * An `AbortSignal` that can be used to cancel the observer.
      */
     signal?: AbortSignal;
-};
+}
 
 /**
  * Create an observer that will wait for specific elements to be
  * added to the DOM later, optionally filtered by CSS selectors.
+ *
+ * @remarks
+ * Uses the {@link https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver | MutationObserver} interface internally.
  *
  * @param tagName - The type of element to observe for.
  * @param callback - The function called for added elements.

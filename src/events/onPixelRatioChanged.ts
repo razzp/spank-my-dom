@@ -3,12 +3,12 @@
  *
  * @public
  */
-type OnPixelRatioChangedOptions = {
+interface OnPixelRatioChangedOptions {
     /**
      * An `AbortSignal` that can be used to cancel the listener.
      */
     signal?: AbortSignal;
-};
+}
 
 /**
  * Create a listener that will fire a callback whenever the

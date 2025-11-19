@@ -1,3 +1,9 @@
+/**
+ * A tiny, modular set of DOM utilities, written in TypeScript.
+ *
+ * @packageDocumentation
+ */
+
 // Conversion
 
 export { parseBoolean } from './conversion/parseBoolean';
@@ -10,6 +16,12 @@ export {
     onElementAdded,
 } from './events/onElementAdded';
 export {
+    type OnElementIntersectedInfo,
+    type OnElementIntersectedOptions,
+    onElementIntersected,
+} from './events/onElementIntersected';
+export {
+    type OnElementResizedInfo,
     type OnElementResizedOptions,
     onElementResized,
 } from './events/onElementResized';

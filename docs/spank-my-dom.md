@@ -4,6 +4,8 @@
 
 ## spank-my-dom package
 
+A tiny, modular set of DOM utilities, written in TypeScript.
+
 ## Functions
 
 <table><thead><tr><th>
@@ -195,6 +197,17 @@ Create an observer that will wait for specific elements to be added to the DOM l
 </td></tr>
 <tr><td>
 
+[onElementIntersected(threshold, element, callback, options)](./spank-my-dom.onelementintersected.md)
+
+
+</td><td>
+
+Create an observer that will fire a callback whenever an element intersects a root element.
+
+
+</td></tr>
+<tr><td>
+
 [onElementResized(element, callback, options)](./spank-my-dom.onelementresized.md)
 
 
@@ -272,11 +285,11 @@ Create a `Promise` that will resolve once the document reaches the specified `re
 </td></tr>
 </tbody></table>
 
-## Type Aliases
+## Interfaces
 
 <table><thead><tr><th>
 
-Type Alias
+Interface
 
 
 </th><th>
@@ -337,6 +350,39 @@ An optional configuration object for `getFormData`<!-- -->.
 </td><td>
 
 An optional configuration object for `onElementAdded`<!-- -->.
+
+
+</td></tr>
+<tr><td>
+
+[OnElementIntersectedInfo](./spank-my-dom.onelementintersectedinfo.md)
+
+
+</td><td>
+
+The object returned in the callback for `onElementIntersected`<!-- -->.
+
+
+</td></tr>
+<tr><td>
+
+[OnElementIntersectedOptions](./spank-my-dom.onelementintersectedoptions.md)
+
+
+</td><td>
+
+An optional configuration object for `onElementIntersected`<!-- -->.
+
+
+</td></tr>
+<tr><td>
+
+[OnElementResizedInfo](./spank-my-dom.onelementresizedinfo.md)
+
+
+</td><td>
+
+The object returned in the callback for `onElementResized`<!-- -->.
 
 
 </td></tr>

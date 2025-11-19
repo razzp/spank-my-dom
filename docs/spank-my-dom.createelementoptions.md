@@ -2,26 +2,172 @@
 
 [Home](./index.md) &gt; [spank-my-dom](./spank-my-dom.md) &gt; [CreateElementOptions](./spank-my-dom.createelementoptions.md)
 
-## CreateElementOptions type
+## CreateElementOptions interface
 
 An optional configuration object for `createElement`<!-- -->.
 
 **Signature:**
 
 ```typescript
-type CreateElementOptions<T extends keyof HTMLElementTagNameMap> = ElementCreationOptions & {
-    content?: string;
-    attributes?: {
-        [A in keyof HTMLElementTagNameMap[T]]?: HTMLElementTagNameMap[T][A];
-    };
-    classes?: string[];
-    styles?: {
-        [key: string]: string;
-    };
-    data?: {
-        [key: string]: unknown;
-    };
-    append?: Node[];
-    prepend?: Node[];
-};
+interface CreateElementOptions<T extends keyof HTMLElementTagNameMap> extends ElementCreationOptions 
 ```
+**Extends:** ElementCreationOptions
+
+## Properties
+
+<table><thead><tr><th>
+
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[append?](./spank-my-dom.createelementoptions.append.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Node\[\]
+
+
+</td><td>
+
+_(Optional)_ Nodes to append to the element.
+
+
+</td></tr>
+<tr><td>
+
+[attributes?](./spank-my-dom.createelementoptions.attributes.md)
+
+
+</td><td>
+
+
+</td><td>
+
+{ \[A in keyof HTMLElementTagNameMap\[T\]\]?: HTMLElementTagNameMap\[T\]\[A\]; }
+
+
+</td><td>
+
+_(Optional)_ Attributes to add to the element.
+
+
+</td></tr>
+<tr><td>
+
+[classes?](./spank-my-dom.createelementoptions.classes.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string\[\]
+
+
+</td><td>
+
+_(Optional)_ Classes to add to the element.
+
+
+</td></tr>
+<tr><td>
+
+[content?](./spank-my-dom.createelementoptions.content.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_ Sets the `innerHTML` of the element.
+
+
+</td></tr>
+<tr><td>
+
+[data?](./spank-my-dom.createelementoptions.data.md)
+
+
+</td><td>
+
+
+</td><td>
+
+{ \[key: string\]: unknown; }
+
+
+</td><td>
+
+_(Optional)_ Data to add to the element.
+
+
+</td></tr>
+<tr><td>
+
+[prepend?](./spank-my-dom.createelementoptions.prepend.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Node\[\]
+
+
+</td><td>
+
+_(Optional)_ Nodes to prepend to the element.
+
+
+</td></tr>
+<tr><td>
+
+[styles?](./spank-my-dom.createelementoptions.styles.md)
+
+
+</td><td>
+
+
+</td><td>
+
+{ \[key: string\]: string; }
+
+
+</td><td>
+
+_(Optional)_ Styles to add to the element.
+
+
+</td></tr>
+</tbody></table>
+
