@@ -2,17 +2,76 @@
 
 [Home](./index.md) &gt; [spank-my-dom](./spank-my-dom.md) &gt; [GetFormDataOptions](./spank-my-dom.getformdataoptions.md)
 
-## GetFormDataOptions type
+## GetFormDataOptions interface
 
 An optional configuration object for `getFormData`<!-- -->.
 
 **Signature:**
 
 ```typescript
-type GetFormDataOptions = {
-    additionalEntries?: {
-        [key: string]: unknown;
-    };
-    filterFields?: string[];
-};
+interface GetFormDataOptions 
 ```
+
+## Properties
+
+<table><thead><tr><th>
+
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[additionalEntries?](./spank-my-dom.getformdataoptions.additionalentries.md)
+
+
+</td><td>
+
+
+</td><td>
+
+{ \[key: string\]: unknown; }
+
+
+</td><td>
+
+_(Optional)_ Additional entries to add to the `FormData` object. All values except for `File` objects will be converted to strings.
+
+
+</td></tr>
+<tr><td>
+
+[filterFields?](./spank-my-dom.getformdataoptions.filterfields.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string\[\]
+
+
+</td><td>
+
+_(Optional)_ Cherry-pick the form fields you want. Useful in very large forms where only a few fields are required. Does \*\*not\*\* affect `additionalEntries`<!-- -->.
+
+
+</td></tr>
+</tbody></table>
+

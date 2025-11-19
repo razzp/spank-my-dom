@@ -84,6 +84,10 @@ _(Optional)_ An optional configuration object.
 
 void
 
+## Remarks
+
+Uses the [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) interface internally.
+
 ## Example 1
 
 Observe the entire document for new elements of the given type.

@@ -2,16 +2,95 @@
 
 [Home](./index.md) &gt; [spank-my-dom](./spank-my-dom.md) &gt; [DelegateEvent](./spank-my-dom.delegateevent.md)
 
-## DelegateEvent type
+## DelegateEvent interface
 
 The event data returned in the callback.
 
 **Signature:**
 
 ```typescript
-type DelegateEvent<T> = {
-    delegateTarget: Element;
-    event: T;
-    stopDelegation: () => void;
-};
+interface DelegateEvent<T> 
 ```
+
+## Properties
+
+<table><thead><tr><th>
+
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[delegateTarget](./spank-my-dom.delegateevent.delegatetarget.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Element
+
+
+</td><td>
+
+The target that has been matched.
+
+
+</td></tr>
+<tr><td>
+
+[event](./spank-my-dom.delegateevent.event.md)
+
+
+</td><td>
+
+
+</td><td>
+
+T
+
+
+</td><td>
+
+The original Event object.
+
+
+</td></tr>
+<tr><td>
+
+[stopDelegation](./spank-my-dom.delegateevent.stopdelegation.md)
+
+
+</td><td>
+
+
+</td><td>
+
+() =&gt; void
+
+
+</td><td>
+
+Stop any further matches as the event bubbles.
+
+
+</td></tr>
+</tbody></table>
+

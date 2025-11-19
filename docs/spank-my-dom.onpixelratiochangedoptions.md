@@ -2,14 +2,57 @@
 
 [Home](./index.md) &gt; [spank-my-dom](./spank-my-dom.md) &gt; [OnPixelRatioChangedOptions](./spank-my-dom.onpixelratiochangedoptions.md)
 
-## OnPixelRatioChangedOptions type
+## OnPixelRatioChangedOptions interface
 
 An optional configuration object for `onPixelRatioChanged`<!-- -->.
 
 **Signature:**
 
 ```typescript
-type OnPixelRatioChangedOptions = {
-    signal?: AbortSignal;
-};
+interface OnPixelRatioChangedOptions 
 ```
+
+## Properties
+
+<table><thead><tr><th>
+
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[signal?](./spank-my-dom.onpixelratiochangedoptions.signal.md)
+
+
+</td><td>
+
+
+</td><td>
+
+AbortSignal
+
+
+</td><td>
+
+_(Optional)_ An `AbortSignal` that can be used to cancel the listener.
+
+
+</td></tr>
+</tbody></table>
+

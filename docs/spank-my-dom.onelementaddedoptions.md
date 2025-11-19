@@ -2,16 +2,95 @@
 
 [Home](./index.md) &gt; [spank-my-dom](./spank-my-dom.md) &gt; [OnElementAddedOptions](./spank-my-dom.onelementaddedoptions.md)
 
-## OnElementAddedOptions type
+## OnElementAddedOptions interface
 
 An optional configuration object for `onElementAdded`<!-- -->.
 
 **Signature:**
 
 ```typescript
-type OnElementAddedOptions = {
-    context?: Document | DocumentFragment | Element;
-    selectors?: string;
-    signal?: AbortSignal;
-};
+interface OnElementAddedOptions 
 ```
+
+## Properties
+
+<table><thead><tr><th>
+
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[context?](./spank-my-dom.onelementaddedoptions.context.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Document \| DocumentFragment \| Element
+
+
+</td><td>
+
+_(Optional)_ The context from which to observe from (defaults to `document`<!-- -->)
+
+
+</td></tr>
+<tr><td>
+
+[selectors?](./spank-my-dom.onelementaddedoptions.selectors.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_ One or more selectors to match on the observed elements.
+
+
+</td></tr>
+<tr><td>
+
+[signal?](./spank-my-dom.onelementaddedoptions.signal.md)
+
+
+</td><td>
+
+
+</td><td>
+
+AbortSignal
+
+
+</td><td>
+
+_(Optional)_ An `AbortSignal` that can be used to cancel the observer.
+
+
+</td></tr>
+</tbody></table>
+
