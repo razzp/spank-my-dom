@@ -67,60 +67,17 @@ test('Successfully triggered when element is resized', () => {
     instance.trigger([
         {
             borderBoxSize: [mockSize],
-            contentBoxSize: [],
+            contentBoxSize: [mockSize],
         },
     ]);
 
     expect(callback).toHaveBeenCalled();
-    expect(callback.mock.calls[0][0]).toBe(mockSize);
-});
 
-test('Successfully returns correct size data for specified box model', () => {
-    const callback = jest.fn();
-    const element = document.createElement('div');
-
-    expect(MockResizeObserver.instances.size).toBe(0);
-
-    onElementResized(element, callback, {
-        boxModel: 'borderBox',
+    expect(callback.mock.calls[0][0]).toEqual({
+        element,
+        borderBoxSize: mockSize,
+        contentBoxSize: mockSize,
     });
-
-    onElementResized(element, callback, {
-        boxModel: 'contentBox',
-    });
-
-    expect(MockResizeObserver.instances.size).toBe(2);
-
-    const [boxModelInstance, contentModelInstance] = [
-        ...MockResizeObserver.instances,
-    ];
-
-    expect(boxModelInstance).toBeDefined();
-    expect(contentModelInstance).toBeDefined();
-
-    expect(boxModelInstance.observe).toHaveBeenCalled();
-    expect(contentModelInstance.observe).toHaveBeenCalled();
-
-    const boxModelSize = createMockSize();
-    const contentModelSize = createMockSize();
-
-    boxModelInstance.trigger([
-        {
-            borderBoxSize: [boxModelSize],
-            contentBoxSize: [],
-        },
-    ]);
-
-    contentModelInstance.trigger([
-        {
-            borderBoxSize: [],
-            contentBoxSize: [contentModelSize],
-        },
-    ]);
-
-    expect(callback).toHaveBeenCalledTimes(2);
-    expect(callback.mock.calls[0][0]).toBe(boxModelSize);
-    expect(callback.mock.calls[1][0]).toBe(contentModelSize);
 });
 
 test('Successfully disconnects if provided signal is aborted', () => {

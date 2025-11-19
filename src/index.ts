@@ -10,6 +10,7 @@ export {
     onElementAdded,
 } from './events/onElementAdded';
 export {
+    type OnElementResizedInfo,
     type OnElementResizedOptions,
     onElementResized,
 } from './events/onElementResized';
