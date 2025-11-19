@@ -45,6 +45,15 @@ type OnElementResizedInfo<T extends Element> = {
  * @param callback - The function to call when the element is resized.
  * @param options - An optional configuration object.
  *
+ * @example
+ * Wait for an element to be resized.
+ * ```ts
+ * onElementResized(element, (info) => {
+ *     // Element was resized.
+ *     console.log(`Element is ${info.borderBoxSize.blockSize}px in height.`);
+ * });
+ * ```
+ *
  * @public
  */
 function onElementResized<T extends Element>(
