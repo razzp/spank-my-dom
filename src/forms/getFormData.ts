@@ -3,7 +3,7 @@
  *
  * @public
  */
-type GetFormDataOptions = {
+interface GetFormDataOptions {
     /**
      * Additional entries to add to the `FormData` object. All values
      * except for `File` objects will be converted to strings.
@@ -14,7 +14,7 @@ type GetFormDataOptions = {
      * only a few fields are required. Does **not** affect `additionalEntries`.
      */
     filterFields?: string[];
-};
+}
 
 /**
  * Create a `FormData` object representing form fields and their values.

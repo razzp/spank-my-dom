@@ -3,39 +3,39 @@
  *
  * @public
  */
-type CreateElementOptions<T extends keyof HTMLElementTagNameMap> =
-    ElementCreationOptions & {
-        /**
-         * Sets the `innerHTML` of the element.
-         */
-        content?: string;
-        /**
-         * Attributes to add to the element.
-         */
-        attributes?: {
-            [A in keyof HTMLElementTagNameMap[T]]?: HTMLElementTagNameMap[T][A];
-        };
-        /**
-         * Classes to add to the element.
-         */
-        classes?: string[];
-        /**
-         * Styles to add to the element.
-         */
-        styles?: { [key: string]: string };
-        /**
-         * Data to add to the element.
-         */
-        data?: { [key: string]: unknown };
-        /**
-         * Nodes to append to the element.
-         */
-        append?: Node[];
-        /**
-         * Nodes to prepend to the element.
-         */
-        prepend?: Node[];
+interface CreateElementOptions<T extends keyof HTMLElementTagNameMap>
+    extends ElementCreationOptions {
+    /**
+     * Sets the `innerHTML` of the element.
+     */
+    content?: string;
+    /**
+     * Attributes to add to the element.
+     */
+    attributes?: {
+        [A in keyof HTMLElementTagNameMap[T]]?: HTMLElementTagNameMap[T][A];
     };
+    /**
+     * Classes to add to the element.
+     */
+    classes?: string[];
+    /**
+     * Styles to add to the element.
+     */
+    styles?: { [key: string]: string };
+    /**
+     * Data to add to the element.
+     */
+    data?: { [key: string]: unknown };
+    /**
+     * Nodes to append to the element.
+     */
+    append?: Node[];
+    /**
+     * Nodes to prepend to the element.
+     */
+    prepend?: Node[];
+}
 
 /**
  * Creates a new element, allowing you to define properties

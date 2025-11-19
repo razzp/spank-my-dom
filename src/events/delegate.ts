@@ -3,7 +3,7 @@
  *
  * @public
  */
-type DelegateEvent<T> = {
+interface DelegateEvent<T> {
     /**
      * The target that has been matched.
      */
@@ -20,7 +20,7 @@ type DelegateEvent<T> = {
      * Stop any further matches as the event bubbles.
      */
     stopDelegation: () => void;
-};
+}
 
 /**
  * Create a delegate listener that fires on elements that match the

@@ -8,31 +8,31 @@
 export function createElement<T extends keyof HTMLElementTagNameMap>(tagName: T, options?: CreateElementOptions<T>): HTMLElementTagNameMap[T];
 
 // @public
-export type CreateElementOptions<T extends keyof HTMLElementTagNameMap> = ElementCreationOptions & {
-    content?: string;
+export interface CreateElementOptions<T extends keyof HTMLElementTagNameMap> extends ElementCreationOptions {
+    append?: Node[];
     attributes?: {
         [A in keyof HTMLElementTagNameMap[T]]?: HTMLElementTagNameMap[T][A];
     };
     classes?: string[];
-    styles?: {
-        [key: string]: string;
-    };
+    content?: string;
     data?: {
         [key: string]: unknown;
     };
-    append?: Node[];
     prepend?: Node[];
-};
+    styles?: {
+        [key: string]: string;
+    };
+}
 
 // @public
 export function delegate<T extends EventTarget, U extends Event | CustomEvent>(selectors: string, callback: (this: T, delegateEvent: DelegateEvent<U>) => unknown): (this: T, event: U) => void;
 
 // @public
-export type DelegateEvent<T> = {
+export interface DelegateEvent<T> {
     delegateTarget: Element;
     event: T;
     stopDelegation: () => void;
-};
+}
 
 // @public
 export function emptyElement<T extends Element>(element: T): void;
@@ -50,9 +50,9 @@ export function findOrThrow<T extends Element = HTMLElement>(selectors: string, 
 export function formDataToSearchParams(formData: FormData, options?: FormDataToSearchParamsOptions): URLSearchParams;
 
 // @public
-export type FormDataToSearchParamsOptions = {
+export interface FormDataToSearchParamsOptions {
     handleFile?: (file: File) => string;
-};
+}
 
 // @public
 export function getClosest<T extends Element>(element: Element, selectors: string, skipSelf?: boolean): null | T;
@@ -67,12 +67,12 @@ export function getDataOrThrow<T = string>(element: HTMLElement, name: string, r
 export function getFormData(form: HTMLFormElement, options?: GetFormDataOptions): FormData;
 
 // @public
-export type GetFormDataOptions = {
+export interface GetFormDataOptions {
     additionalEntries?: {
         [key: string]: unknown;
     };
     filterFields?: string[];
-};
+}
 
 // @public
 export function getPartialClasses(searchType: 'startingwith' | 'containing' | 'endingwith', element: Element, partialValue: string): string[];
@@ -90,28 +90,49 @@ export function loadImage(path: string): Promise<HTMLImageElement>;
 export function onElementAdded<T extends keyof HTMLElementTagNameMap>(tagName: T, callback: (element: HTMLElementTagNameMap[T]) => void, options?: OnElementAddedOptions): void;
 
 // @public
-export type OnElementAddedOptions = {
+export interface OnElementAddedOptions {
     context?: Document | DocumentFragment | Element;
     selectors?: string;
     signal?: AbortSignal;
-};
+}
 
 // @public
-export function onElementResized(element: Element, callback: (size: ResizeObserverSize) => void, options?: OnElementResizedOptions): void;
+export function onElementIntersected<T extends Element>(threshold: 'completely' | 'partially' | number | number[], element: T, callback: (info: OnElementIntersectedInfo<T>) => void, options?: OnElementIntersectedOptions): void;
 
 // @public
-export type OnElementResizedOptions = {
-    boxModel?: 'borderBox' | 'contentBox';
+export interface OnElementIntersectedInfo<T extends Element> {
+    element: T;
+    intersectionRatio: number;
+    isIntersecting: boolean;
+}
+
+// @public
+export interface OnElementIntersectedOptions extends Omit<IntersectionObserverInit, 'threshold'> {
     signal?: AbortSignal;
-};
+}
+
+// @public
+export function onElementResized<T extends Element>(element: T, callback: (info: OnElementResizedInfo<T>) => void, options?: OnElementResizedOptions): void;
+
+// @public
+export interface OnElementResizedInfo<T extends Element> {
+    borderBoxSize: ResizeObserverSize;
+    contentBoxSize: ResizeObserverSize;
+    element: T;
+}
+
+// @public
+export interface OnElementResizedOptions {
+    signal?: AbortSignal;
+}
 
 // @public
 export function onPixelRatioChanged(callback: (pixelRatio: number) => void, options?: OnPixelRatioChangedOptions): void;
 
 // @public
-export type OnPixelRatioChangedOptions = {
+export interface OnPixelRatioChangedOptions {
     signal?: AbortSignal;
-};
+}
 
 // @public
 export function parseBoolean(input: string): boolean;

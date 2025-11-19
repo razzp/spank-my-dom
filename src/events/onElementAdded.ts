@@ -3,7 +3,7 @@
  *
  * @public
  */
-type OnElementAddedOptions = {
+interface OnElementAddedOptions {
     /**
      * The context from which to observe from (defaults to `document`)
      */
@@ -16,7 +16,7 @@ type OnElementAddedOptions = {
      * An `AbortSignal` that can be used to cancel the observer.
      */
     signal?: AbortSignal;
-};
+}
 
 /**
  * Create an observer that will wait for specific elements to be

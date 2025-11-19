@@ -3,19 +3,19 @@
  *
  * @public
  */
-type OnElementResizedOptions = {
+interface OnElementResizedOptions {
     /**
      * An `AbortSignal` that can be used to cancel the observer.
      */
     signal?: AbortSignal;
-};
+}
 
 /**
  * The object returned in the callback for `onElementResized`.
  *
  * @public
  */
-type OnElementResizedInfo<T extends Element> = {
+interface OnElementResizedInfo<T extends Element> {
     /**
      * The element being observed.
      */
@@ -28,7 +28,7 @@ type OnElementResizedInfo<T extends Element> = {
      * The content box size. See {@link https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model#what_is_the_css_box_model | What is the CSS box model} for more information.
      */
     contentBoxSize: ResizeObserverSize;
-};
+}
 
 /**
  * Create an observer that will fire a callback whenever an element is resized.
