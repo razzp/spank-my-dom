@@ -16,6 +16,11 @@ export {
     onElementAdded,
 } from './events/onElementAdded';
 export {
+    type OnElementIntersectedInfo,
+    type OnElementIntersectedOptions,
+    onElementIntersected,
+} from './events/onElementIntersected';
+export {
     type OnElementResizedInfo,
     type OnElementResizedOptions,
     onElementResized,
