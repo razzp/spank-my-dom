@@ -1,5 +1,26 @@
 # Changelog
 
+## 2.2.0 (2025-11-19)
+
+### Added
+
+- Added `onElementIntersected()` method.
+
+### Changed
+
+- `onElementResized()` no longer takes a `boxModel` argument, and instead returns both.
+- `onElementResized()` callback now returns an object.
+- Replace type aliases with interfaces for better documentation.
+
+### Fixed
+
+- Updated missing annotations.
+- Improved build times.
+
+### Security
+
+- Updated dependencies.
+
 ## 2.1.0 (2025-11-15)
 
 ### Added
