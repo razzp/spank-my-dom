@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.3.0 (2025-11-20)
+
+### Added
+
+- Added `formDataOmit()` method.
+- Added `formDataPick()` method.
+
 ## 2.2.0 (2025-11-19)
 
 ### Added
