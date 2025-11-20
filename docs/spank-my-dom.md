@@ -87,6 +87,28 @@ Returns the first element within context that matches the given selectors, or th
 </td></tr>
 <tr><td>
 
+[formDataOmit(formData, keys)](./spank-my-dom.formdataomit.md)
+
+
+</td><td>
+
+Filter a `FormData` object by all keys that \*are not\* specified.
+
+
+</td></tr>
+<tr><td>
+
+[formDataPick(formData, keys)](./spank-my-dom.formdatapick.md)
+
+
+</td><td>
+
+Filter a `FormData` object by all keys that \*are\* specified.
+
+
+</td></tr>
+<tr><td>
+
 [formDataToSearchParams(formData, options)](./spank-my-dom.formdatatosearchparams.md)
 
 

@@ -47,6 +47,16 @@ export function findAll<T extends Element = HTMLElement>(selectors: string, cont
 export function findOrThrow<T extends Element = HTMLElement>(selectors: string, context?: Document | DocumentFragment | Element): T;
 
 // @public
+export function formDataOmit(formData: FormData, ...keys: string[]): {
+    [key: string]: FormDataEntryValue;
+};
+
+// @public
+export function formDataPick<T extends string>(formData: FormData, ...keys: T[]): {
+    [key in T]: FormDataEntryValue;
+};
+
+// @public
 export function formDataToSearchParams(formData: FormData, options?: FormDataToSearchParamsOptions): URLSearchParams;
 
 // @public
