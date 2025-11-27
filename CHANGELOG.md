@@ -1,5 +1,22 @@
 # Changelog
 
+## 2.4.0 (2025-11-27)
+
+### Added
+
+- Added `timed()` method.
+- Added `parseJson()` method.
+
+### Changed
+
+- `waitAtLeast()` method now uses `globalThis` rather than `window`.
+- Update documentation.
+- Improve some tests.
+
+### Security
+
+- Updated dependencies
+
 ## 2.3.0 (2025-11-20)
 
 ### Added
