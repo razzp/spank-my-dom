@@ -13,7 +13,7 @@
  * @param selectors - The selectors to match against.
  * @param context - The context from which to search from.
  *
- * @throws
+ * @throws {Error}
  * If no match is found.
  *
  * @example
