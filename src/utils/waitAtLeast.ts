@@ -8,8 +8,18 @@
  * @param promise - The `Promise` to wait for.
  *
  * @example
+ * Wait at least 1000ms for a single promise.
  * ```ts
- * const result = await waitAtLeast(2000, promise);
+ * const result = await waitAtLeast(1000, Promise.resolve('foo));
+ * ```
+ *
+ * @example
+ * Wait at least 1000ms for multiple promises using `Promise.all()`.
+ * ```ts
+ * const [result1, result2] = await waitAtLeast(
+ *     1000,
+ *     Promise.all([Promise.resolve('foo'), Promise.resolve('bar')]),
+ * );
  * ```
  *
  * @public
