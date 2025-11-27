@@ -71,5 +71,6 @@ export { getSiblings } from './traversal/getSiblings';
 
 // Utils
 
+export { type TimedResult, timed } from './utils/timed';
 export { waitAtLeast } from './utils/waitAtLeast';
 export { waitForReadyState } from './utils/waitForReadyState';

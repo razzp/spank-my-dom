@@ -285,6 +285,17 @@ Visually show an element.
 </td></tr>
 <tr><td>
 
+[timed(func)](./spank-my-dom.timed.md)
+
+
+</td><td>
+
+Wrap a function in a timer that will let you know how long it took to run. This works for both asynchronous and long-running synchronous operations.
+
+
+</td></tr>
+<tr><td>
+
 [waitAtLeast(minimumWaitMs, promise)](./spank-my-dom.waitatleast.md)
 
 
@@ -427,6 +438,17 @@ An optional configuration object for `onElementResized`<!-- -->.
 </td><td>
 
 An optional configuration object for `onPixelRatioChanged`<!-- -->.
+
+
+</td></tr>
+<tr><td>
+
+[TimedResult](./spank-my-dom.timedresult.md)
+
+
+</td><td>
+
+The result returned from `timed`<!-- -->.
 
 
 </td></tr>

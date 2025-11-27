@@ -154,6 +154,15 @@ export function setGlobalCSSVariable(property: string, value: string | null): vo
 export function showElement(element: HTMLElement): void;
 
 // @public
+export function timed<T>(func: (getTime: () => number) => T): Promise<TimedResult<Awaited<T>>>;
+
+// @public
+export interface TimedResult<T> {
+    time: number;
+    value: T;
+}
+
+// @public
 export function waitAtLeast<T>(minimumWaitMs: number, promise: Promise<T> | PromiseLike<T>): Promise<T>;
 
 // @public
