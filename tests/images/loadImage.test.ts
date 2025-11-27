@@ -20,7 +20,7 @@ class MockImage {
 }
 
 beforeAll(() => {
-    // biome-ignore lint/suspicious/noExplicitAny: Mock implementation
+    // biome-ignore lint/suspicious/noExplicitAny: Mock implementation.
     global.Image = MockImage as any;
 });
 
