@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import { waitAtLeast } from '../../src/utils/waitAtLeast';
 
 jest.useFakeTimers();

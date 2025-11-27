@@ -4,7 +4,7 @@
  * @remarks
  * Useful for delaying near instantaneous actions that might affect UI.
  *
- * @param minimumWaitMs - The minimum wait time in milliseconds.
+ * @param delay - The minimum wait time in milliseconds.
  * @param promise - The `Promise` to wait for.
  *
  * @example
@@ -15,13 +15,13 @@
  * @public
  */
 function waitAtLeast<T>(
-    minimumWaitMs: number,
+    delay: number,
     promise: Promise<T> | PromiseLike<T>,
 ): Promise<T> {
     return new Promise((resolve, reject) => {
         Promise.all([
             promise,
-            new Promise((resolve) => window.setTimeout(resolve, minimumWaitMs)),
+            new Promise((resolve) => globalThis.setTimeout(resolve, delay)),
         ])
             .then(([awaited]) => resolve(awaited))
             .catch(reject);
