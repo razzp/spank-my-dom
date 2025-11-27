@@ -13,8 +13,8 @@
  * @param selectors - The selectors to match against.
  * @param context - The context from which to search from.
  *
- * @throws {Error}
- * If no match is found.
+ * @throws
+ * Error - If no match is found.
  *
  * @example
  * Find an element using the entire document as context (default).

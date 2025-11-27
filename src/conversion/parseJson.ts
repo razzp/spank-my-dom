@@ -12,8 +12,8 @@
  * @param input - The JSON string to parse.
  * @param reviver - A function that transforms the results.
  *
- * @throws {SyntaxError}
- * If `input` is not valid JSON.
+ * @throws
+ * SyntaxError - If `input` is not valid JSON.
  *
  * @example
  * ```ts

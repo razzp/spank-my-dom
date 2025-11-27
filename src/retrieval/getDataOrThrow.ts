@@ -6,8 +6,8 @@
  * @param name - The name of the data attribute.
  * @param reviver - A function to transform the result.
  *
- * @throws {SyntaxError}
- * If no data is found.
+ * @throws
+ * SyntaxError - If no data is found.
  *
  * @example
  * Get an element's data.
