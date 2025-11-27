@@ -7,6 +7,7 @@
 // Conversion
 
 export { parseBoolean } from './conversion/parseBoolean';
+export { parseJson } from './conversion/parseJson';
 
 // Events
 
