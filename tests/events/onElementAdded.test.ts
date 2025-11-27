@@ -59,8 +59,7 @@ test('Successfully triggered when new element with matching tag is observed', ()
         },
     ]);
 
-    expect(callback).toHaveBeenCalled();
-    expect(callback.mock.calls[0][0]).toBe(newElement);
+    expect(callback).toHaveBeenCalledWith(newElement);
 });
 
 test('Successfully matches selectors, and ignores incorrect tags', () => {
@@ -106,8 +105,7 @@ test('Successfully matches selectors, and ignores incorrect tags', () => {
         },
     ]);
 
-    expect(callback).toHaveBeenCalled();
-    expect(callback.mock.calls[0][0]).toBe(correctElement);
+    expect(callback).toHaveBeenCalledWith(correctElement);
 });
 
 test('Successfully disconnects if provided signal is aborted', () => {
