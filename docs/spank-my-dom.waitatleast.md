@@ -9,7 +9,7 @@ Given a `Promise`<!-- -->, wait a minimum period of time before resolving.
 **Signature:**
 
 ```typescript
-declare function waitAtLeast<T>(minimumWaitMs: number, promise: Promise<T> | PromiseLike<T>): Promise<T>;
+declare function waitAtLeast<T>(delay: number, promise: Promise<T> | PromiseLike<T>): Promise<T>;
 ```
 
 ## Parameters
@@ -32,7 +32,7 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-minimumWaitMs
+delay
 
 
 </td><td>
@@ -72,10 +72,22 @@ Promise&lt;T&gt;
 
 Useful for delaying near instantaneous actions that might affect UI.
 
-## Example
+## Example 1
 
+Wait at least 1000ms for a single promise.
 
 ```ts
-const result = await waitAtLeast(2000, promise);
+const result = await waitAtLeast(1000, Promise.resolve('foo));
+```
+
+## Example 2
+
+Wait at least 1000ms for multiple promises using `Promise.all()`<!-- -->.
+
+```ts
+const [result1, result2] = await waitAtLeast(
+    1000,
+    Promise.all([Promise.resolve('foo'), Promise.resolve('bar')]),
+);
 ```
 

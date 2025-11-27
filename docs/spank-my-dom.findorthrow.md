@@ -70,7 +70,7 @@ T
 
 ## Exceptions
 
-If no match is found.
+Error - If no match is found.
 
 ## Remarks
 

@@ -263,6 +263,17 @@ Parse a string value as a boolean.
 </td></tr>
 <tr><td>
 
+[parseJson(input, reviver)](./spank-my-dom.parsejson.md)
+
+
+</td><td>
+
+Convert a JSON string into an object.
+
+
+</td></tr>
+<tr><td>
+
 [setGlobalCSSVariable(property, value)](./spank-my-dom.setglobalcssvariable.md)
 
 
@@ -296,7 +307,7 @@ Wrap a function in a timer that will let you know how long it took to run. This 
 </td></tr>
 <tr><td>
 
-[waitAtLeast(minimumWaitMs, promise)](./spank-my-dom.waitatleast.md)
+[waitAtLeast(delay, promise)](./spank-my-dom.waitatleast.md)
 
 
 </td><td>

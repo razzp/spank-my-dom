@@ -86,7 +86,7 @@ T
 
 ## Exceptions
 
-If no data is found.
+SyntaxError - If no data is found.
 
 ## Example 1
 
