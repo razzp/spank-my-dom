@@ -18,8 +18,6 @@ interface TimedResult<T> {
  * Wrap a function in a timer that will let you know how long it took to run.
  * This works for both asynchronous and long-running synchronous operations.
  *
- * @typeParam T - The return type of the timed function.
- *
  * @param func - The function to time. Provides method `getTime()` to return
  * the elapsed time at any point during execution.
  *

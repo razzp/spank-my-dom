@@ -7,8 +7,6 @@
  * The purpose of this function is simply to allow type inference.
  * At runtime this is synonymous with calling [`JSON.parse`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse).
  *
- * @typeParam T - The inferred return type.
- *
  * @param input - The JSON string to parse.
  * @param reviver - A function that transforms the results.
  *
