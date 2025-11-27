@@ -7,7 +7,7 @@
  * @param reviver - A function to transform the result.
  *
  * @throws
- * If no data is found.
+ * SyntaxError - If no data is found.
  *
  * @example
  * Get an element's data.

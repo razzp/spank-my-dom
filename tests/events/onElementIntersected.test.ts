@@ -77,9 +77,7 @@ test('Successfully triggered when element intersects', () => {
         },
     ]);
 
-    expect(callback).toHaveBeenCalled();
-
-    expect(callback.mock.calls[0][0]).toEqual({
+    expect(callback).toHaveBeenCalledWith({
         element,
         intersectionRatio,
         isIntersecting,
@@ -112,9 +110,7 @@ test('Successfully triggered when element completely intersects', () => {
         },
     ]);
 
-    expect(callback).toHaveBeenCalled();
-
-    expect(callback.mock.calls[0][0]).toEqual({
+    expect(callback).toHaveBeenCalledWith({
         element,
         intersectionRatio,
         isIntersecting,
@@ -147,9 +143,7 @@ test('Successfully triggered when element partially intersects', () => {
         },
     ]);
 
-    expect(callback).toHaveBeenCalled();
-
-    expect(callback.mock.calls[0][0]).toEqual({
+    expect(callback).toHaveBeenCalledWith({
         element,
         intersectionRatio,
         isIntersecting,

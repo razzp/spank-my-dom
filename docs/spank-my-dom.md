@@ -263,6 +263,17 @@ Parse a string value as a boolean.
 </td></tr>
 <tr><td>
 
+[parseJson(input, reviver)](./spank-my-dom.parsejson.md)
+
+
+</td><td>
+
+Convert a JSON string into an object.
+
+
+</td></tr>
+<tr><td>
+
 [setGlobalCSSVariable(property, value)](./spank-my-dom.setglobalcssvariable.md)
 
 
@@ -285,7 +296,18 @@ Visually show an element.
 </td></tr>
 <tr><td>
 
-[waitAtLeast(minimumWaitMs, promise)](./spank-my-dom.waitatleast.md)
+[timed(func)](./spank-my-dom.timed.md)
+
+
+</td><td>
+
+Wrap a function in a timer that will let you know how long it took to run. This works for both asynchronous and long-running synchronous operations.
+
+
+</td></tr>
+<tr><td>
+
+[waitAtLeast(delay, promise)](./spank-my-dom.waitatleast.md)
 
 
 </td><td>
@@ -427,6 +449,17 @@ An optional configuration object for `onElementResized`<!-- -->.
 </td><td>
 
 An optional configuration object for `onPixelRatioChanged`<!-- -->.
+
+
+</td></tr>
+<tr><td>
+
+[TimedResult](./spank-my-dom.timedresult.md)
+
+
+</td><td>
+
+The result returned from `timed`<!-- -->.
 
 
 </td></tr>

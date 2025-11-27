@@ -71,9 +71,7 @@ test('Successfully triggered when element is resized', () => {
         },
     ]);
 
-    expect(callback).toHaveBeenCalled();
-
-    expect(callback.mock.calls[0][0]).toEqual({
+    expect(callback).toHaveBeenCalledWith({
         element,
         borderBoxSize: mockSize,
         contentBoxSize: mockSize,

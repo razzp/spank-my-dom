@@ -148,13 +148,25 @@ export interface OnPixelRatioChangedOptions {
 export function parseBoolean(input: string): boolean;
 
 // @public
+export function parseJson<T = any>(input: string, reviver?: (this: any, key: string, value: any) => any): T;
+
+// @public
 export function setGlobalCSSVariable(property: string, value: string | null): void;
 
 // @public
 export function showElement(element: HTMLElement): void;
 
 // @public
-export function waitAtLeast<T>(minimumWaitMs: number, promise: Promise<T> | PromiseLike<T>): Promise<T>;
+export function timed<T>(func: (getTime: () => number) => T): Promise<TimedResult<Awaited<T>>>;
+
+// @public
+export interface TimedResult<T> {
+    time: number;
+    value: T;
+}
+
+// @public
+export function waitAtLeast<T>(delay: number, promise: Promise<T> | PromiseLike<T>): Promise<T>;
 
 // @public
 export function waitForReadyState(state: DocumentReadyState): Promise<void>;

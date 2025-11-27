@@ -72,8 +72,7 @@ test('Callback is successfully fired when pixel ratio changes', () => {
 
     instance.trigger();
 
-    expect(callback).toHaveBeenCalled();
-    expect(typeof callback.mock.calls[0][0]).toBe('number');
+    expect(callback).toHaveBeenCalledWith(expect.any(Number));
 });
 
 test('Successfully stops if provided signal is aborted', () => {
