@@ -6,51 +6,218 @@
 
 # Function: findOrThrow()
 
-> **findOrThrow**\<`T`\>(`selectors`, `context?`): `T`
+## Call Signature
 
-Defined in: [src/retrieval/findOrThrow.ts:39](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/retrieval/findOrThrow.ts#L39)
+> **findOrThrow**\<`K`\>(`selectors`, `context?`): `HTMLElementTagNameMap`\[`K`\]
+
+Defined in: [src/retrieval/findOrThrow.ts:34](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/retrieval/findOrThrow.ts#L34)
 
 Returns the first element within context that matches the
 given selectors, or throws if nothing is found.
 
-## Type Parameters
+For runtime safety, consider using an assertion library such as
+[Bossy Boots](https://github.com/razzp/bossy-boots).
 
-### T
+### Type Parameters
 
-`T` *extends* `Element` = `HTMLElement`
+#### K
 
-## Parameters
+`K` *extends* keyof `HTMLElementTagNameMap`
 
-### selectors
+### Parameters
 
-`string`
+#### selectors
+
+`K`
 
 The selectors to match against.
 
-### context?
+#### context?
 
 `Element` \| `Document` \| `DocumentFragment`
 
 The context from which to search from.
 
-## Returns
+### Returns
 
-`T`
+`HTMLElementTagNameMap`\[`K`\]
 
-## Remarks
+### Throws
 
-Unlike using `querySelector()`, the default inferred element type is
-`HTMLElement`, rather than `Element`. More often than not this is the
-preferred behaviour, so it saves having to explicitly type it.
+Error - If no match is found.
+
+### Examples
+
+Find an element using the entire document as context (default).
+```ts
+const element = find('.foo');
+```
+
+Find an element using another element as context.
+```ts
+const element = find('.foo', contextElement);
+```
+
+Infer the type of element using TypeScript.
+```ts
+const element = find<HTMLButtonElement>('.foo');
+```
+
+## Call Signature
+
+> **findOrThrow**\<`K`\>(`selectors`, `context?`): `MathMLElementTagNameMap`\[`K`\]
+
+Defined in: [src/retrieval/findOrThrow.ts:38](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/retrieval/findOrThrow.ts#L38)
+
+Returns the first element within context that matches the
+given selectors, or throws if nothing is found.
 
 For runtime safety, consider using an assertion library such as
 [Bossy Boots](https://github.com/razzp/bossy-boots).
 
-## Throws
+### Type Parameters
+
+#### K
+
+`K` *extends* keyof `MathMLElementTagNameMap`
+
+### Parameters
+
+#### selectors
+
+`K`
+
+The selectors to match against.
+
+#### context?
+
+`Element` \| `Document` \| `DocumentFragment`
+
+The context from which to search from.
+
+### Returns
+
+`MathMLElementTagNameMap`\[`K`\]
+
+### Throws
 
 Error - If no match is found.
 
-## Examples
+### Examples
+
+Find an element using the entire document as context (default).
+```ts
+const element = find('.foo');
+```
+
+Find an element using another element as context.
+```ts
+const element = find('.foo', contextElement);
+```
+
+Infer the type of element using TypeScript.
+```ts
+const element = find<HTMLButtonElement>('.foo');
+```
+
+## Call Signature
+
+> **findOrThrow**\<`K`\>(`selectors`, `context?`): `SVGElementTagNameMap`\[`K`\]
+
+Defined in: [src/retrieval/findOrThrow.ts:42](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/retrieval/findOrThrow.ts#L42)
+
+Returns the first element within context that matches the
+given selectors, or throws if nothing is found.
+
+For runtime safety, consider using an assertion library such as
+[Bossy Boots](https://github.com/razzp/bossy-boots).
+
+### Type Parameters
+
+#### K
+
+`K` *extends* keyof `SVGElementTagNameMap`
+
+### Parameters
+
+#### selectors
+
+`K`
+
+The selectors to match against.
+
+#### context?
+
+`Element` \| `Document` \| `DocumentFragment`
+
+The context from which to search from.
+
+### Returns
+
+`SVGElementTagNameMap`\[`K`\]
+
+### Throws
+
+Error - If no match is found.
+
+### Examples
+
+Find an element using the entire document as context (default).
+```ts
+const element = find('.foo');
+```
+
+Find an element using another element as context.
+```ts
+const element = find('.foo', contextElement);
+```
+
+Infer the type of element using TypeScript.
+```ts
+const element = find<HTMLButtonElement>('.foo');
+```
+
+## Call Signature
+
+> **findOrThrow**\<`T`\>(`selectors`, `context?`): `T`
+
+Defined in: [src/retrieval/findOrThrow.ts:46](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/retrieval/findOrThrow.ts#L46)
+
+Returns the first element within context that matches the
+given selectors, or throws if nothing is found.
+
+For runtime safety, consider using an assertion library such as
+[Bossy Boots](https://github.com/razzp/bossy-boots).
+
+### Type Parameters
+
+#### T
+
+`T` *extends* `Element`
+
+### Parameters
+
+#### selectors
+
+`string`
+
+The selectors to match against.
+
+#### context?
+
+`Element` \| `Document` \| `DocumentFragment`
+
+The context from which to search from.
+
+### Returns
+
+`T`
+
+### Throws
+
+Error - If no match is found.
+
+### Examples
 
 Find an element using the entire document as context (default).
 ```ts

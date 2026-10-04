@@ -8,7 +8,7 @@
 
 > **getPartialClasses**(`searchType`, `element`, `partialValue`): `string`[]
 
-Defined in: [src/retrieval/getPartialClasses.ts:10](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/retrieval/getPartialClasses.ts#L10)
+Defined in: [src/retrieval/getPartialClasses.ts:10](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/retrieval/getPartialClasses.ts#L10)
 
 Find classes on an element that partially match a value.
 

@@ -8,7 +8,7 @@
 
 > **getClosest**\<`T`\>(`element`, `selectors`, `skipSelf?`): `T` \| `null`
 
-Defined in: [src/traversal/getClosest.ts:23](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/traversal/getClosest.ts#L23)
+Defined in: [src/traversal/getClosest.ts:23](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/traversal/getClosest.ts#L23)
 
 Traverse the element (unless skipped) and its parents until
 an element is found that matches the selectors.

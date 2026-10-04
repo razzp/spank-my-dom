@@ -8,7 +8,7 @@
 
 > **removeStyles**(`element`, `props`): `void`
 
-Defined in: [src/manipulation/removeStyles.ts:14](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/manipulation/removeStyles.ts#L14)
+Defined in: [src/manipulation/removeStyles.ts:14](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/manipulation/removeStyles.ts#L14)
 
 Remove styles from an element.
 
