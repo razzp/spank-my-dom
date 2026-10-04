@@ -1,7 +1,6 @@
-/**
- * @jest-environment jsdom
- */
+// @vitest-environment jsdom
 
+import { afterAll, beforeAll, beforeEach, expect, test, vi } from 'vitest';
 import { onPixelRatioChanged } from '../../src/events/onPixelRatioChanged';
 
 class MockMediaQueryList implements MediaQueryList {
@@ -15,13 +14,13 @@ class MockMediaQueryList implements MediaQueryList {
 
     public media = '';
     public matches = false;
-    public onchange = jest.fn();
-    public addListener = jest.fn();
-    public removeListener = jest.fn();
-    public removeEventListener = jest.fn();
-    public dispatchEvent = jest.fn();
+    public onchange = vi.fn();
+    public addListener = vi.fn();
+    public removeListener = vi.fn();
+    public removeEventListener = vi.fn();
+    public dispatchEvent = vi.fn();
 
-    public addEventListener = jest
+    public addEventListener = vi
         .fn()
         .mockImplementation(
             (
@@ -42,10 +41,8 @@ class MockMediaQueryList implements MediaQueryList {
     }
 }
 
-const initialValue = global.matchMedia;
-
 beforeAll(() => {
-    global.matchMedia = () => new MockMediaQueryList();
+    vi.stubGlobal('matchMedia', () => new MockMediaQueryList());
 });
 
 beforeEach(() => {
@@ -53,11 +50,11 @@ beforeEach(() => {
 });
 
 afterAll(() => {
-    global.matchMedia = initialValue;
+    vi.unstubAllGlobals();
 });
 
 test('Callback is successfully fired when pixel ratio changes', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
 
     expect(MockMediaQueryList.instances.size).toBe(0);
 
@@ -76,7 +73,7 @@ test('Callback is successfully fired when pixel ratio changes', () => {
 });
 
 test('Successfully stops if provided signal is aborted', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     const controller = new AbortController();
 
     expect(MockMediaQueryList.instances.size).toBe(0);
@@ -99,7 +96,7 @@ test('Successfully stops if provided signal is aborted', () => {
 });
 
 test('Short circuits if signal is provided that has already been aborted', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     const controller = new AbortController();
 
     controller.abort();

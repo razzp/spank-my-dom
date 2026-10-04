@@ -1,7 +1,6 @@
-/**
- * @jest-environment jsdom
- */
+// @vitest-environment jsdom
 
+import { afterAll, beforeAll, beforeEach, expect, test, vi } from 'vitest';
 import { onElementIntersected } from '../../src/events/onElementIntersected';
 
 interface MockIntersectionObserverEntry {
@@ -24,12 +23,13 @@ class MockIntersectionObserver implements IntersectionObserver {
 
     public root = document;
     public rootMargin = '';
+    public scrollMargin = '';
     public thresholds = [];
 
-    public observe = jest.fn();
-    public unobserve = jest.fn();
-    public disconnect = jest.fn();
-    public takeRecords = jest.fn();
+    public observe = vi.fn();
+    public unobserve = vi.fn();
+    public disconnect = vi.fn();
+    public takeRecords = vi.fn();
 
     public trigger(entries: MockIntersectionObserverEntry[]): void {
         // biome-ignore lint/suspicious/noExplicitAny: Partial implementation for mock.
@@ -37,10 +37,8 @@ class MockIntersectionObserver implements IntersectionObserver {
     }
 }
 
-const initialValue = global.IntersectionObserver;
-
 beforeAll(() => {
-    global.IntersectionObserver = MockIntersectionObserver;
+    vi.stubGlobal('IntersectionObserver', MockIntersectionObserver);
 });
 
 beforeEach(() => {
@@ -48,11 +46,11 @@ beforeEach(() => {
 });
 
 afterAll(() => {
-    global.IntersectionObserver = initialValue;
+    vi.unstubAllGlobals();
 });
 
 test('Successfully triggered when element intersects', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     const element = document.createElement('div');
 
     expect(MockIntersectionObserver.instances.size).toBe(0);
@@ -65,6 +63,7 @@ test('Successfully triggered when element intersects', () => {
 
     expect(instance).toBeDefined();
     expect(instance.observe).toHaveBeenCalled();
+    expect(instance.observe.mock.calls[0][0]).toBe(element);
     expect(instance.threshold).toBe(0.5);
 
     const intersectionRatio = Symbol();
@@ -85,7 +84,7 @@ test('Successfully triggered when element intersects', () => {
 });
 
 test('Successfully triggered when element completely intersects', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     const element = document.createElement('div');
 
     expect(MockIntersectionObserver.instances.size).toBe(0);
@@ -98,6 +97,7 @@ test('Successfully triggered when element completely intersects', () => {
 
     expect(instance).toBeDefined();
     expect(instance.observe).toHaveBeenCalled();
+    expect(instance.observe.mock.calls[0][0]).toBe(element);
     expect(instance.threshold).toBe(1);
 
     const intersectionRatio = Symbol();
@@ -118,7 +118,7 @@ test('Successfully triggered when element completely intersects', () => {
 });
 
 test('Successfully triggered when element partially intersects', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     const element = document.createElement('div');
 
     expect(MockIntersectionObserver.instances.size).toBe(0);
@@ -131,6 +131,7 @@ test('Successfully triggered when element partially intersects', () => {
 
     expect(instance).toBeDefined();
     expect(instance.observe).toHaveBeenCalled();
+    expect(instance.observe.mock.calls[0][0]).toBe(element);
     expect(instance.threshold).toBe(0);
 
     const intersectionRatio = Symbol();
@@ -151,7 +152,7 @@ test('Successfully triggered when element partially intersects', () => {
 });
 
 test('Successfully disconnects if provided signal is aborted', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     const element = document.createElement('div');
     const controller = new AbortController();
 
@@ -174,7 +175,7 @@ test('Successfully disconnects if provided signal is aborted', () => {
 });
 
 test('Short circuits if signal is provided that has already been aborted', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     const element = document.createElement('div');
     const controller = new AbortController();
 

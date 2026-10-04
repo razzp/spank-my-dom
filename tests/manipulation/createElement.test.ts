@@ -1,7 +1,6 @@
-/**
- * @jest-environment jsdom
- */
+// @vitest-environment jsdom
 
+import { expect, test } from 'vitest';
 import { createElement } from '../../src/manipulation/createElement';
 
 test('Basic element is successfully created', () => {

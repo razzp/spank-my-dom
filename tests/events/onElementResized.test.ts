@@ -1,20 +1,7 @@
-/**
- * @jest-environment jsdom
- */
+// @vitest-environment jsdom
 
+import { afterAll, beforeAll, beforeEach, expect, test, vi } from 'vitest';
 import { onElementResized } from '../../src/events/onElementResized';
-
-function createMockSize(): ResizeObserverSize {
-    return {
-        blockSize: 100,
-        inlineSize: 100,
-    };
-}
-
-interface MockResizeObserverEntry {
-    borderBoxSize: ResizeObserverSize[];
-    contentBoxSize: ResizeObserverSize[];
-}
 
 class MockResizeObserver implements ResizeObserver {
     static readonly instances = new Set<MockResizeObserver>();
@@ -23,20 +10,18 @@ class MockResizeObserver implements ResizeObserver {
         MockResizeObserver.instances.add(this);
     }
 
-    public observe = jest.fn();
-    public unobserve = jest.fn();
-    public disconnect = jest.fn();
+    public observe = vi.fn();
+    public unobserve = vi.fn();
+    public disconnect = vi.fn();
 
-    public trigger(entries: MockResizeObserverEntry[]): void {
+    public trigger(entries: symbol[]): void {
         // biome-ignore lint/suspicious/noExplicitAny: Partial implementation for mock.
         this.callback(entries as any, this);
     }
 }
 
-const initialValue = global.ResizeObserver;
-
 beforeAll(() => {
-    global.ResizeObserver = MockResizeObserver;
+    vi.stubGlobal('ResizeObserver', MockResizeObserver);
 });
 
 beforeEach(() => {
@@ -44,11 +29,11 @@ beforeEach(() => {
 });
 
 afterAll(() => {
-    global.ResizeObserver = initialValue;
+    vi.unstubAllGlobals();
 });
 
 test('Successfully triggered when element is resized', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     const element = document.createElement('div');
 
     expect(MockResizeObserver.instances.size).toBe(0);
@@ -61,6 +46,7 @@ test('Successfully triggered when element is resized', () => {
 
     expect(instance).toBeDefined();
     expect(instance.observe).toHaveBeenCalled();
+    expect(instance.observe.mock.calls[0][0]).toBe(element);
 
     const mockSize = createMockSize();
 
@@ -79,7 +65,7 @@ test('Successfully triggered when element is resized', () => {
 });
 
 test('Successfully disconnects if provided signal is aborted', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     const element = document.createElement('div');
     const controller = new AbortController();
 
@@ -102,7 +88,7 @@ test('Successfully disconnects if provided signal is aborted', () => {
 });
 
 test('Short circuits if signal is provided that has already been aborted', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     const element = document.createElement('div');
     const controller = new AbortController();
 

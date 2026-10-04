@@ -1,7 +1,6 @@
-/**
- * @jest-environment jsdom
- */
+// @vitest-environment jsdom
 
+import { beforeAll, expect, test } from 'vitest';
 import { findOrThrow } from '../../src/retrieval/findOrThrow';
 
 beforeAll(() => {

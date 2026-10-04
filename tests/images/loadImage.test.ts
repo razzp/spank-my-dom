@@ -1,7 +1,6 @@
-/**
- * @jest-environment jsdom
- */
+// @vitest-environment jsdom
 
+import { beforeAll, expect, test, vi } from 'vitest';
 import { loadImage } from '../../src/images/loadImage';
 
 const testImage =
@@ -20,8 +19,7 @@ class MockImage {
 }
 
 beforeAll(() => {
-    // biome-ignore lint/suspicious/noExplicitAny: Mock implementation.
-    global.Image = MockImage as any;
+    vi.stubGlobal('Image', MockImage);
 });
 
 test('Successful load resolves with image', async () => {

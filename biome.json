@@ -16,10 +16,7 @@
     "linter": {
         "enabled": true,
         "rules": {
-            "recommended": true,
-            "complexity": {
-                "noBannedTypes": "off"
-            }
+            "recommended": true
         }
     },
     "javascript": {
@@ -31,12 +28,7 @@
         "enabled": true,
         "actions": {
             "source": {
-                "organizeImports": {
-                    "level": "on",
-                    "options": {
-                        "groups": [{ "type": true }]
-                    }
-                }
+                "organizeImports": "on"
             }
         }
     }

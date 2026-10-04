@@ -1,8 +1,7 @@
-/**
- * @jest-environment jsdom
- */
+// @vitest-environment jsdom
 
 import { assertIsNotNull } from 'bossy-boots';
+import { beforeEach, expect, test } from 'vitest';
 import { hideElement } from '../../src/manipulation/hideElement';
 
 beforeEach(() => {

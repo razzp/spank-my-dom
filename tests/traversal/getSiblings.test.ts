@@ -1,8 +1,7 @@
-/**
- * @jest-environment jsdom
- */
+// @vitest-environment jsdom
 
 import { assertIsNotNull } from 'bossy-boots';
+import { beforeAll, expect, test } from 'vitest';
 import { getSiblings } from '../../src/traversal/getSiblings';
 
 beforeAll(() => {

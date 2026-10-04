@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest';
 import { parseBoolean } from '../../src/conversion/parseBoolean';
 
 test('Input is successfully parsed as a boolean', () => {

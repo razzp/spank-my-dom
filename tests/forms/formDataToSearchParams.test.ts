@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest';
 import { formDataToSearchParams } from '../../src/forms/formDataToSearchParams';
 
 test('Successfully returns populated URLSearchParams instance', () => {

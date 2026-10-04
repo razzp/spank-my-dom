@@ -1,7 +1,6 @@
-/**
- * @jest-environment jsdom
- */
+// @vitest-environment jsdom
 
+import { expect, test } from 'vitest';
 import { setGlobalCSSVariable } from '../../src/manipulation/setGlobalCSSVariable';
 
 test('Successfully sets and removes global CSS variable', () => {

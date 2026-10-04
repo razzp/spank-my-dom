@@ -1,7 +1,6 @@
-/**
- * @jest-environment jsdom
- */
+// @vitest-environment jsdom
 
+import { expect, test } from 'vitest';
 import { getPartialClasses } from '../../src/retrieval/getPartialClasses';
 
 test('Successfully matches class names starting with value', () => {
