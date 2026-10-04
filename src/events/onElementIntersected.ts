@@ -22,15 +22,9 @@ interface OnElementIntersectedInfo<T extends Element> {
      */
     element: T;
     /**
-     * How much of the element is currently visible within the root's
-     * intersection ratio, as a value between 0.0 and 1.0.
+     * The observer entry. See {@link https://developer.mozilla.org/docs/Web/API/IntersectionObserverEntry | MDN} for more information.
      */
-    intersectionRatio: number;
-    /**
-     * Boolean value which is true if the element intersects
-     * with the intersection observer's root.
-     */
-    isIntersecting: boolean;
+    entry: IntersectionObserverEntry;
 }
 
 /**
@@ -48,8 +42,8 @@ interface OnElementIntersectedInfo<T extends Element> {
  * @example
  * Wait for an element to intersect the root (default) completely.
  * ```ts
- * onElementIntersected('completely', element, (info) => {
- *     if (info.isIntersecting) {
+ * onElementIntersected('completely', element, ({entry}) => {
+ *     if (entry.isIntersecting) {
  *         console.log('Element has completely entered the viewport');
  *     } else {
  *         console.log('Element has completely left the viewport');
@@ -60,8 +54,8 @@ interface OnElementIntersectedInfo<T extends Element> {
  * @example
  * Wait for an element to intersect the root (default) partially.
  * ```ts
- * onElementIntersected('partially', element, (info) => {
- *     if (info.isIntersecting) {
+ * onElementIntersected('partially', element, ({entry}) => {
+ *     if (entry.isIntersecting) {
  *         console.log('Element has partially entered the viewport');
  *     } else {
  *         console.log('Element has partially left the viewport');
@@ -74,7 +68,7 @@ interface OnElementIntersectedInfo<T extends Element> {
 function onElementIntersected<T extends Element>(
     threshold: 'completely' | 'partially' | number | number[],
     element: T,
-    callback: (info: OnElementIntersectedInfo<T>) => void,
+    callback: (data: OnElementIntersectedInfo<T>) => void,
     options?: OnElementIntersectedOptions,
 ): void {
     const { signal } = { ...options };
@@ -82,12 +76,11 @@ function onElementIntersected<T extends Element>(
     if (signal?.aborted) return;
 
     const observer = new IntersectionObserver(
-        ([entry]) =>
-            callback({
-                element,
-                intersectionRatio: entry.intersectionRatio,
-                isIntersecting: entry.isIntersecting,
-            }),
+        (entries) => {
+            for (const entry of entries) {
+                callback({ element, entry });
+            }
+        },
         {
             ...options,
             threshold: (() => {
@@ -109,6 +102,6 @@ function onElementIntersected<T extends Element>(
 
 export {
     onElementIntersected,
-    type OnElementIntersectedInfo,
     type OnElementIntersectedOptions,
+    type OnElementIntersectedInfo,
 };

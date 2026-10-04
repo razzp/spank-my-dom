@@ -3,11 +3,6 @@
 import { afterAll, beforeAll, beforeEach, expect, test, vi } from 'vitest';
 import { onElementIntersected } from '../../src/events/onElementIntersected';
 
-interface MockIntersectionObserverEntry {
-    intersectionRatio: symbol;
-    isIntersecting: symbol;
-}
-
 class MockIntersectionObserver implements IntersectionObserver {
     static readonly instances = new Set<MockIntersectionObserver>();
 
@@ -31,7 +26,7 @@ class MockIntersectionObserver implements IntersectionObserver {
     public disconnect = vi.fn();
     public takeRecords = vi.fn();
 
-    public trigger(entries: MockIntersectionObserverEntry[]): void {
+    public trigger(entries: symbol[]): void {
         // biome-ignore lint/suspicious/noExplicitAny: Partial implementation for mock.
         this.callback(entries as any, this);
     }
@@ -66,20 +61,13 @@ test('Successfully triggered when element intersects', () => {
     expect(instance.observe.mock.calls[0][0]).toBe(element);
     expect(instance.threshold).toBe(0.5);
 
-    const intersectionRatio = Symbol();
-    const isIntersecting = Symbol();
+    const mockEntry = Symbol();
 
-    instance.trigger([
-        {
-            intersectionRatio,
-            isIntersecting,
-        },
-    ]);
+    instance.trigger([mockEntry]);
 
     expect(callback).toHaveBeenCalledWith({
         element,
-        intersectionRatio,
-        isIntersecting,
+        entry: mockEntry,
     });
 });
 
@@ -100,20 +88,13 @@ test('Successfully triggered when element completely intersects', () => {
     expect(instance.observe.mock.calls[0][0]).toBe(element);
     expect(instance.threshold).toBe(1);
 
-    const intersectionRatio = Symbol();
-    const isIntersecting = Symbol();
+    const mockEntry = Symbol();
 
-    instance.trigger([
-        {
-            intersectionRatio,
-            isIntersecting,
-        },
-    ]);
+    instance.trigger([mockEntry]);
 
     expect(callback).toHaveBeenCalledWith({
         element,
-        intersectionRatio,
-        isIntersecting,
+        entry: mockEntry,
     });
 });
 
@@ -134,20 +115,13 @@ test('Successfully triggered when element partially intersects', () => {
     expect(instance.observe.mock.calls[0][0]).toBe(element);
     expect(instance.threshold).toBe(0);
 
-    const intersectionRatio = Symbol();
-    const isIntersecting = Symbol();
+    const mockEntry = Symbol();
 
-    instance.trigger([
-        {
-            intersectionRatio,
-            isIntersecting,
-        },
-    ]);
+    instance.trigger([mockEntry]);
 
     expect(callback).toHaveBeenCalledWith({
         element,
-        intersectionRatio,
-        isIntersecting,
+        entry: mockEntry,
     });
 });
 

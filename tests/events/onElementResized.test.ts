@@ -48,20 +48,11 @@ test('Successfully triggered when element is resized', () => {
     expect(instance.observe).toHaveBeenCalled();
     expect(instance.observe.mock.calls[0][0]).toBe(element);
 
-    const mockSize = createMockSize();
+    const mockEntry = Symbol();
 
-    instance.trigger([
-        {
-            borderBoxSize: [mockSize],
-            contentBoxSize: [mockSize],
-        },
-    ]);
+    instance.trigger([mockEntry]);
 
-    expect(callback).toHaveBeenCalledWith({
-        element,
-        borderBoxSize: mockSize,
-        contentBoxSize: mockSize,
-    });
+    expect(callback).toHaveBeenCalledWith({ entry: mockEntry, element });
 });
 
 test('Successfully disconnects if provided signal is aborted', () => {
