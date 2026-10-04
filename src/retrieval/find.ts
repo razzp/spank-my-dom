@@ -1,11 +1,6 @@
 /**
  * Returns the first element within context that matches the given selectors.
  *
- * @remarks
- * Unlike using `querySelector()`, the default inferred element type is
- * `HTMLElement`, rather than `Element`. More often than not this is the
- * preferred behaviour, so it saves having to explicitly type it.
- *
  * For runtime safety, consider using an assertion library such as
  * {@link https://github.com/razzp/bossy-boots | Bossy Boots}.
  *
@@ -32,10 +27,26 @@
  *
  * @public
  */
-function find<T extends Element = HTMLElement>(
+function find<K extends keyof HTMLElementTagNameMap>(
+    selectors: K,
+    context?: Document | DocumentFragment | Element,
+): null | HTMLElementTagNameMap[K];
+function find<K extends keyof MathMLElementTagNameMap>(
+    selectors: K,
+    context?: Document | DocumentFragment | Element,
+): null | MathMLElementTagNameMap[K];
+function find<K extends keyof SVGElementTagNameMap>(
+    selectors: K,
+    context?: Document | DocumentFragment | Element,
+): null | SVGElementTagNameMap[K];
+function find<T extends Element>(
+    selectors: string,
+    context?: Document | DocumentFragment | Element,
+): null | T;
+function find(
     selectors: string,
     context: Document | DocumentFragment | Element = document,
-): null | T {
+): null | Element {
     return context.querySelector(selectors);
 }
 
