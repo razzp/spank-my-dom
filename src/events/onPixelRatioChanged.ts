@@ -34,15 +34,13 @@ function onPixelRatioChanged(
 
     if (signal?.aborted) return;
 
-    const handler = () => callback(window.devicePixelRatio);
-
     const register = () => {
         window
             .matchMedia(`(resolution: ${window.devicePixelRatio}dppx)`)
             .addEventListener(
                 'change',
                 () => {
-                    handler();
+                    callback(window.devicePixelRatio);
                     register();
                 },
                 { once: true, signal },
