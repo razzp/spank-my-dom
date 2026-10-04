@@ -1,13 +1,13 @@
 {
     "name": "spank-my-dom",
     "type": "module",
-    "sideEffects": false,
     "version": "2.4.0",
     "author": "Robert Wells",
     "description": "A tiny, modular set of DOM utilities, written in TypeScript.",
     "keywords": [
         "html",
         "dom",
+        "browser",
         "javascript",
         "typescript",
         "utilities",
@@ -16,7 +16,10 @@
     "license": "MIT",
     "bugs": "https://github.com/razzp/spank-my-dom/issues",
     "homepage": "https://github.com/razzp/spank-my-dom#readme",
-    "repository": "github:razzp/spank-my-dom",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/razzp/spank-my-dom.git"
+    },
     "exports": {
         ".": {
             "types": "./dist/index.d.mts",
