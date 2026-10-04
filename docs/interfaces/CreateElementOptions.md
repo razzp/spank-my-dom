@@ -6,7 +6,7 @@
 
 # Interface: CreateElementOptions\<T\>
 
-Defined in: [src/manipulation/createElement.ts:6](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/manipulation/createElement.ts#L6)
+Defined in: [src/manipulation/createElement.ts:6](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/manipulation/createElement.ts#L6)
 
 An optional configuration object for `createElement`.
 
@@ -26,7 +26,7 @@ An optional configuration object for `createElement`.
 
 > `optional` **append?**: `Node`[]
 
-Defined in: [src/manipulation/createElement.ts:33](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/manipulation/createElement.ts#L33)
+Defined in: [src/manipulation/createElement.ts:33](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/manipulation/createElement.ts#L33)
 
 Nodes to append to the element.
 
@@ -36,7 +36,7 @@ Nodes to append to the element.
 
 > `optional` **attributes?**: \{ \[A in string \| number \| symbol\]?: HTMLElementTagNameMap\[T\]\[A\] \}
 
-Defined in: [src/manipulation/createElement.ts:15](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/manipulation/createElement.ts#L15)
+Defined in: [src/manipulation/createElement.ts:15](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/manipulation/createElement.ts#L15)
 
 Attributes to add to the element.
 
@@ -46,7 +46,7 @@ Attributes to add to the element.
 
 > `optional` **classes?**: `string`[]
 
-Defined in: [src/manipulation/createElement.ts:21](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/manipulation/createElement.ts#L21)
+Defined in: [src/manipulation/createElement.ts:21](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/manipulation/createElement.ts#L21)
 
 Classes to add to the element.
 
@@ -56,7 +56,7 @@ Classes to add to the element.
 
 > `optional` **content?**: `string`
 
-Defined in: [src/manipulation/createElement.ts:11](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/manipulation/createElement.ts#L11)
+Defined in: [src/manipulation/createElement.ts:11](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/manipulation/createElement.ts#L11)
 
 Sets the `innerHTML` of the element.
 
@@ -78,7 +78,7 @@ Defined in: node\_modules/typescript/lib/lib.dom.d.ts:694
 
 > `optional` **data?**: `object`
 
-Defined in: [src/manipulation/createElement.ts:29](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/manipulation/createElement.ts#L29)
+Defined in: [src/manipulation/createElement.ts:29](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/manipulation/createElement.ts#L29)
 
 Data to add to the element.
 
@@ -104,7 +104,7 @@ Defined in: node\_modules/typescript/lib/lib.dom.d.ts:695
 
 > `optional` **prepend?**: `Node`[]
 
-Defined in: [src/manipulation/createElement.ts:37](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/manipulation/createElement.ts#L37)
+Defined in: [src/manipulation/createElement.ts:37](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/manipulation/createElement.ts#L37)
 
 Nodes to prepend to the element.
 
@@ -114,7 +114,7 @@ Nodes to prepend to the element.
 
 > `optional` **styles?**: `object`
 
-Defined in: [src/manipulation/createElement.ts:25](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/manipulation/createElement.ts#L25)
+Defined in: [src/manipulation/createElement.ts:25](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/manipulation/createElement.ts#L25)
 
 Styles to add to the element.
 

@@ -8,7 +8,7 @@
 
 > **formDataPick**\<`T`\>(`formData`, ...`keys`): `{ [key in string]: FormDataEntryValue }`
 
-Defined in: [src/forms/formDataPick.ts:9](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/forms/formDataPick.ts#L9)
+Defined in: [src/forms/formDataPick.ts:9](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/forms/formDataPick.ts#L9)
 
 Filter a `FormData` object by all keys that *are* specified.
 

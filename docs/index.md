@@ -20,6 +20,10 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 - [OnPixelRatioChangedOptions](interfaces/OnPixelRatioChangedOptions.md)
 - [TimedResult](interfaces/TimedResult.md)
 
+## Type Aliases
+
+- [PointerEventType](type-aliases/PointerEventType.md)
+
 ## Functions
 
 - [createElement](functions/createElement.md)
@@ -31,11 +35,13 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 - [formDataOmit](functions/formDataOmit.md)
 - [formDataPick](functions/formDataPick.md)
 - [formDataToSearchParams](functions/formDataToSearchParams.md)
+- [forPointerEventType](functions/forPointerEventType.md)
 - [getClosest](functions/getClosest.md)
 - [getData](functions/getData.md)
 - [getDataOrThrow](functions/getDataOrThrow.md)
 - [getFormData](functions/getFormData.md)
 - [getPartialClasses](functions/getPartialClasses.md)
+- [getScrollbarWidth](functions/getScrollbarWidth.md)
 - [getSiblings](functions/getSiblings.md)
 - [hideElement](functions/hideElement.md)
 - [loadImage](functions/loadImage.md)
@@ -45,7 +51,8 @@ A tiny, modular set of DOM utilities, written in TypeScript.
 - [onPixelRatioChanged](functions/onPixelRatioChanged.md)
 - [parseBoolean](functions/parseBoolean.md)
 - [parseJson](functions/parseJson.md)
-- [setGlobalCSSVariable](functions/setGlobalCSSVariable.md)
+- [removeStyles](functions/removeStyles.md)
+- [setStyles](functions/setStyles.md)
 - [showElement](functions/showElement.md)
 - [timed](functions/timed.md)
 - [waitAtLeast](functions/waitAtLeast.md)

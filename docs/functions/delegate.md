@@ -8,7 +8,7 @@
 
 > **delegate**\<`T`\>(`selectors`, `callback`): (`event`) => `void`
 
-Defined in: [src/events/delegate.ts:53](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/events/delegate.ts#L53)
+Defined in: [src/events/delegate.ts:53](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/events/delegate.ts#L53)
 
 Create a delegate listener that fires on elements that match the
 provided selectors, as the event bubbles up through the DOM.

@@ -6,7 +6,7 @@
 
 # Interface: TimedResult\<T\>
 
-Defined in: [src/utils/timed.ts:6](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/utils/timed.ts#L6)
+Defined in: [src/utils/timed.ts:6](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/utils/timed.ts#L6)
 
 The result returned from `timed`.
 
@@ -22,7 +22,7 @@ The result returned from `timed`.
 
 > **time**: `number`
 
-Defined in: [src/utils/timed.ts:14](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/utils/timed.ts#L14)
+Defined in: [src/utils/timed.ts:14](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/utils/timed.ts#L14)
 
 The time the function took to run in milliseconds.
 
@@ -32,6 +32,6 @@ The time the function took to run in milliseconds.
 
 > **value**: `T`
 
-Defined in: [src/utils/timed.ts:10](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/utils/timed.ts#L10)
+Defined in: [src/utils/timed.ts:10](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/utils/timed.ts#L10)
 
 The original value returned from the function.

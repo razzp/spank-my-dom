@@ -8,7 +8,7 @@
 
 > **onElementResized**\<`T`\>(`element`, `callback`, `options?`): `void`
 
-Defined in: [src/events/onElementResized.ts:50](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/events/onElementResized.ts#L50)
+Defined in: [src/events/onElementResized.ts:50](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/events/onElementResized.ts#L50)
 
 Create an observer that will fire a callback whenever an element is resized.
 

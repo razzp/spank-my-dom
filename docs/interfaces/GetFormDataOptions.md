@@ -6,7 +6,7 @@
 
 # Interface: GetFormDataOptions
 
-Defined in: [src/forms/getFormData.ts:6](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/forms/getFormData.ts#L6)
+Defined in: [src/forms/getFormData.ts:6](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/forms/getFormData.ts#L6)
 
 An optional configuration object for `getFormData`.
 
@@ -16,7 +16,7 @@ An optional configuration object for `getFormData`.
 
 > `optional` **additionalEntries?**: `object`
 
-Defined in: [src/forms/getFormData.ts:11](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/forms/getFormData.ts#L11)
+Defined in: [src/forms/getFormData.ts:11](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/forms/getFormData.ts#L11)
 
 Additional entries to add to the `FormData` object. All values
 except for `File` objects will be converted to strings.
@@ -31,7 +31,7 @@ except for `File` objects will be converted to strings.
 
 > `optional` **filterFields?**: `string`[]
 
-Defined in: [src/forms/getFormData.ts:16](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/forms/getFormData.ts#L16)
+Defined in: [src/forms/getFormData.ts:16](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/forms/getFormData.ts#L16)
 
 Cherry-pick the form fields you want. Useful in very large forms where
 only a few fields are required. Does **not** affect `additionalEntries`.
