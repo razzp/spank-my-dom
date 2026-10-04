@@ -8,7 +8,7 @@
 
 > **onElementIntersected**\<`T`\>(`threshold`, `element`, `callback`, `options?`): `void`
 
-Defined in: [src/events/onElementIntersected.ts:54](https://github.com/razzp/spank-my-dom/blob/70f7b9d720dafd3d6a0da2507923a99a765de5df/src/events/onElementIntersected.ts#L54)
+Defined in: [src/events/onElementIntersected.ts:68](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/events/onElementIntersected.ts#L68)
 
 Create an observer that will fire a callback whenever
 an element intersects a root element.
@@ -35,7 +35,7 @@ The element to observe.
 
 ### callback
 
-(`entry`, `element`) => `void`
+(`data`) => `void`
 
 The function to call when the element intersects.
 
@@ -57,7 +57,7 @@ Uses the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/We
 
 Wait for an element to intersect the root (default) completely.
 ```ts
-onElementIntersected('completely', element, (entry) => {
+onElementIntersected('completely', element, ({entry}) => {
     if (entry.isIntersecting) {
         console.log('Element has completely entered the viewport');
     } else {
@@ -68,7 +68,7 @@ onElementIntersected('completely', element, (entry) => {
 
 Wait for an element to intersect the root (default) partially.
 ```ts
-onElementIntersected('partially', element, (entry) => {
+onElementIntersected('partially', element, ({entry}) => {
     if (entry.isIntersecting) {
         console.log('Element has partially entered the viewport');
     } else {

@@ -8,7 +8,7 @@
 
 > **emptyElement**\<`T`\>(`element`): `void`
 
-Defined in: [src/manipulation/emptyElement.ts:13](https://github.com/razzp/spank-my-dom/blob/70f7b9d720dafd3d6a0da2507923a99a765de5df/src/manipulation/emptyElement.ts#L13)
+Defined in: [src/manipulation/emptyElement.ts:13](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/manipulation/emptyElement.ts#L13)
 
 Empty an element.
 

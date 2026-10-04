@@ -8,7 +8,7 @@
 
 > **onElementResized**\<`T`\>(`element`, `callback`, `options?`): `void`
 
-Defined in: [src/events/onElementResized.ts:36](https://github.com/razzp/spank-my-dom/blob/70f7b9d720dafd3d6a0da2507923a99a765de5df/src/events/onElementResized.ts#L36)
+Defined in: [src/events/onElementResized.ts:50](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/events/onElementResized.ts#L50)
 
 Create an observer that will fire a callback whenever an element is resized.
 
@@ -28,7 +28,7 @@ The element to observe.
 
 ### callback
 
-(`entry`, `element`) => `void`
+(`data`) => `void`
 
 The function to call when the element is resized.
 
@@ -50,7 +50,7 @@ Uses the [Resize Observer API](https://developer.mozilla.org/en-US/docs/Web/API/
 
 Wait for an element to be resized.
 ```ts
-onElementResized(element, (entry) => {
+onElementResized(element, ({entry}) => {
     // Element was resized.
     console.log(`Element is ${entry.borderBoxSize.blockSize}px in height.`);
 });

@@ -6,7 +6,7 @@
 
 # Interface: OnElementAddedOptions
 
-Defined in: [src/events/onElementAdded.ts:6](https://github.com/razzp/spank-my-dom/blob/70f7b9d720dafd3d6a0da2507923a99a765de5df/src/events/onElementAdded.ts#L6)
+Defined in: [src/events/onElementAdded.ts:6](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/events/onElementAdded.ts#L6)
 
 An optional configuration object for `onElementAdded`.
 
@@ -16,7 +16,7 @@ An optional configuration object for `onElementAdded`.
 
 > `optional` **context?**: `Element` \| `Document` \| `DocumentFragment`
 
-Defined in: [src/events/onElementAdded.ts:10](https://github.com/razzp/spank-my-dom/blob/70f7b9d720dafd3d6a0da2507923a99a765de5df/src/events/onElementAdded.ts#L10)
+Defined in: [src/events/onElementAdded.ts:10](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/events/onElementAdded.ts#L10)
 
 The context from which to observe from (defaults to `document`)
 
@@ -26,7 +26,7 @@ The context from which to observe from (defaults to `document`)
 
 > `optional` **selectors?**: `string`
 
-Defined in: [src/events/onElementAdded.ts:14](https://github.com/razzp/spank-my-dom/blob/70f7b9d720dafd3d6a0da2507923a99a765de5df/src/events/onElementAdded.ts#L14)
+Defined in: [src/events/onElementAdded.ts:14](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/events/onElementAdded.ts#L14)
 
 One or more selectors to match on the observed elements.
 
@@ -36,6 +36,6 @@ One or more selectors to match on the observed elements.
 
 > `optional` **signal?**: `AbortSignal`
 
-Defined in: [src/events/onElementAdded.ts:18](https://github.com/razzp/spank-my-dom/blob/70f7b9d720dafd3d6a0da2507923a99a765de5df/src/events/onElementAdded.ts#L18)
+Defined in: [src/events/onElementAdded.ts:18](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/events/onElementAdded.ts#L18)
 
 An `AbortSignal` that can be used to cancel the observer.

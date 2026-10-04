@@ -8,7 +8,7 @@
 
 > **findOrThrow**\<`T`\>(`selectors`, `context?`): `T`
 
-Defined in: [src/retrieval/findOrThrow.ts:39](https://github.com/razzp/spank-my-dom/blob/70f7b9d720dafd3d6a0da2507923a99a765de5df/src/retrieval/findOrThrow.ts#L39)
+Defined in: [src/retrieval/findOrThrow.ts:39](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/retrieval/findOrThrow.ts#L39)
 
 Returns the first element within context that matches the
 given selectors, or throws if nothing is found.

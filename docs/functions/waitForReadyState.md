@@ -8,7 +8,7 @@
 
 > **waitForReadyState**(`state`): `Promise`\<`void`\>
 
-Defined in: [src/utils/waitForReadyState.ts:34](https://github.com/razzp/spank-my-dom/blob/70f7b9d720dafd3d6a0da2507923a99a765de5df/src/utils/waitForReadyState.ts#L34)
+Defined in: [src/utils/waitForReadyState.ts:34](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/utils/waitForReadyState.ts#L34)
 
 Create a `Promise` that will resolve once the document reaches the
 specified `readyState`, or immediately if it already has.

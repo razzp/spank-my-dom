@@ -6,7 +6,7 @@
 
 # Interface: OnElementIntersectedOptions
 
-Defined in: [src/events/onElementIntersected.ts:6](https://github.com/razzp/spank-my-dom/blob/70f7b9d720dafd3d6a0da2507923a99a765de5df/src/events/onElementIntersected.ts#L6)
+Defined in: [src/events/onElementIntersected.ts:6](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/events/onElementIntersected.ts#L6)
 
 An optional configuration object for `onElementIntersected`.
 
@@ -56,6 +56,6 @@ Defined in: node\_modules/typescript/lib/lib.dom.d.ts:1343
 
 > `optional` **signal?**: `AbortSignal`
 
-Defined in: [src/events/onElementIntersected.ts:11](https://github.com/razzp/spank-my-dom/blob/70f7b9d720dafd3d6a0da2507923a99a765de5df/src/events/onElementIntersected.ts#L11)
+Defined in: [src/events/onElementIntersected.ts:11](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/events/onElementIntersected.ts#L11)
 
 An `AbortSignal` that can be used to cancel the observer.

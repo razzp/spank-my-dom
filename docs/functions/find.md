@@ -8,7 +8,7 @@
 
 > **find**\<`T`\>(`selectors`, `context?`): `T` \| `null`
 
-Defined in: [src/retrieval/find.ts:35](https://github.com/razzp/spank-my-dom/blob/70f7b9d720dafd3d6a0da2507923a99a765de5df/src/retrieval/find.ts#L35)
+Defined in: [src/retrieval/find.ts:35](https://github.com/razzp/spank-my-dom/blob/a559af9c65875b3c630d2c18b9cb8847000d6d7c/src/retrieval/find.ts#L35)
 
 Returns the first element within context that matches the given selectors.
 
