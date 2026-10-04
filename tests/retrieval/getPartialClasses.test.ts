@@ -36,7 +36,7 @@ test('Successfully matches class names ending with value', () => {
     expect(results).toEqual(['barfoo']);
 });
 
-test('todo', () => {
+test('Successfully returns empty array when there are no matches', () => {
     const element = document.createElement('div');
 
     element.classList = 'foo';

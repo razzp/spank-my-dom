@@ -14,7 +14,7 @@ beforeAll(() => {
     `;
 });
 
-test('todo', () => {
+test('Successfully returns all siblings', () => {
     const target = document.querySelector('.target');
 
     assertIsNotNull(target);
@@ -31,7 +31,7 @@ test('todo', () => {
     ]);
 });
 
-test('todo', () => {
+test('Successfully returns all siblings before the target', () => {
     const target = document.querySelector('.target');
 
     assertIsNotNull(target);
@@ -42,7 +42,7 @@ test('todo', () => {
     expect(result.map((x) => x.className)).toEqual(['sibling-1', 'sibling-2']);
 });
 
-test('todo', () => {
+test('Successfully returns all siblings after the target', () => {
     const target = document.querySelector('.target');
 
     assertIsNotNull(target);
@@ -53,7 +53,7 @@ test('todo', () => {
     expect(result.map((x) => x.className)).toEqual(['sibling-3', 'sibling-4']);
 });
 
-test('todo', () => {
+test('Successfully filters the matched siblings', () => {
     const target = document.querySelector('.target');
 
     assertIsNotNull(target);
