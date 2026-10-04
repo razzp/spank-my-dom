@@ -13,6 +13,10 @@ export { parseJson } from './conversion/parseJson';
 
 export { type DelegateEvent, delegate } from './events/delegate';
 export {
+    forPointerEventType,
+    type PointerEventType,
+} from './events/forPointerEventType';
+export {
     type OnElementAddedOptions,
     onElementAdded,
 } from './events/onElementAdded';
@@ -53,7 +57,9 @@ export {
 } from './manipulation/createElement';
 export { emptyElement } from './manipulation/emptyElement';
 export { hideElement } from './manipulation/hideElement';
+export { removeStyles } from './manipulation/removeStyles';
 export { setGlobalCSSVariable } from './manipulation/setGlobalCSSVariable';
+export { setStyles } from './manipulation/setStyles';
 export { showElement } from './manipulation/showElement';
 
 // Retrieval
@@ -72,6 +78,7 @@ export { getSiblings } from './traversal/getSiblings';
 
 // Utils
 
+export { getScrollbarWidth } from './utils/getScrollbarWidth';
 export { type TimedResult, timed } from './utils/timed';
 export { waitAtLeast } from './utils/waitAtLeast';
 export { waitForReadyState } from './utils/waitForReadyState';
