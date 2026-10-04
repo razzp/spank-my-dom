@@ -1,7 +1,6 @@
-/**
- * @jest-environment jsdom
- */
+// @vitest-environment jsdom
 
+import { afterAll, beforeAll, beforeEach, expect, test, vi } from 'vitest';
 import { onElementAdded } from '../../src/events/onElementAdded';
 
 interface MockMutationRecord {
@@ -15,9 +14,9 @@ class MockMutationObserver implements MutationObserver {
         MockMutationObserver.instances.add(this);
     }
 
-    public observe = jest.fn();
-    public disconnect = jest.fn();
-    public takeRecords = jest.fn().mockReturnValue([]);
+    public observe = vi.fn();
+    public disconnect = vi.fn();
+    public takeRecords = vi.fn().mockReturnValue([]);
 
     public trigger(mutations: MockMutationRecord[]): void {
         // biome-ignore lint/suspicious/noExplicitAny: Partial implementation for mock.
@@ -25,10 +24,8 @@ class MockMutationObserver implements MutationObserver {
     }
 }
 
-const initialValue = global.MutationObserver;
-
 beforeAll(() => {
-    global.MutationObserver = MockMutationObserver;
+    vi.stubGlobal('MutationObserver', MockMutationObserver);
 });
 
 beforeEach(() => {
@@ -36,11 +33,11 @@ beforeEach(() => {
 });
 
 afterAll(() => {
-    global.MutationObserver = initialValue;
+    vi.unstubAllGlobals();
 });
 
 test('Successfully triggered when new element with matching tag is observed', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     const newElement = document.createElement('div');
 
     expect(MockMutationObserver.instances.size).toBe(0);
@@ -63,7 +60,7 @@ test('Successfully triggered when new element with matching tag is observed', ()
 });
 
 test('Successfully matches selectors, and ignores incorrect tags', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     const correctElement = document.createElement('div');
     const incorrectElement = document.createElement('button');
 
@@ -109,7 +106,7 @@ test('Successfully matches selectors, and ignores incorrect tags', () => {
 });
 
 test('Successfully disconnects if provided signal is aborted', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     const controller = new AbortController();
 
     expect(MockMutationObserver.instances.size).toBe(0);
@@ -129,7 +126,7 @@ test('Successfully disconnects if provided signal is aborted', () => {
 });
 
 test('Short circuits if signal is provided that has already been aborted', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     const controller = new AbortController();
 
     controller.abort();

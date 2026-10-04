@@ -50,11 +50,11 @@ interface DelegateEvent<T> {
  *
  * @public
  */
-function delegate<T extends EventTarget, U extends Event | CustomEvent>(
+function delegate<T extends Event | CustomEvent>(
     selectors: string,
-    callback: (this: T, delegateEvent: DelegateEvent<U>) => unknown,
+    callback: (delegateEvent: DelegateEvent<T>) => unknown,
 ) {
-    return function (this: T, event: U) {
+    return (event: T): void => {
         let current = event.target;
         let stopped = false;
 
@@ -64,7 +64,7 @@ function delegate<T extends EventTarget, U extends Event | CustomEvent>(
             current !== event.currentTarget
         ) {
             if (current.matches(selectors)) {
-                callback.call(this, {
+                callback({
                     delegateTarget: current,
                     event,
                     stopDelegation: () => {

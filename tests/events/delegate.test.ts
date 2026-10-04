@@ -1,9 +1,8 @@
-/**
- * @jest-environment jsdom
- */
+// @vitest-environment jsdom
 
 import { assertIsNotNull } from 'bossy-boots';
-import { type DelegateEvent, delegate } from '../../src/events/delegate';
+import { beforeAll, expect, test, vi } from 'vitest';
+import { delegate } from '../../src/events/delegate';
 
 beforeAll(() => {
     document.body.innerHTML = `
@@ -16,7 +15,7 @@ beforeAll(() => {
 });
 
 test('Callback is successfully fired on matched target', () => {
-    const callback = jest.fn<unknown, DelegateEvent<Event>[]>();
+    const callback = vi.fn();
     const parent = document.querySelector('.parent');
     const grandchild = document.querySelector('.grandchild');
 
@@ -36,7 +35,7 @@ test('Callback is successfully fired on matched target', () => {
 });
 
 test('Callback is repeatedly called as event bubbles and targets match', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     const grandchild = document.querySelector('.grandchild');
 
     assertIsNotNull(grandchild);
@@ -49,7 +48,7 @@ test('Callback is repeatedly called as event bubbles and targets match', () => {
 });
 
 test('Callback is ignored on subsequent matches after delegation is forced to stop', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
     const grandchild = document.querySelector('.grandchild');
 
     assertIsNotNull(grandchild);

@@ -1,9 +1,3 @@
-/**
- * A tiny, modular set of DOM utilities, written in TypeScript.
- *
- * @packageDocumentation
- */
-
 // Conversion
 
 export { parseBoolean } from './conversion/parseBoolean';
@@ -12,6 +6,10 @@ export { parseJson } from './conversion/parseJson';
 // Events
 
 export { type DelegateEvent, delegate } from './events/delegate';
+export {
+    forPointerEventType,
+    type PointerEventType,
+} from './events/forPointerEventType';
 export {
     type OnElementAddedOptions,
     onElementAdded,
@@ -53,7 +51,8 @@ export {
 } from './manipulation/createElement';
 export { emptyElement } from './manipulation/emptyElement';
 export { hideElement } from './manipulation/hideElement';
-export { setGlobalCSSVariable } from './manipulation/setGlobalCSSVariable';
+export { removeStyles } from './manipulation/removeStyles';
+export { setStyles } from './manipulation/setStyles';
 export { showElement } from './manipulation/showElement';
 
 // Retrieval
@@ -72,6 +71,7 @@ export { getSiblings } from './traversal/getSiblings';
 
 // Utils
 
+export { getScrollbarWidth } from './utils/getScrollbarWidth';
 export { type TimedResult, timed } from './utils/timed';
 export { waitAtLeast } from './utils/waitAtLeast';
 export { waitForReadyState } from './utils/waitForReadyState';

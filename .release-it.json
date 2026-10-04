@@ -1,9 +1,0 @@
-{
-    "$schema": "https://unpkg.com/release-it/schema/release-it.json",
-    "hooks": {
-        "before:init": ["npm run biome", "npm run test"]
-    },
-    "github": {
-        "release": true
-    }
-}

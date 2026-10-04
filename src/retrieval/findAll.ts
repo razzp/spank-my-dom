@@ -2,11 +2,6 @@
  * Fins all descendant elements within a given context,
  * that also match the given selectors.
  *
- * @remarks
- * Unlike using `querySelectorAll()`, the default inferred element type is
- * `HTMLElement`, rather than `Element`. More often than not this is the
- * preferred behaviour, so it saves having to explicitly type it.
- *
  * For runtime safety, consider using an assertion library such as
  * {@link https://github.com/razzp/bossy-boots | Bossy Boots}.
  *
@@ -33,11 +28,27 @@
  *
  * @public
  */
-function findAll<T extends Element = HTMLElement>(
+function findAll<K extends keyof HTMLElementTagNameMap>(
+    selectors: K,
+    context?: Document | DocumentFragment | Element,
+): HTMLElementTagNameMap[K][];
+function findAll<K extends keyof MathMLElementTagNameMap>(
+    selectors: K,
+    context?: Document | DocumentFragment | Element,
+): MathMLElementTagNameMap[K][];
+function findAll<K extends keyof SVGElementTagNameMap>(
+    selectors: K,
+    context?: Document | DocumentFragment | Element,
+): SVGElementTagNameMap[K][];
+function findAll<T extends Element>(
+    selectors: string,
+    context?: Document | DocumentFragment | Element,
+): T[];
+function findAll(
     selectors: string,
     context: Document | DocumentFragment | Element = document,
-): T[] {
-    return [...context.querySelectorAll<T>(selectors)];
+): Element[] {
+    return [...context.querySelectorAll(selectors)];
 }
 
 export { findAll };

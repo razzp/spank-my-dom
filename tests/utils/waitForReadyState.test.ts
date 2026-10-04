@@ -1,7 +1,6 @@
-/**
- * @jest-environment jsdom
- */
+// @vitest-environment jsdom
 
+import { beforeEach, describe, expect, test, vi } from 'vitest';
 import { waitForReadyState } from '../../src/utils/waitForReadyState';
 
 function setReadyState(state: DocumentReadyState): void {
@@ -35,7 +34,7 @@ describe('Wait for state "loading"', () => {
 
 describe('Wait for state "interactive"', () => {
     test('State is reached or exceeded, so resolve immediately', async () => {
-        const callback = jest.fn();
+        const callback = vi.fn();
 
         expect.assertions(2);
 
@@ -54,7 +53,7 @@ describe('Wait for state "interactive"', () => {
     });
 
     test('State is not reached, so attach a listener and wait', async () => {
-        const callback = jest.fn();
+        const callback = vi.fn();
 
         expect.assertions(3);
 
@@ -75,7 +74,7 @@ describe('Wait for state "interactive"', () => {
 
 describe('Wait for state "complete"', () => {
     test('State is reached or exceeded, so resolve immediately', async () => {
-        const callback = jest.fn();
+        const callback = vi.fn();
 
         expect.assertions(2);
 
@@ -95,7 +94,7 @@ describe('Wait for state "complete"', () => {
     });
 
     test('State is not reached, so attach a listener and wait', async () => {
-        const callback = jest.fn();
+        const callback = vi.fn();
 
         expect.assertions(3);
 

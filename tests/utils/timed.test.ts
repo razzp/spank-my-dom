@@ -1,6 +1,7 @@
+import { expect, test, vi } from 'vitest';
 import { timed } from '../../src/utils/timed';
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
 test('Successfully returns value and time from asynchronous function', async () => {
     const returnValue = Symbol();
@@ -9,7 +10,7 @@ test('Successfully returns value and time from asynchronous function', async () 
 
     try {
         const result = await timed(async () => {
-            jest.advanceTimersByTime(1000);
+            vi.advanceTimersByTime(1000);
             return returnValue;
         });
 
@@ -27,7 +28,7 @@ test('Successfully returns value and time from synchronous function', async () =
 
     try {
         const result = await timed(() => {
-            jest.advanceTimersByTime(1000);
+            vi.advanceTimersByTime(1000);
             return returnValue;
         });
 
@@ -43,7 +44,7 @@ test('Successfully returns elapsed time during function', async () => {
 
     try {
         await timed(async (getTime) => {
-            jest.advanceTimersByTime(500);
+            vi.advanceTimersByTime(500);
             expect(getTime()).toBe(500);
         });
     } catch {}

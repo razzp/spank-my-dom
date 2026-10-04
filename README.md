@@ -28,7 +28,7 @@ const { ... } = require('spank-my-dom');
 
 ## API
 
-For full API documentation, see the [docs](./docs/spank-my-dom.md).
+For full API documentation, see the [docs](./docs/index.md).
 
 ## License
 

@@ -1,8 +1,7 @@
-/**
- * @jest-environment jsdom
- */
+// @vitest-environment jsdom
 
 import { assertIsNotNull } from 'bossy-boots';
+import { beforeAll, describe, expect, test } from 'vitest';
 import { getClosest } from '../../src/traversal/getClosest';
 
 beforeAll(() => {

@@ -1,5 +1,30 @@
 # Changelog
 
+## 3.0.0 (2026-10-04)
+
+### Added
+
+- Added `setStyles()` method.
+- Added `removeStyles()` method.
+- Added `forPointerEventType()` method.
+- Added `getScrollbarWidth()` method.
+
+### Changed
+
+- **[BREAKING]** `delegate()` callback no longer scopes `this`.
+- **[BREAKING]** `onElementIntersected()` callback now returns full entry.
+- **[BREAKING]** `onElementResized()` callback now returns full entry.
+- **[BREAKING]** `find()` return type now defaults to `Element` as per spec.
+- **[BREAKING]** `findOrThrow()` return type now defaults to `Element` as per spec.
+- **[BREAKING]** `findAll()` return type now defaults to `Element` as per spec.
+- Replaced Rollup with tsdown.
+- Replaced Jest with vitest.
+- Docs are now generated using TSDoc.
+
+### Removed
+
+- **[BREAKING]** Removed `setGlobalCSSVariable()` method.
+
 ## 2.4.0 (2025-11-27)
 
 ### Added

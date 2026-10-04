@@ -21,13 +21,9 @@ interface OnElementResizedInfo<T extends Element> {
      */
     element: T;
     /**
-     * The border box size. See {@link https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model#what_is_the_css_box_model | What is the CSS box model} for more information.
+     * The observer entry. See {@link https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserverEntry | MDN} for more information.
      */
-    borderBoxSize: ResizeObserverSize;
-    /**
-     * The content box size. See {@link https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model#what_is_the_css_box_model | What is the CSS box model} for more information.
-     */
-    contentBoxSize: ResizeObserverSize;
+    entry: ResizeObserverEntry;
 }
 
 /**
@@ -36,11 +32,6 @@ interface OnElementResizedInfo<T extends Element> {
  * @remarks
  * Uses the {@link https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API | Resize Observer API} internally.
  *
- * Note that, natively, both `borderBoxSize` and `contentBoxSize` return arrays.
- * This is due to rare cases where an observed element has multiple fragments,
- * such as in a multi-column scenario. Since this is so rare, and for the sake
- * of convenience, the first (and usually only) size object is returned.
- *
  * @param element - The element to observe.
  * @param callback - The function to call when the element is resized.
  * @param options - An optional configuration object.
@@ -48,9 +39,9 @@ interface OnElementResizedInfo<T extends Element> {
  * @example
  * Wait for an element to be resized.
  * ```ts
- * onElementResized(element, (info) => {
+ * onElementResized(element, ({entry}) => {
  *     // Element was resized.
- *     console.log(`Element is ${info.borderBoxSize.blockSize}px in height.`);
+ *     console.log(`Element is ${entry.borderBoxSize.blockSize}px in height.`);
  * });
  * ```
  *
@@ -58,20 +49,18 @@ interface OnElementResizedInfo<T extends Element> {
  */
 function onElementResized<T extends Element>(
     element: T,
-    callback: (info: OnElementResizedInfo<T>) => void,
+    callback: (data: OnElementResizedInfo<T>) => void,
     options?: OnElementResizedOptions,
 ): void {
     const { signal } = { ...options };
 
     if (signal?.aborted) return;
 
-    const observer = new ResizeObserver(([entry]) =>
-        callback({
-            element,
-            borderBoxSize: entry.borderBoxSize[0],
-            contentBoxSize: entry.contentBoxSize[0],
-        }),
-    );
+    const observer = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+            callback({ element, entry });
+        }
+    });
 
     observer.observe(element);
     signal?.addEventListener('abort', observer.disconnect);
@@ -79,6 +68,6 @@ function onElementResized<T extends Element>(
 
 export {
     onElementResized,
-    type OnElementResizedInfo,
     type OnElementResizedOptions,
+    type OnElementResizedInfo,
 };

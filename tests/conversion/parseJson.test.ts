@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest';
 import { parseJson } from '../../src/conversion/parseJson';
 
 test('Successfully parses JSON string', () => {

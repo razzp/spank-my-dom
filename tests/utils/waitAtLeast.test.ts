@@ -1,21 +1,22 @@
+import { expect, test, vi } from 'vitest';
 import { waitAtLeast } from '../../src/utils/waitAtLeast';
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
 test('Given a promise that resolves, waits minimum time before resolving', async () => {
     const returnValue = Symbol();
-    const callback = jest.fn();
+    const callback = vi.fn();
 
     expect.assertions(2);
 
     try {
         waitAtLeast(1000, Promise.resolve(returnValue)).then(callback);
 
-        await jest.advanceTimersByTimeAsync(999);
+        await vi.advanceTimersByTimeAsync(999);
 
         expect(callback).not.toHaveBeenCalled();
 
-        await jest.advanceTimersByTimeAsync(1);
+        await vi.advanceTimersByTimeAsync(1);
 
         expect(callback).toHaveBeenCalledWith(returnValue);
     } catch {}
@@ -23,14 +24,14 @@ test('Given a promise that resolves, waits minimum time before resolving', async
 
 test('Given a promise that rejects, is caught', async () => {
     const returnValue = Symbol();
-    const callback = jest.fn();
+    const callback = vi.fn();
 
     expect.assertions(1);
 
     try {
         waitAtLeast(1000, Promise.reject(returnValue)).catch(callback);
 
-        await jest.runAllTimersAsync();
+        await vi.runAllTimersAsync();
 
         expect(callback).toHaveBeenCalledWith(returnValue);
     } catch {}

@@ -2,11 +2,6 @@
  * Returns the first element within context that matches the
  * given selectors, or throws if nothing is found.
  *
- * @remarks
- * Unlike using `querySelector()`, the default inferred element type is
- * `HTMLElement`, rather than `Element`. More often than not this is the
- * preferred behaviour, so it saves having to explicitly type it.
- *
  * For runtime safety, consider using an assertion library such as
  * {@link https://github.com/razzp/bossy-boots | Bossy Boots}.
  *
@@ -36,11 +31,27 @@
  *
  * @public
  */
-function findOrThrow<T extends Element = HTMLElement>(
+function findOrThrow<K extends keyof HTMLElementTagNameMap>(
+    selectors: K,
+    context?: Document | DocumentFragment | Element,
+): HTMLElementTagNameMap[K];
+function findOrThrow<K extends keyof MathMLElementTagNameMap>(
+    selectors: K,
+    context?: Document | DocumentFragment | Element,
+): MathMLElementTagNameMap[K];
+function findOrThrow<K extends keyof SVGElementTagNameMap>(
+    selectors: K,
+    context?: Document | DocumentFragment | Element,
+): SVGElementTagNameMap[K];
+function findOrThrow<T extends Element>(
+    selectors: string,
+    context?: Document | DocumentFragment | Element,
+): T;
+function findOrThrow(
     selectors: string,
     context: Document | DocumentFragment | Element = document,
-): T {
-    const result = context.querySelector<T>(selectors);
+): Element {
+    const result = context.querySelector(selectors);
 
     if (!result) {
         throw new Error(`No matches found for selectors: ${selectors}`);
