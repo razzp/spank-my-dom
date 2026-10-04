@@ -43,7 +43,7 @@ function onPixelRatioChanged(
                     callback(window.devicePixelRatio);
                     register();
                 },
-                { once: true, signal },
+                { once: true, ...(signal !== undefined && { signal }) },
             );
     };
 
