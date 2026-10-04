@@ -6,7 +6,7 @@
 
 # Interface: OnElementResizedOptions
 
-Defined in: [src/events/onElementResized.ts:6](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/events/onElementResized.ts#L6)
+Defined in: [src/events/onElementResized.ts:6](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/events/onElementResized.ts#L6)
 
 An optional configuration object for `onElementResized`.
 
@@ -16,6 +16,6 @@ An optional configuration object for `onElementResized`.
 
 > `optional` **signal?**: `AbortSignal`
 
-Defined in: [src/events/onElementResized.ts:10](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/events/onElementResized.ts#L10)
+Defined in: [src/events/onElementResized.ts:10](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/events/onElementResized.ts#L10)
 
 An `AbortSignal` that can be used to cancel the observer.

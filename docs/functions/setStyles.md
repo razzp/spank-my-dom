@@ -8,7 +8,7 @@
 
 > **setStyles**(`element`, `props`): `void`
 
-Defined in: [src/manipulation/setStyles.ts:16](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/manipulation/setStyles.ts#L16)
+Defined in: [src/manipulation/setStyles.ts:16](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/manipulation/setStyles.ts#L16)
 
 Set styles on an element.
 

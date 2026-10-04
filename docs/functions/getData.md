@@ -8,7 +8,7 @@
 
 > **getData**\<`T`\>(`element`, `name`, `reviver?`): `T` \| `null`
 
-Defined in: [src/retrieval/getData.ts:39](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/retrieval/getData.ts#L39)
+Defined in: [src/retrieval/getData.ts:39](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/retrieval/getData.ts#L39)
 
 Get a data attribute's value from an element, optionally passing
 it through a reviver function to transform its value.

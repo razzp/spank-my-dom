@@ -6,7 +6,7 @@
 
 # Interface: OnElementIntersectedInfo\<T\>
 
-Defined in: [src/events/onElementIntersected.ts:19](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/events/onElementIntersected.ts#L19)
+Defined in: [src/events/onElementIntersected.ts:19](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/events/onElementIntersected.ts#L19)
 
 The object returned in the callback for `onElementIntersected`.
 
@@ -22,7 +22,7 @@ The object returned in the callback for `onElementIntersected`.
 
 > **element**: `T`
 
-Defined in: [src/events/onElementIntersected.ts:23](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/events/onElementIntersected.ts#L23)
+Defined in: [src/events/onElementIntersected.ts:23](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/events/onElementIntersected.ts#L23)
 
 The element being observed.
 
@@ -32,6 +32,6 @@ The element being observed.
 
 > **entry**: `IntersectionObserverEntry`
 
-Defined in: [src/events/onElementIntersected.ts:27](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/events/onElementIntersected.ts#L27)
+Defined in: [src/events/onElementIntersected.ts:27](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/events/onElementIntersected.ts#L27)
 
 The observer entry. See [MDN](https://developer.mozilla.org/docs/Web/API/IntersectionObserverEntry) for more information.

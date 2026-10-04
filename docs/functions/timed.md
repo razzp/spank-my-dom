@@ -8,7 +8,7 @@
 
 > **timed**\<`T`\>(`func`): `Promise`\<[`TimedResult`](../interfaces/TimedResult.md)\<`Awaited`\<`T`\>\>\>
 
-Defined in: [src/utils/timed.ts:53](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/utils/timed.ts#L53)
+Defined in: [src/utils/timed.ts:53](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/utils/timed.ts#L53)
 
 Wrap a function in a timer that will let you know how long it took to run.
 This works for both asynchronous and long-running synchronous operations.

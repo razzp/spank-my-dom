@@ -8,7 +8,7 @@
 
 > **forPointerEventType**\<`T`\>(`pointerType`, `callback`): (`event`) => `void`
 
-Defined in: [src/events/forPointerEventType.ts:22](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/events/forPointerEventType.ts#L22)
+Defined in: [src/events/forPointerEventType.ts:22](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/events/forPointerEventType.ts#L22)
 
 Create a listener that only fires if the event
 was caused by a specific pointer type.

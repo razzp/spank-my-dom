@@ -8,7 +8,7 @@
 
 > **getScrollbarWidth**(): `number`
 
-Defined in: [src/utils/getScrollbarWidth.ts:11](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/utils/getScrollbarWidth.ts#L11)
+Defined in: [src/utils/getScrollbarWidth.ts:11](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/utils/getScrollbarWidth.ts#L11)
 
 Compute the scrollbar width of the page.
 

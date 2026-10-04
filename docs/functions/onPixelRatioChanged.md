@@ -8,7 +8,7 @@
 
 > **onPixelRatioChanged**(`callback`, `options?`): `void`
 
-Defined in: [src/events/onPixelRatioChanged.ts:29](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/events/onPixelRatioChanged.ts#L29)
+Defined in: [src/events/onPixelRatioChanged.ts:29](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/events/onPixelRatioChanged.ts#L29)
 
 Create a listener that will fire a callback whenever the
 pixel ratio of the current window changes.

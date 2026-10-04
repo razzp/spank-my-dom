@@ -8,7 +8,7 @@
 
 > **getFormData**(`form`, `options?`): `FormData`
 
-Defined in: [src/forms/getFormData.ts:51](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/forms/getFormData.ts#L51)
+Defined in: [src/forms/getFormData.ts:51](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/forms/getFormData.ts#L51)
 
 Create a `FormData` object representing form fields and their values.
 

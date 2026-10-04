@@ -8,7 +8,7 @@
 
 > **findAll**\<`T`\>(`selectors`, `context?`): `T`[]
 
-Defined in: [src/retrieval/findAll.ts:36](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/retrieval/findAll.ts#L36)
+Defined in: [src/retrieval/findAll.ts:36](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/retrieval/findAll.ts#L36)
 
 Fins all descendant elements within a given context,
 that also match the given selectors.

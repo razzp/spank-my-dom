@@ -6,7 +6,7 @@
 
 # Interface: DelegateEvent\<T\>
 
-Defined in: [src/events/delegate.ts:6](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/events/delegate.ts#L6)
+Defined in: [src/events/delegate.ts:6](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/events/delegate.ts#L6)
 
 The event data returned in the callback.
 
@@ -22,7 +22,7 @@ The event data returned in the callback.
 
 > **delegateTarget**: `Element`
 
-Defined in: [src/events/delegate.ts:10](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/events/delegate.ts#L10)
+Defined in: [src/events/delegate.ts:10](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/events/delegate.ts#L10)
 
 The target that has been matched.
 
@@ -32,7 +32,7 @@ The target that has been matched.
 
 > **event**: `T`
 
-Defined in: [src/events/delegate.ts:18](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/events/delegate.ts#L18)
+Defined in: [src/events/delegate.ts:18](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/events/delegate.ts#L18)
 
 The original Event object.
 
@@ -47,7 +47,7 @@ See: [https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget](http
 
 > **stopDelegation**: () => `void`
 
-Defined in: [src/events/delegate.ts:22](https://github.com/razzp/spank-my-dom/blob/9765def7cda1c175f0b76ea00299cc19bfa7b639/src/events/delegate.ts#L22)
+Defined in: [src/events/delegate.ts:22](https://github.com/razzp/spank-my-dom/blob/37a1d5730f62492fe7c812cf59fb148ede0f6ed7/src/events/delegate.ts#L22)
 
 Stop any further matches as the event bubbles.
 

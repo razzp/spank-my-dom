@@ -4,8 +4,6 @@
 
 # spank-my-dom
 
-A tiny, modular set of DOM utilities, written in TypeScript.
-
 ## Interfaces
 
 - [CreateElementOptions](interfaces/CreateElementOptions.md)
