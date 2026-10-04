@@ -58,7 +58,6 @@ export {
 export { emptyElement } from './manipulation/emptyElement';
 export { hideElement } from './manipulation/hideElement';
 export { removeStyles } from './manipulation/removeStyles';
-export { setGlobalCSSVariable } from './manipulation/setGlobalCSSVariable';
 export { setStyles } from './manipulation/setStyles';
 export { showElement } from './manipulation/showElement';
 
