@@ -51,7 +51,9 @@ export {
 } from './manipulation/createElement';
 export { emptyElement } from './manipulation/emptyElement';
 export { hideElement } from './manipulation/hideElement';
+export { removeClasses } from './manipulation/removeClasses';
 export { removeStyles } from './manipulation/removeStyles';
+export { setClasses } from './manipulation/setClasses';
 export { setStyles } from './manipulation/setStyles';
 export { showElement } from './manipulation/showElement';
 
