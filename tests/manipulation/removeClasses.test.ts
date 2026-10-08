@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { expect, test } from 'vitest';
+import { expect, test, vi } from 'vitest';
 import { removeClasses } from '../../src/manipulation/removeClasses';
 
 test('Successfully removes class from string', () => {
@@ -45,4 +45,15 @@ test('Successfully removes multiple classes', () => {
     });
 
     expect(element.className).toBe('baz qux');
+});
+
+test('Condition function gets passed the correct token', () => {
+    const element = document.createElement('div');
+    const callback = vi.fn();
+
+    removeClasses(element, {
+        foo: callback,
+    });
+
+    expect(callback).toHaveBeenCalledWith('foo');
 });
