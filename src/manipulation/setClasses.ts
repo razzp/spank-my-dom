@@ -14,7 +14,7 @@
  * ```ts
  * setClasses(element, {
  *     'foo': true,
- *     'bar': (value) => value === 'bar',
+ *     'bar': (token) => token === 'bar',
  * });
  * ```
  *

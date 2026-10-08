@@ -14,7 +14,7 @@
  * ```ts
  * removeClasses(element, {
  *     'foo': true,
- *     'bar': (value) => value === 'bar',
+ *     'bar': (token) => token === 'bar',
  * });
  * ```
  *
