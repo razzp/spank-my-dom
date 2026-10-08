@@ -71,6 +71,10 @@ export { getSiblings } from './traversal/getSiblings';
 
 // Utils
 
+export {
+    type GetDevicePixelRatioOptions,
+    getDevicePixelRatio,
+} from './utils/getDevicePixelRatio';
 export { getScrollbarWidth } from './utils/getScrollbarWidth';
 export { type TimedResult, timed } from './utils/timed';
 export { waitAtLeast } from './utils/waitAtLeast';
