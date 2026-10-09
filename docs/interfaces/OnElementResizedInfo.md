@@ -6,8 +6,6 @@
 
 # Interface: OnElementResizedInfo\<T\>
 
-Defined in: [src/events/onElementResized.ts:18](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/events/onElementResized.ts#L18)
-
 The object returned in the callback for `onElementResized`.
 
 ## Type Parameters
@@ -22,8 +20,6 @@ The object returned in the callback for `onElementResized`.
 
 > **element**: `T`
 
-Defined in: [src/events/onElementResized.ts:22](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/events/onElementResized.ts#L22)
-
 The element being observed.
 
 ***
@@ -31,7 +27,5 @@ The element being observed.
 ### entry
 
 > **entry**: `ResizeObserverEntry`
-
-Defined in: [src/events/onElementResized.ts:26](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/events/onElementResized.ts#L26)
 
 The observer entry. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserverEntry) for more information.

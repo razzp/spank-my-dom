@@ -10,8 +10,6 @@
 
 > **findOrThrow**\<`K`\>(`selectors`, `context?`): `HTMLElementTagNameMap`\[`K`\]
 
-Defined in: [src/retrieval/findOrThrow.ts:34](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/retrieval/findOrThrow.ts#L34)
-
 Returns the first element within context that matches the
 given selectors, or throws if nothing is found.
 
@@ -66,8 +64,6 @@ const element = find<HTMLButtonElement>('.foo');
 ## Call Signature
 
 > **findOrThrow**\<`K`\>(`selectors`, `context?`): `MathMLElementTagNameMap`\[`K`\]
-
-Defined in: [src/retrieval/findOrThrow.ts:38](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/retrieval/findOrThrow.ts#L38)
 
 Returns the first element within context that matches the
 given selectors, or throws if nothing is found.
@@ -124,8 +120,6 @@ const element = find<HTMLButtonElement>('.foo');
 
 > **findOrThrow**\<`K`\>(`selectors`, `context?`): `SVGElementTagNameMap`\[`K`\]
 
-Defined in: [src/retrieval/findOrThrow.ts:42](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/retrieval/findOrThrow.ts#L42)
-
 Returns the first element within context that matches the
 given selectors, or throws if nothing is found.
 
@@ -180,8 +174,6 @@ const element = find<HTMLButtonElement>('.foo');
 ## Call Signature
 
 > **findOrThrow**\<`T`\>(`selectors`, `context?`): `T`
-
-Defined in: [src/retrieval/findOrThrow.ts:46](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/retrieval/findOrThrow.ts#L46)
 
 Returns the first element within context that matches the
 given selectors, or throws if nothing is found.

@@ -8,8 +8,6 @@
 
 > **setStyles**(`element`, `props`): `void`
 
-Defined in: [src/manipulation/setStyles.ts:16](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/manipulation/setStyles.ts#L16)
-
 Set styles on an element.
 
 ## Parameters
@@ -22,18 +20,31 @@ The element to set styles on.
 
 ### props
 
-`Record`\<`string`, `string`\>
-
-The styles to add.
+The style properties to add.
 
 ## Returns
 
 `void`
 
-## Example
+## Examples
 
 ```ts
 setStyles(document.documentElement, {
     '--foo': '10px',
+    '--bar': '20px',
+});
+```
+
+Set styles based on a condition.
+```ts
+setStyles(document.documentElement, {
+    '--foo': {
+        value: '10px',
+        condition: true,
+    },
+    '--bar': {
+        value: '20px',
+        condition: (prop, value) => true,
+    },
 });
 ```

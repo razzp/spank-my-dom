@@ -8,8 +8,6 @@
 
 > **getSiblings**\<`T`\>(`direction`, `element`, `selectors?`): `T`[]
 
-Defined in: [src/traversal/getSiblings.ts:34](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/traversal/getSiblings.ts#L34)
-
 Get the siblings of an element, optionally filtered by selectors.
 
 ## Type Parameters

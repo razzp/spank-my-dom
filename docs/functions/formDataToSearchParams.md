@@ -8,8 +8,6 @@
 
 > **formDataToSearchParams**(`formData`, `options?`): `URLSearchParams`
 
-Defined in: [src/forms/formDataToSearchParams.ts:42](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/forms/formDataToSearchParams.ts#L42)
-
 Takes a `FormData` object and converts it into a `URLSearchParams` object.
 
 ## Parameters

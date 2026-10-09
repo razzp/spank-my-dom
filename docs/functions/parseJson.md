@@ -8,8 +8,6 @@
 
 > **parseJson**\<`T`\>(`input`, `reviver?`): `T`
 
-Defined in: [src/conversion/parseJson.ts:27](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/conversion/parseJson.ts#L27)
-
 Convert a JSON string into an object.
 
 ## Type Parameters
