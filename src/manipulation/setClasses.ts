@@ -6,26 +6,30 @@
  *
  * @example
  * ```ts
- * setClasses(element, 'foo', 'bar');
+ * setClasses(element, ['foo', 'bar']);
  * ```
  *
  * @example
  * Add classes based on a condition.
  * ```ts
- * setClasses(element, {
- *     'foo': true,
- *     'bar': (token) => token === 'bar',
- * });
+ * setClasses(element, [
+ *     {
+ *         'foo': true,
+ *     },
+ *     {
+ *         'bar': (token) => true,
+ *     },
+ * ]);
  * ```
  *
  * @public
  */
 function setClasses(
     element: HTMLElement | SVGElement | MathMLElement,
-    ...classes: (
+    classes: (
         | string
         | { [token: string]: boolean | ((token: string) => boolean) }
-    )[]
+    )[],
 ): void {
     for (const item of classes) {
         if (typeof item === 'string') {

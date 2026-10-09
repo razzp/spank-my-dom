@@ -10,7 +10,7 @@ test('Successfully removes class from string', () => {
 
     expect(element.className).toBe('foo');
 
-    removeClasses(element, 'foo');
+    removeClasses(element, ['foo']);
 
     expect(element.className).toBe('');
 });
@@ -22,12 +22,14 @@ test('Successfully removes classes based on conditions', () => {
 
     expect(element.className).toBe('foo bar baz qux');
 
-    removeClasses(element, {
-        foo: true,
-        bar: () => true,
-        baz: false,
-        qux: () => false,
-    });
+    removeClasses(element, [
+        {
+            foo: true,
+            bar: () => true,
+            baz: false,
+            qux: () => false,
+        },
+    ]);
 
     expect(element.className).toBe('baz qux');
 });
@@ -39,10 +41,13 @@ test('Successfully removes multiple classes', () => {
 
     expect(element.className).toBe('foo bar baz qux');
 
-    removeClasses(element, 'foo', {
-        bar: true,
-        baz: () => false,
-    });
+    removeClasses(element, [
+        'foo',
+        {
+            bar: true,
+            baz: () => false,
+        },
+    ]);
 
     expect(element.className).toBe('baz qux');
 });
@@ -51,9 +56,11 @@ test('Condition function gets passed the correct token', () => {
     const element = document.createElement('div');
     const callback = vi.fn();
 
-    removeClasses(element, {
-        foo: callback,
-    });
+    removeClasses(element, [
+        {
+            foo: callback,
+        },
+    ]);
 
     expect(callback).toHaveBeenCalledWith('foo');
 });

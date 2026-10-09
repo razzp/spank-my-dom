@@ -6,26 +6,30 @@
  *
  * @example
  * ```ts
- * removeClasses(element, 'foo', 'bar');
+ * removeClasses(element, ['foo', 'bar']);
  * ```
  *
  * @example
  * Remove classes based on a condition.
  * ```ts
- * removeClasses(element, {
- *     'foo': true,
- *     'bar': (token) => token === 'bar',
- * });
+ * removeClasses(element, [
+ *     {
+ *         'foo': true,
+ *     },
+ *     {
+ *         'bar': (token) => true,
+ *     },
+ * ]);
  * ```
  *
  * @public
  */
 function removeClasses(
     element: HTMLElement | SVGElement | MathMLElement,
-    ...classes: (
+    classes: (
         | string
         | { [token: string]: boolean | ((token: string) => boolean) }
-    )[]
+    )[],
 ): void {
     for (const item of classes) {
         if (typeof item === 'string') {
