@@ -1,10 +1,10 @@
 // @vitest-environment jsdom
 
-import { expect, test } from 'vitest';
+import { expect, test, vi } from 'vitest';
 import { setStyles } from '../../src/manipulation/setStyles';
 
 test('Successfully set styles on element', () => {
-    const element = document.documentElement;
+    const element = document.createElement('div');
 
     setStyles(element, {
         '--foo': 'rebeccapurple',
@@ -14,7 +14,7 @@ test('Successfully set styles on element', () => {
 });
 
 test('Successfully set styles on element based on conditions', () => {
-    const element = document.documentElement;
+    const element = document.createElement('div');
 
     setStyles(element, {
         '--foo': {
@@ -26,7 +26,7 @@ test('Successfully set styles on element based on conditions', () => {
     setStyles(element, {
         '--bar': {
             value: 'rebeccapurple',
-            condition: (value) => value === 'rebeccapurple',
+            condition: () => true,
         },
     });
 
@@ -40,7 +40,7 @@ test('Successfully set styles on element based on conditions', () => {
     setStyles(element, {
         '--qux': {
             value: 'rebeccapurple',
-            condition: (value) => value !== 'rebeccapurple',
+            condition: () => false,
         },
     });
 
@@ -48,4 +48,18 @@ test('Successfully set styles on element based on conditions', () => {
     expect(element.style.getPropertyValue('--bar')).toBe('rebeccapurple');
     expect(element.style.getPropertyValue('--baz')).toBe('');
     expect(element.style.getPropertyValue('--qux')).toBe('');
+});
+
+test('Condition function is passed correct arguments', () => {
+    const element = document.createElement('div');
+    const callback = vi.fn();
+
+    setStyles(element, {
+        '--foo': {
+            value: 'rebeccapurple',
+            condition: callback,
+        },
+    });
+
+    expect(callback).toHaveBeenCalledWith('--foo', 'rebeccapurple');
 });

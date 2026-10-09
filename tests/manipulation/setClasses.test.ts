@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { expect, test } from 'vitest';
+import { expect, test, vi } from 'vitest';
 import { setClasses } from '../../src/manipulation/setClasses';
 
 test('Successfully adds class from string', () => {
@@ -32,4 +32,17 @@ test('Successfully adds multiple classes', () => {
     setClasses(element, ['foo', { bar: true }, 'baz', { qux: false }]);
 
     expect(element.className).toBe('foo bar baz');
+});
+
+test('Condition function is passed correct arguments', () => {
+    const element = document.createElement('div');
+    const callback = vi.fn();
+
+    setClasses(element, [
+        {
+            '--foo': callback,
+        },
+    ]);
+
+    expect(callback).toHaveBeenCalledWith('--foo');
 });
