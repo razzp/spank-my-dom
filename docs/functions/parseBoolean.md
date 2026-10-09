@@ -8,8 +8,6 @@
 
 > **parseBoolean**(`input`): `boolean`
 
-Defined in: [src/conversion/parseBoolean.ts:16](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/conversion/parseBoolean.ts#L16)
-
 Parse a string value as a boolean.
 
 ## Parameters

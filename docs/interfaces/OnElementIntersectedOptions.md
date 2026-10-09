@@ -6,8 +6,6 @@
 
 # Interface: OnElementIntersectedOptions
 
-Defined in: [src/events/onElementIntersected.ts:6](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/events/onElementIntersected.ts#L6)
-
 An optional configuration object for `onElementIntersected`.
 
 ## Extends
@@ -20,8 +18,6 @@ An optional configuration object for `onElementIntersected`.
 
 > `optional` **root?**: `Element` \| `Document` \| `null`
 
-Defined in: node\_modules/typescript/lib/lib.dom.d.ts:1341
-
 #### Inherited from
 
 `Omit.root`
@@ -31,8 +27,6 @@ Defined in: node\_modules/typescript/lib/lib.dom.d.ts:1341
 ### rootMargin?
 
 > `optional` **rootMargin?**: `string`
-
-Defined in: node\_modules/typescript/lib/lib.dom.d.ts:1342
 
 #### Inherited from
 
@@ -44,8 +38,6 @@ Defined in: node\_modules/typescript/lib/lib.dom.d.ts:1342
 
 > `optional` **scrollMargin?**: `string`
 
-Defined in: node\_modules/typescript/lib/lib.dom.d.ts:1343
-
 #### Inherited from
 
 `Omit.scrollMargin`
@@ -55,7 +47,5 @@ Defined in: node\_modules/typescript/lib/lib.dom.d.ts:1343
 ### signal?
 
 > `optional` **signal?**: `AbortSignal`
-
-Defined in: [src/events/onElementIntersected.ts:11](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/events/onElementIntersected.ts#L11)
 
 An `AbortSignal` that can be used to cancel the observer.

@@ -51,8 +51,13 @@ export {
 } from './manipulation/createElement';
 export { emptyElement } from './manipulation/emptyElement';
 export { hideElement } from './manipulation/hideElement';
+export { removeClasses } from './manipulation/removeClasses';
 export { removeStyles } from './manipulation/removeStyles';
-export { setStyles } from './manipulation/setStyles';
+export { setClasses } from './manipulation/setClasses';
+export {
+    type SetStylesConditionalProp,
+    setStyles,
+} from './manipulation/setStyles';
 export { showElement } from './manipulation/showElement';
 
 // Retrieval
@@ -71,6 +76,10 @@ export { getSiblings } from './traversal/getSiblings';
 
 // Utils
 
+export {
+    type GetDevicePixelRatioOptions,
+    getDevicePixelRatio,
+} from './utils/getDevicePixelRatio';
 export { getScrollbarWidth } from './utils/getScrollbarWidth';
 export { type TimedResult, timed } from './utils/timed';
 export { waitAtLeast } from './utils/waitAtLeast';

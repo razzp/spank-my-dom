@@ -9,6 +9,7 @@
 - [CreateElementOptions](interfaces/CreateElementOptions.md)
 - [DelegateEvent](interfaces/DelegateEvent.md)
 - [FormDataToSearchParamsOptions](interfaces/FormDataToSearchParamsOptions.md)
+- [GetDevicePixelRatioOptions](interfaces/GetDevicePixelRatioOptions.md)
 - [GetFormDataOptions](interfaces/GetFormDataOptions.md)
 - [OnElementAddedOptions](interfaces/OnElementAddedOptions.md)
 - [OnElementIntersectedInfo](interfaces/OnElementIntersectedInfo.md)
@@ -16,6 +17,7 @@
 - [OnElementResizedInfo](interfaces/OnElementResizedInfo.md)
 - [OnElementResizedOptions](interfaces/OnElementResizedOptions.md)
 - [OnPixelRatioChangedOptions](interfaces/OnPixelRatioChangedOptions.md)
+- [SetStylesConditionalProp](interfaces/SetStylesConditionalProp.md)
 - [TimedResult](interfaces/TimedResult.md)
 
 ## Type Aliases
@@ -37,6 +39,7 @@
 - [getClosest](functions/getClosest.md)
 - [getData](functions/getData.md)
 - [getDataOrThrow](functions/getDataOrThrow.md)
+- [getDevicePixelRatio](functions/getDevicePixelRatio.md)
 - [getFormData](functions/getFormData.md)
 - [getPartialClasses](functions/getPartialClasses.md)
 - [getScrollbarWidth](functions/getScrollbarWidth.md)
@@ -49,7 +52,9 @@
 - [onPixelRatioChanged](functions/onPixelRatioChanged.md)
 - [parseBoolean](functions/parseBoolean.md)
 - [parseJson](functions/parseJson.md)
+- [removeClasses](functions/removeClasses.md)
 - [removeStyles](functions/removeStyles.md)
+- [setClasses](functions/setClasses.md)
 - [setStyles](functions/setStyles.md)
 - [showElement](functions/showElement.md)
 - [timed](functions/timed.md)

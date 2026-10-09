@@ -6,8 +6,6 @@
 
 # Interface: DelegateEvent\<T\>
 
-Defined in: [src/events/delegate.ts:6](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/events/delegate.ts#L6)
-
 The event data returned in the callback.
 
 ## Type Parameters
@@ -22,8 +20,6 @@ The event data returned in the callback.
 
 > **delegateTarget**: `Element`
 
-Defined in: [src/events/delegate.ts:10](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/events/delegate.ts#L10)
-
 The target that has been matched.
 
 ***
@@ -31,8 +27,6 @@ The target that has been matched.
 ### event
 
 > **event**: `T`
-
-Defined in: [src/events/delegate.ts:18](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/events/delegate.ts#L18)
 
 The original Event object.
 
@@ -46,8 +40,6 @@ See: [https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget](http
 ### stopDelegation
 
 > **stopDelegation**: () => `void`
-
-Defined in: [src/events/delegate.ts:22](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/events/delegate.ts#L22)
 
 Stop any further matches as the event bubbles.
 

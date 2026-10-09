@@ -6,8 +6,6 @@
 
 # Interface: CreateElementOptions\<T\>
 
-Defined in: [src/manipulation/createElement.ts:6](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/manipulation/createElement.ts#L6)
-
 An optional configuration object for `createElement`.
 
 ## Extends
@@ -26,8 +24,6 @@ An optional configuration object for `createElement`.
 
 > `optional` **append?**: `Node`[]
 
-Defined in: [src/manipulation/createElement.ts:33](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/manipulation/createElement.ts#L33)
-
 Nodes to append to the element.
 
 ***
@@ -35,8 +31,6 @@ Nodes to append to the element.
 ### attributes?
 
 > `optional` **attributes?**: \{ \[A in string \| number \| symbol\]?: HTMLElementTagNameMap\[T\]\[A\] \}
-
-Defined in: [src/manipulation/createElement.ts:15](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/manipulation/createElement.ts#L15)
 
 Attributes to add to the element.
 
@@ -46,8 +40,6 @@ Attributes to add to the element.
 
 > `optional` **classes?**: `string`[]
 
-Defined in: [src/manipulation/createElement.ts:21](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/manipulation/createElement.ts#L21)
-
 Classes to add to the element.
 
 ***
@@ -56,8 +48,6 @@ Classes to add to the element.
 
 > `optional` **content?**: `string`
 
-Defined in: [src/manipulation/createElement.ts:11](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/manipulation/createElement.ts#L11)
-
 Sets the `innerHTML` of the element.
 
 ***
@@ -65,8 +55,6 @@ Sets the `innerHTML` of the element.
 ### customElementRegistry?
 
 > `optional` **customElementRegistry?**: `CustomElementRegistry` \| `null`
-
-Defined in: node\_modules/typescript/lib/lib.dom.d.ts:694
 
 #### Inherited from
 
@@ -77,8 +65,6 @@ Defined in: node\_modules/typescript/lib/lib.dom.d.ts:694
 ### data?
 
 > `optional` **data?**: `object`
-
-Defined in: [src/manipulation/createElement.ts:29](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/manipulation/createElement.ts#L29)
 
 Data to add to the element.
 
@@ -92,8 +78,6 @@ Data to add to the element.
 
 > `optional` **is?**: `string`
 
-Defined in: node\_modules/typescript/lib/lib.dom.d.ts:695
-
 #### Inherited from
 
 `ElementCreationOptions.is`
@@ -104,8 +88,6 @@ Defined in: node\_modules/typescript/lib/lib.dom.d.ts:695
 
 > `optional` **prepend?**: `Node`[]
 
-Defined in: [src/manipulation/createElement.ts:37](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/manipulation/createElement.ts#L37)
-
 Nodes to prepend to the element.
 
 ***
@@ -113,8 +95,6 @@ Nodes to prepend to the element.
 ### styles?
 
 > `optional` **styles?**: `object`
-
-Defined in: [src/manipulation/createElement.ts:25](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/manipulation/createElement.ts#L25)
 
 Styles to add to the element.
 
