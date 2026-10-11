@@ -1,3 +1,5 @@
+import { getDevicePixelRatio } from '../utils/getDevicePixelRatio';
+
 /**
  * An optional configuration object for `onPixelRatioChanged`.
  *
@@ -8,6 +10,18 @@ interface OnPixelRatioChangedOptions {
      * An `AbortSignal` that can be used to cancel the listener.
      */
     signal?: AbortSignal;
+    /**
+     * The maximum value to return, even if the actual value is higher.
+     */
+    max?: number;
+    /**
+     * Round fractional values up or down.
+     */
+    round?: 'up' | 'down';
+    /**
+     * Fire the callback immediately.
+     */
+    fireImmediately?: boolean;
 }
 
 /**
@@ -30,9 +44,25 @@ function onPixelRatioChanged(
     callback: (pixelRatio: number) => void,
     options?: OnPixelRatioChangedOptions,
 ): void {
-    const { signal } = { ...options };
+    const {
+        max = Number.POSITIVE_INFINITY,
+        round,
+        signal,
+        fireImmediately = false,
+    } = { ...options };
+
+    let previousValue = 0;
 
     if (signal?.aborted) return;
+
+    const handler = () => {
+        const dpr = getDevicePixelRatio({ max, round });
+
+        if (dpr !== previousValue) {
+            callback(dpr);
+            previousValue = dpr;
+        }
+    };
 
     const register = () => {
         window
@@ -40,13 +70,14 @@ function onPixelRatioChanged(
             .addEventListener(
                 'change',
                 () => {
-                    callback(window.devicePixelRatio);
+                    handler();
                     register();
                 },
                 { once: true, ...(signal !== undefined && { signal }) },
             );
     };
 
+    fireImmediately && handler();
     register();
 }
 

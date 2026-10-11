@@ -10,8 +10,6 @@
 
 > **findAll**\<`K`\>(`selectors`, `context?`): `HTMLElementTagNameMap`\[`K`\][]
 
-Defined in: [src/retrieval/findAll.ts:31](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/retrieval/findAll.ts#L31)
-
 Fins all descendant elements within a given context,
 that also match the given selectors.
 
@@ -62,8 +60,6 @@ const elements = findAll<HTMLButtonElement>('.foo');
 ## Call Signature
 
 > **findAll**\<`K`\>(`selectors`, `context?`): `MathMLElementTagNameMap`\[`K`\][]
-
-Defined in: [src/retrieval/findAll.ts:35](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/retrieval/findAll.ts#L35)
 
 Fins all descendant elements within a given context,
 that also match the given selectors.
@@ -116,8 +112,6 @@ const elements = findAll<HTMLButtonElement>('.foo');
 
 > **findAll**\<`K`\>(`selectors`, `context?`): `SVGElementTagNameMap`\[`K`\][]
 
-Defined in: [src/retrieval/findAll.ts:39](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/retrieval/findAll.ts#L39)
-
 Fins all descendant elements within a given context,
 that also match the given selectors.
 
@@ -168,8 +162,6 @@ const elements = findAll<HTMLButtonElement>('.foo');
 ## Call Signature
 
 > **findAll**\<`T`\>(`selectors`, `context?`): `T`[]
-
-Defined in: [src/retrieval/findAll.ts:43](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/retrieval/findAll.ts#L43)
 
 Fins all descendant elements within a given context,
 that also match the given selectors.

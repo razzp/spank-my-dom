@@ -8,8 +8,6 @@
 
 > **onElementAdded**\<`T`\>(`tagName`, `callback`, `options?`): `void`
 
-Defined in: [src/events/onElementAdded.ts:70](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/events/onElementAdded.ts#L70)
-
 Create an observer that will wait for specific elements to be
 added to the DOM later, optionally filtered by CSS selectors.
 

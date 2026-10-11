@@ -1,6 +1,14 @@
 // @vitest-environment jsdom
 
-import { afterAll, beforeAll, beforeEach, expect, test, vi } from 'vitest';
+import {
+    afterAll,
+    afterEach,
+    beforeAll,
+    beforeEach,
+    expect,
+    test,
+    vi,
+} from 'vitest';
 import { onPixelRatioChanged } from '../../src/events/onPixelRatioChanged';
 
 class MockMediaQueryList implements MediaQueryList {
@@ -53,6 +61,10 @@ afterAll(() => {
     vi.unstubAllGlobals();
 });
 
+afterEach(() => {
+    vi.restoreAllMocks();
+});
+
 test('Callback is successfully fired when pixel ratio changes', () => {
     const callback = vi.fn();
 
@@ -67,9 +79,42 @@ test('Callback is successfully fired when pixel ratio changes', () => {
     expect(instance.addEventListener).toHaveBeenCalled();
     expect(callback).not.toHaveBeenCalled();
 
+    vi.spyOn(window, 'devicePixelRatio', 'get').mockReturnValue(2);
+
     instance.trigger();
 
-    expect(callback).toHaveBeenCalledWith(expect.any(Number));
+    vi.spyOn(window, 'devicePixelRatio', 'get').mockReturnValue(3);
+
+    instance.trigger();
+
+    expect(callback).toHaveBeenCalledTimes(2);
+    expect(callback).toHaveBeenNthCalledWith(2, 3);
+});
+
+test('Max value is honoured and callback is not fired needlessly', () => {
+    const callback = vi.fn();
+
+    onPixelRatioChanged(callback, {
+        max: 2,
+    });
+
+    vi.spyOn(window, 'devicePixelRatio', 'get').mockReturnValue(4);
+
+    [...MockMediaQueryList.instances][0].trigger();
+    [...MockMediaQueryList.instances][0].trigger();
+
+    expect(callback).toHaveBeenCalledTimes(1);
+    expect(callback).toHaveBeenCalledWith(2);
+});
+
+test('Callback successfully fires on invocation', () => {
+    const callback = vi.fn();
+
+    onPixelRatioChanged(callback, {
+        fireImmediately: true,
+    });
+
+    expect(callback).toHaveBeenCalled();
 });
 
 test('Successfully stops if provided signal is aborted', () => {

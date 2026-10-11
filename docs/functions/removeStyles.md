@@ -8,8 +8,6 @@
 
 > **removeStyles**(`element`, `props`): `void`
 
-Defined in: [src/manipulation/removeStyles.ts:14](https://github.com/razzp/spank-my-dom/blob/5b0a27fab349d78781f967e6aef61c11287b7389/src/manipulation/removeStyles.ts#L14)
-
 Remove styles from an element.
 
 ## Parameters
@@ -22,7 +20,7 @@ The element to remove styles from.
 
 ### props
 
-`string`[]
+(`string` \| \{\[`prop`: `string`\]: `boolean` \| ((`prop`) => `boolean`); \})[]
 
 The styles to remove.
 
@@ -30,8 +28,20 @@ The styles to remove.
 
 `void`
 
-## Example
+## Examples
 
 ```ts
-removeStyles(document.documentElement, ['--foo']);
+removeStyles(document.documentElement, ['--foo', '--bar']);
+```
+
+Remove styles based on a condition.
+```ts
+removeStyles(document.documentElement, [
+    {
+        '--foo': true,
+    },
+    {
+        '--bar': (value) => true,
+    }
+]);
 ```
