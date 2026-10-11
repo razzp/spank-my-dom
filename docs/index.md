@@ -52,6 +52,8 @@
 - [onPixelRatioChanged](functions/onPixelRatioChanged.md)
 - [parseBoolean](functions/parseBoolean.md)
 - [parseJson](functions/parseJson.md)
+- [pickRandom](functions/pickRandom.md)
+- [pickRandomN](functions/pickRandomN.md)
 - [removeClasses](functions/removeClasses.md)
 - [removeStyles](functions/removeStyles.md)
 - [setClasses](functions/setClasses.md)

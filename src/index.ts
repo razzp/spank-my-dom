@@ -81,6 +81,8 @@ export {
     getDevicePixelRatio,
 } from './utils/getDevicePixelRatio';
 export { getScrollbarWidth } from './utils/getScrollbarWidth';
+export { pickRandom } from './utils/pickRandom';
+export { pickRandomN } from './utils/pickRandomN';
 export { type TimedResult, timed } from './utils/timed';
 export { waitAtLeast } from './utils/waitAtLeast';
 export { waitForReadyState } from './utils/waitForReadyState';
