@@ -1,5 +1,25 @@
 # Changelog
 
+## 3.1.0 (2026-10-11)
+
+### Added
+
+- Added `setClasses()` method.
+- Added `removeClasses()` method.
+- Added `getDevicePixelRatio()` method.
+- Added `pickRandom()` method.
+- Added `pickRandomN()` method.
+
+### Changes
+
+- Add config options `max`, `round`, `fireImmediately` to `onPixelRatioChanged()`.
+- Method `setStyles()` now accepts conditional props.
+- Method `removeStyles()` now accepts conditional props.
+
+### Security
+
+- Updated dependencies.
+
 ## 3.0.0 (2026-10-04)
 
 ### Added
@@ -40,7 +60,7 @@
 
 ### Security
 
-- Updated dependencies
+- Updated dependencies.
 
 ## 2.3.0 (2025-11-20)
 
