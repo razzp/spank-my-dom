@@ -43,8 +43,6 @@
         "@vitest/coverage-v8": "^5.0.3",
         "bossy-boots": "^1.1.1",
         "bumpp": "^12.3.0",
-        "jest": "^30.2.0",
-        "jest-environment-jsdom": "^30.2.0",
         "jsdom": "^27.1.0",
         "rimraf": "^6.1.0",
         "tsdown": "^0.23.0",
