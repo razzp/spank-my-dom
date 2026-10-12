@@ -31,7 +31,7 @@
  *
  * @public
  */
-function findSiblings<T extends Element = HTMLElement>(
+function findSiblings<T extends Element>(
     direction: 'all' | 'before' | 'after',
     element: Element,
     selectors?: string,
