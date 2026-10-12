@@ -2,7 +2,7 @@
 
 import { assertIsNotNull } from 'bossy-boots';
 import { beforeAll, expect, test } from 'vitest';
-import { getSiblings } from '../../src/traversal/getSiblings';
+import { findSiblings } from '../../src/traversal/findSiblings';
 
 beforeAll(() => {
     document.body.innerHTML = `
@@ -19,7 +19,7 @@ test('Successfully returns all siblings', () => {
 
     assertIsNotNull(target);
 
-    const result = getSiblings('all', target);
+    const result = findSiblings('all', target);
 
     expect(result.length).toBe(4);
 
@@ -36,7 +36,7 @@ test('Successfully returns all siblings before the target', () => {
 
     assertIsNotNull(target);
 
-    const result = getSiblings('before', target);
+    const result = findSiblings('before', target);
 
     expect(result.length).toBe(2);
     expect(result.map((x) => x.className)).toEqual(['sibling-1', 'sibling-2']);
@@ -47,7 +47,7 @@ test('Successfully returns all siblings after the target', () => {
 
     assertIsNotNull(target);
 
-    const result = getSiblings('after', target);
+    const result = findSiblings('after', target);
 
     expect(result.length).toBe(2);
     expect(result.map((x) => x.className)).toEqual(['sibling-3', 'sibling-4']);
@@ -58,7 +58,7 @@ test('Successfully filters the matched siblings', () => {
 
     assertIsNotNull(target);
 
-    const result = getSiblings('all', target, '.sibling-1');
+    const result = findSiblings('all', target, '.sibling-1');
 
     expect(result.length).toBe(1);
     expect(result[0].className).toEqual('sibling-1');

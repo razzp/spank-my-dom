@@ -2,19 +2,19 @@
 
 ***
 
-[spank-my-dom](../index.md) / getSiblings
+[spank-my-dom](../index.md) / findSiblings
 
-# Function: getSiblings()
+# Function: findSiblings()
 
-> **getSiblings**\<`T`\>(`direction`, `element`, `selectors?`): `T`[]
+> **findSiblings**\<`T`\>(`direction`, `element`, `selectors?`): `T`[]
 
-Get the siblings of an element, optionally filtered by selectors.
+Find the siblings of an element, optionally filtered by selectors.
 
 ## Type Parameters
 
 ### T
 
-`T` *extends* `Element` = `HTMLElement`
+`T` *extends* `Element`
 
 ## Parameters
 
@@ -44,20 +44,20 @@ One or more selectors to match.
 
 Find all siblings of an element.
 ```ts
-const siblings = getSiblings('all', element);
+const siblings = findSiblings('all', element);
 ```
 
 Find all siblings before an element.
 ```ts
-const siblings = getSiblings('before', element);
+const siblings = findSiblings('before', element);
 ```
 
 Find all siblings after an element.
 ```ts
-const siblings = getSiblings('after', element);
+const siblings = findSiblings('after', element);
 ```
 
 Find siblings of an element, filtered by a CSS selector.
 ```ts
-const siblings = getSiblings('all', element, '.foo');
+const siblings = findSiblings('all', element, '.foo');
 ```

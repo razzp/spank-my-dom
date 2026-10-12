@@ -62,17 +62,18 @@ export { showElement } from './manipulation/showElement';
 
 // Retrieval
 
-export { find } from './retrieval/find';
-export { findAll } from './retrieval/findAll';
-export { findOrThrow } from './retrieval/findOrThrow';
 export { getData } from './retrieval/getData';
 export { getDataOrThrow } from './retrieval/getDataOrThrow';
 export { getPartialClasses } from './retrieval/getPartialClasses';
 
 // Traversal
 
-export { getClosest } from './traversal/getClosest';
-export { getSiblings } from './traversal/getSiblings';
+export { find } from './traversal/find';
+export { findAll } from './traversal/findAll';
+export { findClosest } from './traversal/findClosest';
+export { findClosestOrThrow } from './traversal/findClosestOrThrow';
+export { findOrThrow } from './traversal/findOrThrow';
+export { findSiblings } from './traversal/findSiblings';
 
 // Utils
 

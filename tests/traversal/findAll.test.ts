@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { beforeAll, expect, test } from 'vitest';
-import { findAll } from '../../src/retrieval/findAll';
+import { findAll } from '../../src/traversal/findAll';
 
 beforeAll(() => {
     document.body.innerHTML = `

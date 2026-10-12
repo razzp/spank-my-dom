@@ -2,7 +2,7 @@
 
 import { assertIsNotNull } from 'bossy-boots';
 import { beforeAll, describe, expect, test } from 'vitest';
-import { getClosest } from '../../src/traversal/getClosest';
+import { findClosest } from '../../src/traversal/findClosest';
 
 beforeAll(() => {
     document.body.innerHTML = `
@@ -22,7 +22,7 @@ describe('Non-inclusive of self', () => {
 
         assertIsNotNull(target);
 
-        const result = getClosest(target, '.foo', true);
+        const result = findClosest(target, '.foo', true);
 
         expect(result).toBeDefined();
         expect(result?.classList.contains('ancestor')).toBe(true);
@@ -33,7 +33,7 @@ describe('Non-inclusive of self', () => {
 
         assertIsNotNull(target);
 
-        expect(getClosest(target, '.bar')).toBeNull();
+        expect(findClosest(target, '.bar')).toBeNull();
     });
 
     test('Given an element which does not have a parent element, returns null', () => {
@@ -41,13 +41,13 @@ describe('Non-inclusive of self', () => {
 
         assertIsNotNull(target);
 
-        // Brute force the `parentElement` property to undefined so that we can
-        // test the optional chaining logic.
+        // Brute force the `parentElement` property to undefined
+        // so that we can test the optional chaining logic.
         Object.defineProperty(target, 'parentElement', {
             value: undefined,
         });
 
-        expect(getClosest(target, '.bar', true)).toBeNull();
+        expect(findClosest(target, '.bar', true)).toBeNull();
     });
 });
 
@@ -57,7 +57,7 @@ describe('Inclusive of self', () => {
 
         assertIsNotNull(target);
 
-        const result = getClosest(target, '.foo', false);
+        const result = findClosest(target, '.foo', false);
 
         expect(result).toBeDefined();
         expect(result?.classList.contains('self')).toBe(true);

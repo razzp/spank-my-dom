@@ -1,5 +1,26 @@
 # Changelog
 
+## 3.2.0 (2026-10-12)
+
+### Added
+
+- Added `getClosestOrThrow()` method.
+
+### Changed
+
+- **[BREAKING]** Renamed `getClosest()` method to `findClosest()`.
+- **[BREAKING]** `findClosest()` return type now defaults to `Element` as per spec.
+- **[BREAKING]** Renamed `getSiblings()` method to `findSiblings()`.
+- **[BREAKING]** `findSiblings()` return type now defaults to `Element` as per spec.
+
+### Fixed
+
+- Fixed some incorrect annotations.
+
+### Security
+
+- Updated dependencies.
+
 ## 3.1.0 (2026-10-11)
 
 ### Added
@@ -10,7 +31,7 @@
 - Added `pickRandom()` method.
 - Added `pickRandomN()` method.
 
-### Changes
+### Changed
 
 - Add config options `max`, `round`, `fireImmediately` to `onPixelRatioChanged()`.
 - Method `setStyles()` now accepts conditional props.
