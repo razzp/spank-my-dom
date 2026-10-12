@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { beforeAll, expect, test } from 'vitest';
-import { findOrThrow } from '../../src/retrieval/findOrThrow';
+import { findOrThrow } from '../../src/traversal/findOrThrow';
 
 beforeAll(() => {
     document.body.innerHTML = '<div class="target"></div>';
