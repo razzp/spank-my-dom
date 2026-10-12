@@ -73,7 +73,7 @@ export { getPartialClasses } from './retrieval/getPartialClasses';
 
 export { findClosest } from './traversal/findClosest';
 export { findClosestOrThrow } from './traversal/findClosestOrThrow';
-export { getSiblings } from './traversal/getSiblings';
+export { findSiblings } from './traversal/findSiblings';
 
 // Utils
 

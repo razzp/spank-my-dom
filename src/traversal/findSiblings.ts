@@ -1,5 +1,5 @@
 /**
- * Get the siblings of an element, optionally filtered by selectors.
+ * Find the siblings of an element, optionally filtered by selectors.
  *
  * @param direction - The direction(s) to search from `element`.
  * @param element - The element whose siblings will be returned.
@@ -8,30 +8,30 @@
  * @example
  * Find all siblings of an element.
  * ```ts
- * const siblings = getSiblings('all', element);
+ * const siblings = findSiblings('all', element);
  * ```
  *
  * @example
  * Find all siblings before an element.
  * ```ts
- * const siblings = getSiblings('before', element);
+ * const siblings = findSiblings('before', element);
  * ```
  *
  * @example
  * Find all siblings after an element.
  * ```ts
- * const siblings = getSiblings('after', element);
+ * const siblings = findSiblings('after', element);
  * ```
  *
  * @example
  * Find siblings of an element, filtered by a CSS selector.
  * ```ts
- * const siblings = getSiblings('all', element, '.foo');
+ * const siblings = findSiblings('all', element, '.foo');
  * ```
  *
  * @public
  */
-function getSiblings<T extends Element = HTMLElement>(
+function findSiblings<T extends Element = HTMLElement>(
     direction: 'all' | 'before' | 'after',
     element: Element,
     selectors?: string,
@@ -64,4 +64,4 @@ function getSiblings<T extends Element = HTMLElement>(
         : output;
 }
 
-export { getSiblings };
+export { findSiblings };
