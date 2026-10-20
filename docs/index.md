@@ -26,6 +26,7 @@
 
 ## Functions
 
+- [arrayOf](functions/arrayOf.md)
 - [createElement](functions/createElement.md)
 - [delegate](functions/delegate.md)
 - [emptyElement](functions/emptyElement.md)
@@ -55,6 +56,8 @@
 - [parseJson](functions/parseJson.md)
 - [pickRandom](functions/pickRandom.md)
 - [pickRandomN](functions/pickRandomN.md)
+- [randomInt](functions/randomInt.md)
+- [randomNumber](functions/randomNumber.md)
 - [removeClasses](functions/removeClasses.md)
 - [removeStyles](functions/removeStyles.md)
 - [setClasses](functions/setClasses.md)
