@@ -37,7 +37,7 @@ A function that transforms the results.
 ## Remarks
 
 The purpose of this function is simply to allow type inference.
-At runtime this is synonymous with calling [`JSON.parse`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse).
+At runtime this is synonymous with calling [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse).
 
 ## Throws
 

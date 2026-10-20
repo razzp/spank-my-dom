@@ -1,6 +1,8 @@
 /**
  * Remove one or more classes from an element.
  *
+ * @group Manipulation
+ *
  * @param element - The element to remove classes from.
  * @param classes - The class(es) to remove from the element.
  *
@@ -21,8 +23,6 @@
  *     },
  * ]);
  * ```
- *
- * @public
  */
 function removeClasses(
     element: HTMLElement | SVGElement | MathMLElement,

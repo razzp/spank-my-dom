@@ -1,11 +1,11 @@
 /**
  * Find classes on an element that partially match a value.
  *
+ * @group Retrieval
+ *
  * @param searchType - The type of search to perform.
  * @param element - The element to search.
  * @param partialValue - The partial value to try and match.
- *
- * @public
  */
 function getPartialClasses(
     searchType: 'startingwith' | 'containing' | 'endingwith',

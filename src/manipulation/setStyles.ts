@@ -1,7 +1,5 @@
 /**
  * Object describing a conditional style value to add.
- *
- * @public
  */
 interface SetStylesConditionalProp {
     /**
@@ -16,6 +14,8 @@ interface SetStylesConditionalProp {
 
 /**
  * Set styles on an element.
+ *
+ * @group Manipulation
  *
  * @param element - The element to set styles on.
  * @param props - The style properties to add.
@@ -42,8 +42,6 @@ interface SetStylesConditionalProp {
  *     },
  * });
  * ```
- *
- * @public
  */
 function setStyles(
     element: HTMLElement | SVGElement | MathMLElement,

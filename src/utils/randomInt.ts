@@ -5,6 +5,8 @@
  * If you want to allow floating-point numbers,
  * consider using {@link randomNumber} instead.
  *
+ * @group Utils
+ *
  * @param min - The minimum integer to generate.
  * @param max - The maximum integer to generate.
  *
@@ -13,8 +15,6 @@
  * ```ts
  * const result = randomInt(-10, 10);
  * ```
- *
- * @public
  */
 function randomInt(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;

@@ -13,9 +13,6 @@
 Returns the first element within context that matches the
 given selectors, or throws if nothing is found.
 
-For runtime safety, consider using an assertion library such as
-[Bossy Boots](https://github.com/razzp/bossy-boots).
-
 ### Type Parameters
 
 #### K
@@ -39,6 +36,11 @@ The context from which to search from.
 ### Returns
 
 `HTMLElementTagNameMap`\[`K`\]
+
+### Remarks
+
+For runtime safety, consider using an assertion library such as
+[Bossy Boots](https://github.com/razzp/bossy-boots).
 
 ### Throws
 
@@ -68,9 +70,6 @@ const element = find<HTMLButtonElement>('.foo');
 Returns the first element within context that matches the
 given selectors, or throws if nothing is found.
 
-For runtime safety, consider using an assertion library such as
-[Bossy Boots](https://github.com/razzp/bossy-boots).
-
 ### Type Parameters
 
 #### K
@@ -94,6 +93,11 @@ The context from which to search from.
 ### Returns
 
 `MathMLElementTagNameMap`\[`K`\]
+
+### Remarks
+
+For runtime safety, consider using an assertion library such as
+[Bossy Boots](https://github.com/razzp/bossy-boots).
 
 ### Throws
 
@@ -123,9 +127,6 @@ const element = find<HTMLButtonElement>('.foo');
 Returns the first element within context that matches the
 given selectors, or throws if nothing is found.
 
-For runtime safety, consider using an assertion library such as
-[Bossy Boots](https://github.com/razzp/bossy-boots).
-
 ### Type Parameters
 
 #### K
@@ -149,6 +150,11 @@ The context from which to search from.
 ### Returns
 
 `SVGElementTagNameMap`\[`K`\]
+
+### Remarks
+
+For runtime safety, consider using an assertion library such as
+[Bossy Boots](https://github.com/razzp/bossy-boots).
 
 ### Throws
 
@@ -178,9 +184,6 @@ const element = find<HTMLButtonElement>('.foo');
 Returns the first element within context that matches the
 given selectors, or throws if nothing is found.
 
-For runtime safety, consider using an assertion library such as
-[Bossy Boots](https://github.com/razzp/bossy-boots).
-
 ### Type Parameters
 
 #### T
@@ -204,6 +207,11 @@ The context from which to search from.
 ### Returns
 
 `T`
+
+### Remarks
+
+For runtime safety, consider using an assertion library such as
+[Bossy Boots](https://github.com/razzp/bossy-boots).
 
 ### Throws
 

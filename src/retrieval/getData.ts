@@ -6,6 +6,8 @@
  * Undefined attributes are returned as `null` to maintain consistency with
  * other methods such as `querySelector()`, or `getAttribute()`.
  *
+ * @group Retrieval
+ *
  * @param element - The element to get the data from.
  * @param name - The name of the data attribute.
  * @param reviver - A function to transform the result.
@@ -33,8 +35,6 @@
  * ```ts
  * const result = getData(element, 'foo', parseBoolean);
  * ```
- *
- * @public
  */
 function getData<T = string>(
     element: HTMLElement,

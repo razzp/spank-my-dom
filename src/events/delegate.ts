@@ -1,7 +1,5 @@
 /**
  * The event data returned in the callback.
- *
- * @public
  */
 interface DelegateEvent<T, E> {
     /**
@@ -26,6 +24,8 @@ interface DelegateEvent<T, E> {
  * Create a delegate listener that fires on elements that match the
  * provided selectors, as the event bubbles up through the DOM.
  *
+ * @group Events
+ *
  * @param selectors - One or more selectors to match.
  * @param callback - The function called for each delegate match.
  *
@@ -47,8 +47,6 @@ interface DelegateEvent<T, E> {
  *     }
  * }));
  * ```
- *
- * @public
  */
 function delegate<
     K extends keyof HTMLElementTagNameMap,

@@ -1,7 +1,5 @@
 /**
  * An optional configuration object for `onElementResized`.
- *
- * @public
  */
 interface OnElementResizedOptions {
     /**
@@ -12,8 +10,6 @@ interface OnElementResizedOptions {
 
 /**
  * The object returned in the callback for `onElementResized`.
- *
- * @public
  */
 interface OnElementResizedInfo<T extends Element> {
     /**
@@ -32,6 +28,8 @@ interface OnElementResizedInfo<T extends Element> {
  * @remarks
  * Uses the {@link https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API | Resize Observer API} internally.
  *
+ * @group Events
+ *
  * @param element - The element to observe.
  * @param callback - The function to call when the element is resized.
  * @param options - An optional configuration object.
@@ -44,8 +42,6 @@ interface OnElementResizedInfo<T extends Element> {
  *     console.log(`Element is ${entry.borderBoxSize.blockSize}px in height.`);
  * });
  * ```
- *
- * @public
  */
 function onElementResized<T extends Element>(
     element: T,

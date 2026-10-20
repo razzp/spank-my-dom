@@ -1,7 +1,5 @@
 /**
  * An optional configuration object for `onElementAdded`.
- *
- * @public
  */
 interface OnElementAddedOptions {
     /**
@@ -24,6 +22,8 @@ interface OnElementAddedOptions {
  *
  * @remarks
  * Uses the {@link https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver | MutationObserver} interface internally.
+ *
+ * @group Events
  *
  * @param tagName - The type of element to observe for.
  * @param callback - The function called for added elements.
@@ -64,8 +64,6 @@ interface OnElementAddedOptions {
  *     },
  * );
  * ```
- *
- * @public
  */
 function onElementAdded<T extends keyof HTMLElementTagNameMap>(
     tagName: T,

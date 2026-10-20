@@ -2,8 +2,11 @@
  * Fins all descendant elements within a given context,
  * that also match the given selectors.
  *
+ * @remarks
  * For runtime safety, consider using an assertion library such as
  * {@link https://github.com/razzp/bossy-boots | Bossy Boots}.
+ *
+ * @group Traversal
  *
  * @param selectors - One or more selectors to match.
  * @param context - The context from which to search from.
@@ -25,8 +28,6 @@
  * ```ts
  * const elements = findAll<HTMLButtonElement>('.foo');
  * ```
- *
- * @public
  */
 function findAll<K extends keyof HTMLElementTagNameMap>(
     selectors: K,

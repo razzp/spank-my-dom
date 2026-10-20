@@ -1,7 +1,5 @@
 /**
  * An optional configuration object for `getFormData`.
- *
- * @public
  */
 interface GetFormDataOptions {
     /**
@@ -18,6 +16,8 @@ interface GetFormDataOptions {
 
 /**
  * Create a `FormData` object representing form fields and their values.
+ *
+ * @group Forms
  *
  * @param form - The form to use.
  * @param options - An optional configuration object.
@@ -45,8 +45,6 @@ interface GetFormDataOptions {
  *     filterFields: ['foo', 'bar'],
  * });
  * ```
- *
- * @public
  */
 function getFormData(
     form: HTMLFormElement,

@@ -1,14 +1,14 @@
 /**
  * Empty an element.
  *
+ * @group Manipulation
+ *
  * @param element - The element to empty.
  *
  * @example
  * ```ts
  * emptyElement(element);
  * ```
- *
- * @public
  */
 function emptyElement<T extends Element>(element: T): void {
     while (element.lastChild) {

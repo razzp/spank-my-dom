@@ -1,7 +1,5 @@
 /**
  * An optional configuration object for `onElementIntersected`.
- *
- * @public
  */
 interface OnElementIntersectedOptions
     extends Omit<IntersectionObserverInit, 'threshold'> {
@@ -13,8 +11,6 @@ interface OnElementIntersectedOptions
 
 /**
  * The object returned in the callback for `onElementIntersected`.
- *
- * @public
  */
 interface OnElementIntersectedInfo<T extends Element> {
     /**
@@ -33,6 +29,8 @@ interface OnElementIntersectedInfo<T extends Element> {
  *
  * @remarks
  * Uses the {@link https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API | Intersection Observer API} internally.
+ *
+ * @group Events
  *
  * @param threshold - The threshold at which the callback should be fired.
  * @param element - The element to observe.
@@ -62,8 +60,6 @@ interface OnElementIntersectedInfo<T extends Element> {
  *     }
  * });
  * ```
- *
- * @public
  */
 function onElementIntersected<T extends Element>(
     threshold: 'completely' | 'partially' | number | number[],

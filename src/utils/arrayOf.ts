@@ -2,6 +2,8 @@
  * Create an array of N size and fill it with either a static value,
  * or the result of a predicate function.
  *
+ * @group Utils
+ *
  * @param size - The size of the array.
  * @param value - The value to fill the array with.
  *
@@ -25,8 +27,6 @@
  * const array = arrayOf(5, () => new Foo()));
  * // Result: [Foo, Foo, Foo, Foo, Foo]
  * ```
- *
- * @public
  */
 function arrayOf<T extends (index: number) => unknown>(
     size: number,

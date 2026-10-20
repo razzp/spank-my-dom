@@ -2,6 +2,8 @@
  * Get a data attribute's value from an element, optionally passing
  * it through a reviver function to transform its value.
  *
+ * @group Retrieval
+ *
  * @param element - The element to get the data from.
  * @param name - The name of the data attribute.
  * @param reviver - A function to transform the result.
@@ -32,8 +34,6 @@
  * ```ts
  * const result = getDataOrThrow(element, 'foo', parseBoolean);
  * ```
- *
- * @public
  */
 function getDataOrThrow<T = string>(
     element: HTMLElement,

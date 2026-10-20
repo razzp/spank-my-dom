@@ -1,3 +1,6 @@
+/**
+ * @internal
+ */
 function toNumerical(state: DocumentReadyState): number {
     switch (state) {
         case 'complete':
@@ -12,6 +15,8 @@ function toNumerical(state: DocumentReadyState): number {
 /**
  * Create a `Promise` that will resolve once the document reaches the
  * specified `readyState`, or immediately if it already has.
+ *
+ * @group Utils
  *
  * @param state - The state to wait for.
  *
@@ -28,8 +33,6 @@ function toNumerical(state: DocumentReadyState): number {
  * ```ts
  * await waitForReadyState('complete');
  * ```
- *
- * @public
  */
 function waitForReadyState(state: DocumentReadyState): Promise<void> {
     const numericalState = toNumerical(state);

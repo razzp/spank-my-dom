@@ -1,7 +1,5 @@
 /**
  * An optional configuration object for `getDevicePixelRatio`.
- *
- * @public
  */
 interface GetDevicePixelRatioOptions {
     /**
@@ -16,6 +14,8 @@ interface GetDevicePixelRatioOptions {
 
 /**
  * Get the pixel ratio of the current device.
+ *
+ * @group Utils
  *
  * @param options - An optional configuration object.
  *
@@ -32,8 +32,6 @@ interface GetDevicePixelRatioOptions {
  *     round: 'up',
  * });
  * ```
- *
- * @public
  */
 function getDevicePixelRatio(options?: GetDevicePixelRatioOptions): number {
     const { max = Number.POSITIVE_INFINITY, round } = { ...options };

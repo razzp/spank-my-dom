@@ -5,7 +5,9 @@
  *
  * @remarks
  * The purpose of this function is simply to allow type inference.
- * At runtime this is synonymous with calling [`JSON.parse`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse).
+ * At runtime this is synonymous with calling {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse | JSON.parse}.
+ *
+ * @group Conversion
  *
  * @param input - The JSON string to parse.
  * @param reviver - A function that transforms the results.
@@ -21,8 +23,6 @@
  *
  * const parsed = parseJson<Model>('{"foo":"bar"}');
  * ```
- *
- * @public
  */
 function parseJson<T = any>(
     input: string,

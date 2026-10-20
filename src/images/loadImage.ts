@@ -1,6 +1,8 @@
 /**
  * Load an image asynchronously.
  *
+ * @group Images
+ *
  * @param path - The image to load.
  *
  * @example
@@ -15,8 +17,6 @@
  * const paths = ['path/foo.jpg', 'path/bar.jpg'];
  * const images = await Promise.all(paths.map(loadImage));
  * ```
- *
- * @public
  */
 function loadImage(path: string): Promise<HTMLImageElement> {
     return new Promise((resolve, reject) => {
