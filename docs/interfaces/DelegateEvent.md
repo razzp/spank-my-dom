@@ -4,7 +4,7 @@
 
 [spank-my-dom](../index.md) / DelegateEvent
 
-# Interface: DelegateEvent\<T\>
+# Interface: DelegateEvent\<T, E\>
 
 The event data returned in the callback.
 
@@ -14,19 +14,23 @@ The event data returned in the callback.
 
 `T`
 
+### E
+
+`E`
+
 ## Properties
 
 ### delegateTarget
 
-> **delegateTarget**: `Element`
+> **delegateTarget**: `T`
 
 The target that has been matched.
 
 ***
 
-### event
+### originalEvent
 
-> **event**: `T`
+> **originalEvent**: `E`
 
 The original Event object.
 

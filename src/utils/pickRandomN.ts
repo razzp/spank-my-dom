@@ -4,10 +4,10 @@
  * @remarks
  * Uses the {@link https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle | Fisher–Yates shuffle}, which runs in O(n) time.
  *
+ * @group Utils
+ *
  * @param array - The array from which to pick.
  * @param amount - The number of items to pick.
- *
- * @public
  */
 function pickRandomN<T extends readonly unknown[]>(
     array: T,

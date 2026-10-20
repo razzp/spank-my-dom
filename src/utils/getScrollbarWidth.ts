@@ -1,12 +1,12 @@
 /**
  * Compute the scrollbar width of the page.
  *
+ * @group Utils
+ *
  * @example
  * ```ts
  * const scrollbarWidth = getScrollbarWidth();
  * ```
- *
- * @public
  */
 function getScrollbarWidth(): number {
     const tempElement = document.createElement('div');

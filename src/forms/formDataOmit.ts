@@ -1,10 +1,10 @@
 /**
  * Filter a `FormData` object by all keys that *are not* specified.
  *
+ * @group Forms
+ *
  * @param formData - The `FormData` object to omit from.
  * @param keys - The keys to omit.
- *
- * @public
  */
 function formDataOmit(
     formData: FormData,

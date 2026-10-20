@@ -4,14 +4,14 @@
  * @remarks
  * If `true` cannot be derived, result will always be `false`.
  *
+ * @group Conversion
+ *
  * @param input - The value to parse.
  *
  * @example
  * ```ts
  * const result = parseBoolean('true');
  * ```
- *
- * @public
  */
 function parseBoolean(input: string): boolean {
     return input.trim().toLowerCase() === 'true';

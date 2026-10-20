@@ -12,9 +12,6 @@
 
 Returns the first element within context that matches the given selectors.
 
-For runtime safety, consider using an assertion library such as
-[Bossy Boots](https://github.com/razzp/bossy-boots).
-
 ### Type Parameters
 
 #### K
@@ -39,6 +36,11 @@ The context from which to search from.
 
 `HTMLElementTagNameMap`\[`K`\] \| `null`
 
+### Remarks
+
+For runtime safety, consider using an assertion library such as
+[Bossy Boots](https://github.com/razzp/bossy-boots).
+
 ### Examples
 
 Find an element using the entire document as context (default).
@@ -61,9 +63,6 @@ const element = find<HTMLButtonElement>('.foo');
 > **find**\<`K`\>(`selectors`, `context?`): `MathMLElementTagNameMap`\[`K`\] \| `null`
 
 Returns the first element within context that matches the given selectors.
-
-For runtime safety, consider using an assertion library such as
-[Bossy Boots](https://github.com/razzp/bossy-boots).
 
 ### Type Parameters
 
@@ -89,6 +88,11 @@ The context from which to search from.
 
 `MathMLElementTagNameMap`\[`K`\] \| `null`
 
+### Remarks
+
+For runtime safety, consider using an assertion library such as
+[Bossy Boots](https://github.com/razzp/bossy-boots).
+
 ### Examples
 
 Find an element using the entire document as context (default).
@@ -111,9 +115,6 @@ const element = find<HTMLButtonElement>('.foo');
 > **find**\<`K`\>(`selectors`, `context?`): `SVGElementTagNameMap`\[`K`\] \| `null`
 
 Returns the first element within context that matches the given selectors.
-
-For runtime safety, consider using an assertion library such as
-[Bossy Boots](https://github.com/razzp/bossy-boots).
 
 ### Type Parameters
 
@@ -139,6 +140,11 @@ The context from which to search from.
 
 `SVGElementTagNameMap`\[`K`\] \| `null`
 
+### Remarks
+
+For runtime safety, consider using an assertion library such as
+[Bossy Boots](https://github.com/razzp/bossy-boots).
+
 ### Examples
 
 Find an element using the entire document as context (default).
@@ -161,9 +167,6 @@ const element = find<HTMLButtonElement>('.foo');
 > **find**\<`T`\>(`selectors`, `context?`): `T` \| `null`
 
 Returns the first element within context that matches the given selectors.
-
-For runtime safety, consider using an assertion library such as
-[Bossy Boots](https://github.com/razzp/bossy-boots).
 
 ### Type Parameters
 
@@ -188,6 +191,11 @@ The context from which to search from.
 ### Returns
 
 `T` \| `null`
+
+### Remarks
+
+For runtime safety, consider using an assertion library such as
+[Bossy Boots](https://github.com/razzp/bossy-boots).
 
 ### Examples
 

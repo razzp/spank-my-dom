@@ -24,42 +24,66 @@
 
 - [PointerEventType](type-aliases/PointerEventType.md)
 
-## Functions
+## Conversion
+
+- [parseBoolean](functions/parseBoolean.md)
+- [parseJson](functions/parseJson.md)
+
+## Events
+
+- [delegate](functions/delegate.md)
+- [forPointerEventType](functions/forPointerEventType.md)
+- [onElementAdded](functions/onElementAdded.md)
+- [onElementIntersected](functions/onElementIntersected.md)
+- [onElementResized](functions/onElementResized.md)
+- [onPixelRatioChanged](functions/onPixelRatioChanged.md)
+
+## Forms
+
+- [formDataOmit](functions/formDataOmit.md)
+- [formDataPick](functions/formDataPick.md)
+- [formDataToSearchParams](functions/formDataToSearchParams.md)
+- [getFormData](functions/getFormData.md)
+
+## Images
+
+- [loadImage](functions/loadImage.md)
+
+## Manipulation
 
 - [createElement](functions/createElement.md)
-- [delegate](functions/delegate.md)
 - [emptyElement](functions/emptyElement.md)
+- [hideElement](functions/hideElement.md)
+- [removeClasses](functions/removeClasses.md)
+- [removeStyles](functions/removeStyles.md)
+- [setClasses](functions/setClasses.md)
+- [setStyles](functions/setStyles.md)
+- [showElement](functions/showElement.md)
+
+## Retrieval
+
+- [getData](functions/getData.md)
+- [getDataOrThrow](functions/getDataOrThrow.md)
+- [getPartialClasses](functions/getPartialClasses.md)
+
+## Traversal
+
 - [find](functions/find.md)
 - [findAll](functions/findAll.md)
 - [findClosest](functions/findClosest.md)
 - [findClosestOrThrow](functions/findClosestOrThrow.md)
 - [findOrThrow](functions/findOrThrow.md)
 - [findSiblings](functions/findSiblings.md)
-- [formDataOmit](functions/formDataOmit.md)
-- [formDataPick](functions/formDataPick.md)
-- [formDataToSearchParams](functions/formDataToSearchParams.md)
-- [forPointerEventType](functions/forPointerEventType.md)
-- [getData](functions/getData.md)
-- [getDataOrThrow](functions/getDataOrThrow.md)
+
+## Utils
+
+- [arrayOf](functions/arrayOf.md)
 - [getDevicePixelRatio](functions/getDevicePixelRatio.md)
-- [getFormData](functions/getFormData.md)
-- [getPartialClasses](functions/getPartialClasses.md)
 - [getScrollbarWidth](functions/getScrollbarWidth.md)
-- [hideElement](functions/hideElement.md)
-- [loadImage](functions/loadImage.md)
-- [onElementAdded](functions/onElementAdded.md)
-- [onElementIntersected](functions/onElementIntersected.md)
-- [onElementResized](functions/onElementResized.md)
-- [onPixelRatioChanged](functions/onPixelRatioChanged.md)
-- [parseBoolean](functions/parseBoolean.md)
-- [parseJson](functions/parseJson.md)
 - [pickRandom](functions/pickRandom.md)
 - [pickRandomN](functions/pickRandomN.md)
-- [removeClasses](functions/removeClasses.md)
-- [removeStyles](functions/removeStyles.md)
-- [setClasses](functions/setClasses.md)
-- [setStyles](functions/setStyles.md)
-- [showElement](functions/showElement.md)
+- [randomInt](functions/randomInt.md)
+- [randomNumber](functions/randomNumber.md)
 - [timed](functions/timed.md)
 - [waitAtLeast](functions/waitAtLeast.md)
 - [waitForReadyState](functions/waitForReadyState.md)

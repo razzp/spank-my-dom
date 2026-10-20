@@ -7,6 +7,8 @@ type PointerEventType = 'mouse' | 'pen' | 'touch';
  * Create a listener that only fires if the event
  * was caused by a specific pointer type.
  *
+ * @group Events
+ *
  * @param pointerType - The pointer type to use.
  * @param callback - The callback function.
  *
@@ -16,8 +18,6 @@ type PointerEventType = 'mouse' | 'pen' | 'touch';
  *    // Event was caused by a mouse.
  * });
  * ```
- *
- * @public
  */
 function forPointerEventType<T extends PointerEvent>(
     pointerType: PointerEventType,

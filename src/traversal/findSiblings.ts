@@ -1,6 +1,8 @@
 /**
  * Find the siblings of an element, optionally filtered by selectors.
  *
+ * @group Traversal
+ *
  * @param direction - The direction(s) to search from `element`.
  * @param element - The element whose siblings will be returned.
  * @param selectors - One or more selectors to match.
@@ -28,8 +30,6 @@
  * ```ts
  * const siblings = findSiblings('all', element, '.foo');
  * ```
- *
- * @public
  */
 function findSiblings<T extends Element>(
     direction: 'all' | 'before' | 'after',

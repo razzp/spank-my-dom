@@ -1,7 +1,5 @@
 /**
  * An optional configuration object for `formDataToSearchParams`.
- *
- * @public
  */
 interface FormDataToSearchParamsOptions {
     /**
@@ -17,6 +15,8 @@ interface FormDataToSearchParamsOptions {
  * @remarks
  * Useful in cases where you want to send data in`application/x-www-form-urlencoded`
  * format, or if you want to serialise a form's data using `URLSearchParams.toString()`.
+ *
+ * @group Forms
  *
  * @param formData - The `FormData` object to convert.
  * @param options - An optional configuration object.
@@ -36,8 +36,6 @@ interface FormDataToSearchParamsOptions {
  *     handleFile: (file) => `Name: ${file.name}`;
  * });
  * ```
- *
- * @public
  */
 function formDataToSearchParams(
     formData: FormData,

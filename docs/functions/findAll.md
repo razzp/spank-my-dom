@@ -13,9 +13,6 @@
 Fins all descendant elements within a given context,
 that also match the given selectors.
 
-For runtime safety, consider using an assertion library such as
-[Bossy Boots](https://github.com/razzp/bossy-boots).
-
 ### Type Parameters
 
 #### K
@@ -39,6 +36,11 @@ The context from which to search from.
 ### Returns
 
 `HTMLElementTagNameMap`\[`K`\][]
+
+### Remarks
+
+For runtime safety, consider using an assertion library such as
+[Bossy Boots](https://github.com/razzp/bossy-boots).
 
 ### Examples
 
@@ -64,9 +66,6 @@ const elements = findAll<HTMLButtonElement>('.foo');
 Fins all descendant elements within a given context,
 that also match the given selectors.
 
-For runtime safety, consider using an assertion library such as
-[Bossy Boots](https://github.com/razzp/bossy-boots).
-
 ### Type Parameters
 
 #### K
@@ -90,6 +89,11 @@ The context from which to search from.
 ### Returns
 
 `MathMLElementTagNameMap`\[`K`\][]
+
+### Remarks
+
+For runtime safety, consider using an assertion library such as
+[Bossy Boots](https://github.com/razzp/bossy-boots).
 
 ### Examples
 
@@ -115,9 +119,6 @@ const elements = findAll<HTMLButtonElement>('.foo');
 Fins all descendant elements within a given context,
 that also match the given selectors.
 
-For runtime safety, consider using an assertion library such as
-[Bossy Boots](https://github.com/razzp/bossy-boots).
-
 ### Type Parameters
 
 #### K
@@ -141,6 +142,11 @@ The context from which to search from.
 ### Returns
 
 `SVGElementTagNameMap`\[`K`\][]
+
+### Remarks
+
+For runtime safety, consider using an assertion library such as
+[Bossy Boots](https://github.com/razzp/bossy-boots).
 
 ### Examples
 
@@ -166,9 +172,6 @@ const elements = findAll<HTMLButtonElement>('.foo');
 Fins all descendant elements within a given context,
 that also match the given selectors.
 
-For runtime safety, consider using an assertion library such as
-[Bossy Boots](https://github.com/razzp/bossy-boots).
-
 ### Type Parameters
 
 #### T
@@ -192,6 +195,11 @@ The context from which to search from.
 ### Returns
 
 `T`[]
+
+### Remarks
+
+For runtime safety, consider using an assertion library such as
+[Bossy Boots](https://github.com/razzp/bossy-boots).
 
 ### Examples
 

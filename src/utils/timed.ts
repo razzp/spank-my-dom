@@ -1,7 +1,5 @@
 /**
  * The result returned from `timed`.
- *
- * @public
  */
 interface TimedResult<T> {
     /**
@@ -17,6 +15,8 @@ interface TimedResult<T> {
 /**
  * Wrap a function in a timer that will let you know how long it took to run.
  * This works for both asynchronous and long-running synchronous operations.
+ *
+ * @group Utils
  *
  * @param func - The function to time. Provides method `getTime()` to return
  * the elapsed time at any point during execution.
@@ -47,8 +47,6 @@ interface TimedResult<T> {
  *
  * console.log(time); // 1000
  * ```
- *
- * @public
  */
 async function timed<T>(
     func: (getTime: () => number) => T,

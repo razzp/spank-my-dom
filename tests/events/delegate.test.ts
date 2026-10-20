@@ -31,7 +31,7 @@ test('Callback is successfully fired on matched target', () => {
     const delegateEvent = callback.mock.calls[0][0];
 
     expect(delegateEvent.delegateTarget).toBe(parent);
-    expect(delegateEvent.event.target).toBe(grandchild);
+    expect(delegateEvent.originalEvent.target).toBe(grandchild);
 });
 
 test('Callback is repeatedly called as event bubbles and targets match', () => {

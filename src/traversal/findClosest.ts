@@ -1,6 +1,8 @@
 /**
  * Traverse the DOM until an element is found that matches the selectors.
  *
+ * @group Traversal
+ *
  * @param element - The element from which to search.
  * @param selectors - One or more selectors to match.
  * @param skipSelf - Ignore `element` and begin the search on its parent.
@@ -16,8 +18,6 @@
  * ```ts
  * const result = findClosest(element, '.foo', true);
  * ```
- *
- * @public
  */
 function findClosest<K extends keyof HTMLElementTagNameMap>(
     element: Element,

@@ -1,6 +1,8 @@
 /**
  * Set one or more classes on an element.
  *
+ * @group Manipulation
+ *
  * @param element - The element to add classes to.
  * @param classes - The class(es) to add to the element.
  *
@@ -21,8 +23,6 @@
  *     },
  * ]);
  * ```
- *
- * @public
  */
 function setClasses(
     element: HTMLElement | SVGElement | MathMLElement,

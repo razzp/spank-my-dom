@@ -2,8 +2,11 @@
  * Returns the first element within context that matches the
  * given selectors, or throws if nothing is found.
  *
+ * @remarks
  * For runtime safety, consider using an assertion library such as
  * {@link https://github.com/razzp/bossy-boots | Bossy Boots}.
+ *
+ * @group Traversal
  *
  * @param selectors - The selectors to match against.
  * @param context - The context from which to search from.
@@ -28,8 +31,6 @@
  * ```ts
  * const element = find<HTMLButtonElement>('.foo');
  * ```
- *
- * @public
  */
 function findOrThrow<K extends keyof HTMLElementTagNameMap>(
     selectors: K,

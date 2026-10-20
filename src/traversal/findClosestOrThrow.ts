@@ -4,6 +4,8 @@ import { findClosest } from './findClosest';
  * Traverse the DOM until an element is found that matches the selectors,
  * or throws if nothing is found.
  *
+ * @group Traversal
+ *
  * @param element - The element from which to search.
  * @param selectors - One or more selectors to match.
  * @param skipSelf - Ignore `element` and begin the search on its parent.
@@ -22,8 +24,6 @@ import { findClosest } from './findClosest';
  * ```ts
  * const result = findClosestOrThrow(element, '.foo', true);
  * ```
- *
- * @public
  */
 function findClosestOrThrow<K extends keyof HTMLElementTagNameMap>(
     element: Element,

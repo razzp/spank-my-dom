@@ -1,5 +1,23 @@
 # Changelog
 
+## 3.3.0 (2026-10-20)
+
+### Added
+
+- Added `arrayOf()` method.
+- Added `randomInt()` method.
+- Added `randomNumber()` method.
+
+### Changed
+
+- **[BREAKING]** Renamed `event` prop to `originalEvent` in `delegate()`.
+- `delegate()` method now has better type inference.
+
+### Fixed
+
+- Docs now group methods correctly.
+- Fixed some incorrect annotations.
+
 ## 3.2.0 (2026-10-12)
 
 ### Added

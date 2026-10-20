@@ -2,8 +2,6 @@ import { getDevicePixelRatio } from '../utils/getDevicePixelRatio';
 
 /**
  * An optional configuration object for `onPixelRatioChanged`.
- *
- * @public
  */
 interface OnPixelRatioChangedOptions {
     /**
@@ -28,6 +26,8 @@ interface OnPixelRatioChangedOptions {
  * Create a listener that will fire a callback whenever the
  * pixel ratio of the current window changes.
  *
+ * @group Events
+ *
  * @param callback - The function called when the pixel ratio changes.
  * @param options - An optional configuration object.
  *
@@ -37,8 +37,6 @@ interface OnPixelRatioChangedOptions {
  *     console.log(pixelRatio);
  * });
  * ```
- *
- * @public
  */
 function onPixelRatioChanged(
     callback: (pixelRatio: number) => void,

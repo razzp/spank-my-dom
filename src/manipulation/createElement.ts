@@ -1,7 +1,5 @@
 /**
  * An optional configuration object for `createElement`.
- *
- * @public
  */
 interface CreateElementOptions<T extends keyof HTMLElementTagNameMap>
     extends ElementCreationOptions {
@@ -41,6 +39,8 @@ interface CreateElementOptions<T extends keyof HTMLElementTagNameMap>
  * Creates a new element, allowing you to define properties
  * and child nodes at the same time.
  *
+ * @group Manipulation
+ *
  * @param tagName - The type of element to create.
  * @param options - An optional configuration object.
  *
@@ -69,8 +69,6 @@ interface CreateElementOptions<T extends keyof HTMLElementTagNameMap>
  *     append: [node],
  * });
  * ```
- *
- * @public
  */
 function createElement<T extends keyof HTMLElementTagNameMap>(
     tagName: T,

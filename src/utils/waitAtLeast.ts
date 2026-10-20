@@ -4,6 +4,8 @@
  * @remarks
  * Useful for delaying near instantaneous actions that might affect UI.
  *
+ * @group Utils
+ *
  * @param delay - The minimum wait time in milliseconds.
  * @param promise - The `Promise` to wait for.
  *
@@ -21,8 +23,6 @@
  *     Promise.all([Promise.resolve('foo'), Promise.resolve('bar')]),
  * );
  * ```
- *
- * @public
  */
 function waitAtLeast<T>(
     delay: number,
