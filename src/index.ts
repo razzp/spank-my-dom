@@ -85,6 +85,8 @@ export {
 export { getScrollbarWidth } from './utils/getScrollbarWidth';
 export { pickRandom } from './utils/pickRandom';
 export { pickRandomN } from './utils/pickRandomN';
+export { randomInt } from './utils/randomInt';
+export { randomNumber } from './utils/randomNumber';
 export { type TimedResult, timed } from './utils/timed';
 export { waitAtLeast } from './utils/waitAtLeast';
 export { waitForReadyState } from './utils/waitForReadyState';
