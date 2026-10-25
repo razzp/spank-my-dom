@@ -17,7 +17,7 @@ or the result of a predicate function.
 
 #### T
 
-`T` *extends* (`index`) => `unknown`
+`T` *extends* (`index`, `total`) => `unknown`
 
 ### Parameters
 

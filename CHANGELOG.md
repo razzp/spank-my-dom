@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.4.0 (2026-10-25)
+
+### Changed
+
+- `arrayOf()` method now passes total size to predicate function.
+
 ## 3.3.0 (2026-10-20)
 
 ### Added

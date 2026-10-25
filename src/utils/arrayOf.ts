@@ -28,7 +28,7 @@
  * // Result: [Foo, Foo, Foo, Foo, Foo]
  * ```
  */
-function arrayOf<T extends (index: number) => unknown>(
+function arrayOf<T extends (index: number, total: number) => unknown>(
     size: number,
     value: T,
 ): ReturnType<T>[];
@@ -37,7 +37,7 @@ function arrayOf(size: number, value: unknown): unknown[] {
     const array = [];
 
     for (let i = 0; i < size; i++) {
-        array.push(typeof value === 'function' ? value(i) : value);
+        array.push(typeof value === 'function' ? value(i, size) : value);
     }
 
     return array;
