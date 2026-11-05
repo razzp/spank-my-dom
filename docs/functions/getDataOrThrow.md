@@ -21,7 +21,7 @@ it through a reviver function to transform its value.
 
 ### element
 
-`HTMLElement`
+`HTMLElement` \| `SVGElement` \| `MathMLElement`
 
 The element to get the data from.
 

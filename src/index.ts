@@ -78,6 +78,7 @@ export { findSiblings } from './traversal/findSiblings';
 // Utils
 
 export { arrayOf } from './utils/arrayOf';
+export { clamp } from './utils/clamp';
 export {
     type GetDevicePixelRatioOptions,
     getDevicePixelRatio,

@@ -78,6 +78,7 @@
 ## Utils
 
 - [arrayOf](functions/arrayOf.md)
+- [clamp](functions/clamp.md)
 - [getDevicePixelRatio](functions/getDevicePixelRatio.md)
 - [getScrollbarWidth](functions/getScrollbarWidth.md)
 - [pickRandom](functions/pickRandom.md)
