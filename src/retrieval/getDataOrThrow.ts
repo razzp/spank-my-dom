@@ -36,7 +36,7 @@
  * ```
  */
 function getDataOrThrow<T = string>(
-    element: HTMLElement,
+    element: HTMLElement | SVGElement | MathMLElement,
     name: string,
     reviver?: (value: string) => T,
 ): T {

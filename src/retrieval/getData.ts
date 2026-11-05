@@ -37,7 +37,7 @@
  * ```
  */
 function getData<T = string>(
-    element: HTMLElement,
+    element: HTMLElement | SVGElement | MathMLElement,
     name: string,
     reviver?: (value: string) => T,
 ): null | T {
