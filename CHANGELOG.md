@@ -1,5 +1,19 @@
 # Changelog
 
+## 3.5.0 (2026-11-05)
+
+### Added
+
+- Added `clamp()` method.
+
+### Changed
+
+- `pickRandom()` now uses simple method internally.
+
+### Fixed
+
+- `getData()` and `getDataOrThrow()` methods now support SVG and MathML elements.
+
 ## 3.4.0 (2026-10-25)
 
 ### Changed
